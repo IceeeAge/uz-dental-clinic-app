@@ -293,7 +293,7 @@ export default function AppointmentScreen() {
               />
               <PrimaryButton
                 onPress={handleSubmit}
-                title={loading ? "Submitting..." : "Submit"}
+                title="Submit"
                 color={Colors.PRIMARY}
                 disabled={loading}
               />
