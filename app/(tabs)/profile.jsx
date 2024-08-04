@@ -21,6 +21,7 @@ export default function Profile() {
         <View style={{ paddingTop: 50 }}>
             <Text>Welcome, {user?.primaryEmailAddress.emailAddress}</Text>
             <Text>Username is {user?.firstName }</Text>
+            <Text>Hello World</Text>
             <TouchableOpacity onPress={doLogout}>
                 <Text style={{ color: 'blue', marginTop: 20 }}>Sign Out</Text>
             </TouchableOpacity>
