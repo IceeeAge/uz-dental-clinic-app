@@ -3,7 +3,7 @@ import { View, Text, FlatList, Image, StyleSheet } from "react-native";
 import { useQuery } from "@apollo/client";
 import { useClerk } from "@clerk/clerk-expo";
 import { GET_SCHEDULE_USER } from "../../GraphQL/Quey";
-import Colors from "../../Utils/Colors"
+import Colors from "../../Utils/Colors";
 const Schedule = () => {
   const { user } = useClerk();
 
@@ -41,9 +41,7 @@ const Schedule = () => {
                 />
               )}
               <View style={styles.statusContainer}>
-                <Text style={styles.statusText}>
-                 {item.statusAppointment}
-                </Text>
+                <Text style={styles.statusText}>{item.statusAppointment}</Text>
               </View>
             </View>
             <Text style={styles.itemText}>Full Name: {item.fullName}</Text>
@@ -75,15 +73,14 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     padding: 13,
     borderColor: Colors.GRAY,
-    backgroundColor:Colors.WHITE,
-    borderRadius: 10
+    backgroundColor: Colors.WHITE,
+    borderRadius: 10,
   },
   itemText: {
     fontSize: 16,
     marginVertical: 2,
   },
   profileImageContainer: {
-  
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -91,27 +88,26 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginTop: 10,
     marginLeft: 10,
   },
-  statusContainer:{
-     borderWidth: 1,
-     borderRadius: 5,
-     height: 45,
-     padding: 10,
-     borderColor:Colors.GRAY,
-     paddingHorizontal: 20
+  statusContainer: {
+    borderWidth: 1,
+    borderRadius: 5,
+    height: 45,
+    padding: 10,
+    borderColor: Colors.GRAY,
+    paddingHorizontal: 20,
+    marginTop: 13,
   },
-  statusText:{
-   fontSize: 20,
-   fontFamily: "outfit-medium",
-   color:Colors.YELLOW,
-   textAlign:"center"
-
+  statusText: {
+    fontSize: 20,
+    fontFamily: "outfit-medium",
+    color: Colors.YELLOW,
+    textAlign: "center",
   },
   loadingText: {
     textAlign: "center",
-    marginTop: 20 
+    marginTop: 20,
   },
   errorText: {
     color: "red",
