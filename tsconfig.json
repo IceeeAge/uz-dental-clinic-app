@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/_layout.jsx", "app/index.jsx", "app/sign-in.jsx", "app/(auth)/_layout.jsx", "app/(auth)/index.jsx", "app/(login)/_layout.ts", "components/PrimaryButton.jsx", "components/SecondaryButton.jsx", "app/(tabs)/appointment.jsx", "app/(tabs)/_layout.jsx" , "GraphQL/mutation.jsx", "app/(login)/_layout.jsx", "Utils/Colors.jsx", "app/(login)/reset.jsx", "app/(login)/login.jsx", "app/(login)/sign-up.jsx", "app/(login)/sign-in-oauth.jsx" ]
 }
