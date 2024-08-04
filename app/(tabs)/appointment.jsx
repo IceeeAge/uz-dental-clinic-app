@@ -128,7 +128,7 @@ export default function AppointmentScreen() {
       const docRef = await addDoc(collection(db, "CreateAppointment"), values);
       if (docRef.id) {
         setLoading(false);
-        Toast.show("Appointment created successfully", {
+        Toast.show("Appointment Created successfully", {
           type: "success",
           placement: "top",
           duration: 4000,
@@ -234,7 +234,7 @@ export default function AppointmentScreen() {
                     }}
                     dateFormat="MM/dd/yyyy"
                     showYearDropdown
-                    yearDropdownItemNumber={50}
+                    yearDropdownItemNumber={10000}
                     scrollableYearDropdown
                     inline
                   />
