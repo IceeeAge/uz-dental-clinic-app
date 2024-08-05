@@ -149,9 +149,13 @@ const SignUp = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
     padding: 20,
+    marginTop: 100,
+    maxWidth: 600,
+    alignSelf: "center",
+    borderWidth: 1,
+    width: "90%",
+    borderColor: Colors.GRAY,
   },
   inputField: {
     marginVertical: 10,

@@ -97,6 +97,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
+    maxWidth: 600,
+    alignSelf: 'center',
+    width: '90%',
   },
   inputField: {
     marginVertical: 10,

@@ -10,7 +10,7 @@ import {
   Pressable,
 } from "react-native";
 import React, { useState } from "react";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 import PrimaryButton from "../../components/PrimaryButton";
 import { Image } from "react-native";
 import Colors from "../../Utils/Colors";
@@ -33,7 +33,7 @@ export default function Page() {
 
     if (emailAddress !== allowedEmail) {
       setErrorMessage("You are not Admin.");
-      router.replace("home"); 
+      router.replace("home");
       return;
     }
 
@@ -45,7 +45,7 @@ export default function Page() {
 
       if (signInAttempt.status === "complete") {
         await setActive({ session: signInAttempt.createdSessionId });
-        router.replace("(dashboard)"); 
+        router.replace("(dashboard)");
       } else {
         console.error(JSON.stringify(signInAttempt, null, 2));
       }
@@ -112,9 +112,13 @@ export default function Page() {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
     padding: 20,
     marginTop: 100,
+    maxWidth: 600,
+    alignSelf: "center",
+    borderWidth: 1,
+    width: "90%",
+    borderColor: Colors.GRAY,
   },
   logo: {
     width: 150,

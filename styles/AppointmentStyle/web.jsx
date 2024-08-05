@@ -1,17 +1,14 @@
-import { StyleSheet, Platform, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Colors from '../../Utils/Colors';
-
-const { width } = Dimensions.get('window');
-
-// Define a base margin for mobile view
-const baseMargin = 16; // Fixed margin for mobile view
-// Adjust margin for larger screens
-const responsiveMargin = width > 600 ? width * 0.3 : baseMargin; // 10% margin for wider screens
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    maxWidth: 600,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   scrollView: {
     flex: 1,
@@ -39,9 +36,7 @@ export default StyleSheet.create({
     borderColor: Colors.PRIMARY,
     borderWidth: 1,
   },
-  InputContainer: {
-    marginHorizontal: responsiveMargin, // Use responsive margin based on screen width
-  },
+  
   input: {
     height: 50,
     borderColor: Colors.WHITE,
