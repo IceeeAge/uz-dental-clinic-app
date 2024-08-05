@@ -1,8 +1,6 @@
-
-
 import { gql } from "@apollo/client";
 
-//get data 
+//get data
 export const GET_SCHEDULE_USER = gql`
   query getSchedule {
     patients {
@@ -20,6 +18,34 @@ export const GET_SCHEDULE_USER = gql`
       height
       address
       contactNumber
+      createdAt
+    }
+  }
+`;
+
+export const GET_NEW_SCHEDULE = gql`
+  query GetNewSchedule {
+    newSchedules {
+      id
+      email
+      location {
+        latitude
+        longitude
+      }
+      room
+      schedule
+      patient {
+        id
+        statusAppointment
+        email
+        fullName
+        profileImage {
+          url
+        }
+      }
+      clinician
+      contactNumber
+      time
     }
   }
 `;

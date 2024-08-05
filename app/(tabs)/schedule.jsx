@@ -1,71 +1,95 @@
-import React from "react";
-import { View, Text, FlatList, Image, StyleSheet } from "react-native";
-import { useQuery } from "@apollo/client";
-import { useClerk } from "@clerk/clerk-expo";
-import { GET_SCHEDULE_USER } from "../../GraphQL/Quey";
-import Colors from "../../Utils/Colors";
+import React from 'react';
+import { View, Text, FlatList, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
+import { useQuery } from '@apollo/client';
+import { useClerk } from '@clerk/clerk-expo';
+import { GET_SCHEDULE_USER } from '../../GraphQL/Quey';
+import Colors from '../../Utils/Colors';
+import Getschedule from '../../components/GetNewschedule';
+import { format } from 'date-fns';
+
 const Schedule = () => {
+  const { width } = useWindowDimensions();
   const { user } = useClerk();
 
-  // Get data, loading, and error. PollInterval is to fetch or refresh data every 3 seconds
   const { loading, error, data } = useQuery(GET_SCHEDULE_USER, {
     pollInterval: 3000,
   });
 
   if (loading) return <Text style={styles.loadingText}>Loading...</Text>;
-  if (error)
-    return <Text style={styles.errorText}>Error: {error.message}</Text>;
+  if (error) return <Text style={styles.errorText}>Error: {error.message}</Text>;
 
-  // Filter data to show only patients with the same email as the logged-in user
   const filteredPatients = data.patients.filter(
     (patient) => patient.email === user?.primaryEmailAddress.emailAddress
   );
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <FlatList
         data={filteredPatients}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <View style={styles.profileImageContainer}>
-              {item.profileImage ? (
-                <Image
-                  source={{ uri: item.profileImage.url }}
-                  style={styles.profileImage}
-                />
-              ) : (
-                <Image
-                  source={require("../../assets/images/placeholder.png")} //  placeholder image
-                  style={styles.profileImage}
-                />
-              )}
-              <View style={styles.statusContainer}>
-                <Text style={styles.statusText}>{item.statusAppointment}</Text>
-              </View>
-            </View>
-            <Text style={styles.itemText}>Full Name: {item.fullName}</Text>
-            <Text style={styles.itemText}>Email: {item.email}</Text>
-            <Text style={styles.itemText}>Occupation: {item.occupation}</Text>
-            <Text style={styles.itemText}>Weight: {item.weight}</Text>
+        renderItem={({ item }) => {
+          const isApproved = item.statusAppointment === 'APPROVED';
+          const isPending = item.statusAppointment === 'PENDING';
 
-            <Text style={styles.itemText}>Sex: {item.sex}</Text>
-            <Text style={styles.itemText}>Height: {item.height}</Text>
-            <Text style={styles.itemText}>Address: {item.address}</Text>
-            <Text style={styles.itemText}>
-              Contact Number: {item.contactNumber}
-            </Text>
-          </View>
-        )}
+          return (
+            <View style={styles.itemContainer}>
+              <View style={styles.profileImageContainer}>
+                {item.profileImage ? (
+                  <Image
+                    source={{ uri: item.profileImage.url }}
+                    style={styles.profileImage}
+                  />
+                ) : (
+                  <Image
+                    source={require('../../assets/images/placeholder.png')}
+                    style={styles.profileImage}
+                  />
+                )}
+                <View
+                  style={[
+                    styles.statusContainer,
+                    isApproved && {
+                      backgroundColor: Colors.GREEN,
+                      borderColor: Colors.GRAY,
+                    },
+                    isPending && {
+                      backgroundColor: Colors.WHITE,
+                      borderColor: Colors.GRAY,
+                    }
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.statusText,
+                      isApproved && { color: Colors.WHITE },
+                      isPending && { color: Colors.YELLOW }
+                    ]}
+                  >
+                    {item.statusAppointment}
+                  </Text>
+                </View>
+              </View>
+              <Text style={styles.itemText}>Full Name: {item.fullName}</Text>
+              <Text style={styles.itemText}>
+                Created Date: {format(new Date(item.createdAt), 'MMMM dd, yyyy')}
+              </Text>
+            </View>
+          );
+        }}
       />
-    </View>
+      <View>
+        <Getschedule /> 
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 10,
+    maxWidth: 600,
+    alignSelf: 'center',
+    width: '100%',
   },
   itemContainer: {
     marginBottom: 10,
@@ -79,10 +103,11 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
     marginVertical: 2,
+    fontFamily: 'outfit',
   },
   profileImageContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   profileImage: {
     width: 100,
@@ -96,22 +121,22 @@ const styles = StyleSheet.create({
     height: 45,
     padding: 10,
     borderColor: Colors.GRAY,
-    paddingHorizontal: 20,
+    alignSelf: "center",
     marginTop: 13,
   },
   statusText: {
-    fontSize: 20,
-    fontFamily: "outfit-medium",
-    color: Colors.YELLOW,
-    textAlign: "center",
+    fontSize: 15,
+    fontFamily: 'outfit-bold',
+    textAlign: 'center',
+    color: Colors.WHITE,
   },
   loadingText: {
-    textAlign: "center",
+    textAlign: 'center',
     marginTop: 20,
   },
   errorText: {
-    color: "red",
-    textAlign: "center",
+    color: 'red',
+    textAlign: 'center',
     marginTop: 20,
   },
 });

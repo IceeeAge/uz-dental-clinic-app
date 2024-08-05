@@ -5,4 +5,5 @@ export default {
   SECONDARY: "#615EFC",
   GRAY: "#ccc",
   YELLOW: "#FEC600",
+  GREEN:"#00B894"
 };
