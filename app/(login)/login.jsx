@@ -144,7 +144,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   eyeBtn: {
-    paddingHorizontal: 10,
+    position: 'absolute',
+    right: 10,
+    top: '50%',
+    transform: [{ translateY: -12 }],
   },
   passwordInput: {
     flex: 1,
