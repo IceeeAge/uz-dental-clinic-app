@@ -1,27 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Linking, TouchableOpacity, ScrollView } from "react-native";
-import { useQuery } from "@apollo/client";
-import { GET_NEW_SCHEDULE } from "../GraphQL/Quey"; // Adjust path as needed
-import { useClerk } from "@clerk/clerk-expo"; // Import useClerk for user data
-import Ionicons from "@expo/vector-icons/Ionicons"; // Import Ionicons
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Linking,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import Colors from "../Utils/Colors";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-const Getschedule = () => {
-  const { user } = useClerk(); // Get the current user
-  const { loading, error, data } = useQuery(GET_NEW_SCHEDULE, {
-    pollInterval: 3000, // Refresh data every 3 seconds
-  });
-
-  if (loading) return <Text style={styles.loadingText}>Loading...</Text>;
-  if (error)
-    return <Text style={styles.errorText}>Error: {error.message}</Text>;
-
-  // Filter new schedules to show only those that are approved and match the user's email
-  const approvedSchedules = data.newSchedules.filter(
-    (schedule) =>
-      schedule.patient.statusAppointment === "APPROVED" &&
-      schedule.patient.email === user?.primaryEmailAddress.emailAddress
-  );
+const GetNewschedule = ({ data }) => {
+ 
 
   const handleCall = (contactNumber) => {
     Linking.openURL(`tel:${contactNumber}`);
@@ -40,80 +31,137 @@ const Getschedule = () => {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      {approvedSchedules.length > 0 ? (
-        approvedSchedules.map((item) => (
-          <View key={item.id} style={styles.scheduleContainer}>
+    <View style={styles.container}>
+      <View>
+        {data.map((item) => (
+          <View key={item.id} style={styles.itemContainer}>
+            <Text style={styles.TextwhoApproved}>
+              Clinicians: {item.createSchedules.clinician}
+            </Text>
             <View style={styles.profileContainer}>
               <Image
-                source={{ uri: item.patient.profileImage.url }}
+                source={
+                  item.profileImage
+                    ? { uri: item.profileImage.url }
+                    : require("../assets/images/placeholder.png")
+                }
                 style={styles.profileImage}
               />
-              <View style={styles.statusContainer}>
-                <Text style={styles.statusText}>{item.patient.statusAppointment}</Text>
+              
+              <View
+                style={[
+                  styles.statusContainer,
+                  item.createSchedules.scheduleStatus === "APPROVED" && {
+                    backgroundColor: Colors.GREEN,
+                  },
+                  styles.statusContainer,
+                  item.createSchedules.scheduleStatus === "NEW SCHEDULE" && {
+                    backgroundColor: Colors.GREEN,
+                  },
+                  item.createSchedules.scheduleStatus === "PENDING" && {
+                    backgroundColor: Colors.YELLOW,
+                  },
+                ]}
+              > 
+                <Text style={styles.statusText}>
+                  {item.createSchedules.scheduleStatus}
+                </Text>
               </View>
             </View>
             <View style={styles.infoContainer}>
-              <Text style={styles.patientText}>Patient Name: {item.patient.fullName}</Text>
-              <Text style={styles.patientText}>Clinician Name: {item.clinician}</Text>
-              <Text style={styles.patientText}>Room: {item.room}</Text>
-              <Text style={styles.patientText}>Schedule Date: {item.schedule}</Text>
-              <Text style={styles.patientText}>Time: {item.time}</Text>
+              <Text style={styles.itemText}>Full Name: {item.fullName}</Text>
+             
+              <Text style={styles.itemText}>
+                Room: {item.createSchedules.room}
+              </Text>
+              <Text style={styles.itemText}>
+                Schedule: {item.createSchedules.schedule}
+              </Text>
+              <Text style={styles.itemText}>
+                Time: {item.createSchedules.time}
+              </Text>
             </View>
-
             <View style={styles.iconContainer}>
-              <TouchableOpacity onPress={() => handleCall(item.contactNumber)}>
-                <Ionicons name="call" size={30} color="black" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleMessage(item.contactNumber)}>
-                <Ionicons name="chatbubble" size={30} color="black" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleLocation(item.location.latitude, item.location.longitude)}>
-                <Ionicons name="location" size={30} color="black" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleEmail(item.patient.email)}>
-                <Ionicons name="mail" size={30} color="black" />
-              </TouchableOpacity>
+              {item.createSchedules.contactNumber && (
+                <TouchableOpacity
+                  onPress={() => handleCall(item.createSchedules.contactNumber)}
+                >
+                  <Ionicons name="call" size={30} color="black" />
+                </TouchableOpacity>
+              )}
+              {item.createSchedules.contactNumber && (
+                <TouchableOpacity
+                  onPress={() =>
+                    handleMessage(item.createSchedules.contactNumber)
+                  }
+                >
+                  <Ionicons name="chatbubble" size={30} color="black" />
+                </TouchableOpacity>
+              )}
+              {item?.createSchedules.location && (
+                <TouchableOpacity
+                  onPress={() =>
+                    handleLocation(
+                      item.createSchedules.location.latitude,
+                      item.createSchedules.location.longitude
+                    )
+                  }
+                >
+                  <Ionicons name="location" size={30} color="black" />
+                </TouchableOpacity>
+              )}
+              {item.createSchedules.email && (
+                <TouchableOpacity
+                  onPress={() => handleEmail(item.createSchedules.email)}
+                >
+                  <Ionicons name="mail" size={30} color="black" />
+                </TouchableOpacity>
+              )}
             </View>
           </View>
-        ))
-      ) : (
-        <Text style={styles.noSchedulesText}>No approved schedules available.</Text>
-      )}
-    </ScrollView>
+        ))}
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  scheduleContainer: {
+  container: {
+
+  },
+  TextwhoApproved:{
+    fontSize: 16,
+     textAlign:'right',
+    fontFamily: "outfit",
+  },
+  itemContainer: {
+    marginBottom: 10,
     borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
+    paddingBottom: 10,
+    padding: 13,
     borderColor: Colors.GRAY,
     backgroundColor: Colors.WHITE,
-    marginBottom: 10, // Add margin to separate items
+    borderRadius: 10,
   },
   profileContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 30,
     marginBottom: 10,
   },
   profileImage: {
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginLeft: 10,
   },
   statusContainer: {
     borderWidth: 1,
     borderRadius: 5,
     padding: 10,
     height: 45,
-    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
     borderColor: Colors.GRAY,
-    backgroundColor: Colors.GREEN,
   },
   statusText: {
     fontSize: 15,
@@ -123,26 +171,26 @@ const styles = StyleSheet.create({
   infoContainer: {
     padding: 10,
   },
-  patientText: {
-    fontSize: 15,
-    fontFamily: "outfit",
-    color: Colors.BLACK,
-    marginTop: 10,
-  },
-  noSchedulesText: {
+  itemText: {
     fontSize: 16,
+    marginVertical: 2,
+    fontFamily: "outfit",
+  },
+  noDataText: {
     textAlign: "center",
-    marginTop: 20,
+    fontSize: 16,
+    color: Colors.GRAY,
   },
   iconContainer: {
     borderWidth: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 10,
-    padding: 20,
-    width: "100%",
+    padding: 10,
     borderColor: Colors.GRAY,
+    borderRadius: 5,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    gap: 10,
+    marginTop: 20,
   },
 });
 
-export default Getschedule;
+export default GetNewschedule;

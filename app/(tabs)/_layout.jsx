@@ -1,20 +1,30 @@
-import { Tabs } from "expo-router";
-import React from "react";
-import { FontAwesome5 } from '@expo/vector-icons';
-import { Ionicons } from "@expo/vector-icons";
-export default function TabLayout() {
+import React from 'react';
+import { Dimensions, StyleSheet } from 'react-native';
+import { Tabs } from 'expo-router';
+import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 
+// Get screen width
+const { width } = Dimensions.get('window');
+const isSmallScreen = width <= 600; // Adjust threshold as needed
+
+export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: true,
-        headerTitleAlign: "center",
-        headerStatusBarHeight: 5,
+        headerTitleAlign: isSmallScreen ? 'left' : 'center',
+        headerStatusBarHeight: isSmallScreen ? 0 : 5,
         headerStyle: {
           backgroundColor: "#91247D",
         },
         headerTintColor: "white",
-        tabBarActiveTintColor:'#91247D',
+        tabBarActiveTintColor: '#91247D',
+        tabBarStyle: {
+          ...styles.tabBar,
+          maxWidth: isSmallScreen ? '100%' : 600,
+          width: isSmallScreen ? '100%' : 600,
+          alignSelf: isSmallScreen ? 'stretch' : 'center',
+        },
       }}
     >
       <Tabs.Screen
@@ -56,3 +66,11 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBar: {
+    height: 60,
+    backgroundColor: "#fff",
+    borderTopWidth: 0,
+  },
+});

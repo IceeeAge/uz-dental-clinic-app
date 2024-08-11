@@ -54,8 +54,8 @@ export default function RootLayout() {
     "outfit-bold": require("../assets/fonts/Outfit-Bold.ttf"),
   });
 
-
-
+  const colorScheme = useColorScheme();
+  
   useEffect(() => {
     if (loaded || error) {
       SplashScreen.hideAsync();
@@ -75,26 +75,30 @@ export default function RootLayout() {
     cache: new InMemoryCache(),
   });
 
+  // Determine the StatusBar style based on color scheme
+  const barStyle = colorScheme === 'dark' ? 'light-content' : 'dark-content';
+  const backgroundColor = colorScheme === 'dark' ? Colors.DARK : Colors.LIGHT;
+
   return (
     <ToastProvider>
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <ClerkProvider
-          tokenCache={tokenCache}
-          publishableKey={publishableKey}
-        >
-          <ApolloProvider client={client}>
-            <ClerkLoaded>
-              <StatusBar
-                barStyle="light-content"
-                backgroundColor={Colors.PRIMARY}
-              />
-              <Slot />
-            </ClerkLoaded>
-          </ApolloProvider>
-        </ClerkProvider>
-      </SafeAreaView>
-    </SafeAreaProvider>
+      <SafeAreaProvider>
+        <SafeAreaView style={{ flex: 1 }}>
+          <ClerkProvider
+            tokenCache={tokenCache}
+            publishableKey={publishableKey}
+          >
+            <ApolloProvider client={client}>
+              <ClerkLoaded>
+                <StatusBar
+                  barStyle={barStyle}
+                  backgroundColor={backgroundColor}
+                />
+                <Slot />
+              </ClerkLoaded>
+            </ApolloProvider>
+          </ClerkProvider>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </ToastProvider>
   );
 }
