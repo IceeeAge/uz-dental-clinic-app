@@ -1,9 +1,9 @@
 import { SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { Redirect, useRouter } from "expo-router";
 import { Text, View, StyleSheet, Image, Platform } from "react-native";
-import PrimaryButton from "../../components/PrimaryButton";
-import SecondaryButton from "../../components/SecondaryButton";
-import Colors from "../../Utils/Colors";
+import PrimaryButton from "@/components/PrimaryButton";
+import SecondaryButton from "@/components/SecondaryButton";
+import Colors from "@Utils/Colors";
 import SignInWithOAuth from "../(login)/sign-in";
 export default function LoginScreenPage() {
   

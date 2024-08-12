@@ -22,13 +22,13 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { MaterialIcons } from "@expo/vector-icons";
-import Colors from "../../Utils/Colors";
+import Colors from "@Utils/Colors";;
 import { Picker } from "@react-native-picker/picker";
-import PrimaryButton from "../../components/PrimaryButton";
+import PrimaryButton from "@/components/PrimaryButton";
 import { useRouter } from "expo-router";
-import { CREATE_PATIENT_MUTATION } from "../../GraphQL/mutation";
-import web from "../../styles/AppointmentStyle/web"
-import mobile from "../../styles/AppointmentStyle/mobile"
+import { CREATE_PATIENT_MUTATION } from "@GraphQL/mutation";
+import web from "@styles/AppointmentStyle/web"
+import mobile from "@styles/AppointmentStyle/mobile"
 import { Toast } from "react-native-toast-notifications";
 
 const styles = Platform.OS === 'web' ? web : mobile ;

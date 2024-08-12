@@ -2,9 +2,10 @@ import { Button, TextInput, View, StyleSheet, TouchableOpacity, Text, ActivityIn
 import { useSignUp } from '@clerk/clerk-expo';
 import { useState } from 'react';
 import { Stack } from 'expo-router';
-import Colors from '../../Utils/Colors';
+import Colors from "@Utils/Colors";
 import PrimaryButton from '@/components/PrimaryButton';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Toast } from 'react-native-toast-notifications';
 
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -25,12 +26,16 @@ const SignUp = () => {
 
   // Create the user and send the verification email
   const onSignUpPress = async () => {
-    if (!isLoaded) {
-      return;
-    }
+    if (!isLoaded) return;
 
     if (!validateInputs()) {
-      alert('Please fill in all fields.');
+      Toast.show("Please fill in all the required fields", {
+        type: "danger",
+        placement: "bottom",
+        duration: 4000,
+        offset: 30,
+        animationType: "slide-in",
+      });
       return;
     }
 
@@ -64,7 +69,13 @@ const SignUp = () => {
     }
 
     if (!code) {
-      alert('Please enter the verification code.');
+      Toast.show("Please enter the verification code.", {
+        type: "danger",
+        placement: "bottom",
+        duration: 4000,
+        offset: 30,
+        animationType: "slide-in",
+      });
       return;
     }
 
@@ -84,8 +95,9 @@ const SignUp = () => {
   };
 
   return (
+
     <View style={styles.container}>
-      <Stack.Screen options={{ headerBackVisible: !pendingVerification }} />
+      <Stack.Screen options={{ headerBackVisible: !pendingVerification}} />
 
       {loading && <ActivityIndicator size="large" color={Colors.PRIMARY} />}
 
@@ -150,18 +162,21 @@ const SignUp = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginTop: 100,
-    maxWidth: 600,
+    marginTop: 150,
+    maxWidth: 500,
     alignSelf: "center",
     borderWidth: 1,
     width: "90%",
     borderColor: Colors.GRAY,
+    backgroundColor: Colors.WHITE,
+    borderRadius: 10,
+    elevation: 1,
   },
   inputField: {
     marginVertical: 10,
     height: 50,
     borderWidth: 1,
-    borderColor: Colors.WHITE,
+    borderColor: Colors.GRAY,
     borderRadius: 4,
     padding: 10,
     backgroundColor: '#fff',

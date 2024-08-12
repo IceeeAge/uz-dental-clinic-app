@@ -3,17 +3,18 @@ import { Link, useRouter } from "expo-router";
 import {
   Text,
   TextInput,
-  Button,
   View,
   StyleSheet,
   TouchableOpacity,
   Pressable,
+  Image,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import PrimaryButton from "../../components/PrimaryButton";
-import { Image } from "react-native";
-import Colors from "../../Utils/Colors";
+import PrimaryButton from "@/components/PrimaryButton";
+import Colors from "@Utils/Colors";
+import { Toast } from "react-native-toast-notifications";
 
 export default function Page() {
   const { signIn, setActive, isLoaded } = useSignIn();
@@ -28,15 +29,6 @@ export default function Page() {
       return;
     }
 
-    // Allow login only for the specified email address
-    const allowedEmail = "izmealsjh@gmail.com";
-
-    if (emailAddress !== allowedEmail) {
-      setErrorMessage("You are not Admin.");
-      router.replace("home");
-      return;
-    }
-
     try {
       const signInAttempt = await signIn.create({
         identifier: emailAddress,
@@ -45,20 +37,30 @@ export default function Page() {
 
       if (signInAttempt.status === "complete") {
         await setActive({ session: signInAttempt.createdSessionId });
-        router.replace("(dashboard)");
+        router.push("/home"); 
+        Toast.show("Login successfully", {
+          type: "Normal",
+          placement: "bottom",
+          duration: 4000,
+          offset: 30,
+          animationType: "slide-in",
+        });
+        return;
       } else {
-        console.error(JSON.stringify(signInAttempt, null, 2));
+        setErrorMessage("Sign-in failed. Please check your credentials.");
       }
     } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
+      setErrorMessage("Login failed. Please try again.");
+     
     }
-  }, [isLoaded, emailAddress, password]);
+  }, [isLoaded, emailAddress, password, signIn, setActive, router]);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
   return (
+    <KeyboardAvoidingView>
     <View style={styles.container}>
       <Image
         source={require("../../assets/images/dental-logo.jpg")}
@@ -66,47 +68,47 @@ export default function Page() {
         resizeMode="contain"
       />
       <View>
+      {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
         <TextInput
           autoCapitalize="none"
-          placeholder="salih@gmail.com"
+          placeholder="Email"
           value={emailAddress}
           onChangeText={setEmailAddress}
           style={styles.inputField}
         />
-        <View style={styles.subContainer}>
+        <View style={styles.passwordContainer}>
           <TextInput
-            placeholder="password"
+            placeholder="Password"
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!isPasswordVisible}
-            style={[styles.inputField, styles.passwordInput]}
+            style={styles.passwordInput}
           />
-          <TouchableOpacity onPress={togglePasswordVisibility}>
+          <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eyeBtn}>
             <Ionicons
               name={isPasswordVisible ? "eye-off" : "eye"}
               size={24}
               color={Colors.BLACK}
-              style={styles.eyeBtn}
             />
           </TouchableOpacity>
         </View>
+
       </View>
-      <View>
-        <PrimaryButton onPress={onSignInPress} title="Login" />
-      </View>
+      <PrimaryButton onPress={onSignInPress} title="Login" />
       <View style={styles.pressableContainer}>
         <Link href="/reset" asChild>
           <Pressable style={styles.button}>
             <Text style={styles.text}>Reset Password</Text>
           </Pressable>
         </Link>
-        <Link href="sign-up" asChild>
+        <Link href="/sign-up" asChild>
           <Pressable style={styles.button}>
             <Text style={styles.text}>Sign Up</Text>
           </Pressable>
         </Link>
       </View>
     </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -114,46 +116,51 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     marginTop: 100,
-    maxWidth: 600,
+    maxWidth: 500,
     alignSelf: "center",
     borderWidth: 1,
     width: "90%",
     borderColor: Colors.GRAY,
+    backgroundColor: Colors.WHITE,
+    borderRadius: 10,
+    elevation: 1,
   },
   logo: {
     width: 150,
     height: 150,
     marginBottom: 20,
-    borderRadius: 100,
     alignSelf: "center",
   },
   inputField: {
-    height: 60,
-    borderColor: Colors.WHITE,
-    borderRadius: 4,
-    padding: 10,
-    backgroundColor: "#fff",
-  },
-  subContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    height: 50,
+    borderColor: Colors.GRAY,
     borderWidth: 1,
-    borderColor: Colors.WHITE,
-    borderRadius: 4,
-    marginVertical: 10,
-    backgroundColor: "#fff",
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: Colors.WHITE,
   },
-  eyeBtn: {
-    position: 'absolute',
-    right: 10,
-    top: '50%',
-    transform: [{ translateY: -12 }],
+  passwordContainer: {
+    position: "relative",
+    marginBottom: 10,
   },
   passwordInput: {
-    flex: 1,
+    height: 50,
+    borderColor: Colors.GRAY,
+    borderRadius: 5,
+    padding: 10,
+    borderWidth: 1,
+    backgroundColor: Colors.WHITE,
+    paddingRight: 40, // Add padding to the right to make space for the eye icon
+  },
+  eyeBtn: {
+    position: "absolute",
+    right: 10,
+    top: "50%",
+    transform: [{ translateY: -12 }], // Center the icon vertically
   },
   button: {
-    margin: 8,
+    marginVertical: 10,
     alignItems: "center",
   },
   pressableContainer: {
@@ -162,5 +169,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: "outfit-medium",
+    color: Colors.BLACK,
+  },
+  errorText: {
+    color: "red",
+    marginVertical: 10,
+    textAlign: "center",
   },
 });
