@@ -12,7 +12,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useQuery } from "@apollo/client";
 import { GET_NEWSCHEDULE_DATA } from "@GraphQL/Query";
 import { useClerk } from "@clerk/clerk-expo";
-import { GetNewScheduleQuery, Patient } from "src/generated/graphql";
+import { GetNewScheduleQuery, } from "src/generated/graphql";
 
 // Function to format date with day at the end
 const formatDate = (dateString: string) => {
@@ -218,6 +218,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
+    borderWidth: 1,
+    height: 60,
+    borderColor: Colors.GRAY,
+    borderRadius: 5,
+    marginTop: 20,
   },
 });
 

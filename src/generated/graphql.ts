@@ -591,6 +591,7 @@ export type Asset = Entity & Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
+  imageGetSlider: Array<GetSlider>;
   /** System Locale field */
   locale: Locale;
   /** Get the other localizations for this document */
@@ -647,6 +648,20 @@ export type AssetHistoryArgs = {
   limit?: Scalars['Int']['input'];
   skip?: Scalars['Int']['input'];
   stageOverride?: InputMaybe<Stage>;
+};
+
+
+/** Asset system model */
+export type AssetImageGetSliderArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<GetSliderOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<GetSliderWhereInput>;
 };
 
 
@@ -749,6 +764,7 @@ export type AssetConnection = {
 export type AssetCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   fileName?: InputMaybe<Scalars['String']['input']>;
+  imageGetSlider?: InputMaybe<GetSliderCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>;
   profileAdmin?: InputMaybe<AdminCreateManyInlineInput>;
@@ -848,6 +864,9 @@ export type AssetManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  imageGetSlider_every?: InputMaybe<GetSliderWhereInput>;
+  imageGetSlider_none?: InputMaybe<GetSliderWhereInput>;
+  imageGetSlider_some?: InputMaybe<GetSliderWhereInput>;
   profileAdmin_every?: InputMaybe<AdminWhereInput>;
   profileAdmin_none?: InputMaybe<AdminWhereInput>;
   profileAdmin_some?: InputMaybe<AdminWhereInput>;
@@ -936,6 +955,7 @@ export type AssetTransformationInput = {
 
 export type AssetUpdateInput = {
   fileName?: InputMaybe<Scalars['String']['input']>;
+  imageGetSlider?: InputMaybe<GetSliderUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>;
   profileAdmin?: InputMaybe<AdminUpdateManyInlineInput>;
@@ -1260,6 +1280,9 @@ export type AssetWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  imageGetSlider_every?: InputMaybe<GetSliderWhereInput>;
+  imageGetSlider_none?: InputMaybe<GetSliderWhereInput>;
+  imageGetSlider_some?: InputMaybe<GetSliderWhereInput>;
   mimeType?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   mimeType_contains?: InputMaybe<Scalars['String']['input']>;
@@ -1455,7 +1478,7 @@ export type Entity = {
   /** The id of the object. */
   id: Scalars['ID']['output'];
   /** The Stage of an object */
- stage: string;
+  stage: Stage;
 };
 
 /** This enumeration holds all typenames that implement the Entity interface. Components and models implement the Entity interface. */
@@ -1463,6 +1486,7 @@ export enum EntityTypeName {
   Admin = 'Admin',
   /** Asset system model */
   Asset = 'Asset',
+  GetSlider = 'GetSlider',
   NewSchedule = 'NewSchedule',
   Patient = 'Patient',
   /** Scheduled Operation system model */
@@ -1482,6 +1506,448 @@ export type EntityWhereInput = {
   stage: Stage;
   /** The Type name of an object */
   typename: EntityTypeName;
+};
+
+export type GetSlider = Entity & Node & {
+  __typename?: 'GetSlider';
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']['output'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<GetSlider>;
+  /** List of GetSlider versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  image?: Maybe<Asset>;
+  name?: Maybe<Scalars['String']['output']>;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']['output'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+export type GetSliderCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type GetSliderDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  inheritLocale?: Scalars['Boolean']['input'];
+  stages?: Array<Stage>;
+};
+
+
+export type GetSliderHistoryArgs = {
+  limit?: Scalars['Int']['input'];
+  skip?: Scalars['Int']['input'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type GetSliderImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  where?: InputMaybe<AssetSingleRelationWhereInput>;
+};
+
+
+export type GetSliderPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type GetSliderScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type GetSliderUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type GetSliderConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: GetSliderWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type GetSliderConnection = {
+  __typename?: 'GetSliderConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<GetSliderEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type GetSliderCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  image?: InputMaybe<AssetCreateOneInlineInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type GetSliderCreateManyInlineInput = {
+  /** Connect multiple existing GetSlider documents */
+  connect?: InputMaybe<Array<GetSliderWhereUniqueInput>>;
+  /** Create and connect multiple existing GetSlider documents */
+  create?: InputMaybe<Array<GetSliderCreateInput>>;
+};
+
+export type GetSliderCreateOneInlineInput = {
+  /** Connect one existing GetSlider document */
+  connect?: InputMaybe<GetSliderWhereUniqueInput>;
+  /** Create and connect one GetSlider document */
+  create?: InputMaybe<GetSliderCreateInput>;
+};
+
+/** An edge in a connection. */
+export type GetSliderEdge = {
+  __typename?: 'GetSliderEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: GetSlider;
+};
+
+/** Identifies documents */
+export type GetSliderManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<GetSliderWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<GetSliderWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<GetSliderWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<GetSliderWhereStageInput>;
+  documentInStages_none?: InputMaybe<GetSliderWhereStageInput>;
+  documentInStages_some?: InputMaybe<GetSliderWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<AssetWhereInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  name_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  name_starts_with?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum GetSliderOrderByInput {
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type GetSliderUpdateInput = {
+  image?: InputMaybe<AssetUpdateOneInlineInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GetSliderUpdateManyInlineInput = {
+  /** Connect multiple existing GetSlider documents */
+  connect?: InputMaybe<Array<GetSliderConnectInput>>;
+  /** Create and connect multiple GetSlider documents */
+  create?: InputMaybe<Array<GetSliderCreateInput>>;
+  /** Delete multiple GetSlider documents */
+  delete?: InputMaybe<Array<GetSliderWhereUniqueInput>>;
+  /** Disconnect multiple GetSlider documents */
+  disconnect?: InputMaybe<Array<GetSliderWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing GetSlider documents */
+  set?: InputMaybe<Array<GetSliderWhereUniqueInput>>;
+  /** Update multiple GetSlider documents */
+  update?: InputMaybe<Array<GetSliderUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple GetSlider documents */
+  upsert?: InputMaybe<Array<GetSliderUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type GetSliderUpdateManyInput = {
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GetSliderUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: GetSliderUpdateManyInput;
+  /** Document search */
+  where: GetSliderWhereInput;
+};
+
+export type GetSliderUpdateOneInlineInput = {
+  /** Connect existing GetSlider document */
+  connect?: InputMaybe<GetSliderWhereUniqueInput>;
+  /** Create and connect one GetSlider document */
+  create?: InputMaybe<GetSliderCreateInput>;
+  /** Delete currently connected GetSlider document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected GetSlider document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single GetSlider document */
+  update?: InputMaybe<GetSliderUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single GetSlider document */
+  upsert?: InputMaybe<GetSliderUpsertWithNestedWhereUniqueInput>;
+};
+
+export type GetSliderUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: GetSliderUpdateInput;
+  /** Unique document search */
+  where: GetSliderWhereUniqueInput;
+};
+
+export type GetSliderUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GetSliderCreateInput;
+  /** Update document if it exists */
+  update: GetSliderUpdateInput;
+};
+
+export type GetSliderUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: GetSliderUpsertInput;
+  /** Unique document search */
+  where: GetSliderWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type GetSliderWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type GetSliderWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<GetSliderWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<GetSliderWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<GetSliderWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<GetSliderWhereStageInput>;
+  documentInStages_none?: InputMaybe<GetSliderWhereStageInput>;
+  documentInStages_some?: InputMaybe<GetSliderWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<AssetWhereInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  name_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  name_starts_with?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type GetSliderWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<GetSliderWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<GetSliderWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<GetSliderWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<GetSliderWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References GetSlider record uniquely */
+export type GetSliderWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type ImageBlurInput = {
@@ -1604,6 +2070,8 @@ export type Mutation = {
   createAdmin?: Maybe<Admin>;
   /** Create an asset. Use the returned info to finish the creation process by uploading the asset. */
   createAsset?: Maybe<Asset>;
+  /** Create one getSlider */
+  createGetSlider?: Maybe<GetSlider>;
   /** Create one newSchedule */
   createNewSchedule?: Maybe<NewSchedule>;
   /** Create one patient */
@@ -1616,6 +2084,8 @@ export type Mutation = {
   deleteAdmin?: Maybe<Admin>;
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>;
+  /** Delete one getSlider from _all_ existing stages. Returns deleted document. */
+  deleteGetSlider?: Maybe<GetSlider>;
   /**
    * Delete many Admin documents
    * @deprecated Please use the new paginated many mutation (deleteManyAdminsConnection)
@@ -1630,6 +2100,13 @@ export type Mutation = {
   deleteManyAssets: BatchPayload;
   /** Delete many Asset documents, return deleted documents */
   deleteManyAssetsConnection: AssetConnection;
+  /**
+   * Delete many GetSlider documents
+   * @deprecated Please use the new paginated many mutation (deleteManyGetSlidersConnection)
+   */
+  deleteManyGetSliders: BatchPayload;
+  /** Delete many GetSlider documents, return deleted documents */
+  deleteManyGetSlidersConnection: GetSliderConnection;
   /**
    * Delete many NewSchedule documents
    * @deprecated Please use the new paginated many mutation (deleteManyNewSchedulesConnection)
@@ -1665,6 +2142,8 @@ export type Mutation = {
   publishAdmin?: Maybe<Admin>;
   /** Publish one asset */
   publishAsset?: Maybe<Asset>;
+  /** Publish one getSlider */
+  publishGetSlider?: Maybe<GetSlider>;
   /**
    * Publish many Admin documents
    * @deprecated Please use the new paginated many mutation (publishManyAdminsConnection)
@@ -1679,6 +2158,13 @@ export type Mutation = {
   publishManyAssets: BatchPayload;
   /** Publish many Asset documents */
   publishManyAssetsConnection: AssetConnection;
+  /**
+   * Publish many GetSlider documents
+   * @deprecated Please use the new paginated many mutation (publishManyGetSlidersConnection)
+   */
+  publishManyGetSliders: BatchPayload;
+  /** Publish many GetSlider documents */
+  publishManyGetSlidersConnection: GetSliderConnection;
   /**
    * Publish many NewSchedule documents
    * @deprecated Please use the new paginated many mutation (publishManyNewSchedulesConnection)
@@ -1710,6 +2196,8 @@ export type Mutation = {
   schedulePublishAdmin?: Maybe<Admin>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
+  /** Schedule to publish one getSlider */
+  schedulePublishGetSlider?: Maybe<GetSlider>;
   /** Schedule to publish one newSchedule */
   schedulePublishNewSchedule?: Maybe<NewSchedule>;
   /** Schedule to publish one patient */
@@ -1720,6 +2208,8 @@ export type Mutation = {
   scheduleUnpublishAdmin?: Maybe<Admin>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
+  /** Unpublish one getSlider from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishGetSlider?: Maybe<GetSlider>;
   /** Unpublish one newSchedule from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishNewSchedule?: Maybe<NewSchedule>;
   /** Unpublish one patient from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1730,6 +2220,8 @@ export type Mutation = {
   unpublishAdmin?: Maybe<Admin>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>;
+  /** Unpublish one getSlider from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishGetSlider?: Maybe<GetSlider>;
   /**
    * Unpublish many Admin documents
    * @deprecated Please use the new paginated many mutation (unpublishManyAdminsConnection)
@@ -1744,6 +2236,13 @@ export type Mutation = {
   unpublishManyAssets: BatchPayload;
   /** Find many Asset documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyAssetsConnection: AssetConnection;
+  /**
+   * Unpublish many GetSlider documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyGetSlidersConnection)
+   */
+  unpublishManyGetSliders: BatchPayload;
+  /** Find many GetSlider documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyGetSlidersConnection: GetSliderConnection;
   /**
    * Unpublish many NewSchedule documents
    * @deprecated Please use the new paginated many mutation (unpublishManyNewSchedulesConnection)
@@ -1775,6 +2274,8 @@ export type Mutation = {
   updateAdmin?: Maybe<Admin>;
   /** Update one asset */
   updateAsset?: Maybe<Asset>;
+  /** Update one getSlider */
+  updateGetSlider?: Maybe<GetSlider>;
   /**
    * Update many admins
    * @deprecated Please use the new paginated many mutation (updateManyAdminsConnection)
@@ -1789,6 +2290,13 @@ export type Mutation = {
   updateManyAssets: BatchPayload;
   /** Update many Asset documents */
   updateManyAssetsConnection: AssetConnection;
+  /**
+   * Update many getSliders
+   * @deprecated Please use the new paginated many mutation (updateManyGetSlidersConnection)
+   */
+  updateManyGetSliders: BatchPayload;
+  /** Update many GetSlider documents */
+  updateManyGetSlidersConnection: GetSliderConnection;
   /**
    * Update many newSchedules
    * @deprecated Please use the new paginated many mutation (updateManyNewSchedulesConnection)
@@ -1822,6 +2330,8 @@ export type Mutation = {
   upsertAdmin?: Maybe<Admin>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
+  /** Upsert one getSlider */
+  upsertGetSlider?: Maybe<GetSlider>;
   /** Upsert one newSchedule */
   upsertNewSchedule?: Maybe<NewSchedule>;
   /** Upsert one patient */
@@ -1838,6 +2348,11 @@ export type MutationCreateAdminArgs = {
 
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
+};
+
+
+export type MutationCreateGetSliderArgs = {
+  data: GetSliderCreateInput;
 };
 
 
@@ -1871,6 +2386,11 @@ export type MutationDeleteAssetArgs = {
 };
 
 
+export type MutationDeleteGetSliderArgs = {
+  where: GetSliderWhereUniqueInput;
+};
+
+
 export type MutationDeleteManyAdminsArgs = {
   where?: InputMaybe<AdminManyWhereInput>;
 };
@@ -1898,6 +2418,21 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationDeleteManyGetSlidersArgs = {
+  where?: InputMaybe<GetSliderManyWhereInput>;
+};
+
+
+export type MutationDeleteManyGetSlidersConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<GetSliderManyWhereInput>;
 };
 
 
@@ -1986,6 +2521,12 @@ export type MutationPublishAssetArgs = {
 };
 
 
+export type MutationPublishGetSliderArgs = {
+  to?: Array<Stage>;
+  where: GetSliderWhereUniqueInput;
+};
+
+
 export type MutationPublishManyAdminsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AdminManyWhereInput>;
@@ -2025,6 +2566,24 @@ export type MutationPublishManyAssetsConnectionArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type MutationPublishManyGetSlidersArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<GetSliderManyWhereInput>;
+};
+
+
+export type MutationPublishManyGetSlidersConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<GetSliderManyWhereInput>;
 };
 
 
@@ -2119,6 +2678,14 @@ export type MutationSchedulePublishAssetArgs = {
 };
 
 
+export type MutationSchedulePublishGetSliderArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  to?: Array<Stage>;
+  where: GetSliderWhereUniqueInput;
+};
+
+
 export type MutationSchedulePublishNewScheduleArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
@@ -2161,6 +2728,14 @@ export type MutationScheduleUnpublishAssetArgs = {
 };
 
 
+export type MutationScheduleUnpublishGetSliderArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  where: GetSliderWhereUniqueInput;
+};
+
+
 export type MutationScheduleUnpublishNewScheduleArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -2196,6 +2771,12 @@ export type MutationUnpublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: AssetWhereUniqueInput;
+};
+
+
+export type MutationUnpublishGetSliderArgs = {
+  from?: Array<Stage>;
+  where: GetSliderWhereUniqueInput;
 };
 
 
@@ -2236,6 +2817,24 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   stage?: InputMaybe<Stage>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyGetSlidersArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<GetSliderManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyGetSlidersConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<GetSliderManyWhereInput>;
 };
 
 
@@ -2323,6 +2922,12 @@ export type MutationUpdateAssetArgs = {
 };
 
 
+export type MutationUpdateGetSliderArgs = {
+  data: GetSliderUpdateInput;
+  where: GetSliderWhereUniqueInput;
+};
+
+
 export type MutationUpdateManyAdminsArgs = {
   data: AdminUpdateManyInput;
   where?: InputMaybe<AdminManyWhereInput>;
@@ -2354,6 +2959,23 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationUpdateManyGetSlidersArgs = {
+  data: GetSliderUpdateManyInput;
+  where?: InputMaybe<GetSliderManyWhereInput>;
+};
+
+
+export type MutationUpdateManyGetSlidersConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  data: GetSliderUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<GetSliderManyWhereInput>;
 };
 
 
@@ -2444,6 +3066,12 @@ export type MutationUpsertAssetArgs = {
 };
 
 
+export type MutationUpsertGetSliderArgs = {
+  upsert: GetSliderUpsertInput;
+  where: GetSliderWhereUniqueInput;
+};
+
+
 export type MutationUpsertNewScheduleArgs = {
   upsert: NewScheduleUpsertInput;
   where: NewScheduleWhereUniqueInput;
@@ -2494,7 +3122,6 @@ export type NewSchedule = Entity & Node & {
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
-  
 };
 
 
@@ -4128,6 +4755,14 @@ export type Query = {
   assetsConnection: AssetConnection;
   /** Fetches an object given its ID */
   entities?: Maybe<Array<Entity>>;
+  /** Retrieve a single getSlider */
+  getSlider?: Maybe<GetSlider>;
+  /** Retrieve document version */
+  getSliderVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple getSliders */
+  getSliders: Array<GetSlider>;
+  /** Retrieve multiple getSliders using the Relay connection interface */
+  getSlidersConnection: GetSliderConnection;
   /** Retrieve a single newSchedule */
   newSchedule?: Maybe<NewSchedule>;
   /** Retrieve document version */
@@ -4254,6 +4889,44 @@ export type QueryAssetsConnectionArgs = {
 export type QueryEntitiesArgs = {
   locales?: InputMaybe<Array<Locale>>;
   where: Array<EntityWhereInput>;
+};
+
+
+export type QueryGetSliderArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: GetSliderWhereUniqueInput;
+};
+
+
+export type QueryGetSliderVersionArgs = {
+  where: VersionWhereInput;
+};
+
+
+export type QueryGetSlidersArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<GetSliderOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<GetSliderWhereInput>;
+};
+
+
+export type QueryGetSlidersConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<GetSliderOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<GetSliderWhereInput>;
 };
 
 
@@ -4588,7 +5261,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Admin | Asset | NewSchedule | Patient | TodoList;
+export type ScheduledOperationAffectedDocument = Admin | Asset | GetSlider | NewSchedule | Patient | TodoList;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -6484,6 +7157,11 @@ export type GetNewScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetNewScheduleQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', scheduleStatus?: string | null, schedule?: string | null, scheduleDate?: any | null, room?: string | null, id: string, contactNumber?: string | null, createdAt: any, clinician?: string | null, time?: string | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null, patients: Array<{ __typename?: 'Patient', email?: string | null, fullName?: string | null, id: string, profileImage?: { __typename?: 'Asset', url: string, id: string } | null }> }> };
 
+export type GetSliderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetSliderQuery = { __typename?: 'Query', getSliders: Array<{ __typename?: 'GetSlider', id: string, name?: string | null, image?: { __typename?: 'Asset', url: string } | null }> };
+
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
   email: Scalars['String']['input'];
@@ -6615,6 +7293,49 @@ export type GetNewScheduleQueryHookResult = ReturnType<typeof useGetNewScheduleQ
 export type GetNewScheduleLazyQueryHookResult = ReturnType<typeof useGetNewScheduleLazyQuery>;
 export type GetNewScheduleSuspenseQueryHookResult = ReturnType<typeof useGetNewScheduleSuspenseQuery>;
 export type GetNewScheduleQueryResult = Apollo.QueryResult<GetNewScheduleQuery, GetNewScheduleQueryVariables>;
+export const GetSliderDocument = gql`
+    query getSlider {
+  getSliders {
+    id
+    image {
+      url
+    }
+    name
+  }
+}
+    `;
+
+/**
+ * __useGetSliderQuery__
+ *
+ * To run a query within a React component, call `useGetSliderQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSliderQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSliderQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetSliderQuery(baseOptions?: Apollo.QueryHookOptions<GetSliderQuery, GetSliderQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetSliderQuery, GetSliderQueryVariables>(GetSliderDocument, options);
+      }
+export function useGetSliderLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetSliderQuery, GetSliderQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetSliderQuery, GetSliderQueryVariables>(GetSliderDocument, options);
+        }
+export function useGetSliderSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetSliderQuery, GetSliderQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetSliderQuery, GetSliderQueryVariables>(GetSliderDocument, options);
+        }
+export type GetSliderQueryHookResult = ReturnType<typeof useGetSliderQuery>;
+export type GetSliderLazyQueryHookResult = ReturnType<typeof useGetSliderLazyQuery>;
+export type GetSliderSuspenseQueryHookResult = ReturnType<typeof useGetSliderSuspenseQuery>;
+export type GetSliderQueryResult = Apollo.QueryResult<GetSliderQuery, GetSliderQueryVariables>;
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $statusAppointment: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String) {
   createPatient(

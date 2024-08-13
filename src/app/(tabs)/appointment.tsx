@@ -29,6 +29,7 @@ import { Toast } from "react-native-toast-notifications";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 type FormValuesProps = {
   userEmail: string | undefined;
   image: string;
@@ -266,7 +267,6 @@ export default function AppointmentScreen() {
                   />
                 </View>
               )}
-
               {Platform.OS !== "web" && showDatepicker && (
                 <DateTimePicker
                   value={date || new Date()}
@@ -280,8 +280,7 @@ export default function AppointmentScreen() {
                 style={styles.input}
                 onChangeText={handleChange("height")}
                 onBlur={handleBlur("height")}
-                value={values.height}
-                keyboardType="numeric"
+               value={values.height}
               />
               <TextInput
                 placeholder="Weight (kg)"
@@ -289,17 +288,18 @@ export default function AppointmentScreen() {
                 onChangeText={handleChange("weight")}
                 onBlur={handleBlur("weight")}
                 value={values.weight}
-                keyboardType="numeric"
               />
-              <Picker
-                selectedValue={gender}
-                onValueChange={(itemValue) => setGender(itemValue)}
-                style={styles.input}
-              >
-                <Picker.Item label="Select Gender" value="" />
-                <Picker.Item label="Male" value="Male" />
-                <Picker.Item label="Female" value="Female" />
-              </Picker>
+              <View style={styles.pickerContainer}>
+                <Picker
+                  selectedValue={gender}
+                  onValueChange={(itemValue) => setGender(itemValue)}
+                  style={styles.inputPicker}
+                >
+                  <Picker.Item label="Select Gender" value="" />
+                  <Picker.Item label="Male" value="Male" />
+                  <Picker.Item label="Female" value="Female" />
+                </Picker>
+              </View>
               <TextInput
                 placeholder="Occupation"
                 style={styles.input}
@@ -314,13 +314,11 @@ export default function AppointmentScreen() {
                 onBlur={handleBlur("address")}
                 value={values.address}
               />
-              <View style={styles.buttonContainer}>
-                <PrimaryButton
-                  title={loading ? "Submitting..." : "Submit"}
-                  onPress={handleSubmit}
-                  disabled={loading}
-                />
-              </View>
+              <PrimaryButton
+                title={loading ? "Submitting..." : "Submit"}
+                onPress={() => handleSubmit()}
+                disabled={loading}
+              />
             </View>
           )}
         </Formik>
@@ -332,11 +330,9 @@ export default function AppointmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.WHITE,
+    maxWidth: 600,
     width: "100%",
-    maxWidth: 700,
-    alignSelf: "center",
   },
   scrollView: {
     flex: 1,
@@ -344,23 +340,33 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 20,
+    color: Colors.PRIMARY,
   },
   subtitle: {
     fontSize: 16,
-    color: Colors.GRAY,
-    marginVertical: 10,
+    textAlign: "center",
+    marginBottom: 20,
+    color: Colors.BLACK,
+    paddingHorizontal: 20,
   },
   imagePicker: {
     alignItems: "center",
-    marginVertical: 20,
+    justifyContent: "center",
+    padding: 10,
+    marginBottom: 20,
+
   },
   image: {
     width: 100,
     height: 100,
-    borderRadius: 50,
+    borderColor:Colors.PRIMARY,
+    borderWidth: 1,
+    borderRadius:99,
   },
   formContainer: {
-    flex: 1,
+    paddingHorizontal: 20,
   },
   input: {
     borderWidth: 1,
@@ -368,6 +374,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginVertical: 5,
+    backgroundColor: "#fff",
   },
   datePickerContainer: {
     flexDirection: "row",
@@ -377,27 +384,22 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginVertical: 5,
+    backgroundColor: "#fff",
   },
   dateText: {
     flex: 1,
-    fontSize: 16,
-    color: Colors.GRAY,
   },
   datePickerWeb: {
-    position: "absolute",
-    top: 50,
-    alignSelf: "center",
-    backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    marginVertical: 10,
   },
-  buttonContainer: {
-    marginTop: 30,
+  pickerContainer: {
+    borderWidth: 1,
+    borderColor: Colors.GRAY,
+    borderRadius: 5,
+    marginVertical: 5,
+    backgroundColor: "#fff",
+  },
+  inputPicker: {
+    height: 50,
   },
 });

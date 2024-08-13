@@ -51,3 +51,14 @@ export const GET_NEWSCHEDULE_DATA = gql`
     }
   }
 `;
+export const GET_SLIDER_DATA = gql`
+  query getSlider {
+    getSliders {
+      id
+      image {
+        url
+      }
+      name
+    }
+  }
+`;
