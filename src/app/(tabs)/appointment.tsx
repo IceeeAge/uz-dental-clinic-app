@@ -19,38 +19,35 @@ import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { useUser } from "@clerk/clerk-expo";
 import { useMutation } from "@apollo/client";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { MaterialIcons } from "@expo/vector-icons";
-import Colors from "@Utils/Colors";;
+import Colors from "@Utils/Colors";
 import { Picker } from "@react-native-picker/picker";
 import PrimaryButton from "@/components/PrimaryButton";
 import { useRouter } from "expo-router";
 import { CREATE_PATIENT_MUTATION } from "@GraphQL/mutation";
 import { Toast } from "react-native-toast-notifications";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 type FormValuesProps = {
   userEmail: string | undefined;
-  image: string
-  patientName: string
-  contactNumber: string
-  height: string
-  weight: string
-  sex: string
-  occupation: string
-  dateOfBirth: string
-  address: string
-  statusAppointment: string
-  email: string
-  fullName: string
-  user?: string
-  userName: string
-
-}
+  image: string;
+  patientName: string;
+  contactNumber: string;
+  height: string;
+  weight: string;
+  sex: string;
+  occupation: string;
+  dateOfBirth: string;
+  address: string;
+  statusAppointment: string;
+  email: string;
+  fullName: string;
+  user?: string;
+  userName: string;
+};
 
 export default function AppointmentScreen() {
-
   const [date, setDate] = useState<Date | null>(null);
   const [showDatepicker, setShowDatepicker] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -89,7 +86,10 @@ export default function AppointmentScreen() {
     return `${month}/${day}/${year}`;
   };
 
-  const onSubmitMethod = async (values: FormValuesProps, { resetForm }: { resetForm: () => void }) => {
+  const onSubmitMethod = async (
+    values: FormValuesProps,
+    { resetForm }: { resetForm: () => void }
+  ) => {
     if (
       !values.patientName ||
       !values.contactNumber ||
@@ -119,7 +119,7 @@ export default function AppointmentScreen() {
       const downloadUrl = await getDownloadURL(storageRef);
 
       values.image = downloadUrl;
-      values.userName = user?.fullName ?? '';
+      values.userName = user?.fullName ?? "";
       values.userEmail = user?.primaryEmailAddress?.emailAddress;
       values.sex = gender;
       values.dateOfBirth = date ? formatDateToMMDDYYYY(date) : "";
@@ -132,7 +132,7 @@ export default function AppointmentScreen() {
           fullName: values.patientName,
           contactNumber: values.contactNumber,
           sex: values.sex,
-          statusAppointment: "Pending",
+          statusAppointment: "PENDING",
           dateOfBirth: values.dateOfBirth,
           address: values.address,
           height: values.height,
@@ -203,7 +203,6 @@ export default function AppointmentScreen() {
             user: "",
             userName: "",
             userEmail: "",
-
           }}
           onSubmit={(values: FormValuesProps, { resetForm }) =>
             onSubmitMethod(values, { resetForm })
@@ -216,7 +215,7 @@ export default function AppointmentScreen() {
             handleBlur,
             setFieldValue,
           }) => (
-            <View style={styles.container}>
+            <View style={styles.formContainer}>
               <TextInput
                 placeholder="Patient Name (Last Name, First M)"
                 style={styles.input}
@@ -237,7 +236,9 @@ export default function AppointmentScreen() {
                 style={styles.datePickerContainer}
               >
                 <Text style={styles.dateText}>
-                  {!date ? "Date of Birth (MM/DD/YYYY)" : formatDateToMMDDYYYY(date)}
+                  {!date
+                    ? "Date of Birth (MM/DD/YYYY)"
+                    : formatDateToMMDDYYYY(date)}
                 </Text>
                 <MaterialIcons
                   name="calendar-today"
@@ -246,66 +247,59 @@ export default function AppointmentScreen() {
                 />
               </TouchableOpacity>
               {Platform.OS === "web" && showDatepicker && (
-                <View style={styles.WebCalendarStyle}>
+                <View style={styles.datePickerWeb}>
                   <DatePicker
                     selected={date}
-                    onChange={date => {
+                    onChange={(date) => {
                       setDate(date);
-                      setFieldValue("dateOfBirth", formatDateToMMDDYYYY(date || new Date()));
+                      setFieldValue(
+                        "dateOfBirth",
+                        formatDateToMMDDYYYY(date || new Date())
+                      );
                       setShowDatepicker(false);
                     }}
                     dateFormat="MM/dd/yyyy"
                     showYearDropdown
-                    yearDropdownItemNumber={10000}
+                    showMonthDropdown
                     scrollableYearDropdown
                     inline
                   />
                 </View>
               )}
+
               {Platform.OS !== "web" && showDatepicker && (
                 <DateTimePicker
-                  mode="date"
                   value={date || new Date()}
-                  onChange={(event: any, selectedDate: Date | undefined) => {
-                    handleDateChange(event, selectedDate);
-                    setFieldValue("dateOfBirth", formatDateToMMDDYYYY(selectedDate || new Date()));
-                  }}
+                  mode="date"
+                  display="default"
+                  onChange={handleDateChange}
                 />
               )}
-
               <TextInput
-                placeholder="Address"
-                style={styles.input}
-                onChangeText={handleChange("address")}
-                onBlur={handleBlur("address")}
-                value={values.address}
-              />
-
-              <TextInput
-                placeholder="Height"
+                placeholder="Height (cm)"
                 style={styles.input}
                 onChangeText={handleChange("height")}
                 onBlur={handleBlur("height")}
                 value={values.height}
+                keyboardType="numeric"
               />
               <TextInput
-                placeholder="Weight"
+                placeholder="Weight (kg)"
                 style={styles.input}
                 onChangeText={handleChange("weight")}
                 onBlur={handleBlur("weight")}
                 value={values.weight}
+                keyboardType="numeric"
               />
-              <View style={styles.pickerContainer}>
-                <Picker
-                  selectedValue={gender}
-                  onValueChange={(itemValue) => setGender(itemValue)}
-                  style={styles.picker}
-                >
-                  <Picker.Item label="Select Gender" value="" style={styles.picker} />
-                  <Picker.Item label="Male" value="Male" />
-                  <Picker.Item label="Female" value="Female" />
-                </Picker>
-              </View>
+              <Picker
+                selectedValue={gender}
+                onValueChange={(itemValue) => setGender(itemValue)}
+                style={styles.input}
+              >
+                <Picker.Item label="Select Gender" value="" />
+                <Picker.Item label="Male" value="Male" />
+                <Picker.Item label="Female" value="Female" />
+              </Picker>
               <TextInput
                 placeholder="Occupation"
                 style={styles.input}
@@ -313,12 +307,20 @@ export default function AppointmentScreen() {
                 onBlur={handleBlur("occupation")}
                 value={values.occupation}
               />
-              <PrimaryButton
-                onPress={handleSubmit}
-                title="Submit"
-                textStyle={Colors.PRIMARY}
-                disabled={loading}
+              <TextInput
+                placeholder="Address"
+                style={styles.input}
+                onChangeText={handleChange("address")}
+                onBlur={handleBlur("address")}
+                value={values.address}
               />
+              <View style={styles.buttonContainer}>
+                <PrimaryButton
+                  title={loading ? "Submitting..." : "Submit"}
+                  onPress={handleSubmit}
+                  disabled={loading}
+                />
+              </View>
             </View>
           )}
         </Formik>
@@ -326,97 +328,76 @@ export default function AppointmentScreen() {
     </KeyboardAvoidingView>
   );
 }
-const styles = StyleSheet.create({
 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    padding: 20,
+    backgroundColor: "#fff",
+    width: "100%",
+    maxWidth: 700,
+    alignSelf: "center",
   },
   scrollView: {
     flex: 1,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    textAlign: 'center',
+    fontWeight: "bold",
   },
   subtitle: {
     fontSize: 16,
     color: Colors.GRAY,
-    marginBottom: 16,
-    textAlign: 'center',
+    marginVertical: 10,
   },
   imagePicker: {
-    alignItems: 'center',
-    marginBottom: 16,
+    alignItems: "center",
+    marginVertical: 20,
   },
   image: {
-    width: 130,
-    height: 130,
-    borderRadius: 99,
-    borderColor: Colors.PRIMARY,
-    borderWidth: 1,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
-
+  formContainer: {
+    flex: 1,
+  },
   input: {
-    height: 50,
-    borderColor: Colors.WHITE,
     borderWidth: 1,
+    borderColor: Colors.GRAY,
     borderRadius: 5,
-    marginBottom: 12,
-    paddingHorizontal: 10,
-    backgroundColor: Colors.WHITE,
+    padding: 10,
+    marginVertical: 5,
   },
   datePickerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: Colors.WHITE,
+    flexDirection: "row",
+    alignItems: "center",
     borderWidth: 1,
+    borderColor: Colors.GRAY,
     borderRadius: 5,
-    marginBottom: 12,
-    paddingHorizontal: 10,
-    height: 50,
-    justifyContent: 'space-between',
-    backgroundColor: Colors.WHITE,
+    padding: 10,
+    marginVertical: 5,
   },
   dateText: {
+    flex: 1,
     fontSize: 16,
     color: Colors.GRAY,
   },
-  pickerContainer: {
-    borderColor: Colors.WHITE,
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 12,
-    height: 50,
-    overflow: 'hidden',
-    backgroundColor: Colors.WHITE,
+  datePickerWeb: {
+    position: "absolute",
+    top: 50,
+    alignSelf: "center",
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  picker: {
-    height: 50,
-    borderColor: Colors.WHITE,
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: Colors.WHITE,
-    padding: 5,
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 40,
-    borderRadius: 5,
-    marginBottom: 16,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-  WebCalendarStyle: {
-    position: 'absolute',
-    alignSelf: 'center',
-    marginTop: 50,
+  buttonContainer: {
+    marginTop: 30,
   },
 });
-
-
