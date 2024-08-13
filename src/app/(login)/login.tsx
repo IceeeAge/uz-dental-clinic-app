@@ -10,21 +10,21 @@ import {
   Image,
   KeyboardAvoidingView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PrimaryButton from "@/components/PrimaryButton";
 import Colors from "@Utils/Colors";
 import { Toast } from "react-native-toast-notifications";
 
-export default function Page() {
+const Page: React.FC = () => {
   const { signIn, setActive, isLoaded } = useSignIn();
   const router = useRouter();
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [emailAddress, setEmailAddress] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const onSignInPress = React.useCallback(async () => {
+  const onSignInPress = useCallback(async () => {
     if (!isLoaded) {
       return;
     }
@@ -37,21 +37,19 @@ export default function Page() {
 
       if (signInAttempt.status === "complete") {
         await setActive({ session: signInAttempt.createdSessionId });
-        router.push("/home"); 
+        router.push("/home");
         Toast.show("Login successfully", {
           type: "Normal",
           placement: "bottom",
           duration: 4000,
-          offset: 30,
           animationType: "slide-in",
         });
         return;
       } else {
         setErrorMessage("Sign-in failed. Please check your credentials.");
       }
-    } catch (err) {
+    } catch (err: any) {
       setErrorMessage("Login failed. Please try again.");
-     
     }
   }, [isLoaded, emailAddress, password, signIn, setActive, router]);
 
@@ -60,60 +58,63 @@ export default function Page() {
   };
 
   return (
-    <KeyboardAvoidingView>
-    <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/dental-logo.jpg")}
-        style={styles.logo}
-        resizeMode="contain"
-      />
-      <View>
-      {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
-        <TextInput
-          autoCapitalize="none"
-          placeholder="Email"
-          value={emailAddress}
-          onChangeText={setEmailAddress}
-          style={styles.inputField}
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <View style={styles.innerContainer}>
+        <Image
+          source={require("../../assets/images/dental-logo.jpg")}
+          style={styles.logo}
+          resizeMode="contain"
         />
-        <View style={styles.passwordContainer}>
+        <View>
+          {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
           <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={!isPasswordVisible}
-            style={styles.passwordInput}
+            autoCapitalize="none"
+            placeholder="Email"
+            value={emailAddress}
+            onChangeText={setEmailAddress}
+            style={styles.inputField}
           />
-          <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eyeBtn}>
-            <Ionicons
-              name={isPasswordVisible ? "eye-off" : "eye"}
-              size={24}
-              color={Colors.BLACK}
+          <View style={styles.passwordContainer}>
+            <TextInput
+              placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={!isPasswordVisible}
+              style={styles.passwordInput}
             />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eyeBtn}>
+              <Ionicons
+                name={isPasswordVisible ? "eye-off" : "eye"}
+                size={24}
+                color={Colors.BLACK}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
-
+        <PrimaryButton onPress={onSignInPress} title="Login" />
+        <View style={styles.pressableContainer}>
+          <Link href="/reset" asChild>
+            <Pressable style={styles.button}>
+              <Text style={styles.text}>Reset Password</Text>
+            </Pressable>
+          </Link>
+          <Link href="/sign-up" asChild>
+            <Pressable style={styles.button}>
+              <Text style={styles.text}>Sign Up</Text>
+            </Pressable>
+          </Link>
+        </View>
       </View>
-      <PrimaryButton onPress={onSignInPress} title="Login" />
-      <View style={styles.pressableContainer}>
-        <Link href="/reset" asChild>
-          <Pressable style={styles.button}>
-            <Text style={styles.text}>Reset Password</Text>
-          </Pressable>
-        </Link>
-        <Link href="/sign-up" asChild>
-          <Pressable style={styles.button}>
-            <Text style={styles.text}>Sign Up</Text>
-          </Pressable>
-        </Link>
-      </View>
-    </View>
     </KeyboardAvoidingView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  innerContainer: {
     padding: 20,
     marginTop: 100,
     maxWidth: 500,
@@ -177,3 +178,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
+
+export default Page;

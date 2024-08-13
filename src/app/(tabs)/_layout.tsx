@@ -3,9 +3,9 @@ import { Dimensions, StyleSheet } from 'react-native';
 import { Tabs } from 'expo-router';
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 
-// Get screen width
+
 const { width } = Dimensions.get('window');
-const isSmallScreen = width <= 600; // Adjust threshold as needed
+const isSmallScreen = width <= 600; 
 
 export default function TabLayout() {
   return (

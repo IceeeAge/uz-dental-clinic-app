@@ -1,0 +1,8 @@
+schema: 'https://api-ap-northeast-1.hygraph.com/v2/clyry9hcp01vm07w0vu0nq94p/master'
+documents: './src/graphql'
+generates:
+  ./src/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'

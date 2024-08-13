@@ -27,18 +27,35 @@ import { Picker } from "@react-native-picker/picker";
 import PrimaryButton from "@/components/PrimaryButton";
 import { useRouter } from "expo-router";
 import { CREATE_PATIENT_MUTATION } from "@GraphQL/mutation";
-import web from "@styles/AppointmentStyle/web"
-import mobile from "@styles/AppointmentStyle/mobile"
 import { Toast } from "react-native-toast-notifications";
 
-const styles = Platform.OS === 'web' ? web : mobile ;
+
+type FormValuesProps = {
+  userEmail: string | undefined;
+  image: string
+  patientName: string
+  contactNumber: string
+  height: string
+  weight: string
+  sex: string
+  occupation: string
+  dateOfBirth: string
+  address: string
+  statusAppointment: string
+  email: string
+  fullName: string
+  user?: string
+  userName: string
+
+}
 
 export default function AppointmentScreen() {
-  const [date, setDate] = useState(null);
-  const [showDatepicker, setShowDatepicker] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState(null);
-  const [gender, setGender] = useState("");
+
+  const [date, setDate] = useState<Date | null>(null);
+  const [showDatepicker, setShowDatepicker] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [image, setImage] = useState<string | null>(null);
+  const [gender, setGender] = useState<string>("");
   const storage = getStorage();
   const { user } = useUser();
   const router = useRouter();
@@ -46,9 +63,9 @@ export default function AppointmentScreen() {
 
   const db = getFirestore(app);
 
-  const handleDateChange = (event, selectedDate) => {
+  const handleDateChange = (event: any, selectedDate: Date | undefined) => {
     setShowDatepicker(false);
-    setDate(selectedDate);
+    setDate(selectedDate || new Date());
   };
 
   const pickImage = async () => {
@@ -63,7 +80,7 @@ export default function AppointmentScreen() {
     }
   };
 
-  const formatDateToMMDDYYYY = (date) => {
+  const formatDateToMMDDYYYY = (date: Date) => {
     if (!date) return "";
     const d = new Date(date);
     const month = String(d.getMonth() + 1).padStart(2, "0");
@@ -72,7 +89,7 @@ export default function AppointmentScreen() {
     return `${month}/${day}/${year}`;
   };
 
-  const onSubmitMethod = async (values, { resetForm }) => {
+  const onSubmitMethod = async (values: FormValuesProps, { resetForm }: { resetForm: () => void }) => {
     if (
       !values.patientName ||
       !values.contactNumber ||
@@ -88,7 +105,6 @@ export default function AppointmentScreen() {
         type: "danger",
         placement: "top",
         duration: 4000,
-        offset: 30,
         animationType: "slide-in",
       });
       return;
@@ -103,8 +119,8 @@ export default function AppointmentScreen() {
       const downloadUrl = await getDownloadURL(storageRef);
 
       values.image = downloadUrl;
-      values.userName = user.fullName;
-      values.userEmail = user.primaryEmailAddress.emailAddress;
+      values.userName = user?.fullName ?? '';
+      values.userEmail = user?.primaryEmailAddress?.emailAddress;
       values.sex = gender;
       values.dateOfBirth = date ? formatDateToMMDDYYYY(date) : "";
       values.address = values.address;
@@ -112,7 +128,7 @@ export default function AppointmentScreen() {
       await createPatient({
         variables: {
           profileImage: downloadUrl,
-          email: user.primaryEmailAddress.emailAddress,
+          email: user?.primaryEmailAddress?.emailAddress,
           fullName: values.patientName,
           contactNumber: values.contactNumber,
           sex: values.sex,
@@ -132,13 +148,12 @@ export default function AppointmentScreen() {
           type: "success",
           placement: "top",
           duration: 4000,
-          placement: "center",
           animationType: "slide-in",
         });
         resetForm();
         router.push("/schedule");
       }
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
       Toast.show(error.message, {
         type: "danger",
@@ -182,8 +197,15 @@ export default function AppointmentScreen() {
             occupation: "",
             dateOfBirth: "",
             address: "",
+            statusAppointment: "",
+            email: "",
+            fullName: "",
+            user: "",
+            userName: "",
+            userEmail: "",
+
           }}
-          onSubmit={(values, { resetForm }) =>
+          onSubmit={(values: FormValuesProps, { resetForm }) =>
             onSubmitMethod(values, { resetForm })
           }
         >
@@ -194,7 +216,7 @@ export default function AppointmentScreen() {
             handleBlur,
             setFieldValue,
           }) => (
-            <View style={styles.InputContainer}>
+            <View style={styles.container}>
               <TextInput
                 placeholder="Patient Name (Last Name, First M)"
                 style={styles.input}
@@ -229,7 +251,7 @@ export default function AppointmentScreen() {
                     selected={date}
                     onChange={date => {
                       setDate(date);
-                      setFieldValue("dateOfBirth", formatDateToMMDDYYYY(date));
+                      setFieldValue("dateOfBirth", formatDateToMMDDYYYY(date || new Date()));
                       setShowDatepicker(false);
                     }}
                     dateFormat="MM/dd/yyyy"
@@ -244,9 +266,9 @@ export default function AppointmentScreen() {
                 <DateTimePicker
                   mode="date"
                   value={date || new Date()}
-                  onChange={(event, selectedDate) => {
+                  onChange={(event: any, selectedDate: Date | undefined) => {
                     handleDateChange(event, selectedDate);
-                    setFieldValue("dateOfBirth", formatDateToMMDDYYYY(selectedDate));
+                    setFieldValue("dateOfBirth", formatDateToMMDDYYYY(selectedDate || new Date()));
                   }}
                 />
               )}
@@ -279,7 +301,7 @@ export default function AppointmentScreen() {
                   onValueChange={(itemValue) => setGender(itemValue)}
                   style={styles.picker}
                 >
-                  <Picker.Item label="Select Gender" value="" style={styles.picker}/>
+                  <Picker.Item label="Select Gender" value="" style={styles.picker} />
                   <Picker.Item label="Male" value="Male" />
                   <Picker.Item label="Female" value="Female" />
                 </Picker>
@@ -294,7 +316,7 @@ export default function AppointmentScreen() {
               <PrimaryButton
                 onPress={handleSubmit}
                 title="Submit"
-                color={Colors.PRIMARY}
+                textStyle={Colors.PRIMARY}
                 disabled={loading}
               />
             </View>
@@ -304,4 +326,97 @@ export default function AppointmentScreen() {
     </KeyboardAvoidingView>
   );
 }
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: Colors.GRAY,
+    marginBottom: 16,
+    textAlign: 'center',
+  },
+  imagePicker: {
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  image: {
+    width: 130,
+    height: 130,
+    borderRadius: 99,
+    borderColor: Colors.PRIMARY,
+    borderWidth: 1,
+  },
+
+  input: {
+    height: 50,
+    borderColor: Colors.WHITE,
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 12,
+    paddingHorizontal: 10,
+    backgroundColor: Colors.WHITE,
+  },
+  datePickerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: Colors.WHITE,
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 12,
+    paddingHorizontal: 10,
+    height: 50,
+    justifyContent: 'space-between',
+    backgroundColor: Colors.WHITE,
+  },
+  dateText: {
+    fontSize: 16,
+    color: Colors.GRAY,
+  },
+  pickerContainer: {
+    borderColor: Colors.WHITE,
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 12,
+    height: 50,
+    overflow: 'hidden',
+    backgroundColor: Colors.WHITE,
+  },
+  picker: {
+    height: 50,
+    borderColor: Colors.WHITE,
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: Colors.WHITE,
+    padding: 5,
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    borderRadius: 5,
+    marginBottom: 16,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  WebCalendarStyle: {
+    position: 'absolute',
+    alignSelf: 'center',
+    marginTop: 50,
+  },
+});
+
 

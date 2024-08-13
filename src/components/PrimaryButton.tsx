@@ -2,12 +2,21 @@ import Colors from "@Utils/Colors";
 import React from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 
-const PrimaryButton = ({ title, onPress, loading = false, containerStyle, textStyle }) => {
+type PrimaryButtonProps = {
+  title: string;
+  onPress: () => void;
+  loading?: boolean;
+  containerStyle?: any;
+  textStyle?: any;
+  disabled?: boolean;
+};
+
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({ title, onPress, loading = false, containerStyle, textStyle }) => {
   return (
-    <TouchableOpacity 
-      onPress={onPress} 
-      style={[styles.button, containerStyle]} 
-      disabled={loading} 
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.button, containerStyle]}
+      disabled={loading}
     >
       <View style={styles.buttonContent}>
         {loading ? (

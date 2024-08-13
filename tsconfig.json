@@ -3,21 +3,30 @@
   "compilerOptions": {
     "baseUrl": ".",
     "strict": true,
-    "jsx": "react", // Ensure JSX is set to "react" for handling JSX syntax
+    "jsx": "react",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"],
-      "@Firebase/*": ["src/Firebase/*"],
-      "@Utils/*": ["src/Utils/*"],
-      "@GraphQL/*": ["src/GraphQL/*"]
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@Firebase/*": [
+        "src/Firebase/*"
+      ],
+      "@Utils/*": [
+        "src/Utils/*"
+      ],
+      "@GraphQL/*": [
+        "src/GraphQL/*"
+      ],
+    
     }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "**/*.jsx", // Add this line to include JSX files
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
+    "**/*.jsx",
     "app/_layout.jsx",
     "app/index.jsx",
     "app/sign-in.jsx",
@@ -34,10 +43,10 @@
     "app/(login)/sign-up.jsx",
     "app/(login)/sign-in-oauth.jsx",
     "app/(tabs)/home.jsx",
-    "src/Utils/Colors.jsx",
-    "src/components/PrimaryButton.jsx",
-    "src/components/SecondaryButton.jsx",
-    "src/app/(auth)/index.jsx",
-    "src/app/(auth)/_layout.jsx"
+    "src/Utils/Colors.ts",
+    "src/components/PrimaryButton.tsx",
+    "src/components/SecondaryButton.tsx",
+    "src/app/(auth)/index.tsx",
+    "src/app/(auth)/_layout.tsx"
   ]
 }

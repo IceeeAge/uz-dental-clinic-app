@@ -1,18 +1,18 @@
 import { SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { Redirect, useRouter } from "expo-router";
-import { Text, View, StyleSheet, Image, Platform } from "react-native";
+import { Text, View, StyleSheet, Image, ActivityIndicator } from "react-native";
 import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
 import Colors from "@Utils/Colors";
 import SignInWithOAuth from "../(login)/sign-in";
+import React from 'react';
 export default function LoginScreenPage() {
-  
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <SignedIn>
-        <Redirect href={"/home"} />
+        <Redirect href="/home" />
       </SignedIn>
       <SignedOut>
         <View style={styles.linkContainer}>
@@ -21,17 +21,13 @@ export default function LoginScreenPage() {
             style={styles.logo}
             resizeMode="contain"
           />
-
           <Text style={styles.welcomeText}>Welcome to UZ Dental Clinic</Text>
           <Text style={styles.subtitle}>
             We’re thrilled to have you here. Get ready for a brighter smile!
           </Text>
           <PrimaryButton title="Log In" onPress={() => router.push("/login")} />
-          <SecondaryButton
-            title="Sign Up"
-            onPress={() => router.push("/sign-up")}
-          />
-          <View>
+          <SecondaryButton title="Sign Up" onPress={() => router.push("/sign-up")} />
+          <View style={styles.oAuthContainer}>
             <SignInWithOAuth />
           </View>
         </View>
@@ -59,7 +55,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     marginBottom: 60,
-    borderRadius: 100,
+    borderRadius: 75, // Adjusted for circular appearance
   },
   welcomeText: {
     fontSize: 24,

@@ -6,18 +6,22 @@ import { GET_SCHEDULE_USER } from '@GraphQL/Query';
 import Colors from '@Utils/Colors';
 import PatientItem from '@/components/Schedule/PatientItem';
 import GetNewschedule from '@/components/Schedule/GetNewschedule';
+import {  GetPatienListQuery, } from 'src/generated/graphql';
+import Loading from '@/components/Loading';
+import Error from '@/components/Error';
+
 
 const Schedule = () => {
   const { user } = useClerk();
 
-  const { loading, error, data } = useQuery(GET_SCHEDULE_USER, { pollInterval: 3000 });
+  const { loading, error, data } = useQuery<GetPatienListQuery>(GET_SCHEDULE_USER, { pollInterval: 3000 });
 
-  if (loading) return <Text style={styles.loadingText}>Loading...</Text>;
-  if (error) return <Text style={styles.errorText}>Error: {error.message}</Text>;
+  if (loading) return <Loading/>;
+  if (error) return <Error message={error.message}/>;
 
   // Filter patients based on the logged-in user's email
-  const filteredPatients = data?.patients?.filter(
-    (patient) => patient.email === user?.primaryEmailAddress.emailAddress
+  const filteredPatients = data?.patients.filter(
+    (patient) => patient.email === user?.primaryEmailAddress?.emailAddress
   ) || [];
 
   return (

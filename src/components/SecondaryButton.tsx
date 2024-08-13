@@ -8,7 +8,17 @@ import {
   StyleSheet,
 } from "react-native";
 
-const SecondaryButton = ({
+
+type SecondaryButtonProps = {
+  title: string;
+  onPress: () => void;
+  isLoading?: boolean;
+  containerStyle?: any;
+  textStyle?: any;
+};
+
+
+const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   title,
   onPress,
   isLoading = false,
@@ -19,11 +29,11 @@ const SecondaryButton = ({
     <TouchableOpacity
       onPress={onPress}
       style={[styles.button, containerStyle]}
-      disabled={isLoading} 
+      disabled={isLoading}
     >
       <View style={styles.buttonContent}>
         {isLoading ? (
-          <ActivityIndicator size="small" color="#000000" /> 
+          <ActivityIndicator size="small" color="#000000" />
         ) : (
           <Text style={[styles.buttonText, textStyle]}>{title}</Text>
         )}

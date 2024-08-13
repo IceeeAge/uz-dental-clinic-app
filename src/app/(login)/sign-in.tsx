@@ -30,15 +30,15 @@ const SignInWithOAuth = () => {
         redirectUrl: Linking.createURL('/'),
       })
 
-      
+
 
       if (createdSessionId) {
-        await setActive({ session: createdSessionId });
+        await setActive!({ session: createdSessionId });
 
       } else {
-        console.warn('No session ID created'); // Debugging
+
       }
-    } catch (err) {
+    } catch (err: any) {
     }
   }, [startOAuthFlow]);
 

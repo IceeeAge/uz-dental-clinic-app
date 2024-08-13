@@ -29,7 +29,7 @@ const PwReset = () => {
       } else {
         Alert.alert('Error', 'Sign-in object is not defined');
       }
-    } catch (err) {
+    } catch (err:any) {
       Alert.alert('Error', err.errors[0]?.message || 'An unknown error occurred');
     }
   };
@@ -51,7 +51,7 @@ const PwReset = () => {
       } else {
         Alert.alert('Error', 'Sign-in object is not defined');
       }
-    } catch (err) {
+    } catch (err:any) {
       Alert.alert('Error', err.errors[0]?.message || 'An unknown error occurred');
     }
   };

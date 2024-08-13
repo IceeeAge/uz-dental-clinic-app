@@ -1,23 +1,25 @@
+import React, { useState } from 'react';
 import { Button, TextInput, View, StyleSheet, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import { useSignUp } from '@clerk/clerk-expo';
-import { useState } from 'react';
 import { Stack } from 'expo-router';
 import Colors from "@Utils/Colors";
 import PrimaryButton from '@/components/PrimaryButton';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Toast } from 'react-native-toast-notifications';
 
-const SignUp = () => {
+
+
+const SignUp: React.FC = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
 
-  const [emailAddress, setEmailAddress] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [pendingVerification, setPendingVerification] = useState(false);
-  const [code, setCode] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [emailAddress, setEmailAddress] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [pendingVerification, setPendingVerification] = useState<boolean>(false);
+  const [code, setCode] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
   // Validate input fields
   const validateInputs = () => {
@@ -33,7 +35,6 @@ const SignUp = () => {
         type: "danger",
         placement: "bottom",
         duration: 4000,
-        offset: 30,
         animationType: "slide-in",
       });
       return;
@@ -50,13 +51,18 @@ const SignUp = () => {
         password,
       });
 
-      // Send verification Email
+      // Send verification email
       await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
 
       // Change the UI to verify the email address
       setPendingVerification(true);
-    } catch (err) {
-      alert(err.errors[0]?.message || 'An error occurred. Please try again.');
+    } catch (err: any) {
+      Toast.show(err.errors[0]?.message || 'An error occurred. Please try again.', {
+        type: "danger",
+        placement: "bottom",
+        duration: 4000,
+        animationType: "slide-in",
+      });
     } finally {
       setLoading(false);
     }
@@ -64,16 +70,13 @@ const SignUp = () => {
 
   // Verify the email address
   const onPressVerify = async () => {
-    if (!isLoaded) {
-      return;
-    }
+    if (!isLoaded) return;
 
     if (!code) {
       Toast.show("Please enter the verification code.", {
         type: "danger",
         placement: "bottom",
         duration: 4000,
-        offset: 30,
         animationType: "slide-in",
       });
       return;
@@ -87,17 +90,21 @@ const SignUp = () => {
       });
 
       await setActive({ session: completeSignUp.createdSessionId });
-    } catch (err) {
-      alert(err.errors[0]?.message || 'Invalid code. Please try again.');
+    } catch (err: any) {
+      Toast.show(err.errors[0]?.message || 'Invalid code. Please try again.', {
+        type: "danger",
+        placement: "bottom",
+        duration: 4000,
+        animationType: "slide-in",
+      });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-
     <View style={styles.container}>
-      <Stack.Screen options={{ headerBackVisible: !pendingVerification}} />
+      <Stack.Screen options={{ headerBackVisible: !pendingVerification }} />
 
       {loading && <ActivityIndicator size="large" color={Colors.PRIMARY} />}
 

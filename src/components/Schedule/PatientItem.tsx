@@ -2,9 +2,13 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import Colors from '../../Utils/Colors';
 import { format } from 'date-fns';
+import { GetPatienListQuery } from 'src/generated/graphql';
 
-const PatientItem = ({ item }) => {
-  console.log("pastient",item);
+
+type PatientItemProps = {
+  item: GetPatienListQuery['patients'][0];
+}
+const PatientItem: React.FC<PatientItemProps> = ({ item }) => {
   const isApproved = item.statusAppointment === 'APPROVED';
   const isPending = item.statusAppointment === 'PENDING';
 
