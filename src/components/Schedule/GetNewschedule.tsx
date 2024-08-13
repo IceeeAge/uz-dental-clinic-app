@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Linking, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Linking,
+  TouchableOpacity,
+} from "react-native";
 import Colors from "@Utils/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useQuery } from "@apollo/client";
@@ -13,13 +20,14 @@ const formatDate = (dateString: string) => {
   const day = date.getDate();
   const month = date.getMonth() + 1; // Months are zero-based
   const year = date.getFullYear();
-  const weekday = date.toLocaleDateString('en-US', { weekday: 'long' });
+  const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
   return `${month}/${day}/${year} ${weekday}`;
 };
 
 const GetNewschedule: React.FC = () => {
   const { user } = useClerk();
-  const { data, loading, error } = useQuery<GetNewScheduleQuery>(GET_NEWSCHEDULE_DATA);
+  const { data, loading, error } =
+    useQuery<GetNewScheduleQuery>(GET_NEWSCHEDULE_DATA);
 
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error: {error.message}</Text>;
@@ -29,8 +37,10 @@ const GetNewschedule: React.FC = () => {
   }
 
   // Filter schedules based on user's email
-  const filteredSchedules = data.newSchedules.filter(schedule =>
-    schedule.patients.some(patient => patient.email === user?.primaryEmailAddress?.emailAddress)
+  const filteredSchedules = data.newSchedules.filter((schedule) =>
+    schedule.patients.some(
+      (patient) => patient.email === user?.primaryEmailAddress?.emailAddress
+    )
   );
 
   const handleCall = (contactNumber?: string) => {
@@ -82,32 +92,38 @@ const GetNewschedule: React.FC = () => {
                       {
                         backgroundColor:
                           item.scheduleStatus === "APPROVED" ||
-                            item.scheduleStatus === "NEW SCHEDULE"
+                          item.scheduleStatus === "NEW SCHEDULE"
                             ? Colors.GREEN
                             : item.scheduleStatus === "PENDING"
-                              ? Colors.YELLOW
-                              : Colors.GRAY,
+                            ? Colors.YELLOW
+                            : Colors.GRAY,
                       },
                     ]}
                   >
-                    <Text style={styles.statusText}>
-                      {item.scheduleStatus}
-                    </Text>
+                    <Text style={styles.statusText}>{item.scheduleStatus}</Text>
                   </View>
                 </View>
                 <View style={styles.infoContainer}>
-                  <Text style={styles.itemText}>Full Name: {schedule.fullName}</Text>
+                  <Text style={styles.itemText}>
+                    Full Name: {schedule.fullName}
+                  </Text>
                   <Text style={styles.itemText}>Room: {item.room}</Text>
-                  <Text style={styles.itemText}>Schedule Date: {formatDate(item.scheduleDate)}</Text>
+                  <Text style={styles.itemText}>
+                    Schedule Date: {formatDate(item.scheduleDate)}
+                  </Text>
                   <Text style={styles.itemText}>Time: {item.time}</Text>
                 </View>
                 <View style={styles.iconContainer}>
                   {item.contactNumber && (
                     <>
-                      <TouchableOpacity onPress={() => handleCall(item.contactNumber ?? "")}>
+                      <TouchableOpacity
+                        onPress={() => handleCall(item.contactNumber ?? "")}
+                      >
                         <Ionicons name="call" size={30} color="black" />
                       </TouchableOpacity>
-                      <TouchableOpacity onPress={() => handleMessage(item.contactNumber ?? "")}>
+                      <TouchableOpacity
+                        onPress={() => handleMessage(item.contactNumber ?? "")}
+                      >
                         <Ionicons name="chatbubble" size={30} color="black" />
                       </TouchableOpacity>
                     </>
@@ -115,14 +131,20 @@ const GetNewschedule: React.FC = () => {
                   {item.location && (
                     <TouchableOpacity
                       onPress={() =>
-                        item.location && handleLocation(item.location.latitude, item.location.longitude)
+                        item.location &&
+                        handleLocation(
+                          item.location.latitude,
+                          item.location.longitude
+                        )
                       }
                     >
                       <Ionicons name="location" size={30} color="black" />
                     </TouchableOpacity>
                   )}
                   {schedule.email && (
-                    <TouchableOpacity onPress={() => handleEmail(schedule.email)}>
+                    <TouchableOpacity
+                      onPress={() => handleEmail(schedule.email)}
+                    >
                       <Ionicons name="mail" size={30} color="black" />
                     </TouchableOpacity>
                   )}
@@ -138,10 +160,10 @@ const GetNewschedule: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     maxWidth: 600,
-    alignSelf: 'center',
-    width: '100%',
+    alignSelf: "center",
+    width: "100%",
+    marginBottom: 10,
   },
   TextwhoApproved: {
     fontSize: 16,
@@ -151,7 +173,6 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginBottom: 10,
     borderWidth: 1,
-    paddingBottom: 10,
     padding: 13,
     borderColor: Colors.GRAY,
     backgroundColor: Colors.WHITE,
