@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import Colors from '../../Utils/Colors';
+import Colors from '../../constants/Colors';
 import { format } from 'date-fns';
 import { GetPatienListQuery } from 'src/generated/graphql';
 

@@ -13,7 +13,7 @@ import {
 import React, { useState, useCallback } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PrimaryButton from "@/components/PrimaryButton";
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import { Toast } from "react-native-toast-notifications";
 
 const Page: React.FC = () => {

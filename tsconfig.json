@@ -20,7 +20,12 @@
       "@GraphQL/*": [
         "src/GraphQL/*"
       ],
-    
+      "@generated/*": [
+        "src/generated/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ]
     }
   },
   "include": [
@@ -43,7 +48,7 @@
     "app/(login)/sign-up.jsx",
     "app/(login)/sign-in-oauth.jsx",
     "app/(tabs)/home.jsx",
-    "src/Utils/Colors.ts",
+    "src/constants/Colors.ts",
     "src/components/PrimaryButton.tsx",
     "src/components/SecondaryButton.tsx",
     "src/app/(auth)/index.tsx",

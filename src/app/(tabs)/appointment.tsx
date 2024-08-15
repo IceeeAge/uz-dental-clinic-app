@@ -20,7 +20,7 @@ import { useUser } from "@clerk/clerk-expo";
 import { useMutation } from "@apollo/client";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { MaterialIcons } from "@expo/vector-icons";
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import { Picker } from "@react-native-picker/picker";
 import PrimaryButton from "@/components/PrimaryButton";
 import { useRouter } from "expo-router";
@@ -330,9 +330,9 @@ export default function AppointmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.WHITE,
     maxWidth: 600,
     width: "100%",
+    alignSelf: "center",
   },
   scrollView: {
     flex: 1,

@@ -4,7 +4,7 @@ import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 import { Slot, SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import { ToastProvider } from "react-native-toast-notifications";
 import Constants from "expo-constants";
 import { tokenCache } from "@Utils/cache";

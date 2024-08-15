@@ -1,10 +1,12 @@
-import { View, Text, FlatList, Image, StyleSheet } from "react-native";
+import { View, FlatList, Image, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_SLIDER_DATA } from "@GraphQL/Query";
-import { GetSliderQuery } from "src/generated/graphql";
+import { GetSliderQuery } from "@generated/graphql";
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
+
+const { width, height } = Dimensions.get("window"); // Get screen width and height
 
 export default function Slider() {
   const { loading, error, data } = useQuery<GetSliderQuery>(GET_SLIDER_DATA);
@@ -24,7 +26,7 @@ export default function Slider() {
             <Image source={{ uri: item?.image?.url }} style={styles.imageSlider} />
           </View>
         )}
-        keyExtractor={(item) => item.id.toString()} 
+        keyExtractor={(item) => item?.id}
       />
     </View>
   );
@@ -32,20 +34,22 @@ export default function Slider() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 1,
+    width: '100%',
+    alignSelf: 'center',
+    paddingVertical: 10, 
   },
   listContainer: {
-    alignItems: 'center', 
+    paddingHorizontal: 10, 
   },
   imageContainer: {
-    marginHorizontal: 5,
-    
+    marginHorizontal: 5, 
+    borderRadius: 5,
+    overflow: 'hidden',
   },
   imageSlider: {
-    height: 150,
-    width: 300, 
-    resizeMode: "cover",
-    borderRadius: 5,
-
+    height: height * 0.2, 
+    width: width * 0.7,  
+    resizeMode: "cover", 
+    aspectRatio: 16 / 9, 
   },
 });

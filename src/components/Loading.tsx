@@ -1,11 +1,11 @@
-import colors from '@Utils/Colors';
+import Colors from "@constants/Colors";
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 const Loading: React.FC = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color={colors.PRIMARY} />
+      <ActivityIndicator size="large" color={Colors.PRIMARY} />
     </View>
   );
 };

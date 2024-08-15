@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
-import colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import { useClerk } from "@clerk/clerk-expo";
 
 export default function Header() {
@@ -20,7 +20,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.PRIMARY,
+    backgroundColor:Colors.PRIMARY,
     height: 90,
     justifyContent: "center",
     alignItems: "center",
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   WelcomeText: {
-    color: colors.WHITE,
+    color: Colors.WHITE,
     fontSize: 16,
     fontFamily: "outfit-bold",
   },
   FullNameText: {
-    color: colors.WHITE,
+    color: Colors.WHITE,
     fontSize: 16,
     fontFamily: "outfit",
   },

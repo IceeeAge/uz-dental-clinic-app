@@ -3,7 +3,7 @@ import { Redirect, useRouter } from "expo-router";
 import { Text, View, StyleSheet, Image, ActivityIndicator } from "react-native";
 import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import SignInWithOAuth from "../(login)/sign-in";
 import React from 'react';
 export default function LoginScreenPage() {

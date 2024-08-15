@@ -3,5 +3,5 @@ import React from 'react'
 import { Redirect } from 'expo-router'
 
 export default function RedirectSlot() {
-  return <Redirect href={'(auth)'} />
+  return <Redirect href={'/(auth)'} />
 }

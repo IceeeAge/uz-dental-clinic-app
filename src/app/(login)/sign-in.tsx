@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, Image, StyleSheet, Platform } from "react
 import * as WebBrowser from "expo-web-browser";
 import { useOAuth } from "@clerk/clerk-expo";
 import * as Linking from "expo-linking";
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 
 export const useWarmUpBrowser = () => {
   React.useEffect(() => {

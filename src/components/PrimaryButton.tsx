@@ -1,4 +1,4 @@
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import React from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 

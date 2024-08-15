@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextInput, View, StyleSheet, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import { useSignUp } from '@clerk/clerk-expo';
 import { Stack } from 'expo-router';
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import PrimaryButton from '@/components/PrimaryButton';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Toast } from 'react-native-toast-notifications';

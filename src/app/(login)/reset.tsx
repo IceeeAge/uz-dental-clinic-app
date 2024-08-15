@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Alert, TouchableOpacity } from 'react-native';
 import { Stack } from 'expo-router';
 import { useSignIn } from '@clerk/clerk-expo';
-import Colors from '@Utils/Colors';
+import Colors from "@constants/Colors";
 import PrimaryButton from '@/components/PrimaryButton';
 import { Ionicons } from '@expo/vector-icons'; // Ensure you have @expo/vector-icons installed
 

@@ -7160,7 +7160,10 @@ export type GetNewScheduleQuery = { __typename?: 'Query', newSchedules: Array<{ 
 export type GetSliderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetSliderQuery = { __typename?: 'Query', getSliders: Array<{ __typename?: 'GetSlider', id: string, name?: string | null, image?: { __typename?: 'Asset', url: string } | null }> };
+export type GetSliderQuery = {
+  image: any;
+  id: any; __typename?: 'Query', getSliders: Array<{ __typename?: 'GetSlider', id: string, name?: string | null, image?: { __typename?: 'Asset', url: string } | null }> 
+};
 
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useQuery } from '@apollo/client';
 import { useClerk } from '@clerk/clerk-expo';
 import { GET_SCHEDULE_USER } from '@GraphQL/Query';
-import Colors from '@Utils/Colors';
+import Colors from "@constants/Colors";
 import PatientItem from '@/components/Schedule/PatientItem';
 import GetNewschedule from '@/components/Schedule/GetNewschedule';
 import {  GetPatienListQuery, } from 'src/generated/graphql';

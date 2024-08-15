@@ -7,7 +7,7 @@ import {
   Linking,
   TouchableOpacity,
 } from "react-native";
-import Colors from "@Utils/Colors";
+import Colors from "@constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useQuery } from "@apollo/client";
 import { GET_NEWSCHEDULE_DATA } from "@GraphQL/Query";
