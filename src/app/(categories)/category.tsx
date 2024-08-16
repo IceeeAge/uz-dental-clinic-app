@@ -9,12 +9,12 @@ import IconSize from "@constants/IconSize";
 
 
 
-export default function Categories() {
+export default function CategoriesList() {
   const router = useRouter();
 
   // Handle navigation based on icon pressed
   const handleIconPress = (route: Href<string | object>) => {
-    router.push(route);
+    router.push(route)
   };
 
   return (

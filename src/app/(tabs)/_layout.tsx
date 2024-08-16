@@ -44,6 +44,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="location-arrow" size={size} color={color} />
           ),
+          headerTitleAlign: 'center',
         }}
       />
       <Tabs.Screen
@@ -53,6 +54,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="calendar" size={size} color={color} />
           ),
+          headerTitleAlign: 'center',
         }}
       />
       <Tabs.Screen

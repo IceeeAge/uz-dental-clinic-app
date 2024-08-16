@@ -62,3 +62,17 @@ export const GET_SLIDER_DATA = gql`
     }
   }
 `;
+
+export const GET_MEDICAL_TEAM_DATA = gql`
+query getMedicalTeam {
+  medicalTeams {
+    id
+    aboutDoctor
+    profileImage {
+      url
+      id
+    }
+    fullName
+  }
+}
+`;

@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function clinicians() {
+export default function newsfeed() {
   return (
     <View>
-      <Text>clinicians</Text>
+      <Text>newsfesed</Text>
     </View>
   )
 }

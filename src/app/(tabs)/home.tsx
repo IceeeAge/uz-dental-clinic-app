@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import Header from "@/components/Header";
 import Slider from "@/components/Slider";
-import Categories from "@/components/Categories";
+import CategoriesList from "@app/(categories)/category";
 
 export default function home() {
   return (
@@ -12,8 +12,9 @@ export default function home() {
         <Slider />
       </View>
       <View style={styles.containerCategory}>
-        <Categories />
+      <CategoriesList/>
       </View>
+   
     </View>
   );
 }
