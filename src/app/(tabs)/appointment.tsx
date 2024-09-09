@@ -94,7 +94,6 @@ export default function AppointmentScreen() {
     if (
       !values.patientName ||
       !values.contactNumber ||
-      !values.dateOfBirth ||
       !values.address ||
       !values.height ||
       !values.weight ||
@@ -104,7 +103,7 @@ export default function AppointmentScreen() {
     ) {
       Toast.show("Please fill in all the required fields", {
         type: "danger",
-        placement: "top",
+        placement: "bottom",
         duration: 4000,
         animationType: "slide-in",
       });
@@ -134,6 +133,7 @@ export default function AppointmentScreen() {
           contactNumber: values.contactNumber,
           sex: values.sex,
           statusAppointment: "PENDING",
+          statusAppointmentS: "PENDING",
           dateOfBirth: values.dateOfBirth,
           address: values.address,
           height: values.height,

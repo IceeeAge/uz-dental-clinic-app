@@ -14,7 +14,7 @@ export const GET_SCHEDULE_USER = gql`
         url
       }
       sex
-      statusAppointment
+        statusAppointmentS
       height
       dateOfBirth
       weight
@@ -63,36 +63,54 @@ export const GET_SLIDER_DATA = gql`
 `;
 
 export const GET_MEDICAL_TEAM_DATA = gql`
-query getMedicalTeam {
-  medicalTeams {
-    id
-    title
-    aboutDoctor
-    profileImage {
-      url
+  query getMedicalTeam {
+    medicalTeams {
       id
+      title
+      aboutDoctor
+      profileImage {
+        url
+        id
+      }
+      fullName
+      experience
+      email
+      location {
+        latitude
+        longitude
+      }
+      phoneNumber
     }
-    fullName
-    experience
-    email
-    location {
-      latitude
-      longitude
-    }
-    phoneNumber
   }
-}
-
 `;
 
 export const GET_TIPSGUIDE_DATA = gql`
-query GET_TIPSGUIDE_DATA {
-  tipsGuides {
-    id
-    image {
-      url
+  query GET_TIPSGUIDE_DATA {
+    tipsGuides {
+      id
+      image {
+        url
+      }
+      description
     }
-    description
   }
-}
-`
+`;
+export const GET_UZLABS_DATA = gql`
+  query GETUZLABS_DATA {
+    uzLabs {
+      address
+      email
+      id
+      images {
+        url
+        id
+      }
+      location {
+        latitude
+        longitude
+      }
+      name
+      phone
+    }
+  }
+`;

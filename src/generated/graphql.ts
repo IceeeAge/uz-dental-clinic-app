@@ -52,13 +52,13 @@ export type Asset = Entity & Node & {
   imageGetSlider: Array<GetSlider>;
   imageTipsGuide: Array<TipsGuide>;
   imagesNewsFeed: Array<NewsFeed>;
+  imagesUzLab: Array<UzLab>;
   /** System Locale field */
   locale: Locale;
   /** Get the other localizations for this document */
   localizations: Array<Asset>;
   /** The mime type of the file */
   mimeType?: Maybe<Scalars['String']['output']>;
-  phoneNumberUzLab: Array<UzLab>;
   profileImageMedicalTeam: Array<MedicalTeam>;
   profileImagePatient: Array<Patient>;
   /** The time the document was published. Null on documents in draft stage. */
@@ -155,14 +155,7 @@ export type AssetImagesNewsFeedArgs = {
 
 
 /** Asset system model */
-export type AssetLocalizationsArgs = {
-  includeCurrent?: Scalars['Boolean']['input'];
-  locales?: Array<Locale>;
-};
-
-
-/** Asset system model */
-export type AssetPhoneNumberUzLabArgs = {
+export type AssetImagesUzLabArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
@@ -172,6 +165,13 @@ export type AssetPhoneNumberUzLabArgs = {
   orderBy?: InputMaybe<UzLabOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<UzLabWhereInput>;
+};
+
+
+/** Asset system model */
+export type AssetLocalizationsArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  locales?: Array<Locale>;
 };
 
 
@@ -270,9 +270,9 @@ export type AssetCreateInput = {
   imageGetSlider?: InputMaybe<GetSliderCreateManyInlineInput>;
   imageTipsGuide?: InputMaybe<TipsGuideCreateManyInlineInput>;
   imagesNewsFeed?: InputMaybe<NewsFeedCreateManyInlineInput>;
+  imagesUzLab?: InputMaybe<UzLabCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>;
-  phoneNumberUzLab?: InputMaybe<UzLabCreateManyInlineInput>;
   profileImageMedicalTeam?: InputMaybe<MedicalTeamCreateManyInlineInput>;
   profileImagePatient?: InputMaybe<PatientCreateManyInlineInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -379,9 +379,9 @@ export type AssetManyWhereInput = {
   imagesNewsFeed_every?: InputMaybe<NewsFeedWhereInput>;
   imagesNewsFeed_none?: InputMaybe<NewsFeedWhereInput>;
   imagesNewsFeed_some?: InputMaybe<NewsFeedWhereInput>;
-  phoneNumberUzLab_every?: InputMaybe<UzLabWhereInput>;
-  phoneNumberUzLab_none?: InputMaybe<UzLabWhereInput>;
-  phoneNumberUzLab_some?: InputMaybe<UzLabWhereInput>;
+  imagesUzLab_every?: InputMaybe<UzLabWhereInput>;
+  imagesUzLab_none?: InputMaybe<UzLabWhereInput>;
+  imagesUzLab_some?: InputMaybe<UzLabWhereInput>;
   profileImageMedicalTeam_every?: InputMaybe<MedicalTeamWhereInput>;
   profileImageMedicalTeam_none?: InputMaybe<MedicalTeamWhereInput>;
   profileImageMedicalTeam_some?: InputMaybe<MedicalTeamWhereInput>;
@@ -473,9 +473,9 @@ export type AssetUpdateInput = {
   imageGetSlider?: InputMaybe<GetSliderUpdateManyInlineInput>;
   imageTipsGuide?: InputMaybe<TipsGuideUpdateManyInlineInput>;
   imagesNewsFeed?: InputMaybe<NewsFeedUpdateManyInlineInput>;
+  imagesUzLab?: InputMaybe<UzLabUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>;
-  phoneNumberUzLab?: InputMaybe<UzLabUpdateManyInlineInput>;
   profileImageMedicalTeam?: InputMaybe<MedicalTeamUpdateManyInlineInput>;
   profileImagePatient?: InputMaybe<PatientUpdateManyInlineInput>;
   /** Use this to define if its a reupload for the asset */
@@ -807,6 +807,9 @@ export type AssetWhereInput = {
   imagesNewsFeed_every?: InputMaybe<NewsFeedWhereInput>;
   imagesNewsFeed_none?: InputMaybe<NewsFeedWhereInput>;
   imagesNewsFeed_some?: InputMaybe<NewsFeedWhereInput>;
+  imagesUzLab_every?: InputMaybe<UzLabWhereInput>;
+  imagesUzLab_none?: InputMaybe<UzLabWhereInput>;
+  imagesUzLab_some?: InputMaybe<UzLabWhereInput>;
   mimeType?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   mimeType_contains?: InputMaybe<Scalars['String']['input']>;
@@ -826,9 +829,6 @@ export type AssetWhereInput = {
   mimeType_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   mimeType_starts_with?: InputMaybe<Scalars['String']['input']>;
-  phoneNumberUzLab_every?: InputMaybe<UzLabWhereInput>;
-  phoneNumberUzLab_none?: InputMaybe<UzLabWhereInput>;
-  phoneNumberUzLab_some?: InputMaybe<UzLabWhereInput>;
   profileImageMedicalTeam_every?: InputMaybe<MedicalTeamWhereInput>;
   profileImageMedicalTeam_none?: InputMaybe<MedicalTeamWhereInput>;
   profileImageMedicalTeam_some?: InputMaybe<MedicalTeamWhereInput>;
@@ -4835,6 +4835,7 @@ export type Patient = Entity & Node & {
   /** System stage field */
   stage: Stage;
   statusAppointment?: Maybe<Scalars['String']['output']>;
+  statusAppointmentS?: Maybe<StausAppointment>;
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
@@ -4936,6 +4937,7 @@ export type PatientCreateInput = {
   profileImage?: InputMaybe<AssetCreateOneInlineInput>;
   sex?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
+  statusAppointmentS?: InputMaybe<StausAppointment>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
@@ -5187,6 +5189,13 @@ export type PatientManyWhereInput = {
   /** All values starting with the given string. */
   sex_starts_with?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
+  statusAppointmentS?: InputMaybe<StausAppointment>;
+  /** All values that are contained in given list. */
+  statusAppointmentS_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  statusAppointmentS_not?: InputMaybe<StausAppointment>;
+  /** All values that are not contained in given list. */
+  statusAppointmentS_not_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
   /** All values containing the given string. */
   statusAppointment_contains?: InputMaybe<Scalars['String']['input']>;
   /** All values ending with the given string. */
@@ -5265,6 +5274,8 @@ export enum PatientOrderByInput {
   PublishedAtDesc = 'publishedAt_DESC',
   SexAsc = 'sex_ASC',
   SexDesc = 'sex_DESC',
+  StatusAppointmentSAsc = 'statusAppointmentS_ASC',
+  StatusAppointmentSDesc = 'statusAppointmentS_DESC',
   StatusAppointmentAsc = 'statusAppointment_ASC',
   StatusAppointmentDesc = 'statusAppointment_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -5285,6 +5296,7 @@ export type PatientUpdateInput = {
   profileImage?: InputMaybe<AssetUpdateOneInlineInput>;
   sex?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
+  statusAppointmentS?: InputMaybe<StausAppointment>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5315,6 +5327,7 @@ export type PatientUpdateManyInput = {
   occupation?: InputMaybe<Scalars['String']['input']>;
   sex?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
+  statusAppointmentS?: InputMaybe<StausAppointment>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5591,6 +5604,13 @@ export type PatientWhereInput = {
   /** All values starting with the given string. */
   sex_starts_with?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
+  statusAppointmentS?: InputMaybe<StausAppointment>;
+  /** All values that are contained in given list. */
+  statusAppointmentS_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  statusAppointmentS_not?: InputMaybe<StausAppointment>;
+  /** All values that are not contained in given list. */
+  statusAppointmentS_not_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
   /** All values containing the given string. */
   statusAppointment_contains?: InputMaybe<Scalars['String']['input']>;
   /** All values ending with the given string. */
@@ -7237,8 +7257,8 @@ export enum Stage {
 }
 
 export enum StausAppointment {
-  Approved = 'Approved',
-  Pending = 'Pending'
+  Approved = 'APPROVED',
+  Pending = 'PENDING'
 }
 
 export enum SystemDateTimeFieldVariation {
@@ -8105,18 +8125,22 @@ export type UserWhereUniqueInput = {
 
 export type UzLab = Entity & Node & {
   __typename?: 'UzLab';
+  address?: Maybe<Scalars['String']['output']>;
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** Get the document in other stages */
   documentInStages: Array<UzLab>;
+  email?: Maybe<Scalars['String']['output']>;
   /** List of UzLab versions */
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
+  images: Array<Asset>;
   location?: Maybe<Location>;
-  phoneNumber?: Maybe<Asset>;
+  name?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   /** User that last published this document */
@@ -8151,10 +8175,16 @@ export type UzLabHistoryArgs = {
 };
 
 
-export type UzLabPhoneNumberArgs = {
+export type UzLabImagesArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
   locales?: InputMaybe<Array<Locale>>;
-  where?: InputMaybe<AssetSingleRelationWhereInput>;
+  orderBy?: InputMaybe<AssetOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<AssetWhereInput>;
 };
 
 
@@ -8199,9 +8229,13 @@ export type UzLabConnection = {
 };
 
 export type UzLabCreateInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<AssetCreateManyInlineInput>;
   location?: InputMaybe<LocationInput>;
-  phoneNumber?: InputMaybe<AssetCreateOneInlineInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -8238,6 +8272,25 @@ export type UzLabManyWhereInput = {
   OR?: InputMaybe<Array<UzLabWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  address_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  address_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  address_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  address_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  address_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  address_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  address_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  address_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  address_starts_with?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -8257,6 +8310,25 @@ export type UzLabManyWhereInput = {
   documentInStages_every?: InputMaybe<UzLabWhereStageInput>;
   documentInStages_none?: InputMaybe<UzLabWhereStageInput>;
   documentInStages_some?: InputMaybe<UzLabWhereStageInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  email_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  email_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  email_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  email_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  email_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  email_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  email_starts_with?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -8276,7 +8348,47 @@ export type UzLabManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  phoneNumber?: InputMaybe<AssetWhereInput>;
+  images_every?: InputMaybe<AssetWhereInput>;
+  images_none?: InputMaybe<AssetWhereInput>;
+  images_some?: InputMaybe<AssetWhereInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  name_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  name_starts_with?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  phone_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  phone_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  phone_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  phone_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  phone_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  phone_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  phone_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  phone_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  phone_starts_with?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -8315,10 +8427,18 @@ export type UzLabManyWhereInput = {
 };
 
 export enum UzLabOrderByInput {
+  AddressAsc = 'address_ASC',
+  AddressDesc = 'address_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
+  EmailAsc = 'email_ASC',
+  EmailDesc = 'email_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PhoneAsc = 'phone_ASC',
+  PhoneDesc = 'phone_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -8326,8 +8446,12 @@ export enum UzLabOrderByInput {
 }
 
 export type UzLabUpdateInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<AssetUpdateManyInlineInput>;
   location?: InputMaybe<LocationInput>;
-  phoneNumber?: InputMaybe<AssetUpdateOneInlineInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UzLabUpdateManyInlineInput = {
@@ -8348,7 +8472,11 @@ export type UzLabUpdateManyInlineInput = {
 };
 
 export type UzLabUpdateManyInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<LocationInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UzLabUpdateManyWithNestedWhereInput = {
@@ -8410,6 +8538,25 @@ export type UzLabWhereInput = {
   OR?: InputMaybe<Array<UzLabWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  address_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  address_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  address_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  address_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  address_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  address_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  address_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  address_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  address_starts_with?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -8429,6 +8576,25 @@ export type UzLabWhereInput = {
   documentInStages_every?: InputMaybe<UzLabWhereStageInput>;
   documentInStages_none?: InputMaybe<UzLabWhereStageInput>;
   documentInStages_some?: InputMaybe<UzLabWhereStageInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  email_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  email_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  email_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  email_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  email_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  email_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  email_starts_with?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -8448,7 +8614,47 @@ export type UzLabWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  phoneNumber?: InputMaybe<AssetWhereInput>;
+  images_every?: InputMaybe<AssetWhereInput>;
+  images_none?: InputMaybe<AssetWhereInput>;
+  images_some?: InputMaybe<AssetWhereInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  name_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  name_starts_with?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  phone_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  phone_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  phone_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  phone_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  phone_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  phone_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  phone_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  phone_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  phone_starts_with?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -8608,7 +8814,7 @@ export enum _SystemDateTimeFieldVariation {
 export type GetPatienListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, contactNumber?: string | null, fullName?: string | null, email?: string | null, id: string, occupation?: string | null, sex?: string | null, statusAppointment?: string | null, height?: string | null, dateOfBirth?: string | null, weight?: string | null, createdAt: any, profileImage?: { __typename?: 'Asset', url: string } | null }> };
+export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, contactNumber?: string | null, fullName?: string | null, email?: string | null, id: string, occupation?: string | null, sex?: string | null, statusAppointment?: string | null, statusAppointmentS?: StausAppointment | null, height?: string | null, dateOfBirth?: string | null, weight?: string | null, createdAt: any, profileImage?: { __typename?: 'Asset', url: string } | null }> };
 
 export type GetNewScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8629,6 +8835,11 @@ export type Get_Tipsguide_DataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Get_Tipsguide_DataQuery = { __typename?: 'Query', tipsGuides: Array<{ __typename?: 'TipsGuide', id: string, description?: string | null, image: Array<{ __typename?: 'Asset', url: string }> }> };
+
+export type Getuzlabs_DataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Getuzlabs_DataQuery = { __typename?: 'Query', uzLabs: Array<{ __typename?: 'UzLab', address?: string | null, email?: string | null, id: string, name?: string | null, phone?: string | null, images: Array<{ __typename?: 'Asset', url: string, id: string }>, location?: { __typename?: 'Location', latitude: number, longitude: number } | null }> };
 
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
@@ -8662,6 +8873,7 @@ export const GetPatienListDocument = gql`
     }
     sex
     statusAppointment
+    statusAppointmentS
     height
     dateOfBirth
     weight
@@ -8899,6 +9111,57 @@ export type Get_Tipsguide_DataQueryHookResult = ReturnType<typeof useGet_Tipsgui
 export type Get_Tipsguide_DataLazyQueryHookResult = ReturnType<typeof useGet_Tipsguide_DataLazyQuery>;
 export type Get_Tipsguide_DataSuspenseQueryHookResult = ReturnType<typeof useGet_Tipsguide_DataSuspenseQuery>;
 export type Get_Tipsguide_DataQueryResult = Apollo.QueryResult<Get_Tipsguide_DataQuery, Get_Tipsguide_DataQueryVariables>;
+export const Getuzlabs_DataDocument = gql`
+    query GETUZLABS_DATA {
+  uzLabs {
+    address
+    email
+    id
+    images {
+      url
+      id
+    }
+    location {
+      latitude
+      longitude
+    }
+    name
+    phone
+  }
+}
+    `;
+
+/**
+ * __useGetuzlabs_DataQuery__
+ *
+ * To run a query within a React component, call `useGetuzlabs_DataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetuzlabs_DataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetuzlabs_DataQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetuzlabs_DataQuery(baseOptions?: Apollo.QueryHookOptions<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>(Getuzlabs_DataDocument, options);
+      }
+export function useGetuzlabs_DataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>(Getuzlabs_DataDocument, options);
+        }
+export function useGetuzlabs_DataSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>(Getuzlabs_DataDocument, options);
+        }
+export type Getuzlabs_DataQueryHookResult = ReturnType<typeof useGetuzlabs_DataQuery>;
+export type Getuzlabs_DataLazyQueryHookResult = ReturnType<typeof useGetuzlabs_DataLazyQuery>;
+export type Getuzlabs_DataSuspenseQueryHookResult = ReturnType<typeof useGetuzlabs_DataSuspenseQuery>;
+export type Getuzlabs_DataQueryResult = Apollo.QueryResult<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>;
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $statusAppointment: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String) {
   createPatient(

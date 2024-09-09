@@ -28,6 +28,7 @@ export const CREATE_PATIENT_MUTATION = gql`
         height: $height
         occupation: $occupation
         weight: $weight
+        statusAppointmentS: PENDING
       }
     ) {
       id
@@ -37,4 +38,3 @@ export const CREATE_PATIENT_MUTATION = gql`
     }
   }
 `;
-
