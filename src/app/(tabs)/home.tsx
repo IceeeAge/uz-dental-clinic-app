@@ -3,8 +3,13 @@ import React from "react";
 import Header from "@/components/Header";
 import Slider from "@/components/Slider";
 import CategoriesList from "@app/(categories)/category";
+import ClinicianItems from "@/components/CategoryDetails/ClinicianItems";
+import Colors from "@/constants/Colors";
+import FontSize from "@/constants/FontsSize";
 
 export default function home() {
+  const isHorizontal = true;
+
   return (
     <View style={styles.container}>
       <Header />
@@ -12,22 +17,38 @@ export default function home() {
         <Slider />
       </View>
       <View style={styles.containerCategory}>
-      <CategoriesList/>
+        <CategoriesList />
       </View>
-   
+      <View style={styles.containerClinicians}>
+        {/* Pass isHorizontal to switch between vertical and horizontal */}
+        <Text style={styles.title}>Clinicians List</Text>
+        <ClinicianItems isHorizontal={isHorizontal} />
+      </View>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    maxWidth: 600,
   },
   containerSlider: {
-    padding: 10,
-    maxWidth: 600,
+   
     alignSelf: "center",
   },
-  containerCategory:{
-    padding: 10,
+  containerCategory: {
+  marginTop: 30,
+  },
+  containerClinicians: {
+    flex: 1, 
+   
+  },
+  title:{
+    fontSize: FontSize.xl,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 10,
+    color: Colors.PRIMARY
   }
 });

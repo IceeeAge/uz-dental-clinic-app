@@ -14,7 +14,7 @@ import Colors from "@constants/Colors";
 import FontSize from "@constants/FontsSize";
 import { useRouter } from "expo-router";
 
-export default function ClinicianItems() {
+export default function ClinicianItems({ isHorizontal = false }) {
   const router = useRouter();
   const { data, loading, error } = useQuery<GetMedicalTeamQuery>(
     GET_MEDICAL_TEAM_DATA
@@ -26,7 +26,7 @@ export default function ClinicianItems() {
   const handlePress = (medicalTeams: GetMedicalTeamQuery["medicalTeams"][0]) => {
     router.push({
       pathname: "(categories)/details/clinicians-details",
-      params: { 
+      params: {
         medical: JSON.stringify(medicalTeams),
       },
     });
@@ -52,6 +52,13 @@ export default function ClinicianItems() {
             </View>
           </TouchableOpacity>
         )}
+        horizontal={isHorizontal} // Toggle between horizontal and vertical
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={[
+          styles.listContent,
+          isHorizontal && { paddingHorizontal: 10 }, // Add padding if horizontal
+        ]}
       />
     </View>
   );
@@ -72,6 +79,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.GRAY,
     borderWidth: 1,
     gap: 5,
+    marginRight: 10, // Add margin only if horizontal
   },
   image: {
     width: 80,
@@ -92,5 +100,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: FontSize.md,
     color: Colors.BLACK,
+  },
+  listContent: {
+    paddingBottom: 10,
   },
 });

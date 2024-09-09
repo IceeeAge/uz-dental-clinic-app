@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
      alignSelf: "center",
-
     padding: 10,
   },
   iconWrapper: {

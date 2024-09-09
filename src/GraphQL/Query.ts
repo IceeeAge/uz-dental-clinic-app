@@ -27,7 +27,6 @@ export const GET_NEWSCHEDULE_DATA = gql`
   query getNewSchedule {
     newSchedules {
       scheduleStatus
-      schedule
       scheduleDate
       room
       id
@@ -67,12 +66,33 @@ export const GET_MEDICAL_TEAM_DATA = gql`
 query getMedicalTeam {
   medicalTeams {
     id
+    title
     aboutDoctor
     profileImage {
       url
       id
     }
     fullName
+    experience
+    email
+    location {
+      latitude
+      longitude
+    }
+    phoneNumber
   }
 }
+
 `;
+
+export const GET_TIPSGUIDE_DATA = gql`
+query GET_TIPSGUIDE_DATA {
+  tipsGuides {
+    id
+    image {
+      url
+    }
+    description
+  }
+}
+`
