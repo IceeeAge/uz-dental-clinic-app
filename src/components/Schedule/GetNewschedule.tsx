@@ -141,9 +141,9 @@ const GetNewschedule: React.FC = () => {
                       <Ionicons name="location" size={30} color="black" />
                     </TouchableOpacity>
                   )}
-                  {schedule.email && (
+                  {item.email && (
                     <TouchableOpacity
-                      onPress={() => handleEmail(schedule.email)}
+                      onPress={() => handleEmail(item.email)}
                     >
                       <Ionicons name="mail" size={30} color="black" />
                     </TouchableOpacity>

@@ -4834,7 +4834,6 @@ export type Patient = Entity & Node & {
   sex?: Maybe<Scalars['String']['output']>;
   /** System stage field */
   stage: Stage;
-  statusAppointment?: Maybe<Scalars['String']['output']>;
   statusAppointmentS?: Maybe<StausAppointment>;
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
@@ -4936,7 +4935,6 @@ export type PatientCreateInput = {
   occupation?: InputMaybe<Scalars['String']['input']>;
   profileImage?: InputMaybe<AssetCreateOneInlineInput>;
   sex?: InputMaybe<Scalars['String']['input']>;
-  statusAppointment?: InputMaybe<Scalars['String']['input']>;
   statusAppointmentS?: InputMaybe<StausAppointment>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   weight?: InputMaybe<Scalars['String']['input']>;
@@ -5188,7 +5186,6 @@ export type PatientManyWhereInput = {
   sex_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   sex_starts_with?: InputMaybe<Scalars['String']['input']>;
-  statusAppointment?: InputMaybe<Scalars['String']['input']>;
   statusAppointmentS?: InputMaybe<StausAppointment>;
   /** All values that are contained in given list. */
   statusAppointmentS_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
@@ -5196,24 +5193,6 @@ export type PatientManyWhereInput = {
   statusAppointmentS_not?: InputMaybe<StausAppointment>;
   /** All values that are not contained in given list. */
   statusAppointmentS_not_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
-  /** All values containing the given string. */
-  statusAppointment_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values ending with the given string. */
-  statusAppointment_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are contained in given list. */
-  statusAppointment_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  statusAppointment_not?: InputMaybe<Scalars['String']['input']>;
-  /** All values not containing the given string. */
-  statusAppointment_not_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values not ending with the given string */
-  statusAppointment_not_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are not contained in given list. */
-  statusAppointment_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** All values not starting with the given string. */
-  statusAppointment_not_starts_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values starting with the given string. */
-  statusAppointment_starts_with?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -5276,8 +5255,6 @@ export enum PatientOrderByInput {
   SexDesc = 'sex_DESC',
   StatusAppointmentSAsc = 'statusAppointmentS_ASC',
   StatusAppointmentSDesc = 'statusAppointmentS_DESC',
-  StatusAppointmentAsc = 'statusAppointment_ASC',
-  StatusAppointmentDesc = 'statusAppointment_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   WeightAsc = 'weight_ASC',
@@ -5295,7 +5272,6 @@ export type PatientUpdateInput = {
   occupation?: InputMaybe<Scalars['String']['input']>;
   profileImage?: InputMaybe<AssetUpdateOneInlineInput>;
   sex?: InputMaybe<Scalars['String']['input']>;
-  statusAppointment?: InputMaybe<Scalars['String']['input']>;
   statusAppointmentS?: InputMaybe<StausAppointment>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
@@ -5326,7 +5302,6 @@ export type PatientUpdateManyInput = {
   height?: InputMaybe<Scalars['String']['input']>;
   occupation?: InputMaybe<Scalars['String']['input']>;
   sex?: InputMaybe<Scalars['String']['input']>;
-  statusAppointment?: InputMaybe<Scalars['String']['input']>;
   statusAppointmentS?: InputMaybe<StausAppointment>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
@@ -5603,7 +5578,6 @@ export type PatientWhereInput = {
   sex_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   sex_starts_with?: InputMaybe<Scalars['String']['input']>;
-  statusAppointment?: InputMaybe<Scalars['String']['input']>;
   statusAppointmentS?: InputMaybe<StausAppointment>;
   /** All values that are contained in given list. */
   statusAppointmentS_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
@@ -5611,24 +5585,6 @@ export type PatientWhereInput = {
   statusAppointmentS_not?: InputMaybe<StausAppointment>;
   /** All values that are not contained in given list. */
   statusAppointmentS_not_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
-  /** All values containing the given string. */
-  statusAppointment_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values ending with the given string. */
-  statusAppointment_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are contained in given list. */
-  statusAppointment_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  statusAppointment_not?: InputMaybe<Scalars['String']['input']>;
-  /** All values not containing the given string. */
-  statusAppointment_not_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values not ending with the given string */
-  statusAppointment_not_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are not contained in given list. */
-  statusAppointment_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** All values not starting with the given string. */
-  statusAppointment_not_starts_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values starting with the given string. */
-  statusAppointment_starts_with?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -8814,12 +8770,12 @@ export enum _SystemDateTimeFieldVariation {
 export type GetPatienListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, contactNumber?: string | null, fullName?: string | null, email?: string | null, id: string, occupation?: string | null, sex?: string | null, statusAppointment?: string | null, statusAppointmentS?: StausAppointment | null, height?: string | null, dateOfBirth?: string | null, weight?: string | null, createdAt: any, profileImage?: { __typename?: 'Asset', url: string } | null }> };
+export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, contactNumber?: string | null, fullName?: string | null, email?: string | null, id: string, occupation?: string | null, sex?: string | null, statusAppointmentS?: StausAppointment | null, height?: string | null, dateOfBirth?: string | null, weight?: string | null, createdAt: any, profileImage?: { __typename?: 'Asset', url: string } | null }> };
 
 export type GetNewScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetNewScheduleQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', scheduleStatus?: string | null, scheduleDate?: any | null, room?: string | null, id: string, contactNumber?: string | null, createdAt: any, clinician?: string | null, time?: string | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null, patients: Array<{ __typename?: 'Patient', email?: string | null, fullName?: string | null, id: string, profileImage?: { __typename?: 'Asset', url: string, id: string } | null }> }> };
+export type GetNewScheduleQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', scheduleStatus?: string | null, scheduleDate?: any | null, room?: string | null, id: string, contactNumber?: string | null, createdAt: any, email?: string | null, clinician?: string | null, time?: string | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null, patients: Array<{ __typename?: 'Patient', email?: string | null, fullName?: string | null, id: string, profileImage?: { __typename?: 'Asset', url: string, id: string } | null }> }> };
 
 export type GetSliderQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8847,7 +8803,7 @@ export type CreatePatientMutationVariables = Exact<{
   fullName: Scalars['String']['input'];
   contactNumber: Scalars['String']['input'];
   sex: Scalars['String']['input'];
-  statusAppointment: Scalars['String']['input'];
+  statusAppointmentS: Scalars['String']['input'];
   dateOfBirth: Scalars['String']['input'];
   address?: InputMaybe<Scalars['String']['input']>;
   height?: InputMaybe<Scalars['String']['input']>;
@@ -8872,7 +8828,6 @@ export const GetPatienListDocument = gql`
       url
     }
     sex
-    statusAppointment
     statusAppointmentS
     height
     dateOfBirth
@@ -8922,6 +8877,7 @@ export const GetNewScheduleDocument = gql`
     id
     contactNumber
     createdAt
+    email
     clinician
     time
     location {
@@ -9163,9 +9119,9 @@ export type Getuzlabs_DataLazyQueryHookResult = ReturnType<typeof useGetuzlabs_D
 export type Getuzlabs_DataSuspenseQueryHookResult = ReturnType<typeof useGetuzlabs_DataSuspenseQuery>;
 export type Getuzlabs_DataQueryResult = Apollo.QueryResult<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>;
 export const CreatePatientDocument = gql`
-    mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $statusAppointment: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String) {
+    mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $statusAppointmentS: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String) {
   createPatient(
-    data: {profileImage: {create: {uploadUrl: $profileImage}}, email: $email, fullName: $fullName, contactNumber: $contactNumber, sex: $sex, statusAppointment: $statusAppointment, dateOfBirth: $dateOfBirth, address: $address, height: $height, occupation: $occupation, weight: $weight}
+    data: {profileImage: {create: {uploadUrl: $profileImage}}, email: $email, fullName: $fullName, contactNumber: $contactNumber, sex: $sex, dateOfBirth: $dateOfBirth, address: $address, height: $height, occupation: $occupation, weight: $weight, statusAppointmentS: PENDING}
   ) {
     id
   }
@@ -9194,7 +9150,7 @@ export type CreatePatientMutationFn = Apollo.MutationFunction<CreatePatientMutat
  *      fullName: // value for 'fullName'
  *      contactNumber: // value for 'contactNumber'
  *      sex: // value for 'sex'
- *      statusAppointment: // value for 'statusAppointment'
+ *      statusAppointmentS: // value for 'statusAppointmentS'
  *      dateOfBirth: // value for 'dateOfBirth'
  *      address: // value for 'address'
  *      height: // value for 'height'

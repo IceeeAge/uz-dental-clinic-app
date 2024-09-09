@@ -32,6 +32,7 @@ export const GET_NEWSCHEDULE_DATA = gql`
       id
       contactNumber
       createdAt
+      email
       clinician
       time
       location {

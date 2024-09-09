@@ -8,7 +8,7 @@ export const CREATE_PATIENT_MUTATION = gql`
     $fullName: String!
     $contactNumber: String!
     $sex: String!
-    $statusAppointment: String!
+    $statusAppointmentS: String!
     $dateOfBirth: String!
     $address: String
     $height: String
@@ -22,7 +22,6 @@ export const CREATE_PATIENT_MUTATION = gql`
         fullName: $fullName
         contactNumber: $contactNumber
         sex: $sex
-        statusAppointment: $statusAppointment
         dateOfBirth: $dateOfBirth
         address: $address
         height: $height
