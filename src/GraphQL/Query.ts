@@ -115,3 +115,15 @@ export const GET_UZLABS_DATA = gql`
     }
   }
 `;
+export const GET_NEWSFEED_DATA = gql`
+query GetNewsFeed {
+  newsFeeds {
+    title
+    id
+    description
+    images {
+      url
+    }
+  }
+}
+`;

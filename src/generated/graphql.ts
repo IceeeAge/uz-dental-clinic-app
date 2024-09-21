@@ -8824,7 +8824,7 @@ export enum _SystemDateTimeFieldVariation {
 export type GetPatienListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, contactNumber?: string | null, fullName?: string | null, email?: string | null, id: string, occupation?: string | null, sex?: string | null, statusAppointment?: string | null, statusAppointmentS?: StausAppointment | null, height?: string | null, dateOfBirth?: string | null, weight?: string | null, createdAt: any, profileImage?: { __typename?: 'Asset', url: string } | null }> };
+export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, contactNumber?: string | null, fullName?: string | null, email?: string | null, id: string, occupation?: string | null, sex?: string | null, statusAppointment?: string | null, height?: string | null, dateOfBirth?: string | null, weight?: string | null, createdAt: any, profileImage?: { __typename?: 'Asset', url: string } | null }> };
 
 export type GetNewScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8850,6 +8850,11 @@ export type Getuzlabs_DataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Getuzlabs_DataQuery = { __typename?: 'Query', uzLabs: Array<{ __typename?: 'UzLab', address?: string | null, email?: string | null, id: string, name?: string | null, phone?: string | null, images: Array<{ __typename?: 'Asset', url: string, id: string }>, location?: { __typename?: 'Location', latitude: number, longitude: number } | null }> };
+
+export type GetNewsFeedQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetNewsFeedQuery = { __typename?: 'Query', newsFeeds: Array<{ __typename?: 'NewsFeed', title?: string | null, id: string, description?: string | null, images: Array<{ __typename?: 'Asset', url: string }> }> };
 
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
@@ -8883,7 +8888,6 @@ export const GetPatienListDocument = gql`
     }
     sex
     statusAppointment
-    statusAppointmentS
     height
     dateOfBirth
     weight
@@ -9173,6 +9177,50 @@ export type Getuzlabs_DataQueryHookResult = ReturnType<typeof useGetuzlabs_DataQ
 export type Getuzlabs_DataLazyQueryHookResult = ReturnType<typeof useGetuzlabs_DataLazyQuery>;
 export type Getuzlabs_DataSuspenseQueryHookResult = ReturnType<typeof useGetuzlabs_DataSuspenseQuery>;
 export type Getuzlabs_DataQueryResult = Apollo.QueryResult<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>;
+export const GetNewsFeedDocument = gql`
+    query GetNewsFeed {
+  newsFeeds {
+    title
+    id
+    description
+    images {
+      url
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetNewsFeedQuery__
+ *
+ * To run a query within a React component, call `useGetNewsFeedQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetNewsFeedQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetNewsFeedQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetNewsFeedQuery(baseOptions?: Apollo.QueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
+      }
+export function useGetNewsFeedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
+        }
+export function useGetNewsFeedSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
+        }
+export type GetNewsFeedQueryHookResult = ReturnType<typeof useGetNewsFeedQuery>;
+export type GetNewsFeedLazyQueryHookResult = ReturnType<typeof useGetNewsFeedLazyQuery>;
+export type GetNewsFeedSuspenseQueryHookResult = ReturnType<typeof useGetNewsFeedSuspenseQuery>;
+export type GetNewsFeedQueryResult = Apollo.QueryResult<GetNewsFeedQuery, GetNewsFeedQueryVariables>;
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String, $statusAppointment: String!) {
   createPatient(
