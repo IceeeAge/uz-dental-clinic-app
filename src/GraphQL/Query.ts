@@ -14,7 +14,7 @@ export const GET_SCHEDULE_USER = gql`
         url
       }
       sex
-        statusAppointmentS
+       statusAppointment
       height
       dateOfBirth
       weight

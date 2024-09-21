@@ -133,7 +133,6 @@ export default function AppointmentScreen() {
           contactNumber: values.contactNumber,
           sex: values.sex,
           statusAppointment: "PENDING",
-          statusAppointmentS: "PENDING",
           dateOfBirth: values.dateOfBirth,
           address: values.address,
           height: values.height,
@@ -141,6 +140,8 @@ export default function AppointmentScreen() {
           weight: values.weight,
         },
       });
+      
+      
 
       const docRef = await addDoc(collection(db, "CreateAppointment"), values);
       if (docRef.id) {
@@ -158,7 +159,7 @@ export default function AppointmentScreen() {
       setLoading(false);
       Toast.show(error.message, {
         type: "danger",
-        placement: "top",
+        placement: "bottom",
         duration: 4000,
         animationType: "slide-in",
       });

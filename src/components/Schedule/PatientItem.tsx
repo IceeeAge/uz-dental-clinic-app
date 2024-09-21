@@ -9,8 +9,8 @@ type PatientItemProps = {
   item: GetPatienListQuery['patients'][0];
 }
 const PatientItem: React.FC<PatientItemProps> = ({ item }) => {
-  const isApproved = item.statusAppointmentS === 'APPROVED';
-  const isPending = item.statusAppointmentS === 'PENDING';
+  const isApproved = item.statusAppointment === 'APPROVED';
+  const isPending = item.statusAppointment === 'PENDING';
 
   return (
     <View style={styles.itemContainer}>
@@ -43,7 +43,7 @@ const PatientItem: React.FC<PatientItemProps> = ({ item }) => {
               isPending && { color: Colors.YELLOW },
             ]}
           >
-            {item.statusAppointmentS}
+            {item.statusAppointment}
           </Text>
         </View>
       </View>
