@@ -108,9 +108,7 @@ const GetNewschedule: React.FC = () => {
                     Full Name: {schedule.fullName}
                   </Text>
                   <Text style={styles.itemText}>Room: {item.room}</Text>
-                  <Text style={styles.itemText}>
-                    Schedule Date: {formatDate(item.scheduleDate)}
-                  </Text>
+                  {item.scheduleDate && <Text style={styles.itemText}>Schedule Date: {formatDate(item.scheduleDate)}</Text>}
                   <Text style={styles.itemText}>Time: {item.time}</Text>
                 </View>
                 <View style={styles.iconContainer}>

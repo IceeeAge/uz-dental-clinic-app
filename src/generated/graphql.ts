@@ -33,6 +33,7 @@ export type Aggregate = {
 /** Asset system model */
 export type Asset = Entity & Node & {
   __typename?: 'Asset';
+  chartingNewSchedule: Array<NewSchedule>;
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
   /** User that created this document */
@@ -80,6 +81,20 @@ export type Asset = Entity & Node & {
   url: Scalars['String']['output'];
   /** The file width */
   width?: Maybe<Scalars['Float']['output']>;
+};
+
+
+/** Asset system model */
+export type AssetChartingNewScheduleArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<NewScheduleOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<NewScheduleWhereInput>;
 };
 
 
@@ -265,6 +280,7 @@ export type AssetConnection = {
 };
 
 export type AssetCreateInput = {
+  chartingNewSchedule?: InputMaybe<NewScheduleCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   imageGetSlider?: InputMaybe<GetSliderCreateManyInlineInput>;
@@ -332,6 +348,9 @@ export type AssetManyWhereInput = {
   OR?: InputMaybe<Array<AssetWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  chartingNewSchedule_every?: InputMaybe<NewScheduleWhereInput>;
+  chartingNewSchedule_none?: InputMaybe<NewScheduleWhereInput>;
+  chartingNewSchedule_some?: InputMaybe<NewScheduleWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -469,6 +488,7 @@ export type AssetTransformationInput = {
 };
 
 export type AssetUpdateInput = {
+  chartingNewSchedule?: InputMaybe<NewScheduleUpdateManyInlineInput>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   imageGetSlider?: InputMaybe<GetSliderUpdateManyInlineInput>;
   imageTipsGuide?: InputMaybe<TipsGuideUpdateManyInlineInput>;
@@ -707,6 +727,9 @@ export type AssetWhereInput = {
   OR?: InputMaybe<Array<AssetWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  chartingNewSchedule_every?: InputMaybe<NewScheduleWhereInput>;
+  chartingNewSchedule_none?: InputMaybe<NewScheduleWhereInput>;
+  chartingNewSchedule_some?: InputMaybe<NewScheduleWhereInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -3586,6 +3609,7 @@ export type MutationUpsertUzLabArgs = {
 
 export type NewSchedule = Entity & Node & {
   __typename?: 'NewSchedule';
+  charting?: Maybe<Asset>;
   clinician?: Maybe<Scalars['String']['output']>;
   contactNumber?: Maybe<Scalars['String']['output']>;
   /** The time the document was created */
@@ -3606,7 +3630,7 @@ export type NewSchedule = Entity & Node & {
   /** User that last published this document */
   publishedBy?: Maybe<User>;
   room?: Maybe<Scalars['String']['output']>;
-  scheduleDate?: Maybe<Scalars['Date']['output']>;
+  scheduleDate?: Maybe<Scalars['String']['output']>;
   scheduleStatus?: Maybe<Scalars['String']['output']>;
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
@@ -3616,6 +3640,13 @@ export type NewSchedule = Entity & Node & {
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
+};
+
+
+export type NewScheduleChartingArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  where?: InputMaybe<AssetSingleRelationWhereInput>;
 };
 
 
@@ -3693,6 +3724,7 @@ export type NewScheduleConnection = {
 };
 
 export type NewScheduleCreateInput = {
+  charting?: InputMaybe<AssetCreateOneInlineInput>;
   clinician?: InputMaybe<Scalars['String']['input']>;
   contactNumber?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -3700,7 +3732,7 @@ export type NewScheduleCreateInput = {
   location?: InputMaybe<LocationInput>;
   patients?: InputMaybe<PatientCreateManyInlineInput>;
   room?: InputMaybe<Scalars['String']['input']>;
-  scheduleDate?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate?: InputMaybe<Scalars['String']['input']>;
   scheduleStatus?: InputMaybe<Scalars['String']['input']>;
   time?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -3739,6 +3771,7 @@ export type NewScheduleManyWhereInput = {
   OR?: InputMaybe<Array<NewScheduleWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  charting?: InputMaybe<AssetWhereInput>;
   clinician?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   clinician_contains?: InputMaybe<Scalars['String']['input']>;
@@ -3872,21 +3905,25 @@ export type NewScheduleManyWhereInput = {
   room_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   room_starts_with?: InputMaybe<Scalars['String']['input']>;
-  scheduleDate?: InputMaybe<Scalars['Date']['input']>;
-  /** All values greater than the given value. */
-  scheduleDate_gt?: InputMaybe<Scalars['Date']['input']>;
-  /** All values greater than or equal the given value. */
-  scheduleDate_gte?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  scheduleDate_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  scheduleDate_ends_with?: InputMaybe<Scalars['String']['input']>;
   /** All values that are contained in given list. */
-  scheduleDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  /** All values less than the given value. */
-  scheduleDate_lt?: InputMaybe<Scalars['Date']['input']>;
-  /** All values less than or equal the given value. */
-  scheduleDate_lte?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Any other value that exists and is not equal to the given value. */
-  scheduleDate_not?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  scheduleDate_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  scheduleDate_not_ends_with?: InputMaybe<Scalars['String']['input']>;
   /** All values that are not contained in given list. */
-  scheduleDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  scheduleDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  scheduleDate_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  scheduleDate_starts_with?: InputMaybe<Scalars['String']['input']>;
   scheduleStatus?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   scheduleStatus_contains?: InputMaybe<Scalars['String']['input']>;
@@ -3972,13 +4009,14 @@ export enum NewScheduleOrderByInput {
 }
 
 export type NewScheduleUpdateInput = {
+  charting?: InputMaybe<AssetUpdateOneInlineInput>;
   clinician?: InputMaybe<Scalars['String']['input']>;
   contactNumber?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<LocationInput>;
   patients?: InputMaybe<PatientUpdateManyInlineInput>;
   room?: InputMaybe<Scalars['String']['input']>;
-  scheduleDate?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate?: InputMaybe<Scalars['String']['input']>;
   scheduleStatus?: InputMaybe<Scalars['String']['input']>;
   time?: InputMaybe<Scalars['String']['input']>;
 };
@@ -4006,7 +4044,7 @@ export type NewScheduleUpdateManyInput = {
   email?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<LocationInput>;
   room?: InputMaybe<Scalars['String']['input']>;
-  scheduleDate?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate?: InputMaybe<Scalars['String']['input']>;
   scheduleStatus?: InputMaybe<Scalars['String']['input']>;
   time?: InputMaybe<Scalars['String']['input']>;
 };
@@ -4070,6 +4108,7 @@ export type NewScheduleWhereInput = {
   OR?: InputMaybe<Array<NewScheduleWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  charting?: InputMaybe<AssetWhereInput>;
   clinician?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   clinician_contains?: InputMaybe<Scalars['String']['input']>;
@@ -4203,21 +4242,25 @@ export type NewScheduleWhereInput = {
   room_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   room_starts_with?: InputMaybe<Scalars['String']['input']>;
-  scheduleDate?: InputMaybe<Scalars['Date']['input']>;
-  /** All values greater than the given value. */
-  scheduleDate_gt?: InputMaybe<Scalars['Date']['input']>;
-  /** All values greater than or equal the given value. */
-  scheduleDate_gte?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  scheduleDate_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  scheduleDate_ends_with?: InputMaybe<Scalars['String']['input']>;
   /** All values that are contained in given list. */
-  scheduleDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
-  /** All values less than the given value. */
-  scheduleDate_lt?: InputMaybe<Scalars['Date']['input']>;
-  /** All values less than or equal the given value. */
-  scheduleDate_lte?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Any other value that exists and is not equal to the given value. */
-  scheduleDate_not?: InputMaybe<Scalars['Date']['input']>;
+  scheduleDate_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  scheduleDate_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  scheduleDate_not_ends_with?: InputMaybe<Scalars['String']['input']>;
   /** All values that are not contained in given list. */
-  scheduleDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  scheduleDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  scheduleDate_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  scheduleDate_starts_with?: InputMaybe<Scalars['String']['input']>;
   scheduleStatus?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   scheduleStatus_contains?: InputMaybe<Scalars['String']['input']>;
@@ -4845,7 +4888,6 @@ export type Patient = Entity & Node & {
   /** System stage field */
   stage: Stage;
   statusAppointment?: Maybe<Scalars['String']['output']>;
-  statusAppointmentS?: Maybe<StausAppointment>;
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
@@ -4947,7 +4989,6 @@ export type PatientCreateInput = {
   profileImage?: InputMaybe<AssetCreateOneInlineInput>;
   sex?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
-  statusAppointmentS?: InputMaybe<StausAppointment>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
@@ -5199,13 +5240,6 @@ export type PatientManyWhereInput = {
   /** All values starting with the given string. */
   sex_starts_with?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
-  statusAppointmentS?: InputMaybe<StausAppointment>;
-  /** All values that are contained in given list. */
-  statusAppointmentS_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  statusAppointmentS_not?: InputMaybe<StausAppointment>;
-  /** All values that are not contained in given list. */
-  statusAppointmentS_not_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
   /** All values containing the given string. */
   statusAppointment_contains?: InputMaybe<Scalars['String']['input']>;
   /** All values ending with the given string. */
@@ -5284,8 +5318,6 @@ export enum PatientOrderByInput {
   PublishedAtDesc = 'publishedAt_DESC',
   SexAsc = 'sex_ASC',
   SexDesc = 'sex_DESC',
-  StatusAppointmentSAsc = 'statusAppointmentS_ASC',
-  StatusAppointmentSDesc = 'statusAppointmentS_DESC',
   StatusAppointmentAsc = 'statusAppointment_ASC',
   StatusAppointmentDesc = 'statusAppointment_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -5306,7 +5338,6 @@ export type PatientUpdateInput = {
   profileImage?: InputMaybe<AssetUpdateOneInlineInput>;
   sex?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
-  statusAppointmentS?: InputMaybe<StausAppointment>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5337,7 +5368,6 @@ export type PatientUpdateManyInput = {
   occupation?: InputMaybe<Scalars['String']['input']>;
   sex?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
-  statusAppointmentS?: InputMaybe<StausAppointment>;
   weight?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5614,13 +5644,6 @@ export type PatientWhereInput = {
   /** All values starting with the given string. */
   sex_starts_with?: InputMaybe<Scalars['String']['input']>;
   statusAppointment?: InputMaybe<Scalars['String']['input']>;
-  statusAppointmentS?: InputMaybe<StausAppointment>;
-  /** All values that are contained in given list. */
-  statusAppointmentS_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  statusAppointmentS_not?: InputMaybe<StausAppointment>;
-  /** All values that are not contained in given list. */
-  statusAppointmentS_not_in?: InputMaybe<Array<InputMaybe<StausAppointment>>>;
   /** All values containing the given string. */
   statusAppointment_contains?: InputMaybe<Scalars['String']['input']>;
   /** All values ending with the given string. */
@@ -8829,7 +8852,7 @@ export type GetPatienListQuery = { __typename?: 'Query', patients: Array<{ __typ
 export type GetNewScheduleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetNewScheduleQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', scheduleStatus?: string | null, scheduleDate?: any | null, room?: string | null, id: string, contactNumber?: string | null, createdAt: any, email?: string | null, clinician?: string | null, time?: string | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null, patients: Array<{ __typename?: 'Patient', email?: string | null, fullName?: string | null, id: string, profileImage?: { __typename?: 'Asset', url: string, id: string } | null }> }> };
+export type GetNewScheduleQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', scheduleStatus?: string | null, scheduleDate?: string | null, room?: string | null, id: string, contactNumber?: string | null, createdAt: any, email?: string | null, clinician?: string | null, time?: string | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null, patients: Array<{ __typename?: 'Patient', email?: string | null, fullName?: string | null, id: string, profileImage?: { __typename?: 'Asset', url: string, id: string } | null }> }> };
 
 export type GetSliderQueryVariables = Exact<{ [key: string]: never; }>;
 
