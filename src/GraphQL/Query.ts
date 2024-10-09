@@ -126,3 +126,17 @@ query GetNewsFeed {
   }
 }
 `;
+
+
+export const GET_DATA_CHARTTING = gql`
+  query GetDataChartting($email: String!) {
+    newSchedules {
+      charting {
+        url(transformation: { document: { output: { format: png } } })
+      }
+      patients(where: { email: $email }) {
+        id
+      }
+    }
+  }
+`;

@@ -15,42 +15,28 @@ import { useQuery, gql } from "@apollo/client";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 import Colors from "@/constants/Colors";
+import { GET_DATA_CHARTTING } from "@/GraphQL/Query";
+import { GetDataCharttingQuery,  } from "@/generated/graphql";
+
 
 // Get the device's width and height
 const { width, height } = Dimensions.get("window");
 
-// GraphQL query to get charting data for the current user
-const GET_DATA_CHARTTING = gql`
-  query GetDataChartting($email: String!) {
-    newSchedules {
-      charting {
-        url(transformation: { document: { output: { format: png } } })
-      }
-      patients(where: { email: $email }) {
-        id
-      }
-    }
-  }
-`;
+
 
 // Define types for the data returned by the GraphQL query
 interface ChartingData {
   url: string;
 }
 
-interface Schedule {
-  charting: ChartingData;
-}
 
-interface NewSchedulesData {
-  newSchedules: Schedule[];
-}
+
 
 export default function Chartting() {
   const { user } = useUser();
 
   // Only run the query if the user and email are available
-  const { data, loading, error } = useQuery<NewSchedulesData>(GET_DATA_CHARTTING, {
+  const { data, loading, error } = useQuery<GetDataCharttingQuery>(GET_DATA_CHARTTING, {
     variables: { email: user?.primaryEmailAddress?.emailAddress || "" }, // Safe access to email
     skip: !user?.primaryEmailAddress?.emailAddress, // Skip the query if email is undefined
   });

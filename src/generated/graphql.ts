@@ -8835,6 +8835,13 @@ export type GetNewsFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetNewsFeedQuery = { __typename?: 'Query', newsFeeds: Array<{ __typename?: 'NewsFeed', title?: string | null, id: string, description?: string | null, images: Array<{ __typename?: 'Asset', url: string }> }> };
 
+export type GetDataCharttingQueryVariables = Exact<{
+  email: Scalars['String']['input'];
+}>;
+
+
+export type GetDataCharttingQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', charting?: { __typename?: 'Asset', url: string } | null, patients: Array<{ __typename?: 'Patient', id: string }> }> };
+
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
   email: Scalars['String']['input'];
@@ -9199,6 +9206,51 @@ export type GetNewsFeedQueryHookResult = ReturnType<typeof useGetNewsFeedQuery>;
 export type GetNewsFeedLazyQueryHookResult = ReturnType<typeof useGetNewsFeedLazyQuery>;
 export type GetNewsFeedSuspenseQueryHookResult = ReturnType<typeof useGetNewsFeedSuspenseQuery>;
 export type GetNewsFeedQueryResult = Apollo.QueryResult<GetNewsFeedQuery, GetNewsFeedQueryVariables>;
+export const GetDataCharttingDocument = gql`
+    query GetDataChartting($email: String!) {
+  newSchedules {
+    charting {
+      url(transformation: {document: {output: {format: png}}})
+    }
+    patients(where: {email: $email}) {
+      id
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetDataCharttingQuery__
+ *
+ * To run a query within a React component, call `useGetDataCharttingQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetDataCharttingQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetDataCharttingQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useGetDataCharttingQuery(baseOptions: Apollo.QueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables> & ({ variables: GetDataCharttingQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
+      }
+export function useGetDataCharttingLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
+        }
+export function useGetDataCharttingSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
+        }
+export type GetDataCharttingQueryHookResult = ReturnType<typeof useGetDataCharttingQuery>;
+export type GetDataCharttingLazyQueryHookResult = ReturnType<typeof useGetDataCharttingLazyQuery>;
+export type GetDataCharttingSuspenseQueryHookResult = ReturnType<typeof useGetDataCharttingSuspenseQuery>;
+export type GetDataCharttingQueryResult = Apollo.QueryResult<GetDataCharttingQuery, GetDataCharttingQueryVariables>;
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String, $statusAppointment: String!) {
   createPatient(
