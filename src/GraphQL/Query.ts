@@ -74,7 +74,6 @@ export const GET_MEDICAL_TEAM_DATA = gql`
         id
       }
       fullName
-      experience
       email
       location {
         latitude

@@ -1626,7 +1626,6 @@ export type MedicalTeam = Entity & Node & {
   /** Get the document in other stages */
   documentInStages: Array<MedicalTeam>;
   email?: Maybe<Scalars['String']['output']>;
-  experience?: Maybe<Scalars['String']['output']>;
   fullName?: Maybe<Scalars['String']['output']>;
   /** List of MedicalTeam versions */
   history: Array<Version>;
@@ -1721,7 +1720,6 @@ export type MedicalTeamCreateInput = {
   aboutDoctor?: InputMaybe<Scalars['String']['input']>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
-  experience?: InputMaybe<Scalars['String']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<LocationInput>;
   phoneNumber?: InputMaybe<Scalars['String']['input']>;
@@ -1820,25 +1818,6 @@ export type MedicalTeamManyWhereInput = {
   email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   email_starts_with?: InputMaybe<Scalars['String']['input']>;
-  experience?: InputMaybe<Scalars['String']['input']>;
-  /** All values containing the given string. */
-  experience_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values ending with the given string. */
-  experience_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are contained in given list. */
-  experience_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  experience_not?: InputMaybe<Scalars['String']['input']>;
-  /** All values not containing the given string. */
-  experience_not_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values not ending with the given string */
-  experience_not_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are not contained in given list. */
-  experience_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** All values not starting with the given string. */
-  experience_not_starts_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values starting with the given string. */
-  experience_starts_with?: InputMaybe<Scalars['String']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   fullName_contains?: InputMaybe<Scalars['String']['input']>;
@@ -1948,8 +1927,6 @@ export enum MedicalTeamOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   EmailAsc = 'email_ASC',
   EmailDesc = 'email_DESC',
-  ExperienceAsc = 'experience_ASC',
-  ExperienceDesc = 'experience_DESC',
   FullNameAsc = 'fullName_ASC',
   FullNameDesc = 'fullName_DESC',
   IdAsc = 'id_ASC',
@@ -1967,7 +1944,6 @@ export enum MedicalTeamOrderByInput {
 export type MedicalTeamUpdateInput = {
   aboutDoctor?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
-  experience?: InputMaybe<Scalars['String']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<LocationInput>;
   phoneNumber?: InputMaybe<Scalars['String']['input']>;
@@ -1995,7 +1971,6 @@ export type MedicalTeamUpdateManyInlineInput = {
 export type MedicalTeamUpdateManyInput = {
   aboutDoctor?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
-  experience?: InputMaybe<Scalars['String']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<LocationInput>;
   phoneNumber?: InputMaybe<Scalars['String']['input']>;
@@ -2118,25 +2093,6 @@ export type MedicalTeamWhereInput = {
   email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   email_starts_with?: InputMaybe<Scalars['String']['input']>;
-  experience?: InputMaybe<Scalars['String']['input']>;
-  /** All values containing the given string. */
-  experience_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values ending with the given string. */
-  experience_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are contained in given list. */
-  experience_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  experience_not?: InputMaybe<Scalars['String']['input']>;
-  /** All values not containing the given string. */
-  experience_not_contains?: InputMaybe<Scalars['String']['input']>;
-  /** All values not ending with the given string */
-  experience_not_ends_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values that are not contained in given list. */
-  experience_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** All values not starting with the given string. */
-  experience_not_starts_with?: InputMaybe<Scalars['String']['input']>;
-  /** All values starting with the given string. */
-  experience_starts_with?: InputMaybe<Scalars['String']['input']>;
   fullName?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   fullName_contains?: InputMaybe<Scalars['String']['input']>;
@@ -8862,7 +8818,7 @@ export type GetSliderQuery = { __typename?: 'Query', getSliders: Array<{ __typen
 export type GetMedicalTeamQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMedicalTeamQuery = { __typename?: 'Query', medicalTeams: Array<{ __typename?: 'MedicalTeam', id: string, title?: Title | null, aboutDoctor?: string | null, fullName?: string | null, experience?: string | null, email?: string | null, phoneNumber?: string | null, profileImage?: { __typename?: 'Asset', url: string, id: string } | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null }> };
+export type GetMedicalTeamQuery = { __typename?: 'Query', medicalTeams: Array<{ __typename?: 'MedicalTeam', id: string, title?: Title | null, aboutDoctor?: string | null, fullName?: string | null, email?: string | null, phoneNumber?: string | null, profileImage?: { __typename?: 'Asset', url: string, id: string } | null, location?: { __typename?: 'Location', latitude: number, longitude: number } | null }> };
 
 export type Get_Tipsguide_DataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -9064,7 +9020,6 @@ export const GetMedicalTeamDocument = gql`
       id
     }
     fullName
-    experience
     email
     location {
       latitude
