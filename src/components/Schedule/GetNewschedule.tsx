@@ -15,14 +15,14 @@ import { useClerk } from "@clerk/clerk-expo";
 import { GetNewScheduleQuery, } from "src/generated/graphql";
 
 // Function to format date with day at the end
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  const day = date.getDate();
-  const month = date.getMonth() + 1; // Months are zero-based
-  const year = date.getFullYear();
-  const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
-  return `${month}/${day}/${year} ${weekday}`;
-};
+// const formatDate = (dateString: string) => {
+//   const date = new Date(dateString);
+//   const day = date.getDate();
+//   const month = date.getMonth() + 1; // Months are zero-based
+//   const year = date.getFullYear();
+//   const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
+//   return `${month}/${day}/${year} ${weekday}`;
+// };
 
 const GetNewschedule: React.FC = () => {
   const { user } = useClerk();
@@ -108,7 +108,7 @@ const GetNewschedule: React.FC = () => {
                     Full Name: {schedule.fullName}
                   </Text>
                   <Text style={styles.itemText}>Room: {item.room}</Text>
-                  {item.scheduleDate && <Text style={styles.itemText}>Schedule Date: {formatDate(item.scheduleDate)}</Text>}
+                  {item.scheduleDate && <Text style={styles.itemText}>Schedule Date: {item.scheduleDate}</Text>}
                   <Text style={styles.itemText}>Time: {item.time}</Text>
                 </View>
                 <View style={styles.iconContainer}>

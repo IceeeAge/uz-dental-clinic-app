@@ -140,3 +140,27 @@ export const GET_DATA_CHARTTING = gql`
     }
   }
 `;
+
+export const GET_USER_PERSONAL_INFORMATION = gql`
+query GetUserPersonalInformation($email: String!) {
+  patients(where: {email: $email}) {
+    id
+    fullName
+    contactNumber
+    dateOfBirth
+    height
+    sex
+    occupation
+    emergencyContactName
+    relationship
+    relationshipNumber
+    extraEmergencyContactName
+    secondRelationshipNumber
+    coughduration
+    coughWithBlood
+    beenExposed
+    tuberculosis
+    extraRelationship
+  }
+}
+`;

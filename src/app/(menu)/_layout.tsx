@@ -28,6 +28,9 @@ export default function MenuLayout() {
   >
       <Stack.Screen name="chartting" options={{ title: "Chartting",headerBackButtonMenuEnabled:true }} />
       <Stack.Screen name="eform" options={{ title: "Eform" }} />
+      <Stack.Screen name="OptionMenu" options={{ title: "OptionMenu",
+        headerShown: false
+       }} />
     </Stack>
   );
 }

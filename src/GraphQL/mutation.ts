@@ -39,3 +39,40 @@ export const CREATE_PATIENT_MUTATION = gql`
 }
 
 `;
+
+
+
+export const UPDATE_PATIENT_INFORMATION = gql`
+mutation UpdatePatientInformation($id: ID!, $data: PatientUpdateInput!) {
+  updatePatient(where: {id: $id}, data: $data) {
+    id
+    dateOfBirth
+    fullName
+    contactNumber
+    sex
+    occupation
+    emergencyContactName
+    relationship
+    relationshipNumber
+    extraEmergencyContactName
+    extraRelationship
+    secondRelationshipNumber
+    address
+    beenExposed
+    coughWithBlood
+    coughduration
+    height
+    weight
+    tuberculosis
+  }
+  publishManyPatientsConnection {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}
+
+`;
+
