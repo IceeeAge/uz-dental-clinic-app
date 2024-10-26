@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TextInput } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useUser } from '@clerk/clerk-expo';
@@ -7,6 +7,7 @@ import { UPDATE_PATIENT_INFORMATION } from '@/GraphQL/mutation';
 import { GetUserPersonalInformationQuery, UpdatePatientInformationMutation } from '@/generated/graphql';
 import Checkbox from 'expo-checkbox';
 import Colors from '@/constants/Colors';
+import PrimaryButton from '@/components/PrimaryButton';
 
 interface SelectedOptions {
   tuberculosis: string | null;
@@ -45,6 +46,7 @@ export default function PersonalInformation() {
 
   const [formData, setFormData] = useState<FormData>({});
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadingButton, setLoadingButton] = useState<boolean>(false); // Loading state for button
 
   const { user } = useUser();
   
@@ -94,6 +96,7 @@ export default function PersonalInformation() {
   };
 
   const handleSubmit = async () => {
+    setLoadingButton(true); // Set loading state to true
     try {
       const { data: updatedData } = await updatePatient({
         variables: {
@@ -112,6 +115,8 @@ export default function PersonalInformation() {
     } catch (e) {
       console.error('Error updating patient:', e);
       setErrorMessage('Failed to update patient information. Please try again.');
+    } finally {
+      setLoadingButton(false); // Reset loading state after mutation
     }
   };
 
@@ -168,7 +173,7 @@ export default function PersonalInformation() {
                       <Checkbox
                         value={selectedOptions[key as keyof typeof selectedOptions] === option}
                         onValueChange={() => handleOptionChange(key, option)}
-                        color={selectedOptions[key as keyof typeof selectedOptions] === option ? Colors.PRIMARY : undefined}
+                        color={selectedOptions[key as keyof typeof selectedOptions] === option ? Colors.GREEN : undefined}
                       />
                       <Text style={styles.optionText}>{option === Options.DK ? "Don't Know (DK)" : option.toUpperCase()}</Text>
                     </View>
@@ -179,7 +184,9 @@ export default function PersonalInformation() {
           </View>
 
           {errorMessage && <Text style={{ color: 'red' }}>{errorMessage}</Text>}
-          <Button title="Submit" onPress={handleSubmit} color={Colors.PRIMARY} />
+          <PrimaryButton title={loadingButton ? "Loading..." : "Save and Update"} onPress={handleSubmit} disabled={loadingButton} 
+           containerStyle={{ marginTop: 50 }}
+          />
         </View>
       ) : (
         <Text>No patient data found</Text>
@@ -225,6 +232,7 @@ const styles = StyleSheet.create({
   },
   dcontainer: {
     marginTop: 20,
+  
   },
   questionContainer: {
     marginVertical: 10,
@@ -245,5 +253,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     marginLeft: 8,
+    fontSize: 14,
+    color: '#333',
   },
 });

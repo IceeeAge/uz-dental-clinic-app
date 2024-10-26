@@ -7,6 +7,7 @@ type ColorsProps = {
   GRAY: string;
   YELLOW: string;
   GREEN: string;
+
 };
 
 const Colors: ColorsProps = {
@@ -17,6 +18,7 @@ const Colors: ColorsProps = {
   GRAY: "#ccc",
   YELLOW: "#FEC600",
   GREEN: "#00B894",
+
 };
 
 export default Colors;

@@ -29,6 +29,7 @@ export default function OptionMenuLayout() {
 
     screenOptions={{
       headerShown: true,
+      headerTitleAlign: "center",
     }}
     >
       <Stack.Screen name="dental-information" options={{ title: "Dental Information" }} />

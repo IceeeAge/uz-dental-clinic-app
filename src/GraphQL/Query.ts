@@ -14,7 +14,7 @@ export const GET_SCHEDULE_USER = gql`
         url
       }
       sex
-       statusAppointment
+      statusAppointment
       height
       dateOfBirth
       weight
@@ -115,18 +115,17 @@ export const GET_UZLABS_DATA = gql`
   }
 `;
 export const GET_NEWSFEED_DATA = gql`
-query GetNewsFeed {
-  newsFeeds {
-    title
-    id
-    description
-    images {
-      url
+  query GetNewsFeed {
+    newsFeeds {
+      title
+      id
+      description
+      images {
+        url
+      }
     }
   }
-}
 `;
-
 
 export const GET_DATA_CHARTTING = gql`
   query GetDataChartting($email: String!) {
@@ -142,25 +141,49 @@ export const GET_DATA_CHARTTING = gql`
 `;
 
 export const GET_USER_PERSONAL_INFORMATION = gql`
-query GetUserPersonalInformation($email: String!) {
-  patients(where: {email: $email}) {
-    id
-    fullName
-    contactNumber
-    dateOfBirth
-    height
-    sex
-    occupation
-    emergencyContactName
-    relationship
-    relationshipNumber
-    extraEmergencyContactName
-    secondRelationshipNumber
-    coughduration
-    coughWithBlood
-    beenExposed
-    tuberculosis
-    extraRelationship
+  query GetUserPersonalInformation($email: String!) {
+    patients(where: { email: $email }) {
+      id
+      fullName
+      contactNumber
+      dateOfBirth
+      height
+      sex
+      occupation
+      emergencyContactName
+      relationship
+      relationshipNumber
+      extraEmergencyContactName
+      secondRelationshipNumber
+      coughduration
+      coughWithBlood
+      beenExposed
+      tuberculosis
+      extraRelationship
+    }
   }
-}
+`;
+
+export const GET_USER_DENTAL_INFORMATION = gql`
+  query GetUserDentalInformation($email: String!) {
+    patients(where: { email: $email }) {
+      id
+      fullName
+      bleedingGums
+      sensitive
+      foodTrap
+      dryMouth
+      pastGap
+      pastOrthodonic
+      problem
+      earaches
+      clicking
+      bruxing
+     sores
+      dentures
+      active
+      serious
+      dateOfLastExam
+    }
+  }
 `;
