@@ -105,3 +105,38 @@ export const UPDATE_PATIENT_DENTAL_INFORMATION = gql`
     }
   }
 `;
+
+export const UPDATE_PATIENT_MEDICAL_INFORMATION = gql`
+mutation UpdatePatientMedicalInformation (
+    $id: ID!
+    $data: PatientUpdateInput!
+  ) {
+    updatePatient(where: { id: $id }, data: $data) {
+      id
+      fullName
+     careOfAPhysicians
+      physiciansName
+      phonePhysician
+      areYouInGoodHealth
+      anyChangesInYourHealth
+      hospitalization
+      prescriptionOrCounterMedications
+      allergies
+      specify
+      alcoholIntake
+      amoutAndFrequency
+      forWomen
+      lactating
+      ifYesWhatWasTheIllnessOrProblem
+    dateOfLastPhysicalExam
+    vitaminsNaturalOrHerbalSupplements
+    }
+    publishManyPatientsConnection {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+`

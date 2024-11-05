@@ -35,7 +35,7 @@ export default function OptionMenuLayout() {
       <Stack.Screen name="dental-information" options={{ title: "Dental Information" }} />
       <Stack.Screen name="medical-information" options={{ title: "Medical Information" }} />
       <Stack.Screen name="personal-information" options={{ title: "Personal Information" }} />
-      <Stack.Screen name="diseases" options={{ title: "Deseases" }} />
+      <Stack.Screen name="questions" options={{ title: "Personal Information" }} />
     </Stack>
   );
 }

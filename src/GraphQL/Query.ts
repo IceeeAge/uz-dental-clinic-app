@@ -95,6 +95,7 @@ export const GET_TIPSGUIDE_DATA = gql`
     }
   }
 `;
+
 export const GET_UZLABS_DATA = gql`
   query GETUZLABS_DATA {
     uzLabs {
@@ -164,6 +165,7 @@ export const GET_USER_PERSONAL_INFORMATION = gql`
   }
 `;
 
+
 export const GET_USER_DENTAL_INFORMATION = gql`
   query GetUserDentalInformation($email: String!) {
     patients(where: { email: $email }) {
@@ -179,11 +181,36 @@ export const GET_USER_DENTAL_INFORMATION = gql`
       earaches
       clicking
       bruxing
-     sores
+      sores
       dentures
       active
       serious
       dateOfLastExam
+    }
+  }
+`;
+
+
+export const GET_USER_MEDICAL_INFORMATION = gql`
+  query GetUserMedicalInformation($email: String!) {
+    patients(where: { email: $email }) {
+      id
+      careOfAPhysicians
+      physiciansName
+      phonePhysician
+      areYouInGoodHealth
+      anyChangesInYourHealth
+      hospitalization
+      prescriptionOrCounterMedications
+      allergies
+      specify
+      alcoholIntake
+      amoutAndFrequency
+      forWomen
+      lactating
+      ifYesWhatWasTheIllnessOrProblem
+    dateOfLastPhysicalExam
+    vitaminsNaturalOrHerbalSupplements
     }
   }
 `;

@@ -15,12 +15,6 @@ export default function Eform() {
         </Pressable>
       </Link>
 
-      <Link href="OptionMenu/diseases" asChild>
-        <Pressable style={styles.iconContainer}>
-          <Ionicons name="heart-outline" size={24} color="black" />
-          <Text style={styles.text}>Diseases</Text>
-        </Pressable>
-      </Link>
 
       <Link href="OptionMenu/dental-information" asChild>
         <Pressable style={styles.iconContainer}>
@@ -33,6 +27,13 @@ export default function Eform() {
         <Pressable style={styles.iconContainer}>
           <Ionicons name="bandage-outline" size={24} color="black" />
           <Text style={styles.text}>Medical Information</Text>
+        </Pressable>
+      </Link>
+
+      <Link href="OptionMenu/questions" asChild>
+        <Pressable style={styles.iconContainer}>
+          <Ionicons name="help-circle-outline" size={24} color="black" />
+          <Text style={styles.text}>Questions</Text>
         </Pressable>
       </Link>
     </View>
