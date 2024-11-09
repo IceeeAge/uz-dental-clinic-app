@@ -165,7 +165,7 @@ export default function PersonalInformation() {
             ].map(({ label, key }) => (
               <View key={key} style={styles.questionContainer}>
                 <Text style={styles.questionText}>
-                  {label}: <Text style={{ textDecorationLine: 'underline' }}>{patientData[key as keyof typeof patientData]}</Text>
+                  {label}: <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>{patientData[key as keyof typeof patientData]}</Text>
                 </Text>
                 <View style={styles.checkboxContainer}>
                   {Object.values(Options).map((option) => (
@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
   questionText: {
     fontSize: 16,
     color: '#333',
+    
   },
   checkboxContainer: {
     flexDirection: 'row',

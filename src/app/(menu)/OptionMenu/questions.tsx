@@ -172,8 +172,26 @@ export default function Questions() {
     }
   }, [patientData]);
 
-
+  const validateForm = () => {
+    // Check if all the options have a valid value ("Yes" or "No")
+    for (const key in selectedOptions) {
+      const value = selectedOptions[key as keyof SelectedOptions];
+      
+      // If the value is null or neither "Yes" nor "No", return false
+      if (value === null || (value !== "Yes" && value !== "No")) {
+        return true;
+      }
+    }
+    return true;
+  };
+  
+  
   const handleSubmit = async () => {
+    if (!validateForm()) {
+      Alert.alert("Error", "Please select at least one option for each question.");
+      return;
+    }
+
   
     setIsSubmitting(true);
     try {
