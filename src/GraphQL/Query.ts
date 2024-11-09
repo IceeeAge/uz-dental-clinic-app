@@ -214,3 +214,50 @@ export const GET_USER_MEDICAL_INFORMATION = gql`
     }
   }
 `;
+
+export const GET_USER_QUESTIONNAIRE = gql`
+  query GetUserQuestionnaire($email: String!) {
+    patients(where: { email: $email }) {
+      id
+       fullName
+    highBloodPressure
+    heartAttack
+    heartDisease
+    heartDiseaseSpecify
+    lowBloodPressure
+    leukemia
+    anemia
+    kidneyDisease
+    kidneyDiseaseSpecify
+    asthma
+    lungDisease
+    lungDiseaseSpecify
+    stroke
+    neurologicalDisorder
+    neurologicalDisorderSpecify
+    epilepsyConvulsions
+    brainInjury
+    psychiatricTreatment
+    diabetes
+    aidsHivInfection
+    congenitalDisease
+    congenitalDiseaseSpecify
+    hepatitis
+    liverDisorder
+    livErDisorderSpecify
+    jointDisorder
+    jointReplacementOrImplants
+    steroidTherapy
+    stomachTroublesUlcers
+    chestPains
+    frequentSoreThroat
+     persistentCough
+    difficultInBreathing
+    cancerOrTumor
+    radiationOrChemotherapy
+    recentWEightLoss
+    others
+    }
+  }
+`;
+

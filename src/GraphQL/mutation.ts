@@ -140,3 +140,55 @@ mutation UpdatePatientMedicalInformation (
     }
   }
 `
+export const UPDATE_PATIENT_QUESTIONNAIRE = gql`
+mutation UpdateQuestionUser($id: ID!, $data: PatientUpdateInput!) {
+  updatePatient(where: {id: $id}, data: $data) {
+    id
+    fullName
+    highBloodPressure
+    heartAttack
+    heartDisease
+    heartDiseaseSpecify
+    lowBloodPressure
+    leukemia
+    anemia
+    kidneyDisease
+    kidneyDiseaseSpecify
+    asthma
+    lungDisease
+    lungDiseaseSpecify
+    stroke
+    neurologicalDisorder
+    neurologicalDisorderSpecify
+    epilepsyConvulsions
+    brainInjury
+    psychiatricTreatment
+    diabetes
+    aidsHivInfection
+    congenitalDisease
+    congenitalDiseaseSpecify
+    hepatitis
+    liverDisorder
+    livErDisorderSpecify
+    jointDisorder
+    jointReplacementOrImplants
+    steroidTherapy
+    stomachTroublesUlcers
+    chestPains
+    frequentSoreThroat
+     persistentCough
+    difficultInBreathing
+    cancerOrTumor
+    radiationOrChemotherapy
+    recentWEightLoss
+    others
+ }
+    publishManyPatientsConnection {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+`
