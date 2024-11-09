@@ -8,6 +8,7 @@ import { GetUserPersonalInformationQuery, UpdatePatientInformationMutation } fro
 import Checkbox from 'expo-checkbox';
 import Colors from '@/constants/Colors';
 import PrimaryButton from '@/components/PrimaryButton';
+import { Toast } from 'react-native-toast-notifications';
 
 interface SelectedOptions {
   tuberculosis: string | null;
@@ -98,7 +99,7 @@ export default function PersonalInformation() {
   const handleSubmit = async () => {
     setLoadingButton(true); // Set loading state to true
     try {
-      const { data: updatedData } = await updatePatient({
+       await updatePatient({
         variables: {
           id: data?.patients[0]?.id,
           data: {
@@ -110,11 +111,20 @@ export default function PersonalInformation() {
           },
         },
       });
-      console.log('Patient updated:', updatedData);
-      setErrorMessage(null); // Clear any previous error
-    } catch (e) {
-      console.error('Error updating patient:', e);
-      setErrorMessage('Failed to update patient information. Please try again.');
+      Toast.show("Personal information updated successfully", {
+        type: "success",
+        placement: "center",
+        duration: 4000,
+        animationType: "slide-in",
+      });
+      
+    } catch (error:any) {
+      Toast.show(error.message, {
+        type: "danger",
+        placement: "center",
+        duration: 4000,
+        animationType: "slide-in",
+      });
     } finally {
       setLoadingButton(false); // Reset loading state after mutation
     }

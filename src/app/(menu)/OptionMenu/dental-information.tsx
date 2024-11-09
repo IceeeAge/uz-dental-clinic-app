@@ -22,6 +22,7 @@ import {
   import { Ionicons } from '@expo/vector-icons'; 
   import DateTimePicker from '@react-native-community/datetimepicker';
 import PrimaryButton from "@/components/PrimaryButton";
+import { Toast } from "react-native-toast-notifications";
   
   const Options = {
     YES: "Yes",
@@ -136,10 +137,11 @@ import PrimaryButton from "@/components/PrimaryButton";
     // Submit the updated data
     const handleSubmit = async () => {
       if (!validateForm()) {
-        Alert.alert(
-          "Error",
-          "Please answer all the questions before submitting."
-        );
+        Toast.show("Questionnaire updated successfully", {
+          type:"error",
+          duration: 2000,
+          placement:"center"
+        })
         return;
       }
   
@@ -156,10 +158,18 @@ import PrimaryButton from "@/components/PrimaryButton";
           },
         });
   
-        Alert.alert("Success", "Dental information updated successfully");
-      } catch (error) {
-        console.error(error);
-        Alert.alert("Error", "Failed to update dental information");
+        Toast.show("Dental information updated successfully", {
+          type: "success",
+          duration: 2000,
+          placement:"center"
+        })
+      } catch (error: any) {
+        Toast.show(error.message, {
+          type: "danger",
+          placement: "center",
+          duration: 4000,
+          animationType: "slide-in",
+        });
       } finally {
         setIsSubmitting(false);
       }

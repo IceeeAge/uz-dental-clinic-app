@@ -58,6 +58,7 @@ type SelectedOptions = {
   radiationOrChemotherapy: string | null;
   recentWEightLoss: string | null;
   others: string | null;
+  othersSpecify: string | null;
 };
 
 export default function Questions() {
@@ -101,6 +102,7 @@ export default function Questions() {
     radiationOrChemotherapy: null,
     recentWEightLoss: null,
     others: null,
+    othersSpecify:null
   });
 
   const { user } = useUser();
@@ -168,30 +170,17 @@ export default function Questions() {
         radiationOrChemotherapy: patientData.radiationOrChemotherapy || null,
         recentWEightLoss: patientData.recentWEightLoss || null,
         others: patientData.others || null,
+        othersSpecify: patientData.othersSpecify || null
       });
     }
   }, [patientData]);
 
-  const validateForm = () => {
-    // Check if all the options have a valid value ("Yes" or "No")
-    for (const key in selectedOptions) {
-      const value = selectedOptions[key as keyof SelectedOptions];
-      
-      // If the value is null or neither "Yes" nor "No", return false
-      if (value === null || (value !== "Yes" && value !== "No")) {
-        return true;
-      }
-    }
-    return true;
-  };
-  
+ 
   
   const handleSubmit = async () => {
-    if (!validateForm()) {
-      Alert.alert("Error", "Please select at least one option for each question.");
+    if (!patientData) {
       return;
     }
-
   
     setIsSubmitting(true);
     try {
@@ -717,6 +706,51 @@ export default function Questions() {
                 {patientData?.[key] || "N/A"}
               </Text>
             </Text>
+          </View>
+        ))}
+      </View>
+
+      {/* specify questions */}
+      <View style={styles.specifyContainer}>
+        {[
+          {
+            label: "Others",
+            key: "others" as keyof SelectedOptions,
+          },
+        ].map(({ label, key }) => (
+          <View key={key} style={styles.subSpecifyContainer}>
+            <View style={styles.specifyInfo}>
+              <Checkbox
+                value={selectedOptions[key] === "Yes"}
+                onValueChange={() => handleOptionChange(key)}
+                color={
+                  selectedOptions[key] === "Yes" ? Colors.GREEN : undefined
+                }
+              />
+              <Text style={styles.questionText}>
+                {label}:{" "}
+                <Text style={styles.answerText}>
+                  {patientData?.[key] || "N/A"}
+                </Text>
+              </Text>
+            </View>
+
+            {/* Input field for specifying heart disease */}
+            {selectedOptions[key] === "Yes" && (
+              <TextInput
+                placeholder="Specify"
+                value={selectedOptions.othersSpecify || ""}
+                onChangeText={(text) =>
+                  setSelectedOptions((prevOptions) => ({
+                    ...prevOptions,
+                    othersSpecify: text,
+                  }))
+                }
+                style={styles.textInput}
+                multiline={true}
+                numberOfLines={8}
+              />
+            )}
           </View>
         ))}
       </View>

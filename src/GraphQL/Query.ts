@@ -257,6 +257,7 @@ export const GET_USER_QUESTIONNAIRE = gql`
     radiationOrChemotherapy
     recentWEightLoss
     others
+    othersSpecify
     }
   }
 `;

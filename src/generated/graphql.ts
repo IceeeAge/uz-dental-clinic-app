@@ -1416,7 +1416,6 @@ export enum EntityTypeName {
   NewSchedule = 'NewSchedule',
   NewsFeed = 'NewsFeed',
   Patient = 'Patient',
-  SaveQuestionState = 'SaveQuestionState',
   /** Scheduled Operation system model */
   ScheduledOperation = 'ScheduledOperation',
   /** Scheduled Release system model */
@@ -2605,8 +2604,6 @@ export type Mutation = {
   createNewsFeed?: Maybe<NewsFeed>;
   /** Create one patient */
   createPatient?: Maybe<Patient>;
-  /** Create one saveQuestionState */
-  createSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Create one scheduledRelease */
   createScheduledRelease?: Maybe<ScheduledRelease>;
   /** Create one tipsGuide */
@@ -2660,13 +2657,6 @@ export type Mutation = {
   /** Delete many Patient documents, return deleted documents */
   deleteManyPatientsConnection: PatientConnection;
   /**
-   * Delete many SaveQuestionState documents
-   * @deprecated Please use the new paginated many mutation (deleteManySaveQuestionStatesConnection)
-   */
-  deleteManySaveQuestionStates: BatchPayload;
-  /** Delete many SaveQuestionState documents, return deleted documents */
-  deleteManySaveQuestionStatesConnection: SaveQuestionStateConnection;
-  /**
    * Delete many TipsGuide documents
    * @deprecated Please use the new paginated many mutation (deleteManyTipsGuidesConnection)
    */
@@ -2688,8 +2678,6 @@ export type Mutation = {
   deleteNewsFeed?: Maybe<NewsFeed>;
   /** Delete one patient from _all_ existing stages. Returns deleted document. */
   deletePatient?: Maybe<Patient>;
-  /** Delete one saveQuestionState from _all_ existing stages. Returns deleted document. */
-  deleteSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Delete and return scheduled operation */
   deleteScheduledOperation?: Maybe<ScheduledOperation>;
   /** Delete one scheduledRelease from _all_ existing stages. Returns deleted document. */
@@ -2745,13 +2733,6 @@ export type Mutation = {
   /** Publish many Patient documents */
   publishManyPatientsConnection: PatientConnection;
   /**
-   * Publish many SaveQuestionState documents
-   * @deprecated Please use the new paginated many mutation (publishManySaveQuestionStatesConnection)
-   */
-  publishManySaveQuestionStates: BatchPayload;
-  /** Publish many SaveQuestionState documents */
-  publishManySaveQuestionStatesConnection: SaveQuestionStateConnection;
-  /**
    * Publish many TipsGuide documents
    * @deprecated Please use the new paginated many mutation (publishManyTipsGuidesConnection)
    */
@@ -2773,8 +2754,6 @@ export type Mutation = {
   publishNewsFeed?: Maybe<NewsFeed>;
   /** Publish one patient */
   publishPatient?: Maybe<Patient>;
-  /** Publish one saveQuestionState */
-  publishSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Publish one tipsGuide */
   publishTipsGuide?: Maybe<TipsGuide>;
   /** Publish one uzLab */
@@ -2791,8 +2770,6 @@ export type Mutation = {
   schedulePublishNewsFeed?: Maybe<NewsFeed>;
   /** Schedule to publish one patient */
   schedulePublishPatient?: Maybe<Patient>;
-  /** Schedule to publish one saveQuestionState */
-  schedulePublishSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Schedule to publish one tipsGuide */
   schedulePublishTipsGuide?: Maybe<TipsGuide>;
   /** Schedule to publish one uzLab */
@@ -2809,8 +2786,6 @@ export type Mutation = {
   scheduleUnpublishNewsFeed?: Maybe<NewsFeed>;
   /** Unpublish one patient from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishPatient?: Maybe<Patient>;
-  /** Unpublish one saveQuestionState from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  scheduleUnpublishSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Unpublish one tipsGuide from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishTipsGuide?: Maybe<TipsGuide>;
   /** Unpublish one uzLab from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2862,13 +2837,6 @@ export type Mutation = {
   /** Find many Patient documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyPatientsConnection: PatientConnection;
   /**
-   * Unpublish many SaveQuestionState documents
-   * @deprecated Please use the new paginated many mutation (unpublishManySaveQuestionStatesConnection)
-   */
-  unpublishManySaveQuestionStates: BatchPayload;
-  /** Find many SaveQuestionState documents that match criteria in specified stage and unpublish from target stages */
-  unpublishManySaveQuestionStatesConnection: SaveQuestionStateConnection;
-  /**
    * Unpublish many TipsGuide documents
    * @deprecated Please use the new paginated many mutation (unpublishManyTipsGuidesConnection)
    */
@@ -2890,8 +2858,6 @@ export type Mutation = {
   unpublishNewsFeed?: Maybe<NewsFeed>;
   /** Unpublish one patient from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishPatient?: Maybe<Patient>;
-  /** Unpublish one saveQuestionState from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  unpublishSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Unpublish one tipsGuide from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishTipsGuide?: Maybe<TipsGuide>;
   /** Unpublish one uzLab from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2943,13 +2909,6 @@ export type Mutation = {
   /** Update many Patient documents */
   updateManyPatientsConnection: PatientConnection;
   /**
-   * Update many saveQuestionStates
-   * @deprecated Please use the new paginated many mutation (updateManySaveQuestionStatesConnection)
-   */
-  updateManySaveQuestionStates: BatchPayload;
-  /** Update many SaveQuestionState documents */
-  updateManySaveQuestionStatesConnection: SaveQuestionStateConnection;
-  /**
    * Update many tipsGuides
    * @deprecated Please use the new paginated many mutation (updateManyTipsGuidesConnection)
    */
@@ -2971,8 +2930,6 @@ export type Mutation = {
   updateNewsFeed?: Maybe<NewsFeed>;
   /** Update one patient */
   updatePatient?: Maybe<Patient>;
-  /** Update one saveQuestionState */
-  updateSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Update one scheduledRelease */
   updateScheduledRelease?: Maybe<ScheduledRelease>;
   /** Update one tipsGuide */
@@ -2991,8 +2948,6 @@ export type Mutation = {
   upsertNewsFeed?: Maybe<NewsFeed>;
   /** Upsert one patient */
   upsertPatient?: Maybe<Patient>;
-  /** Upsert one saveQuestionState */
-  upsertSaveQuestionState?: Maybe<SaveQuestionState>;
   /** Upsert one tipsGuide */
   upsertTipsGuide?: Maybe<TipsGuide>;
   /** Upsert one uzLab */
@@ -3027,11 +2982,6 @@ export type MutationCreateNewsFeedArgs = {
 
 export type MutationCreatePatientArgs = {
   data: PatientCreateInput;
-};
-
-
-export type MutationCreateSaveQuestionStateArgs = {
-  data: SaveQuestionStateCreateInput;
 };
 
 
@@ -3150,21 +3100,6 @@ export type MutationDeleteManyPatientsConnectionArgs = {
 };
 
 
-export type MutationDeleteManySaveQuestionStatesArgs = {
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
-export type MutationDeleteManySaveQuestionStatesConnectionArgs = {
-  after?: InputMaybe<Scalars['ID']['input']>;
-  before?: InputMaybe<Scalars['ID']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
 export type MutationDeleteManyTipsGuidesArgs = {
   where?: InputMaybe<TipsGuideManyWhereInput>;
 };
@@ -3212,11 +3147,6 @@ export type MutationDeleteNewsFeedArgs = {
 
 export type MutationDeletePatientArgs = {
   where: PatientWhereUniqueInput;
-};
-
-
-export type MutationDeleteSaveQuestionStateArgs = {
-  where: SaveQuestionStateWhereUniqueInput;
 };
 
 
@@ -3369,24 +3299,6 @@ export type MutationPublishManyPatientsConnectionArgs = {
 };
 
 
-export type MutationPublishManySaveQuestionStatesArgs = {
-  to?: Array<Stage>;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
-export type MutationPublishManySaveQuestionStatesConnectionArgs = {
-  after?: InputMaybe<Scalars['ID']['input']>;
-  before?: InputMaybe<Scalars['ID']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  from?: InputMaybe<Stage>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  to?: Array<Stage>;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
 export type MutationPublishManyTipsGuidesArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<TipsGuideManyWhereInput>;
@@ -3444,12 +3356,6 @@ export type MutationPublishNewsFeedArgs = {
 export type MutationPublishPatientArgs = {
   to?: Array<Stage>;
   where: PatientWhereUniqueInput;
-};
-
-
-export type MutationPublishSaveQuestionStateArgs = {
-  to?: Array<Stage>;
-  where: SaveQuestionStateWhereUniqueInput;
 };
 
 
@@ -3516,14 +3422,6 @@ export type MutationSchedulePublishPatientArgs = {
 };
 
 
-export type MutationSchedulePublishSaveQuestionStateArgs = {
-  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
-  releaseId?: InputMaybe<Scalars['String']['input']>;
-  to?: Array<Stage>;
-  where: SaveQuestionStateWhereUniqueInput;
-};
-
-
 export type MutationSchedulePublishTipsGuideArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
@@ -3587,14 +3485,6 @@ export type MutationScheduleUnpublishPatientArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
   where: PatientWhereUniqueInput;
-};
-
-
-export type MutationScheduleUnpublishSaveQuestionStateArgs = {
-  from?: Array<Stage>;
-  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
-  releaseId?: InputMaybe<Scalars['String']['input']>;
-  where: SaveQuestionStateWhereUniqueInput;
 };
 
 
@@ -3740,24 +3630,6 @@ export type MutationUnpublishManyPatientsConnectionArgs = {
 };
 
 
-export type MutationUnpublishManySaveQuestionStatesArgs = {
-  from?: Array<Stage>;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
-export type MutationUnpublishManySaveQuestionStatesConnectionArgs = {
-  after?: InputMaybe<Scalars['ID']['input']>;
-  before?: InputMaybe<Scalars['ID']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  from?: Array<Stage>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  stage?: InputMaybe<Stage>;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
 export type MutationUnpublishManyTipsGuidesArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<TipsGuideManyWhereInput>;
@@ -3815,12 +3687,6 @@ export type MutationUnpublishNewsFeedArgs = {
 export type MutationUnpublishPatientArgs = {
   from?: Array<Stage>;
   where: PatientWhereUniqueInput;
-};
-
-
-export type MutationUnpublishSaveQuestionStateArgs = {
-  from?: Array<Stage>;
-  where: SaveQuestionStateWhereUniqueInput;
 };
 
 
@@ -3950,23 +3816,6 @@ export type MutationUpdateManyPatientsConnectionArgs = {
 };
 
 
-export type MutationUpdateManySaveQuestionStatesArgs = {
-  data: SaveQuestionStateUpdateManyInput;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
-export type MutationUpdateManySaveQuestionStatesConnectionArgs = {
-  after?: InputMaybe<Scalars['ID']['input']>;
-  before?: InputMaybe<Scalars['ID']['input']>;
-  data: SaveQuestionStateUpdateManyInput;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<SaveQuestionStateManyWhereInput>;
-};
-
-
 export type MutationUpdateManyTipsGuidesArgs = {
   data: TipsGuideUpdateManyInput;
   where?: InputMaybe<TipsGuideManyWhereInput>;
@@ -4025,12 +3874,6 @@ export type MutationUpdatePatientArgs = {
 };
 
 
-export type MutationUpdateSaveQuestionStateArgs = {
-  data: SaveQuestionStateUpdateInput;
-  where: SaveQuestionStateWhereUniqueInput;
-};
-
-
 export type MutationUpdateScheduledReleaseArgs = {
   data: ScheduledReleaseUpdateInput;
   where: ScheduledReleaseWhereUniqueInput;
@@ -4082,12 +3925,6 @@ export type MutationUpsertNewsFeedArgs = {
 export type MutationUpsertPatientArgs = {
   upsert: PatientUpsertInput;
   where: PatientWhereUniqueInput;
-};
-
-
-export type MutationUpsertSaveQuestionStateArgs = {
-  upsert: SaveQuestionStateUpsertInput;
-  where: SaveQuestionStateWhereUniqueInput;
 };
 
 
@@ -5429,6 +5266,7 @@ export type Patient = Entity & Node & {
   newSchedules: Array<NewSchedule>;
   occupation?: Maybe<Scalars['String']['output']>;
   others?: Maybe<Scalars['String']['output']>;
+  othersSpecify?: Maybe<Scalars['String']['output']>;
   pastGap?: Maybe<Scalars['String']['output']>;
   pastOrthodonic?: Maybe<Scalars['String']['output']>;
   persistentCough?: Maybe<Scalars['String']['output']>;
@@ -5615,6 +5453,7 @@ export type PatientCreateInput = {
   newSchedules?: InputMaybe<NewScheduleCreateManyInlineInput>;
   occupation?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
+  othersSpecify?: InputMaybe<Scalars['String']['input']>;
   pastGap?: InputMaybe<Scalars['String']['input']>;
   pastOrthodonic?: InputMaybe<Scalars['String']['input']>;
   persistentCough?: InputMaybe<Scalars['String']['input']>;
@@ -6897,6 +6736,25 @@ export type PatientManyWhereInput = {
   /** All values starting with the given string. */
   occupation_starts_with?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
+  othersSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  othersSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  othersSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  othersSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  othersSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  othersSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  othersSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  othersSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  othersSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  othersSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   others_contains?: InputMaybe<Scalars['String']['input']>;
   /** All values ending with the given string. */
@@ -7557,6 +7415,8 @@ export enum PatientOrderByInput {
   NeurologicalDisorderDesc = 'neurologicalDisorder_DESC',
   OccupationAsc = 'occupation_ASC',
   OccupationDesc = 'occupation_DESC',
+  OthersSpecifyAsc = 'othersSpecify_ASC',
+  OthersSpecifyDesc = 'othersSpecify_DESC',
   OthersAsc = 'others_ASC',
   OthersDesc = 'others_DESC',
   PastGapAsc = 'pastGap_ASC',
@@ -7680,6 +7540,7 @@ export type PatientUpdateInput = {
   newSchedules?: InputMaybe<NewScheduleUpdateManyInlineInput>;
   occupation?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
+  othersSpecify?: InputMaybe<Scalars['String']['input']>;
   pastGap?: InputMaybe<Scalars['String']['input']>;
   pastOrthodonic?: InputMaybe<Scalars['String']['input']>;
   persistentCough?: InputMaybe<Scalars['String']['input']>;
@@ -7789,6 +7650,7 @@ export type PatientUpdateManyInput = {
   neurologicalDisorderSpecify?: InputMaybe<Scalars['String']['input']>;
   occupation?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
+  othersSpecify?: InputMaybe<Scalars['String']['input']>;
   pastGap?: InputMaybe<Scalars['String']['input']>;
   pastOrthodonic?: InputMaybe<Scalars['String']['input']>;
   persistentCough?: InputMaybe<Scalars['String']['input']>;
@@ -9095,6 +8957,25 @@ export type PatientWhereInput = {
   /** All values starting with the given string. */
   occupation_starts_with?: InputMaybe<Scalars['String']['input']>;
   others?: InputMaybe<Scalars['String']['input']>;
+  othersSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  othersSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  othersSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  othersSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  othersSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  othersSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  othersSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  othersSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  othersSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  othersSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   others_contains?: InputMaybe<Scalars['String']['input']>;
   /** All values ending with the given string. */
@@ -9706,14 +9587,6 @@ export type Query = {
   patients: Array<Patient>;
   /** Retrieve multiple patients using the Relay connection interface */
   patientsConnection: PatientConnection;
-  /** Retrieve a single saveQuestionState */
-  saveQuestionState?: Maybe<SaveQuestionState>;
-  /** Retrieve document version */
-  saveQuestionStateVersion?: Maybe<DocumentVersion>;
-  /** Retrieve multiple saveQuestionStates */
-  saveQuestionStates: Array<SaveQuestionState>;
-  /** Retrieve multiple saveQuestionStates using the Relay connection interface */
-  saveQuestionStatesConnection: SaveQuestionStateConnection;
   /** Retrieve a single scheduledOperation */
   scheduledOperation?: Maybe<ScheduledOperation>;
   /** Retrieve multiple scheduledOperations */
@@ -9992,44 +9865,6 @@ export type QueryPatientsConnectionArgs = {
 };
 
 
-export type QuerySaveQuestionStateArgs = {
-  locales?: Array<Locale>;
-  stage?: Stage;
-  where: SaveQuestionStateWhereUniqueInput;
-};
-
-
-export type QuerySaveQuestionStateVersionArgs = {
-  where: VersionWhereInput;
-};
-
-
-export type QuerySaveQuestionStatesArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  locales?: Array<Locale>;
-  orderBy?: InputMaybe<SaveQuestionStateOrderByInput>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  stage?: Stage;
-  where?: InputMaybe<SaveQuestionStateWhereInput>;
-};
-
-
-export type QuerySaveQuestionStatesConnectionArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  locales?: Array<Locale>;
-  orderBy?: InputMaybe<SaveQuestionStateOrderByInput>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  stage?: Stage;
-  where?: InputMaybe<SaveQuestionStateWhereInput>;
-};
-
-
 export type QueryScheduledOperationArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
@@ -10234,404 +10069,6 @@ export type RichText = {
   text: Scalars['String']['output'];
 };
 
-export type SaveQuestionState = Entity & Node & {
-  __typename?: 'SaveQuestionState';
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']['output'];
-  /** User that created this document */
-  createdBy?: Maybe<User>;
-  /** Get the document in other stages */
-  documentInStages: Array<SaveQuestionState>;
-  highBloodPressure?: Maybe<Scalars['Boolean']['output']>;
-  /** List of SaveQuestionState versions */
-  history: Array<Version>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** User that last published this document */
-  publishedBy?: Maybe<User>;
-  scheduledIn: Array<ScheduledOperation>;
-  /** System stage field */
-  stage: Stage;
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']['output'];
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>;
-};
-
-
-export type SaveQuestionStateCreatedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-
-export type SaveQuestionStateDocumentInStagesArgs = {
-  includeCurrent?: Scalars['Boolean']['input'];
-  inheritLocale?: Scalars['Boolean']['input'];
-  stages?: Array<Stage>;
-};
-
-
-export type SaveQuestionStateHistoryArgs = {
-  limit?: Scalars['Int']['input'];
-  skip?: Scalars['Int']['input'];
-  stageOverride?: InputMaybe<Stage>;
-};
-
-
-export type SaveQuestionStatePublishedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-
-export type SaveQuestionStateScheduledInArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<ScheduledOperationWhereInput>;
-};
-
-
-export type SaveQuestionStateUpdatedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-export type SaveQuestionStateConnectInput = {
-  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Document to connect */
-  where: SaveQuestionStateWhereUniqueInput;
-};
-
-/** A connection to a list of items. */
-export type SaveQuestionStateConnection = {
-  __typename?: 'SaveQuestionStateConnection';
-  aggregate: Aggregate;
-  /** A list of edges. */
-  edges: Array<SaveQuestionStateEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-};
-
-export type SaveQuestionStateCreateInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  highBloodPressure?: InputMaybe<Scalars['Boolean']['input']>;
-  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
-};
-
-export type SaveQuestionStateCreateManyInlineInput = {
-  /** Connect multiple existing SaveQuestionState documents */
-  connect?: InputMaybe<Array<SaveQuestionStateWhereUniqueInput>>;
-  /** Create and connect multiple existing SaveQuestionState documents */
-  create?: InputMaybe<Array<SaveQuestionStateCreateInput>>;
-};
-
-export type SaveQuestionStateCreateOneInlineInput = {
-  /** Connect one existing SaveQuestionState document */
-  connect?: InputMaybe<SaveQuestionStateWhereUniqueInput>;
-  /** Create and connect one SaveQuestionState document */
-  create?: InputMaybe<SaveQuestionStateCreateInput>;
-};
-
-/** An edge in a connection. */
-export type SaveQuestionStateEdge = {
-  __typename?: 'SaveQuestionStateEdge';
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
-  /** The item at the end of the edge. */
-  node: SaveQuestionState;
-};
-
-/** Identifies documents */
-export type SaveQuestionStateManyWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<SaveQuestionStateWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<SaveQuestionStateWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<SaveQuestionStateWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']['input']>;
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than the given value. */
-  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are contained in given list. */
-  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  /** All values less than the given value. */
-  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values less than or equal the given value. */
-  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  createdBy?: InputMaybe<UserWhereInput>;
-  documentInStages_every?: InputMaybe<SaveQuestionStateWhereStageInput>;
-  documentInStages_none?: InputMaybe<SaveQuestionStateWhereStageInput>;
-  documentInStages_some?: InputMaybe<SaveQuestionStateWhereStageInput>;
-  highBloodPressure?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  highBloodPressure_not?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  id_not?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than the given value. */
-  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than or equal the given value. */
-  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are contained in given list. */
-  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  /** All values less than the given value. */
-  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values less than or equal the given value. */
-  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are not contained in given list. */
-  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  publishedBy?: InputMaybe<UserWhereInput>;
-  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
-  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
-  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
-  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  updatedBy?: InputMaybe<UserWhereInput>;
-};
-
-export enum SaveQuestionStateOrderByInput {
-  CreatedAtAsc = 'createdAt_ASC',
-  CreatedAtDesc = 'createdAt_DESC',
-  HighBloodPressureAsc = 'highBloodPressure_ASC',
-  HighBloodPressureDesc = 'highBloodPressure_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  PublishedAtAsc = 'publishedAt_ASC',
-  PublishedAtDesc = 'publishedAt_DESC',
-  UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
-}
-
-export type SaveQuestionStateUpdateInput = {
-  highBloodPressure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type SaveQuestionStateUpdateManyInlineInput = {
-  /** Connect multiple existing SaveQuestionState documents */
-  connect?: InputMaybe<Array<SaveQuestionStateConnectInput>>;
-  /** Create and connect multiple SaveQuestionState documents */
-  create?: InputMaybe<Array<SaveQuestionStateCreateInput>>;
-  /** Delete multiple SaveQuestionState documents */
-  delete?: InputMaybe<Array<SaveQuestionStateWhereUniqueInput>>;
-  /** Disconnect multiple SaveQuestionState documents */
-  disconnect?: InputMaybe<Array<SaveQuestionStateWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing SaveQuestionState documents */
-  set?: InputMaybe<Array<SaveQuestionStateWhereUniqueInput>>;
-  /** Update multiple SaveQuestionState documents */
-  update?: InputMaybe<Array<SaveQuestionStateUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple SaveQuestionState documents */
-  upsert?: InputMaybe<Array<SaveQuestionStateUpsertWithNestedWhereUniqueInput>>;
-};
-
-export type SaveQuestionStateUpdateManyInput = {
-  highBloodPressure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type SaveQuestionStateUpdateManyWithNestedWhereInput = {
-  /** Update many input */
-  data: SaveQuestionStateUpdateManyInput;
-  /** Document search */
-  where: SaveQuestionStateWhereInput;
-};
-
-export type SaveQuestionStateUpdateOneInlineInput = {
-  /** Connect existing SaveQuestionState document */
-  connect?: InputMaybe<SaveQuestionStateWhereUniqueInput>;
-  /** Create and connect one SaveQuestionState document */
-  create?: InputMaybe<SaveQuestionStateCreateInput>;
-  /** Delete currently connected SaveQuestionState document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Disconnect currently connected SaveQuestionState document */
-  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single SaveQuestionState document */
-  update?: InputMaybe<SaveQuestionStateUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single SaveQuestionState document */
-  upsert?: InputMaybe<SaveQuestionStateUpsertWithNestedWhereUniqueInput>;
-};
-
-export type SaveQuestionStateUpdateWithNestedWhereUniqueInput = {
-  /** Document to update */
-  data: SaveQuestionStateUpdateInput;
-  /** Unique document search */
-  where: SaveQuestionStateWhereUniqueInput;
-};
-
-export type SaveQuestionStateUpsertInput = {
-  /** Create document if it didn't exist */
-  create: SaveQuestionStateCreateInput;
-  /** Update document if it exists */
-  update: SaveQuestionStateUpdateInput;
-};
-
-export type SaveQuestionStateUpsertWithNestedWhereUniqueInput = {
-  /** Upsert data */
-  data: SaveQuestionStateUpsertInput;
-  /** Unique document search */
-  where: SaveQuestionStateWhereUniqueInput;
-};
-
-/** This contains a set of filters that can be used to compare values internally */
-export type SaveQuestionStateWhereComparatorInput = {
-  /** This field can be used to request to check if the entry is outdated by internal comparison */
-  outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-/** Identifies documents */
-export type SaveQuestionStateWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<SaveQuestionStateWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<SaveQuestionStateWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<SaveQuestionStateWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']['input']>;
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than the given value. */
-  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are contained in given list. */
-  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  /** All values less than the given value. */
-  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values less than or equal the given value. */
-  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  createdBy?: InputMaybe<UserWhereInput>;
-  documentInStages_every?: InputMaybe<SaveQuestionStateWhereStageInput>;
-  documentInStages_none?: InputMaybe<SaveQuestionStateWhereStageInput>;
-  documentInStages_some?: InputMaybe<SaveQuestionStateWhereStageInput>;
-  highBloodPressure?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  highBloodPressure_not?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  id_not?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than the given value. */
-  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than or equal the given value. */
-  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are contained in given list. */
-  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  /** All values less than the given value. */
-  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values less than or equal the given value. */
-  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are not contained in given list. */
-  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  publishedBy?: InputMaybe<UserWhereInput>;
-  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
-  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
-  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
-  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  updatedBy?: InputMaybe<UserWhereInput>;
-};
-
-/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
-export type SaveQuestionStateWhereStageInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<SaveQuestionStateWhereStageInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<SaveQuestionStateWhereStageInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<SaveQuestionStateWhereStageInput>>;
-  /** This field contains fields which can be set as true or false to specify an internal comparison */
-  compareWithParent?: InputMaybe<SaveQuestionStateWhereComparatorInput>;
-  /** Specify the stage to compare with */
-  stage?: InputMaybe<Stage>;
-};
-
-/** References SaveQuestionState record uniquely */
-export type SaveQuestionStateWhereUniqueInput = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
 /** Scheduled Operation system model */
 export type ScheduledOperation = Entity & Node & {
   __typename?: 'ScheduledOperation';
@@ -10714,7 +10151,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | GetSlider | MedicalTeam | NewSchedule | NewsFeed | Patient | SaveQuestionState | TipsGuide | UzLab;
+export type ScheduledOperationAffectedDocument = Asset | GetSlider | MedicalTeam | NewSchedule | NewsFeed | Patient | TipsGuide | UzLab;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -13283,7 +12720,7 @@ export type GetUserQuestionnaireQueryVariables = Exact<{
 }>;
 
 
-export type GetUserQuestionnaireQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null }> };
+export type GetUserQuestionnaireQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null, othersSpecify?: string | null }> };
 
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
@@ -13332,7 +12769,7 @@ export type UpdateQuestionUserMutationVariables = Exact<{
 }>;
 
 
-export type UpdateQuestionUserMutation = { __typename?: 'Mutation', updatePatient?: { __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null } | null, publishManyPatientsConnection: { __typename?: 'PatientConnection', edges: Array<{ __typename?: 'PatientEdge', node: { __typename?: 'Patient', id: string } }> } };
+export type UpdateQuestionUserMutation = { __typename?: 'Mutation', updatePatient?: { __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null, othersSpecify?: string | null } | null, publishManyPatientsConnection: { __typename?: 'PatientConnection', edges: Array<{ __typename?: 'PatientEdge', node: { __typename?: 'Patient', id: string } }> } };
 
 
 export const GetPatienListDocument = gql`
@@ -13936,6 +13373,7 @@ export const GetUserQuestionnaireDocument = gql`
     radiationOrChemotherapy
     recentWEightLoss
     others
+    othersSpecify
   }
 }
     `;
@@ -14236,6 +13674,7 @@ export const UpdateQuestionUserDocument = gql`
     radiationOrChemotherapy
     recentWEightLoss
     others
+    othersSpecify
   }
   publishManyPatientsConnection {
     edges {

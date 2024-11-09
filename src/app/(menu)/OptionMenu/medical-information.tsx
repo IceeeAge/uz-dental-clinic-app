@@ -169,8 +169,18 @@ export default function MedicalInformation() {
           },
         },
       });
+      Toast.show("Medical information updated successfully", {
+        type: "success",
+        duration: 2000,
+        placement:"center"
+      });
     } catch (error: any) {
-      console.error("Error updating patient:", error);
+       Toast.show(error.message, {
+        type: "danger",
+        placement: "center",
+        duration: 4000,
+        animationType: "slide-in",
+       })
     }
   };
 

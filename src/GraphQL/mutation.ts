@@ -182,6 +182,7 @@ mutation UpdateQuestionUser($id: ID!, $data: PatientUpdateInput!) {
     radiationOrChemotherapy
     recentWEightLoss
     others
+    othersSpecify
  }
     publishManyPatientsConnection {
       edges {
