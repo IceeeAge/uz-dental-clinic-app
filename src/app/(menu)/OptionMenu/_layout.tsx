@@ -36,6 +36,7 @@ export default function OptionMenuLayout() {
       <Stack.Screen name="medical-information" options={{ title: "Medical Information" }} />
       <Stack.Screen name="personal-information" options={{ title: "Personal Information" }} />
       <Stack.Screen name="questions" options={{ title: "Questions" }} />
+      <Stack.Screen name="pdf-eform" options={{ title: "PDF Eform" }} />
     </Stack>
   );
 }
