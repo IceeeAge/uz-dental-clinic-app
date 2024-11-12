@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Link } from "expo-router";
-
+import AntDesign from '@expo/vector-icons/AntDesign';
 const { width, height } = Dimensions.get("window");
 
 export default function Eform() {
@@ -34,6 +34,14 @@ export default function Eform() {
         <Pressable style={styles.iconContainer}>
           <Ionicons name="help-circle-outline" size={24} color="black" />
           <Text style={styles.text}>Questions</Text>
+        </Pressable>
+      </Link>
+
+      
+      <Link href="OptionMenu/pdf-eform" asChild>
+        <Pressable style={styles.iconContainer}>
+          <AntDesign name="pdffile1" size={24} color="black" />
+          <Text style={styles.text}>Request PDF E-Form</Text>
         </Pressable>
       </Link>
     </View>

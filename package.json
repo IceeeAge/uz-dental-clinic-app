@@ -56,7 +56,8 @@
     "react-native-webview": "13.8.6",
     "expo-media-library": "~16.0.5",
     "expo-checkbox": "~3.0.0",
-    "expo-calendar": "~13.0.5"
+    "expo-calendar": "~13.0.5",
+    "expo-print": "~13.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
