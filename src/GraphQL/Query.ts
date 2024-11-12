@@ -149,6 +149,7 @@ export const GET_USER_PERSONAL_INFORMATION = gql`
       contactNumber
       dateOfBirth
       height
+      weight
       sex
       occupation
       emergencyContactName

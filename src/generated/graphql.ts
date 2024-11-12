@@ -12699,7 +12699,7 @@ export type GetUserPersonalInformationQueryVariables = Exact<{
 }>;
 
 
-export type GetUserPersonalInformationQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', id: string, fullName?: string | null, contactNumber?: string | null, dateOfBirth?: string | null, height?: string | null, sex?: string | null, occupation?: string | null, emergencyContactName?: string | null, relationship?: string | null, relationshipNumber?: string | null, extraEmergencyContactName?: string | null, secondRelationshipNumber?: string | null, coughduration?: string | null, coughWithBlood?: string | null, beenExposed?: string | null, tuberculosis?: string | null, extraRelationship?: string | null }> };
+export type GetUserPersonalInformationQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', id: string, fullName?: string | null, contactNumber?: string | null, dateOfBirth?: string | null, height?: string | null, weight?: string | null, sex?: string | null, occupation?: string | null, emergencyContactName?: string | null, relationship?: string | null, relationshipNumber?: string | null, extraEmergencyContactName?: string | null, secondRelationshipNumber?: string | null, coughduration?: string | null, coughWithBlood?: string | null, beenExposed?: string | null, tuberculosis?: string | null, extraRelationship?: string | null }> };
 
 export type GetUserDentalInformationQueryVariables = Exact<{
   email: Scalars['String']['input'];
@@ -13171,6 +13171,7 @@ export const GetUserPersonalInformationDocument = gql`
     contactNumber
     dateOfBirth
     height
+    weight
     sex
     occupation
     emergencyContactName

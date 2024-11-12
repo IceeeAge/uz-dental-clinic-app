@@ -23,6 +23,7 @@ interface FormData {
   dateOfBirth?: string;
   height?: string;
   sex?: string;
+  weight?: string;
   occupation?: string;
   emergencyContactName?: string;
   relationship?: string;
@@ -74,6 +75,7 @@ export default function PersonalInformation() {
         contactNumber: patientData.contactNumber!,
         dateOfBirth: patientData.dateOfBirth!,
         height: patientData.height!,
+        weight: patientData.weight!,
         sex: patientData.sex!,
         occupation: patientData.occupation!,
         emergencyContactName: patientData.emergencyContactName!,
@@ -141,7 +143,7 @@ export default function PersonalInformation() {
 
       {patientData ? (
         <View style={styles.infoContainer}>
-          {['fullName', 'contactNumber', 'dateOfBirth', 'height', 'sex', 'occupation', 'emergencyContactName', 'relationship', 'relationshipNumber'].map((field) => (
+          {['fullName', 'contactNumber', 'dateOfBirth', 'height','weight', 'sex', 'occupation', 'emergencyContactName', 'relationship', 'relationshipNumber'].map((field) => (
             <TextInput
               key={field}
               style={styles.input}
