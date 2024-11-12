@@ -21,11 +21,10 @@ import PrimaryButton from "@/components/PrimaryButton";
 import { Toast } from "react-native-toast-notifications";
 
 const Options = {
-  YES: "Yes",
-  NO: "No",
-  DK: "Don't Know",
+  YES: 'YES',
+  NO: 'NO',
+  DK: 'DK',
 };
-
 // Define the selected options type
 type SelectedOptions = {
   careOfAPhysicians: string | null;
