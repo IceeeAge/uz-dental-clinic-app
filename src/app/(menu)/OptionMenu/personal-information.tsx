@@ -154,7 +154,7 @@ export default function PersonalInformation() {
           ))}
 
           <Text>If you are completing this form for another person, what is your relationship to that person?</Text>
-          {['extraEmergencyContactName', 'relationship', 'secondRelationshipNumber'].map((field) => (
+          {['extraEmergencyContactName', 'extraRelationship', 'secondRelationshipNumber'].map((field) => (
             <TextInput
               key={field}
               style={styles.input}
