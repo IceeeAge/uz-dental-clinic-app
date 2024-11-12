@@ -30,6 +30,7 @@ interface FormData {
   relationshipNumber?: string;
   extraEmergencyContactName?: string;
   secondRelationshipNumber?: string;
+  extraRelationship?: string;
 }
 
 const Options = {
@@ -83,6 +84,7 @@ export default function PersonalInformation() {
         relationshipNumber: patientData.relationshipNumber!,
         extraEmergencyContactName: patientData.extraEmergencyContactName!,
         secondRelationshipNumber: patientData.secondRelationshipNumber!,
+        extraRelationship: patientData.extraRelationship!,
       });
     }
   }, [data]);
