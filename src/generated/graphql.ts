@@ -5470,7 +5470,6 @@ export type Patient = Entity & Node & {
   recentWEightLoss?: Maybe<Scalars['String']['output']>;
   relationship?: Maybe<Scalars['String']['output']>;
   relationshipNumber?: Maybe<Scalars['String']['output']>;
-  requestUserEformPdf?: Maybe<RequestUserEformPdf>;
   scheduledIn: Array<ScheduledOperation>;
   secondRelationshipNumber?: Maybe<Scalars['String']['output']>;
   sensitive?: Maybe<Scalars['String']['output']>;
@@ -5535,12 +5534,6 @@ export type PatientProfileImageArgs = {
 
 
 export type PatientPublishedByArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-
-export type PatientRequestUserEformPdfArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
@@ -5660,7 +5653,6 @@ export type PatientCreateInput = {
   recentWEightLoss?: InputMaybe<Scalars['String']['input']>;
   relationship?: InputMaybe<Scalars['String']['input']>;
   relationshipNumber?: InputMaybe<Scalars['String']['input']>;
-  requestUserEformPdf?: InputMaybe<RequestUserEformPdfCreateOneInlineInput>;
   secondRelationshipNumber?: InputMaybe<Scalars['String']['input']>;
   sensitive?: InputMaybe<Scalars['String']['input']>;
   serious?: InputMaybe<Scalars['String']['input']>;
@@ -7212,7 +7204,6 @@ export type PatientManyWhereInput = {
   relationship_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   relationship_starts_with?: InputMaybe<Scalars['String']['input']>;
-  requestUserEformPdf?: InputMaybe<RequestUserEformPdfWhereInput>;
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
@@ -7749,7 +7740,6 @@ export type PatientUpdateInput = {
   recentWEightLoss?: InputMaybe<Scalars['String']['input']>;
   relationship?: InputMaybe<Scalars['String']['input']>;
   relationshipNumber?: InputMaybe<Scalars['String']['input']>;
-  requestUserEformPdf?: InputMaybe<RequestUserEformPdfUpdateOneInlineInput>;
   secondRelationshipNumber?: InputMaybe<Scalars['String']['input']>;
   sensitive?: InputMaybe<Scalars['String']['input']>;
   serious?: InputMaybe<Scalars['String']['input']>;
@@ -9435,7 +9425,6 @@ export type PatientWhereInput = {
   relationship_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   relationship_starts_with?: InputMaybe<Scalars['String']['input']>;
-  requestUserEformPdf?: InputMaybe<RequestUserEformPdfWhereInput>;
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
@@ -10308,6 +10297,8 @@ export type RequestUserEformPdf = Entity & Node & {
   /** Get the document in other stages */
   documentInStages: Array<RequestUserEformPdf>;
   eFormPdf?: Maybe<Asset>;
+  email?: Maybe<Scalars['String']['output']>;
+  fullName?: Maybe<Scalars['String']['output']>;
   /** List of RequestUserEformPdf versions */
   history: Array<Version>;
   /** The unique identifier */
@@ -10316,6 +10307,7 @@ export type RequestUserEformPdf = Entity & Node & {
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   /** User that last published this document */
   publishedBy?: Maybe<User>;
+  requestUserEformPdf?: Maybe<Scalars['String']['output']>;
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
@@ -10394,9 +10386,11 @@ export type RequestUserEformPdfConnection = {
 };
 
 export type RequestUserEformPdfCreateInput = {
-  cm3ex2qbt0bxf07zr7kwq6wr7?: InputMaybe<PatientCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   eFormPdf?: InputMaybe<AssetCreateOneInlineInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -10453,6 +10447,44 @@ export type RequestUserEformPdfManyWhereInput = {
   documentInStages_none?: InputMaybe<RequestUserEformPdfWhereStageInput>;
   documentInStages_some?: InputMaybe<RequestUserEformPdfWhereStageInput>;
   eFormPdf?: InputMaybe<AssetWhereInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  email_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  email_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  email_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  email_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  email_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  email_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  email_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fullName_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fullName_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fullName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fullName_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fullName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fullName_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fullName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fullName_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fullName_starts_with?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -10488,6 +10520,25 @@ export type RequestUserEformPdfManyWhereInput = {
   /** All values that are not contained in given list. */
   publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   publishedBy?: InputMaybe<UserWhereInput>;
+  requestUserEformPdf?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  requestUserEformPdf_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  requestUserEformPdf_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  requestUserEformPdf_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  requestUserEformPdf_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  requestUserEformPdf_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  requestUserEformPdf_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  requestUserEformPdf_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  requestUserEformPdf_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  requestUserEformPdf_starts_with?: InputMaybe<Scalars['String']['input']>;
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
@@ -10512,17 +10563,25 @@ export type RequestUserEformPdfManyWhereInput = {
 export enum RequestUserEformPdfOrderByInput {
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
+  EmailAsc = 'email_ASC',
+  EmailDesc = 'email_DESC',
+  FullNameAsc = 'fullName_ASC',
+  FullNameDesc = 'fullName_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
+  RequestUserEformPdfAsc = 'requestUserEformPdf_ASC',
+  RequestUserEformPdfDesc = 'requestUserEformPdf_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC'
 }
 
 export type RequestUserEformPdfUpdateInput = {
-  cm3ex2qbt0bxf07zr7kwq6wr7?: InputMaybe<PatientUpdateManyInlineInput>;
   eFormPdf?: InputMaybe<AssetUpdateOneInlineInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type RequestUserEformPdfUpdateManyInlineInput = {
@@ -10543,8 +10602,9 @@ export type RequestUserEformPdfUpdateManyInlineInput = {
 };
 
 export type RequestUserEformPdfUpdateManyInput = {
-  /** No fields in updateMany data input */
-  _?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type RequestUserEformPdfUpdateManyWithNestedWhereInput = {
@@ -10626,6 +10686,44 @@ export type RequestUserEformPdfWhereInput = {
   documentInStages_none?: InputMaybe<RequestUserEformPdfWhereStageInput>;
   documentInStages_some?: InputMaybe<RequestUserEformPdfWhereStageInput>;
   eFormPdf?: InputMaybe<AssetWhereInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  email_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  email_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  email_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  email_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  email_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  email_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  email_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fullName_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fullName_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fullName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fullName_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fullName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fullName_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fullName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fullName_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fullName_starts_with?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -10661,6 +10759,25 @@ export type RequestUserEformPdfWhereInput = {
   /** All values that are not contained in given list. */
   publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   publishedBy?: InputMaybe<UserWhereInput>;
+  requestUserEformPdf?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  requestUserEformPdf_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  requestUserEformPdf_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  requestUserEformPdf_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  requestUserEformPdf_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  requestUserEformPdf_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  requestUserEformPdf_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  requestUserEformPdf_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  requestUserEformPdf_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  requestUserEformPdf_starts_with?: InputMaybe<Scalars['String']['input']>;
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
@@ -13367,6 +13484,13 @@ export type GetUserQuestionnaireQueryVariables = Exact<{
 
 export type GetUserQuestionnaireQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null, othersSpecify?: string | null }> };
 
+export type EFormPdfQueryVariables = Exact<{
+  email: Scalars['String']['input'];
+}>;
+
+
+export type EFormPdfQuery = { __typename?: 'Query', requestUserEformPdfs: Array<{ __typename?: 'RequestUserEformPdf', email?: string | null, fullName?: string | null, id: string, createdAt: any, requestUserEformPdf?: string | null, eFormPdf?: { __typename?: 'Asset', url: string } | null }> };
+
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
   email: Scalars['String']['input'];
@@ -13415,6 +13539,15 @@ export type UpdateQuestionUserMutationVariables = Exact<{
 
 
 export type UpdateQuestionUserMutation = { __typename?: 'Mutation', updatePatient?: { __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null, othersSpecify?: string | null } | null, publishManyPatientsConnection: { __typename?: 'PatientConnection', edges: Array<{ __typename?: 'PatientEdge', node: { __typename?: 'Patient', id: string } }> } };
+
+export type RequestUserEformPdfFileMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  fullName: Scalars['String']['input'];
+  requestUserEformPdf: Scalars['String']['input'];
+}>;
+
+
+export type RequestUserEformPdfFileMutation = { __typename?: 'Mutation', createRequestUserEformPdf?: { __typename?: 'RequestUserEformPdf', id: string } | null };
 
 
 export const GetPatienListDocument = gql`
@@ -14056,6 +14189,53 @@ export type GetUserQuestionnaireQueryHookResult = ReturnType<typeof useGetUserQu
 export type GetUserQuestionnaireLazyQueryHookResult = ReturnType<typeof useGetUserQuestionnaireLazyQuery>;
 export type GetUserQuestionnaireSuspenseQueryHookResult = ReturnType<typeof useGetUserQuestionnaireSuspenseQuery>;
 export type GetUserQuestionnaireQueryResult = Apollo.QueryResult<GetUserQuestionnaireQuery, GetUserQuestionnaireQueryVariables>;
+export const EFormPdfDocument = gql`
+    query EFormPDF($email: String!) {
+  requestUserEformPdfs(where: {email: $email}) {
+    eFormPdf {
+      url
+    }
+    email
+    fullName
+    id
+    createdAt
+    requestUserEformPdf
+  }
+}
+    `;
+
+/**
+ * __useEFormPdfQuery__
+ *
+ * To run a query within a React component, call `useEFormPdfQuery` and pass it any options that fit your needs.
+ * When your component renders, `useEFormPdfQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useEFormPdfQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useEFormPdfQuery(baseOptions: Apollo.QueryHookOptions<EFormPdfQuery, EFormPdfQueryVariables> & ({ variables: EFormPdfQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EFormPdfQuery, EFormPdfQueryVariables>(EFormPdfDocument, options);
+      }
+export function useEFormPdfLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EFormPdfQuery, EFormPdfQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EFormPdfQuery, EFormPdfQueryVariables>(EFormPdfDocument, options);
+        }
+export function useEFormPdfSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<EFormPdfQuery, EFormPdfQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<EFormPdfQuery, EFormPdfQueryVariables>(EFormPdfDocument, options);
+        }
+export type EFormPdfQueryHookResult = ReturnType<typeof useEFormPdfQuery>;
+export type EFormPdfLazyQueryHookResult = ReturnType<typeof useEFormPdfLazyQuery>;
+export type EFormPdfSuspenseQueryHookResult = ReturnType<typeof useEFormPdfSuspenseQuery>;
+export type EFormPdfQueryResult = Apollo.QueryResult<EFormPdfQuery, EFormPdfQueryVariables>;
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String, $statusAppointment: String!) {
   createPatient(
@@ -14358,3 +14538,40 @@ export function useUpdateQuestionUserMutation(baseOptions?: Apollo.MutationHookO
 export type UpdateQuestionUserMutationHookResult = ReturnType<typeof useUpdateQuestionUserMutation>;
 export type UpdateQuestionUserMutationResult = Apollo.MutationResult<UpdateQuestionUserMutation>;
 export type UpdateQuestionUserMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionUserMutation, UpdateQuestionUserMutationVariables>;
+export const RequestUserEformPdfFileDocument = gql`
+    mutation RequestUserEformPdfFile($email: String!, $fullName: String!, $requestUserEformPdf: String!) {
+  createRequestUserEformPdf(
+    data: {email: $email, fullName: $fullName, requestUserEformPdf: $requestUserEformPdf}
+  ) {
+    id
+  }
+}
+    `;
+export type RequestUserEformPdfFileMutationFn = Apollo.MutationFunction<RequestUserEformPdfFileMutation, RequestUserEformPdfFileMutationVariables>;
+
+/**
+ * __useRequestUserEformPdfFileMutation__
+ *
+ * To run a mutation, you first call `useRequestUserEformPdfFileMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRequestUserEformPdfFileMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [requestUserEformPdfFileMutation, { data, loading, error }] = useRequestUserEformPdfFileMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *      fullName: // value for 'fullName'
+ *      requestUserEformPdf: // value for 'requestUserEformPdf'
+ *   },
+ * });
+ */
+export function useRequestUserEformPdfFileMutation(baseOptions?: Apollo.MutationHookOptions<RequestUserEformPdfFileMutation, RequestUserEformPdfFileMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RequestUserEformPdfFileMutation, RequestUserEformPdfFileMutationVariables>(RequestUserEformPdfFileDocument, options);
+      }
+export type RequestUserEformPdfFileMutationHookResult = ReturnType<typeof useRequestUserEformPdfFileMutation>;
+export type RequestUserEformPdfFileMutationResult = Apollo.MutationResult<RequestUserEformPdfFileMutation>;
+export type RequestUserEformPdfFileMutationOptions = Apollo.BaseMutationOptions<RequestUserEformPdfFileMutation, RequestUserEformPdfFileMutationVariables>;

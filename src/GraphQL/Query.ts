@@ -166,7 +166,6 @@ export const GET_USER_PERSONAL_INFORMATION = gql`
   }
 `;
 
-
 export const GET_USER_DENTAL_INFORMATION = gql`
   query GetUserDentalInformation($email: String!) {
     patients(where: { email: $email }) {
@@ -191,7 +190,6 @@ export const GET_USER_DENTAL_INFORMATION = gql`
   }
 `;
 
-
 export const GET_USER_MEDICAL_INFORMATION = gql`
   query GetUserMedicalInformation($email: String!) {
     patients(where: { email: $email }) {
@@ -210,8 +208,8 @@ export const GET_USER_MEDICAL_INFORMATION = gql`
       forWomen
       lactating
       ifYesWhatWasTheIllnessOrProblem
-    dateOfLastPhysicalExam
-    vitaminsNaturalOrHerbalSupplements
+      dateOfLastPhysicalExam
+      vitaminsNaturalOrHerbalSupplements
     }
   }
 `;
@@ -220,46 +218,60 @@ export const GET_USER_QUESTIONNAIRE = gql`
   query GetUserQuestionnaire($email: String!) {
     patients(where: { email: $email }) {
       id
-       fullName
-    highBloodPressure
-    heartAttack
-    heartDisease
-    heartDiseaseSpecify
-    lowBloodPressure
-    leukemia
-    anemia
-    kidneyDisease
-    kidneyDiseaseSpecify
-    asthma
-    lungDisease
-    lungDiseaseSpecify
-    stroke
-    neurologicalDisorder
-    neurologicalDisorderSpecify
-    epilepsyConvulsions
-    brainInjury
-    psychiatricTreatment
-    diabetes
-    aidsHivInfection
-    congenitalDisease
-    congenitalDiseaseSpecify
-    hepatitis
-    liverDisorder
-    livErDisorderSpecify
-    jointDisorder
-    jointReplacementOrImplants
-    steroidTherapy
-    stomachTroublesUlcers
-    chestPains
-    frequentSoreThroat
-     persistentCough
-    difficultInBreathing
-    cancerOrTumor
-    radiationOrChemotherapy
-    recentWEightLoss
-    others
-    othersSpecify
+      fullName
+      highBloodPressure
+      heartAttack
+      heartDisease
+      heartDiseaseSpecify
+      lowBloodPressure
+      leukemia
+      anemia
+      kidneyDisease
+      kidneyDiseaseSpecify
+      asthma
+      lungDisease
+      lungDiseaseSpecify
+      stroke
+      neurologicalDisorder
+      neurologicalDisorderSpecify
+      epilepsyConvulsions
+      brainInjury
+      psychiatricTreatment
+      diabetes
+      aidsHivInfection
+      congenitalDisease
+      congenitalDiseaseSpecify
+      hepatitis
+      liverDisorder
+      livErDisorderSpecify
+      jointDisorder
+      jointReplacementOrImplants
+      steroidTherapy
+      stomachTroublesUlcers
+      chestPains
+      frequentSoreThroat
+      persistentCough
+      difficultInBreathing
+      cancerOrTumor
+      radiationOrChemotherapy
+      recentWEightLoss
+      others
+      othersSpecify
     }
   }
 `;
 
+export const EformPDF = gql`
+  query EFormPDF($email: String!) {
+    requestUserEformPdfs(where: { email: $email }) {
+      eFormPdf {
+        url
+      }
+      email
+      fullName
+      id
+      createdAt
+      requestUserEformPdf
+    }
+  }
+`;

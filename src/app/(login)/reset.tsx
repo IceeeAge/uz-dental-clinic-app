@@ -5,6 +5,7 @@ import { useSignIn } from '@clerk/clerk-expo';
 import Colors from "@constants/Colors";
 import PrimaryButton from '@/components/PrimaryButton';
 import { Ionicons } from '@expo/vector-icons'; // Ensure you have @expo/vector-icons installed
+import { Toast } from 'react-native-toast-notifications';
 
 const PwReset = () => {
   const [emailAddress, setEmailAddress] = useState('');
@@ -42,9 +43,7 @@ const PwReset = () => {
           code,
           password,
         });
-
-        Alert.alert('Success', 'Password reset successfully');
-
+        Toast.show("Password reset successfully", { type: "normal", duration: 2000, placement: "center" });
         if (setActive) {
           await setActive({ session: result.createdSessionId });
         }

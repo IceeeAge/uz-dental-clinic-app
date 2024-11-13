@@ -90,7 +90,7 @@ export const UPDATE_PATIENT_DENTAL_INFORMATION = gql`
       problem
       clicking
       bruxing
-     sores
+      sores
       dentures
       active
       serious
@@ -107,14 +107,14 @@ export const UPDATE_PATIENT_DENTAL_INFORMATION = gql`
 `;
 
 export const UPDATE_PATIENT_MEDICAL_INFORMATION = gql`
-mutation UpdatePatientMedicalInformation (
+  mutation UpdatePatientMedicalInformation(
     $id: ID!
     $data: PatientUpdateInput!
   ) {
     updatePatient(where: { id: $id }, data: $data) {
       id
       fullName
-     careOfAPhysicians
+      careOfAPhysicians
       physiciansName
       phonePhysician
       areYouInGoodHealth
@@ -128,8 +128,8 @@ mutation UpdatePatientMedicalInformation (
       forWomen
       lactating
       ifYesWhatWasTheIllnessOrProblem
-    dateOfLastPhysicalExam
-    vitaminsNaturalOrHerbalSupplements
+      dateOfLastPhysicalExam
+      vitaminsNaturalOrHerbalSupplements
     }
     publishManyPatientsConnection {
       edges {
@@ -139,51 +139,51 @@ mutation UpdatePatientMedicalInformation (
       }
     }
   }
-`
+`;
 export const UPDATE_PATIENT_QUESTIONNAIRE = gql`
-mutation UpdateQuestionUser($id: ID!, $data: PatientUpdateInput!) {
-  updatePatient(where: {id: $id}, data: $data) {
-    id
-    fullName
-    highBloodPressure
-    heartAttack
-    heartDisease
-    heartDiseaseSpecify
-    lowBloodPressure
-    leukemia
-    anemia
-    kidneyDisease
-    kidneyDiseaseSpecify
-    asthma
-    lungDisease
-    lungDiseaseSpecify
-    stroke
-    neurologicalDisorder
-    neurologicalDisorderSpecify
-    epilepsyConvulsions
-    brainInjury
-    psychiatricTreatment
-    diabetes
-    aidsHivInfection
-    congenitalDisease
-    congenitalDiseaseSpecify
-    hepatitis
-    liverDisorder
-    livErDisorderSpecify
-    jointDisorder
-    jointReplacementOrImplants
-    steroidTherapy
-    stomachTroublesUlcers
-    chestPains
-    frequentSoreThroat
-     persistentCough
-    difficultInBreathing
-    cancerOrTumor
-    radiationOrChemotherapy
-    recentWEightLoss
-    others
-    othersSpecify
- }
+  mutation UpdateQuestionUser($id: ID!, $data: PatientUpdateInput!) {
+    updatePatient(where: { id: $id }, data: $data) {
+      id
+      fullName
+      highBloodPressure
+      heartAttack
+      heartDisease
+      heartDiseaseSpecify
+      lowBloodPressure
+      leukemia
+      anemia
+      kidneyDisease
+      kidneyDiseaseSpecify
+      asthma
+      lungDisease
+      lungDiseaseSpecify
+      stroke
+      neurologicalDisorder
+      neurologicalDisorderSpecify
+      epilepsyConvulsions
+      brainInjury
+      psychiatricTreatment
+      diabetes
+      aidsHivInfection
+      congenitalDisease
+      congenitalDiseaseSpecify
+      hepatitis
+      liverDisorder
+      livErDisorderSpecify
+      jointDisorder
+      jointReplacementOrImplants
+      steroidTherapy
+      stomachTroublesUlcers
+      chestPains
+      frequentSoreThroat
+      persistentCough
+      difficultInBreathing
+      cancerOrTumor
+      radiationOrChemotherapy
+      recentWEightLoss
+      others
+      othersSpecify
+    }
     publishManyPatientsConnection {
       edges {
         node {
@@ -192,4 +192,22 @@ mutation UpdateQuestionUser($id: ID!, $data: PatientUpdateInput!) {
       }
     }
   }
-`
+`;
+
+export const REQUEST_EFORM = gql`
+  mutation RequestUserEformPdfFile(
+    $email: String!
+    $fullName: String!
+    $requestUserEformPdf: String!
+  ) {
+    createRequestUserEformPdf(
+      data: {
+        email: $email
+        fullName: $fullName
+        requestUserEformPdf: $requestUserEformPdf
+      }
+    ) {
+      id
+    }
+  }
+`;

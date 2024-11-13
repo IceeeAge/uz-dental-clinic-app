@@ -147,8 +147,8 @@ export default function AppointmentScreen() {
       if (docRef.id) {
         setLoading(false);
         Toast.show("Appointment Created successfully", {
-          type: "success",
-          placement: "top",
+          type: "normal",
+          placement: "center",
           duration: 4000,
           animationType: "slide-in",
         });

@@ -39,7 +39,7 @@ const Page: React.FC = () => {
         await setActive({ session: signInAttempt.createdSessionId });
         router.push("/home");
         Toast.show("Login successfully", {
-          type: "Normal",
+          type: "normal",
           placement: "bottom",
           duration: 4000,
           animationType: "slide-in",

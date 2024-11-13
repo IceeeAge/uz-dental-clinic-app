@@ -41,7 +41,7 @@ export default function Eform() {
       <Link href="OptionMenu/pdf-eform" asChild>
         <Pressable style={styles.iconContainer}>
           <AntDesign name="pdffile1" size={24} color="black" />
-          <Text style={styles.text}>Request PDF E-Form</Text>
+          <Text style={styles.text}>PDF E-Form</Text>
         </Pressable>
       </Link>
     </View>

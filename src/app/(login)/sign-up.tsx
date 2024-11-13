@@ -33,7 +33,7 @@ const SignUp: React.FC = () => {
     if (!validateInputs()) {
       Toast.show("Please fill in all the required fields", {
         type: "danger",
-        placement: "bottom",
+        placement: "center",
         duration: 4000,
         animationType: "slide-in",
       });
@@ -75,7 +75,7 @@ const SignUp: React.FC = () => {
     if (!code) {
       Toast.show("Please enter the verification code.", {
         type: "danger",
-        placement: "bottom",
+        placement: "center",
         duration: 4000,
         animationType: "slide-in",
       });
@@ -93,7 +93,7 @@ const SignUp: React.FC = () => {
     } catch (err: any) {
       Toast.show(err.errors[0]?.message || 'Invalid code. Please try again.', {
         type: "danger",
-        placement: "bottom",
+        placement: "center",
         duration: 4000,
         animationType: "slide-in",
       });
