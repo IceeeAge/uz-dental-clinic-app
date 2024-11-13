@@ -22,7 +22,7 @@ export default function Profile() {
   const doLogout = async () => {
     try {
       await signOut();
-      router.replace("(auth)");
+      router.replace("/(auth)");
     } catch (error) {
       console.error("Sign out error:", error);
     }

@@ -5,7 +5,9 @@
     "strict": true,
     "jsx": "react",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": [
+        "src/*"
+      ],
       "@/components/*": [
         "src/components/*"
       ],
@@ -56,6 +58,8 @@
     "src/components/PrimaryButton.tsx",
     "src/components/SecondaryButton.tsx",
     "src/app/(auth)/index.tsx",
-    "src/app/(auth)/_layout.tsx"
+    "src/app/(auth)/_layout.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
   ]
 }

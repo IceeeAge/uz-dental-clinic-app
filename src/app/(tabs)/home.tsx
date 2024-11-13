@@ -20,7 +20,6 @@ export default function home() {
         <CategoriesList />
       </View>
       <View style={styles.containerClinicians}>
-        {/* Pass isHorizontal to switch between vertical and horizontal */}
         <Text style={styles.title}>Clinicians List</Text>
         <ClinicianItems isHorizontal={isHorizontal} />
       </View>

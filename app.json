@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "UZ Dental Clinic ",
+    "name": "UZ-DENTAL-CLINIC-APP",
     "slug": "UZ-DENTAL-CLINIC-APP",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,7 +19,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+      ],
+      "package": "com.s_sydj.UZDENTALCLINICAPP"
     },
     "web": {
       "bundler": "metro",
@@ -34,10 +39,19 @@
         }
       ],
       "expo-router",
-      "expo-font"
+      "expo-font",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f6d19b83-7434-4f1c-b186-0a88ef8067ea"
+      }
     }
   }
 }

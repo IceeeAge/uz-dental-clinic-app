@@ -25,7 +25,7 @@ export default function ClinicianItems({ isHorizontal = false }) {
 
   const handlePress = (medicalTeams: GetMedicalTeamQuery["medicalTeams"][0]) => {
     router.push({
-      pathname: "(categories)/details/clinicians-details",
+      pathname: "/(categories)/details/clinicians-details",
       params: {
         medical: JSON.stringify(medicalTeams),
       },

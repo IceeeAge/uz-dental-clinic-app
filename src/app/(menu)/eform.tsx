@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get("window");
 export default function Eform() {
   return (
     <View style={styles.container}>
-      <Link href="OptionMenu/personal-information" asChild>
+      <Link href="/(menu)/OptionMenu/medical-information" asChild>
         <Pressable style={styles.iconContainer}>
           <Ionicons name="person-circle" size={24} color="black" />
           <Text style={styles.text}>Personal Information</Text>
@@ -16,21 +16,21 @@ export default function Eform() {
       </Link>
 
 
-      <Link href="OptionMenu/dental-information" asChild>
+      <Link href="/(menu)/OptionMenu/dental-information" asChild>
         <Pressable style={styles.iconContainer}>
           <Ionicons name="medical-outline" size={24} color="black" />
           <Text style={styles.text}>Dental Information</Text>
         </Pressable>
       </Link>
 
-      <Link href="OptionMenu/medical-information" asChild>
+      <Link href="/(menu)/OptionMenu/medical-information" asChild>
         <Pressable style={styles.iconContainer}>
           <Ionicons name="bandage-outline" size={24} color="black" />
           <Text style={styles.text}>Medical Information</Text>
         </Pressable>
       </Link>
 
-      <Link href="OptionMenu/questions" asChild>
+      <Link href="/(menu)/OptionMenu/questions" asChild>
         <Pressable style={styles.iconContainer}>
           <Ionicons name="help-circle-outline" size={24} color="black" />
           <Text style={styles.text}>Questions</Text>
@@ -38,7 +38,7 @@ export default function Eform() {
       </Link>
 
       
-      <Link href="OptionMenu/pdf-eform" asChild>
+      <Link href="/(menu)/OptionMenu/pdf-eform" asChild>
         <Pressable style={styles.iconContainer}>
           <AntDesign name="pdffile1" size={24} color="black" />
           <Text style={styles.text}>PDF E-Form</Text>

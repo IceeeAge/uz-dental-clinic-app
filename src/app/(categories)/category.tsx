@@ -13,15 +13,17 @@ export default function CategoriesList() {
   const router = useRouter();
 
   // Handle navigation based on icon pressed
-  const handleIconPress = (route: Href<string | object>) => {
-    router.push(route)
+  const handleIconPress = (route: Href) => {
+    router.push(route);
   };
+
+
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.iconWrapper}
-        onPress={() => handleIconPress("clinicians")}
+        onPress={() => handleIconPress("/clinicians")}
       >
         <View style={styles.iconContainer}>
           <FontAwesome6 name="user-doctor" size={IconSize.xl} color={Colors.PRIMARY} />
@@ -31,7 +33,7 @@ export default function CategoriesList() {
 
       <TouchableOpacity
         style={styles.iconWrapper}
-        onPress={() => handleIconPress("tips-guides")}
+        onPress={() => handleIconPress("/tips-guides")}
       >
         <View style={styles.iconContainer}>
           <FontAwesome5 name="tooth" size={IconSize.xl} color={Colors.PRIMARY} />
@@ -41,7 +43,7 @@ export default function CategoriesList() {
 
       <TouchableOpacity
         style={styles.iconWrapper}
-        onPress={() => handleIconPress("uz-lab")}
+        onPress={() => handleIconPress("/uz-lab")}
       >
         <View style={styles.iconContainer}>
           <FontAwesome5 name="hospital-alt" size={IconSize.xl} color={Colors.PRIMARY} />
@@ -51,7 +53,7 @@ export default function CategoriesList() {
 
       <TouchableOpacity
         style={styles.iconWrapper}
-        onPress={() => handleIconPress("newsfeed")}
+        onPress={() => handleIconPress("/newsfeed")}
       >
         <View style={styles.iconContainer}>
           <Ionicons name="newspaper-sharp" size={IconSize.xl} color={Colors.PRIMARY} />
