@@ -40,6 +40,7 @@ export type Asset = Entity & Node & {
   createdBy?: Maybe<User>;
   /** Get the document in other stages */
   documentInStages: Array<Asset>;
+  eFormPdfRequestUserEformPdf: Array<RequestUserEformPdf>;
   /** The file name */
   fileName: Scalars['String']['output'];
   /** The file handle */
@@ -116,6 +117,20 @@ export type AssetDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean']['input'];
   inheritLocale?: Scalars['Boolean']['input'];
   stages?: Array<Stage>;
+};
+
+
+/** Asset system model */
+export type AssetEFormPdfRequestUserEformPdfArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<RequestUserEformPdfOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<RequestUserEformPdfWhereInput>;
 };
 
 
@@ -282,6 +297,7 @@ export type AssetConnection = {
 export type AssetCreateInput = {
   chartingNewSchedule?: InputMaybe<NewScheduleCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  eFormPdfRequestUserEformPdf?: InputMaybe<RequestUserEformPdfCreateManyInlineInput>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   imageGetSlider?: InputMaybe<GetSliderCreateManyInlineInput>;
   imageTipsGuide?: InputMaybe<TipsGuideCreateManyInlineInput>;
@@ -370,6 +386,9 @@ export type AssetManyWhereInput = {
   documentInStages_every?: InputMaybe<AssetWhereStageInput>;
   documentInStages_none?: InputMaybe<AssetWhereStageInput>;
   documentInStages_some?: InputMaybe<AssetWhereStageInput>;
+  eFormPdfRequestUserEformPdf_every?: InputMaybe<RequestUserEformPdfWhereInput>;
+  eFormPdfRequestUserEformPdf_none?: InputMaybe<RequestUserEformPdfWhereInput>;
+  eFormPdfRequestUserEformPdf_some?: InputMaybe<RequestUserEformPdfWhereInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -489,6 +508,7 @@ export type AssetTransformationInput = {
 
 export type AssetUpdateInput = {
   chartingNewSchedule?: InputMaybe<NewScheduleUpdateManyInlineInput>;
+  eFormPdfRequestUserEformPdf?: InputMaybe<RequestUserEformPdfUpdateManyInlineInput>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   imageGetSlider?: InputMaybe<GetSliderUpdateManyInlineInput>;
   imageTipsGuide?: InputMaybe<TipsGuideUpdateManyInlineInput>;
@@ -749,6 +769,9 @@ export type AssetWhereInput = {
   documentInStages_every?: InputMaybe<AssetWhereStageInput>;
   documentInStages_none?: InputMaybe<AssetWhereStageInput>;
   documentInStages_some?: InputMaybe<AssetWhereStageInput>;
+  eFormPdfRequestUserEformPdf_every?: InputMaybe<RequestUserEformPdfWhereInput>;
+  eFormPdfRequestUserEformPdf_none?: InputMaybe<RequestUserEformPdfWhereInput>;
+  eFormPdfRequestUserEformPdf_some?: InputMaybe<RequestUserEformPdfWhereInput>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   fileName_contains?: InputMaybe<Scalars['String']['input']>;
@@ -1416,6 +1439,7 @@ export enum EntityTypeName {
   NewSchedule = 'NewSchedule',
   NewsFeed = 'NewsFeed',
   Patient = 'Patient',
+  RequestUserEformPdf = 'RequestUserEformPdf',
   /** Scheduled Operation system model */
   ScheduledOperation = 'ScheduledOperation',
   /** Scheduled Release system model */
@@ -2604,6 +2628,8 @@ export type Mutation = {
   createNewsFeed?: Maybe<NewsFeed>;
   /** Create one patient */
   createPatient?: Maybe<Patient>;
+  /** Create one requestUserEformPdf */
+  createRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Create one scheduledRelease */
   createScheduledRelease?: Maybe<ScheduledRelease>;
   /** Create one tipsGuide */
@@ -2657,6 +2683,13 @@ export type Mutation = {
   /** Delete many Patient documents, return deleted documents */
   deleteManyPatientsConnection: PatientConnection;
   /**
+   * Delete many RequestUserEformPdf documents
+   * @deprecated Please use the new paginated many mutation (deleteManyRequestUserEformPdfsConnection)
+   */
+  deleteManyRequestUserEformPdfs: BatchPayload;
+  /** Delete many RequestUserEformPdf documents, return deleted documents */
+  deleteManyRequestUserEformPdfsConnection: RequestUserEformPdfConnection;
+  /**
    * Delete many TipsGuide documents
    * @deprecated Please use the new paginated many mutation (deleteManyTipsGuidesConnection)
    */
@@ -2678,6 +2711,8 @@ export type Mutation = {
   deleteNewsFeed?: Maybe<NewsFeed>;
   /** Delete one patient from _all_ existing stages. Returns deleted document. */
   deletePatient?: Maybe<Patient>;
+  /** Delete one requestUserEformPdf from _all_ existing stages. Returns deleted document. */
+  deleteRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Delete and return scheduled operation */
   deleteScheduledOperation?: Maybe<ScheduledOperation>;
   /** Delete one scheduledRelease from _all_ existing stages. Returns deleted document. */
@@ -2733,6 +2768,13 @@ export type Mutation = {
   /** Publish many Patient documents */
   publishManyPatientsConnection: PatientConnection;
   /**
+   * Publish many RequestUserEformPdf documents
+   * @deprecated Please use the new paginated many mutation (publishManyRequestUserEformPdfsConnection)
+   */
+  publishManyRequestUserEformPdfs: BatchPayload;
+  /** Publish many RequestUserEformPdf documents */
+  publishManyRequestUserEformPdfsConnection: RequestUserEformPdfConnection;
+  /**
    * Publish many TipsGuide documents
    * @deprecated Please use the new paginated many mutation (publishManyTipsGuidesConnection)
    */
@@ -2754,6 +2796,8 @@ export type Mutation = {
   publishNewsFeed?: Maybe<NewsFeed>;
   /** Publish one patient */
   publishPatient?: Maybe<Patient>;
+  /** Publish one requestUserEformPdf */
+  publishRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Publish one tipsGuide */
   publishTipsGuide?: Maybe<TipsGuide>;
   /** Publish one uzLab */
@@ -2770,6 +2814,8 @@ export type Mutation = {
   schedulePublishNewsFeed?: Maybe<NewsFeed>;
   /** Schedule to publish one patient */
   schedulePublishPatient?: Maybe<Patient>;
+  /** Schedule to publish one requestUserEformPdf */
+  schedulePublishRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Schedule to publish one tipsGuide */
   schedulePublishTipsGuide?: Maybe<TipsGuide>;
   /** Schedule to publish one uzLab */
@@ -2786,6 +2832,8 @@ export type Mutation = {
   scheduleUnpublishNewsFeed?: Maybe<NewsFeed>;
   /** Unpublish one patient from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishPatient?: Maybe<Patient>;
+  /** Unpublish one requestUserEformPdf from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Unpublish one tipsGuide from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishTipsGuide?: Maybe<TipsGuide>;
   /** Unpublish one uzLab from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2837,6 +2885,13 @@ export type Mutation = {
   /** Find many Patient documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyPatientsConnection: PatientConnection;
   /**
+   * Unpublish many RequestUserEformPdf documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyRequestUserEformPdfsConnection)
+   */
+  unpublishManyRequestUserEformPdfs: BatchPayload;
+  /** Find many RequestUserEformPdf documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyRequestUserEformPdfsConnection: RequestUserEformPdfConnection;
+  /**
    * Unpublish many TipsGuide documents
    * @deprecated Please use the new paginated many mutation (unpublishManyTipsGuidesConnection)
    */
@@ -2858,6 +2913,8 @@ export type Mutation = {
   unpublishNewsFeed?: Maybe<NewsFeed>;
   /** Unpublish one patient from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishPatient?: Maybe<Patient>;
+  /** Unpublish one requestUserEformPdf from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Unpublish one tipsGuide from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishTipsGuide?: Maybe<TipsGuide>;
   /** Unpublish one uzLab from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2909,6 +2966,13 @@ export type Mutation = {
   /** Update many Patient documents */
   updateManyPatientsConnection: PatientConnection;
   /**
+   * Update many requestUserEformPdfs
+   * @deprecated Please use the new paginated many mutation (updateManyRequestUserEformPdfsConnection)
+   */
+  updateManyRequestUserEformPdfs: BatchPayload;
+  /** Update many RequestUserEformPdf documents */
+  updateManyRequestUserEformPdfsConnection: RequestUserEformPdfConnection;
+  /**
    * Update many tipsGuides
    * @deprecated Please use the new paginated many mutation (updateManyTipsGuidesConnection)
    */
@@ -2930,6 +2994,8 @@ export type Mutation = {
   updateNewsFeed?: Maybe<NewsFeed>;
   /** Update one patient */
   updatePatient?: Maybe<Patient>;
+  /** Update one requestUserEformPdf */
+  updateRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Update one scheduledRelease */
   updateScheduledRelease?: Maybe<ScheduledRelease>;
   /** Update one tipsGuide */
@@ -2948,6 +3014,8 @@ export type Mutation = {
   upsertNewsFeed?: Maybe<NewsFeed>;
   /** Upsert one patient */
   upsertPatient?: Maybe<Patient>;
+  /** Upsert one requestUserEformPdf */
+  upsertRequestUserEformPdf?: Maybe<RequestUserEformPdf>;
   /** Upsert one tipsGuide */
   upsertTipsGuide?: Maybe<TipsGuide>;
   /** Upsert one uzLab */
@@ -2982,6 +3050,11 @@ export type MutationCreateNewsFeedArgs = {
 
 export type MutationCreatePatientArgs = {
   data: PatientCreateInput;
+};
+
+
+export type MutationCreateRequestUserEformPdfArgs = {
+  data: RequestUserEformPdfCreateInput;
 };
 
 
@@ -3100,6 +3173,21 @@ export type MutationDeleteManyPatientsConnectionArgs = {
 };
 
 
+export type MutationDeleteManyRequestUserEformPdfsArgs = {
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
+export type MutationDeleteManyRequestUserEformPdfsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
 export type MutationDeleteManyTipsGuidesArgs = {
   where?: InputMaybe<TipsGuideManyWhereInput>;
 };
@@ -3147,6 +3235,11 @@ export type MutationDeleteNewsFeedArgs = {
 
 export type MutationDeletePatientArgs = {
   where: PatientWhereUniqueInput;
+};
+
+
+export type MutationDeleteRequestUserEformPdfArgs = {
+  where: RequestUserEformPdfWhereUniqueInput;
 };
 
 
@@ -3299,6 +3392,24 @@ export type MutationPublishManyPatientsConnectionArgs = {
 };
 
 
+export type MutationPublishManyRequestUserEformPdfsArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
+export type MutationPublishManyRequestUserEformPdfsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
 export type MutationPublishManyTipsGuidesArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<TipsGuideManyWhereInput>;
@@ -3356,6 +3467,12 @@ export type MutationPublishNewsFeedArgs = {
 export type MutationPublishPatientArgs = {
   to?: Array<Stage>;
   where: PatientWhereUniqueInput;
+};
+
+
+export type MutationPublishRequestUserEformPdfArgs = {
+  to?: Array<Stage>;
+  where: RequestUserEformPdfWhereUniqueInput;
 };
 
 
@@ -3422,6 +3539,14 @@ export type MutationSchedulePublishPatientArgs = {
 };
 
 
+export type MutationSchedulePublishRequestUserEformPdfArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  to?: Array<Stage>;
+  where: RequestUserEformPdfWhereUniqueInput;
+};
+
+
 export type MutationSchedulePublishTipsGuideArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
@@ -3485,6 +3610,14 @@ export type MutationScheduleUnpublishPatientArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
   where: PatientWhereUniqueInput;
+};
+
+
+export type MutationScheduleUnpublishRequestUserEformPdfArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  where: RequestUserEformPdfWhereUniqueInput;
 };
 
 
@@ -3630,6 +3763,24 @@ export type MutationUnpublishManyPatientsConnectionArgs = {
 };
 
 
+export type MutationUnpublishManyRequestUserEformPdfsArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyRequestUserEformPdfsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
 export type MutationUnpublishManyTipsGuidesArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<TipsGuideManyWhereInput>;
@@ -3687,6 +3838,12 @@ export type MutationUnpublishNewsFeedArgs = {
 export type MutationUnpublishPatientArgs = {
   from?: Array<Stage>;
   where: PatientWhereUniqueInput;
+};
+
+
+export type MutationUnpublishRequestUserEformPdfArgs = {
+  from?: Array<Stage>;
+  where: RequestUserEformPdfWhereUniqueInput;
 };
 
 
@@ -3816,6 +3973,23 @@ export type MutationUpdateManyPatientsConnectionArgs = {
 };
 
 
+export type MutationUpdateManyRequestUserEformPdfsArgs = {
+  data: RequestUserEformPdfUpdateManyInput;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
+export type MutationUpdateManyRequestUserEformPdfsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  data: RequestUserEformPdfUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<RequestUserEformPdfManyWhereInput>;
+};
+
+
 export type MutationUpdateManyTipsGuidesArgs = {
   data: TipsGuideUpdateManyInput;
   where?: InputMaybe<TipsGuideManyWhereInput>;
@@ -3874,6 +4048,12 @@ export type MutationUpdatePatientArgs = {
 };
 
 
+export type MutationUpdateRequestUserEformPdfArgs = {
+  data: RequestUserEformPdfUpdateInput;
+  where: RequestUserEformPdfWhereUniqueInput;
+};
+
+
 export type MutationUpdateScheduledReleaseArgs = {
   data: ScheduledReleaseUpdateInput;
   where: ScheduledReleaseWhereUniqueInput;
@@ -3925,6 +4105,12 @@ export type MutationUpsertNewsFeedArgs = {
 export type MutationUpsertPatientArgs = {
   upsert: PatientUpsertInput;
   where: PatientWhereUniqueInput;
+};
+
+
+export type MutationUpsertRequestUserEformPdfArgs = {
+  upsert: RequestUserEformPdfUpsertInput;
+  where: RequestUserEformPdfWhereUniqueInput;
 };
 
 
@@ -5284,6 +5470,7 @@ export type Patient = Entity & Node & {
   recentWEightLoss?: Maybe<Scalars['String']['output']>;
   relationship?: Maybe<Scalars['String']['output']>;
   relationshipNumber?: Maybe<Scalars['String']['output']>;
+  requestUserEformPdf?: Maybe<RequestUserEformPdf>;
   scheduledIn: Array<ScheduledOperation>;
   secondRelationshipNumber?: Maybe<Scalars['String']['output']>;
   sensitive?: Maybe<Scalars['String']['output']>;
@@ -5348,6 +5535,12 @@ export type PatientProfileImageArgs = {
 
 
 export type PatientPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type PatientRequestUserEformPdfArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
 };
@@ -5467,6 +5660,7 @@ export type PatientCreateInput = {
   recentWEightLoss?: InputMaybe<Scalars['String']['input']>;
   relationship?: InputMaybe<Scalars['String']['input']>;
   relationshipNumber?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<RequestUserEformPdfCreateOneInlineInput>;
   secondRelationshipNumber?: InputMaybe<Scalars['String']['input']>;
   sensitive?: InputMaybe<Scalars['String']['input']>;
   serious?: InputMaybe<Scalars['String']['input']>;
@@ -7018,6 +7212,7 @@ export type PatientManyWhereInput = {
   relationship_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   relationship_starts_with?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<RequestUserEformPdfWhereInput>;
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
@@ -7554,6 +7749,7 @@ export type PatientUpdateInput = {
   recentWEightLoss?: InputMaybe<Scalars['String']['input']>;
   relationship?: InputMaybe<Scalars['String']['input']>;
   relationshipNumber?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<RequestUserEformPdfUpdateOneInlineInput>;
   secondRelationshipNumber?: InputMaybe<Scalars['String']['input']>;
   sensitive?: InputMaybe<Scalars['String']['input']>;
   serious?: InputMaybe<Scalars['String']['input']>;
@@ -9239,6 +9435,7 @@ export type PatientWhereInput = {
   relationship_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   relationship_starts_with?: InputMaybe<Scalars['String']['input']>;
+  requestUserEformPdf?: InputMaybe<RequestUserEformPdfWhereInput>;
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
@@ -9587,6 +9784,14 @@ export type Query = {
   patients: Array<Patient>;
   /** Retrieve multiple patients using the Relay connection interface */
   patientsConnection: PatientConnection;
+  /** Retrieve a single requestUserEformPdf */
+  requestUserEformPdf?: Maybe<RequestUserEformPdf>;
+  /** Retrieve document version */
+  requestUserEformPdfVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple requestUserEformPdfs */
+  requestUserEformPdfs: Array<RequestUserEformPdf>;
+  /** Retrieve multiple requestUserEformPdfs using the Relay connection interface */
+  requestUserEformPdfsConnection: RequestUserEformPdfConnection;
   /** Retrieve a single scheduledOperation */
   scheduledOperation?: Maybe<ScheduledOperation>;
   /** Retrieve multiple scheduledOperations */
@@ -9865,6 +10070,44 @@ export type QueryPatientsConnectionArgs = {
 };
 
 
+export type QueryRequestUserEformPdfArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: RequestUserEformPdfWhereUniqueInput;
+};
+
+
+export type QueryRequestUserEformPdfVersionArgs = {
+  where: VersionWhereInput;
+};
+
+
+export type QueryRequestUserEformPdfsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<RequestUserEformPdfOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<RequestUserEformPdfWhereInput>;
+};
+
+
+export type QueryRequestUserEformPdfsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<RequestUserEformPdfOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<RequestUserEformPdfWhereInput>;
+};
+
+
 export type QueryScheduledOperationArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
@@ -10056,6 +10299,408 @@ export type RgbaInput = {
   r: Scalars['RGBAHue']['input'];
 };
 
+export type RequestUserEformPdf = Entity & Node & {
+  __typename?: 'RequestUserEformPdf';
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']['output'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<RequestUserEformPdf>;
+  eFormPdf?: Maybe<Asset>;
+  /** List of RequestUserEformPdf versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']['output'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+export type RequestUserEformPdfCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type RequestUserEformPdfDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  inheritLocale?: Scalars['Boolean']['input'];
+  stages?: Array<Stage>;
+};
+
+
+export type RequestUserEformPdfEFormPdfArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  where?: InputMaybe<AssetSingleRelationWhereInput>;
+};
+
+
+export type RequestUserEformPdfHistoryArgs = {
+  limit?: Scalars['Int']['input'];
+  skip?: Scalars['Int']['input'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type RequestUserEformPdfPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type RequestUserEformPdfScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type RequestUserEformPdfUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type RequestUserEformPdfConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: RequestUserEformPdfWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type RequestUserEformPdfConnection = {
+  __typename?: 'RequestUserEformPdfConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<RequestUserEformPdfEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type RequestUserEformPdfCreateInput = {
+  cm3ex2qbt0bxf07zr7kwq6wr7?: InputMaybe<PatientCreateManyInlineInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  eFormPdf?: InputMaybe<AssetCreateOneInlineInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type RequestUserEformPdfCreateManyInlineInput = {
+  /** Connect multiple existing RequestUserEformPdf documents */
+  connect?: InputMaybe<Array<RequestUserEformPdfWhereUniqueInput>>;
+  /** Create and connect multiple existing RequestUserEformPdf documents */
+  create?: InputMaybe<Array<RequestUserEformPdfCreateInput>>;
+};
+
+export type RequestUserEformPdfCreateOneInlineInput = {
+  /** Connect one existing RequestUserEformPdf document */
+  connect?: InputMaybe<RequestUserEformPdfWhereUniqueInput>;
+  /** Create and connect one RequestUserEformPdf document */
+  create?: InputMaybe<RequestUserEformPdfCreateInput>;
+};
+
+/** An edge in a connection. */
+export type RequestUserEformPdfEdge = {
+  __typename?: 'RequestUserEformPdfEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: RequestUserEformPdf;
+};
+
+/** Identifies documents */
+export type RequestUserEformPdfManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<RequestUserEformPdfWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<RequestUserEformPdfWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<RequestUserEformPdfWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<RequestUserEformPdfWhereStageInput>;
+  documentInStages_none?: InputMaybe<RequestUserEformPdfWhereStageInput>;
+  documentInStages_some?: InputMaybe<RequestUserEformPdfWhereStageInput>;
+  eFormPdf?: InputMaybe<AssetWhereInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum RequestUserEformPdfOrderByInput {
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type RequestUserEformPdfUpdateInput = {
+  cm3ex2qbt0bxf07zr7kwq6wr7?: InputMaybe<PatientUpdateManyInlineInput>;
+  eFormPdf?: InputMaybe<AssetUpdateOneInlineInput>;
+};
+
+export type RequestUserEformPdfUpdateManyInlineInput = {
+  /** Connect multiple existing RequestUserEformPdf documents */
+  connect?: InputMaybe<Array<RequestUserEformPdfConnectInput>>;
+  /** Create and connect multiple RequestUserEformPdf documents */
+  create?: InputMaybe<Array<RequestUserEformPdfCreateInput>>;
+  /** Delete multiple RequestUserEformPdf documents */
+  delete?: InputMaybe<Array<RequestUserEformPdfWhereUniqueInput>>;
+  /** Disconnect multiple RequestUserEformPdf documents */
+  disconnect?: InputMaybe<Array<RequestUserEformPdfWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing RequestUserEformPdf documents */
+  set?: InputMaybe<Array<RequestUserEformPdfWhereUniqueInput>>;
+  /** Update multiple RequestUserEformPdf documents */
+  update?: InputMaybe<Array<RequestUserEformPdfUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple RequestUserEformPdf documents */
+  upsert?: InputMaybe<Array<RequestUserEformPdfUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type RequestUserEformPdfUpdateManyInput = {
+  /** No fields in updateMany data input */
+  _?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RequestUserEformPdfUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: RequestUserEformPdfUpdateManyInput;
+  /** Document search */
+  where: RequestUserEformPdfWhereInput;
+};
+
+export type RequestUserEformPdfUpdateOneInlineInput = {
+  /** Connect existing RequestUserEformPdf document */
+  connect?: InputMaybe<RequestUserEformPdfWhereUniqueInput>;
+  /** Create and connect one RequestUserEformPdf document */
+  create?: InputMaybe<RequestUserEformPdfCreateInput>;
+  /** Delete currently connected RequestUserEformPdf document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected RequestUserEformPdf document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single RequestUserEformPdf document */
+  update?: InputMaybe<RequestUserEformPdfUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single RequestUserEformPdf document */
+  upsert?: InputMaybe<RequestUserEformPdfUpsertWithNestedWhereUniqueInput>;
+};
+
+export type RequestUserEformPdfUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: RequestUserEformPdfUpdateInput;
+  /** Unique document search */
+  where: RequestUserEformPdfWhereUniqueInput;
+};
+
+export type RequestUserEformPdfUpsertInput = {
+  /** Create document if it didn't exist */
+  create: RequestUserEformPdfCreateInput;
+  /** Update document if it exists */
+  update: RequestUserEformPdfUpdateInput;
+};
+
+export type RequestUserEformPdfUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: RequestUserEformPdfUpsertInput;
+  /** Unique document search */
+  where: RequestUserEformPdfWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type RequestUserEformPdfWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type RequestUserEformPdfWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<RequestUserEformPdfWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<RequestUserEformPdfWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<RequestUserEformPdfWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<RequestUserEformPdfWhereStageInput>;
+  documentInStages_none?: InputMaybe<RequestUserEformPdfWhereStageInput>;
+  documentInStages_some?: InputMaybe<RequestUserEformPdfWhereStageInput>;
+  eFormPdf?: InputMaybe<AssetWhereInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type RequestUserEformPdfWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<RequestUserEformPdfWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<RequestUserEformPdfWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<RequestUserEformPdfWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<RequestUserEformPdfWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References RequestUserEformPdf record uniquely */
+export type RequestUserEformPdfWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 /** Custom type representing a rich text value comprising of raw rich text ast, html, markdown and text values */
 export type RichText = {
   __typename?: 'RichText';
@@ -10151,7 +10796,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | GetSlider | MedicalTeam | NewSchedule | NewsFeed | Patient | TipsGuide | UzLab;
+export type ScheduledOperationAffectedDocument = Asset | GetSlider | MedicalTeam | NewSchedule | NewsFeed | Patient | RequestUserEformPdf | TipsGuide | UzLab;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
