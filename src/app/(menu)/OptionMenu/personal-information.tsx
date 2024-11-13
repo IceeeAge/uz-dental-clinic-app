@@ -116,7 +116,7 @@ export default function PersonalInformation() {
         },
       });
       Toast.show("Personal information updated successfully", {
-        type: "success",
+        type: "normal",
         placement: "center",
         duration: 4000,
         animationType: "slide-in",

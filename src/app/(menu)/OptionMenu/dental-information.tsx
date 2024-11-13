@@ -159,7 +159,7 @@ const Options = {
         });
   
         Toast.show("Dental information updated successfully", {
-          type: "success",
+          type: "normal",
           duration: 2000,
           placement:"center"
         })

@@ -191,7 +191,7 @@ export default function Questions() {
         },
       });
       Toast.show("Questionnaire updated successfully", {
-        type: "success",
+        type: "normal",
         duration: 2000,
         placement:"center"
       })

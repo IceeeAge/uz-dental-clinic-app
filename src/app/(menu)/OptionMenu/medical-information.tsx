@@ -169,7 +169,7 @@ export default function MedicalInformation() {
         },
       });
       Toast.show("Medical information updated successfully", {
-        type: "success",
+        type: "normal",
         duration: 2000,
         placement:"center"
       });

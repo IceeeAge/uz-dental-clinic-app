@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 
 // Create an HttpLink for the GraphQL endpoint
 const httpLink = new HttpLink({
-  uri: Constants.expoConfig?.extra?.HYGRAPH_END_POINT_URL,
+  uri:'https://api-ap-northeast-1.hygraph.com/v2/clyry9hcp01vm07w0vu0nq94p/master',
 });
 
 // Create an Apollo Client instance

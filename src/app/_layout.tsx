@@ -28,15 +28,20 @@ export default function RootLayout() {
     return null;
   }
 
+  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
+
+  if (!publishableKey) {
+    throw new Error('Add EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY to your .env file')
+  }
+
   return (
     <ToastProvider>
       <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1 }}>
           <ClerkProvider
             tokenCache={tokenCache}
-            publishableKey={
-              Constants.expoConfig?.extra?.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY
-            }
+            publishableKey={publishableKey}
+            
           >
             <ApolloProvider client={client}>
               <ClerkLoaded>
