@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Alert, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TextInput, Alert, TouchableOpacity, Text } from 'react-native';
 import { Stack } from 'expo-router';
 import { useSignIn } from '@clerk/clerk-expo';
 import Colors from "@constants/Colors";
@@ -74,6 +74,7 @@ const PwReset = () => {
       ) : (
         <>
           <View>
+            <Text style={styles.textauth}>Please Enter the code we sent to your email account.</Text>
             <TextInput
               value={code}
               placeholder="Enter code"
@@ -97,7 +98,10 @@ const PwReset = () => {
               </TouchableOpacity>
             </View>
           </View>
+          <View style={styles.buttonContainer}>
           <PrimaryButton title="Set New Password" onPress={onReset} />
+          </View>
+         
         </>
       )}
     </View>
@@ -141,11 +145,21 @@ const styles = StyleSheet.create({
     right: 10,
     top: '50%',
     transform: [{ translateY: -12 }], // Center the icon vertically
+    
   },
   button: {
     margin: 8,
     alignItems: 'center',
   },
+  textauth:{
+    textAlign: 'center',
+    fontSize: 16,
+    marginBottom: 10
+
+  },
+  buttonContainer:{
+    marginTop: 20
+  }
 });
 
 export default PwReset;
