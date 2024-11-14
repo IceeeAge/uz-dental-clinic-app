@@ -114,7 +114,7 @@ export default function PdtEform() {
       {isPdfAvailable ? (
         <SecondaryButton title="Print PDF" onPress={printPdf} />
       ) : hasRequestedPdf ? (
-        <Text>PDF request already submitted</Text>
+        <Text>PDF request already submitted and is being processed</Text>
       ) : (
         <PrimaryButton
           title={requestLoading ? "Requesting..." : "Request PDF"}

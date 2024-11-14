@@ -195,19 +195,18 @@ export const UPDATE_PATIENT_QUESTIONNAIRE = gql`
 `;
 
 export const REQUEST_EFORM = gql`
-  mutation RequestUserEformPdfFile(
-    $email: String!
-    $fullName: String!
-    $requestUserEformPdf: String!
+ mutation RequestUserEformPdfFile {
+  createRequestUserEformPdf(
+    data: {email: "", fullName: "", requestUserEformPdf: ""}
   ) {
-    createRequestUserEformPdf(
-      data: {
-        email: $email
-        fullName: $fullName
-        requestUserEformPdf: $requestUserEformPdf
+    id
+  }
+  publishManyRequestUserEformPdfsConnection {
+    edges {
+      node {
+        id
       }
-    ) {
-      id
     }
   }
+}
 `;

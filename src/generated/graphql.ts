@@ -13540,14 +13540,10 @@ export type UpdateQuestionUserMutationVariables = Exact<{
 
 export type UpdateQuestionUserMutation = { __typename?: 'Mutation', updatePatient?: { __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null, othersSpecify?: string | null } | null, publishManyPatientsConnection: { __typename?: 'PatientConnection', edges: Array<{ __typename?: 'PatientEdge', node: { __typename?: 'Patient', id: string } }> } };
 
-export type RequestUserEformPdfFileMutationVariables = Exact<{
-  email: Scalars['String']['input'];
-  fullName: Scalars['String']['input'];
-  requestUserEformPdf: Scalars['String']['input'];
-}>;
+export type RequestUserEformPdfFileMutationVariables = Exact<{ [key: string]: never; }>;
 
 
-export type RequestUserEformPdfFileMutation = { __typename?: 'Mutation', createRequestUserEformPdf?: { __typename?: 'RequestUserEformPdf', id: string } | null };
+export type RequestUserEformPdfFileMutation = { __typename?: 'Mutation', createRequestUserEformPdf?: { __typename?: 'RequestUserEformPdf', id: string } | null, publishManyRequestUserEformPdfsConnection: { __typename?: 'RequestUserEformPdfConnection', edges: Array<{ __typename?: 'RequestUserEformPdfEdge', node: { __typename?: 'RequestUserEformPdf', id: string } }> } };
 
 
 export const GetPatienListDocument = gql`
@@ -13595,8 +13591,8 @@ export function useGetPatienListLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetPatienListQuery, GetPatienListQueryVariables>(GetPatienListDocument, options);
         }
-export function useGetPatienListSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetPatienListQuery, GetPatienListQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetPatienListSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetPatienListQuery, GetPatienListQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetPatienListQuery, GetPatienListQueryVariables>(GetPatienListDocument, options);
         }
 export type GetPatienListQueryHookResult = ReturnType<typeof useGetPatienListQuery>;
@@ -13655,8 +13651,8 @@ export function useGetNewScheduleLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetNewScheduleQuery, GetNewScheduleQueryVariables>(GetNewScheduleDocument, options);
         }
-export function useGetNewScheduleSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetNewScheduleQuery, GetNewScheduleQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetNewScheduleSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetNewScheduleQuery, GetNewScheduleQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetNewScheduleQuery, GetNewScheduleQueryVariables>(GetNewScheduleDocument, options);
         }
 export type GetNewScheduleQueryHookResult = ReturnType<typeof useGetNewScheduleQuery>;
@@ -13698,8 +13694,8 @@ export function useGetSliderLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetSliderQuery, GetSliderQueryVariables>(GetSliderDocument, options);
         }
-export function useGetSliderSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetSliderQuery, GetSliderQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetSliderSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetSliderQuery, GetSliderQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetSliderQuery, GetSliderQueryVariables>(GetSliderDocument, options);
         }
 export type GetSliderQueryHookResult = ReturnType<typeof useGetSliderQuery>;
@@ -13750,8 +13746,8 @@ export function useGetMedicalTeamLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetMedicalTeamQuery, GetMedicalTeamQueryVariables>(GetMedicalTeamDocument, options);
         }
-export function useGetMedicalTeamSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetMedicalTeamQuery, GetMedicalTeamQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetMedicalTeamSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMedicalTeamQuery, GetMedicalTeamQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetMedicalTeamQuery, GetMedicalTeamQueryVariables>(GetMedicalTeamDocument, options);
         }
 export type GetMedicalTeamQueryHookResult = ReturnType<typeof useGetMedicalTeamQuery>;
@@ -13793,8 +13789,8 @@ export function useGet_Tipsguide_DataLazyQuery(baseOptions?: Apollo.LazyQueryHoo
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Get_Tipsguide_DataQuery, Get_Tipsguide_DataQueryVariables>(Get_Tipsguide_DataDocument, options);
         }
-export function useGet_Tipsguide_DataSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Get_Tipsguide_DataQuery, Get_Tipsguide_DataQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGet_Tipsguide_DataSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Get_Tipsguide_DataQuery, Get_Tipsguide_DataQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Get_Tipsguide_DataQuery, Get_Tipsguide_DataQueryVariables>(Get_Tipsguide_DataDocument, options);
         }
 export type Get_Tipsguide_DataQueryHookResult = ReturnType<typeof useGet_Tipsguide_DataQuery>;
@@ -13844,8 +13840,8 @@ export function useGetuzlabs_DataLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>(Getuzlabs_DataDocument, options);
         }
-export function useGetuzlabs_DataSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetuzlabs_DataSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>(Getuzlabs_DataDocument, options);
         }
 export type Getuzlabs_DataQueryHookResult = ReturnType<typeof useGetuzlabs_DataQuery>;
@@ -13888,8 +13884,8 @@ export function useGetNewsFeedLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
         }
-export function useGetNewsFeedSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetNewsFeedSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
         }
 export type GetNewsFeedQueryHookResult = ReturnType<typeof useGetNewsFeedQuery>;
@@ -13933,8 +13929,8 @@ export function useGetDataCharttingLazyQuery(baseOptions?: Apollo.LazyQueryHookO
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
         }
-export function useGetDataCharttingSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetDataCharttingSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
         }
 export type GetDataCharttingQueryHookResult = ReturnType<typeof useGetDataCharttingQuery>;
@@ -13990,8 +13986,8 @@ export function useGetUserPersonalInformationLazyQuery(baseOptions?: Apollo.Lazy
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetUserPersonalInformationQuery, GetUserPersonalInformationQueryVariables>(GetUserPersonalInformationDocument, options);
         }
-export function useGetUserPersonalInformationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserPersonalInformationQuery, GetUserPersonalInformationQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetUserPersonalInformationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetUserPersonalInformationQuery, GetUserPersonalInformationQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetUserPersonalInformationQuery, GetUserPersonalInformationQueryVariables>(GetUserPersonalInformationDocument, options);
         }
 export type GetUserPersonalInformationQueryHookResult = ReturnType<typeof useGetUserPersonalInformationQuery>;
@@ -14046,8 +14042,8 @@ export function useGetUserDentalInformationLazyQuery(baseOptions?: Apollo.LazyQu
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetUserDentalInformationQuery, GetUserDentalInformationQueryVariables>(GetUserDentalInformationDocument, options);
         }
-export function useGetUserDentalInformationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserDentalInformationQuery, GetUserDentalInformationQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetUserDentalInformationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetUserDentalInformationQuery, GetUserDentalInformationQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetUserDentalInformationQuery, GetUserDentalInformationQueryVariables>(GetUserDentalInformationDocument, options);
         }
 export type GetUserDentalInformationQueryHookResult = ReturnType<typeof useGetUserDentalInformationQuery>;
@@ -14102,8 +14098,8 @@ export function useGetUserMedicalInformationLazyQuery(baseOptions?: Apollo.LazyQ
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetUserMedicalInformationQuery, GetUserMedicalInformationQueryVariables>(GetUserMedicalInformationDocument, options);
         }
-export function useGetUserMedicalInformationSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserMedicalInformationQuery, GetUserMedicalInformationQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetUserMedicalInformationSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetUserMedicalInformationQuery, GetUserMedicalInformationQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetUserMedicalInformationQuery, GetUserMedicalInformationQueryVariables>(GetUserMedicalInformationDocument, options);
         }
 export type GetUserMedicalInformationQueryHookResult = ReturnType<typeof useGetUserMedicalInformationQuery>;
@@ -14181,8 +14177,8 @@ export function useGetUserQuestionnaireLazyQuery(baseOptions?: Apollo.LazyQueryH
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<GetUserQuestionnaireQuery, GetUserQuestionnaireQueryVariables>(GetUserQuestionnaireDocument, options);
         }
-export function useGetUserQuestionnaireSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserQuestionnaireQuery, GetUserQuestionnaireQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useGetUserQuestionnaireSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetUserQuestionnaireQuery, GetUserQuestionnaireQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<GetUserQuestionnaireQuery, GetUserQuestionnaireQueryVariables>(GetUserQuestionnaireDocument, options);
         }
 export type GetUserQuestionnaireQueryHookResult = ReturnType<typeof useGetUserQuestionnaireQuery>;
@@ -14228,8 +14224,8 @@ export function useEFormPdfLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<E
           const options = {...defaultOptions, ...baseOptions}
           return Apollo.useLazyQuery<EFormPdfQuery, EFormPdfQueryVariables>(EFormPdfDocument, options);
         }
-export function useEFormPdfSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<EFormPdfQuery, EFormPdfQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
+export function useEFormPdfSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<EFormPdfQuery, EFormPdfQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
           return Apollo.useSuspenseQuery<EFormPdfQuery, EFormPdfQueryVariables>(EFormPdfDocument, options);
         }
 export type EFormPdfQueryHookResult = ReturnType<typeof useEFormPdfQuery>;
@@ -14539,11 +14535,18 @@ export type UpdateQuestionUserMutationHookResult = ReturnType<typeof useUpdateQu
 export type UpdateQuestionUserMutationResult = Apollo.MutationResult<UpdateQuestionUserMutation>;
 export type UpdateQuestionUserMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionUserMutation, UpdateQuestionUserMutationVariables>;
 export const RequestUserEformPdfFileDocument = gql`
-    mutation RequestUserEformPdfFile($email: String!, $fullName: String!, $requestUserEformPdf: String!) {
+    mutation RequestUserEformPdfFile {
   createRequestUserEformPdf(
-    data: {email: $email, fullName: $fullName, requestUserEformPdf: $requestUserEformPdf}
+    data: {email: "", fullName: "", requestUserEformPdf: ""}
   ) {
     id
+  }
+  publishManyRequestUserEformPdfsConnection {
+    edges {
+      node {
+        id
+      }
+    }
   }
 }
     `;
@@ -14562,9 +14565,6 @@ export type RequestUserEformPdfFileMutationFn = Apollo.MutationFunction<RequestU
  * @example
  * const [requestUserEformPdfFileMutation, { data, loading, error }] = useRequestUserEformPdfFileMutation({
  *   variables: {
- *      email: // value for 'email'
- *      fullName: // value for 'fullName'
- *      requestUserEformPdf: // value for 'requestUserEformPdf'
  *   },
  * });
  */

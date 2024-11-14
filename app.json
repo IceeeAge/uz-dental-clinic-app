@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "UZ-DENTAL-CLINIC-APP",
+    "name": "UZ Dental Clinic",
     "slug": "UZ-DENTAL-CLINIC-APP",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +13,13 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "The app needs to access your calendar.",
+        "NSRemindersUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders",
+        "NSCalendarsFullAccessUsageDescription": "The app needs to access your calendar.",
+        "NSRemindersFullAccessUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -60,6 +66,12 @@
       "eas": {
         "projectId": "9db8929c-f7be-4f84-a3c3-fec5d23c202f"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9db8929c-f7be-4f84-a3c3-fec5d23c202f"
     }
   }
 }

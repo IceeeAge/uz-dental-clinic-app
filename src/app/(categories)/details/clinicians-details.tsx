@@ -48,10 +48,9 @@ export default function ClinicianDetails() {
       }
     }
   };
-
   const handlePressLocation = async () => {
     if (medicalData?.location) {
-      const url = `geo:${medicalData.location.latitude},${medicalData.location.longitude}`;
+      const url = `https://www.google.com/maps/search/?api=1&query=${medicalData.location.latitude},${medicalData.location.longitude}`;
       const supported = await Linking.canOpenURL(url);
       if (supported) {
         await Linking.openURL(url);
@@ -60,6 +59,7 @@ export default function ClinicianDetails() {
       }
     }
   };
+  
 
   const handlePressChat = async () => {
     if (medicalData?.phoneNumber) {
