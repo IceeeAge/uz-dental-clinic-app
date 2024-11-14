@@ -195,9 +195,9 @@ export const UPDATE_PATIENT_QUESTIONNAIRE = gql`
 `;
 
 export const REQUEST_EFORM = gql`
- mutation RequestUserEformPdfFile {
+ mutation RequestUserEformPdfFile ($email: String!, $fullName: String!, $requestUserEformPdf: String!) {
   createRequestUserEformPdf(
-    data: {email: "", fullName: "", requestUserEformPdf: ""}
+    data: {email: $email, fullName: $fullName, requestUserEformPdf: $requestUserEformPdf}
   ) {
     id
   }
