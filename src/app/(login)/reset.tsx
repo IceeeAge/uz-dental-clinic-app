@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     top: '50%',
-    transform: [{ translateY: -12 }], // Center the icon vertically
+    transform: [{ translateY: -12 }],
     
   },
   button: {

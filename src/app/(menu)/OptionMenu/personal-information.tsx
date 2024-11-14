@@ -147,11 +147,15 @@ export default function PersonalInformation() {
         <View style={styles.infoContainer}>
           {['fullName', 'contactNumber', 'dateOfBirth', 'height','weight', 'sex', 'occupation', 'emergencyContactName', 'relationship', 'relationshipNumber'].map((field) => (
             <TextInput
-              key={field}
-              style={styles.input}
-              placeholder={field.replace(/([A-Z])/g, ' $1').toUpperCase()}
-              defaultValue={formData[field as keyof FormData] ?? ''}
-              onChangeText={(text) => handleChange(field, text)}
+            key={field}
+            style={styles.input}
+            placeholder={
+              field === 'dateOfBirth'
+                ? 'MM/DD/YYYY' // Custom placeholder for dateOfBirth
+                : field.replace(/([A-Z])/g, ' $1').toUpperCase() // Default placeholder for other fields
+            }
+            defaultValue={formData[field as keyof FormData] ?? ''}
+            onChangeText={(text) => handleChange(field, text)}
             />
           ))}
 
