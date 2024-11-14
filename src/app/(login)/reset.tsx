@@ -28,10 +28,11 @@ const PwReset = () => {
         });
         setSuccessfulCreation(true);
       } else {
-        Alert.alert('Error', 'Sign-in object is not defined');
+      
+        Toast.show("is invalid", { type: "danger", duration: 2000, placement: "center" });
       }
     } catch (err:any) {
-      Alert.alert('Error', err.errors[0]?.message || 'An unknown error occurred');
+      Toast.show("is invalid", { type: "danger", duration: 2000, placement: "center" });
     }
   };
 
@@ -48,10 +49,10 @@ const PwReset = () => {
           await setActive({ session: result.createdSessionId });
         }
       } else {
-        Alert.alert('Error', 'Sign-in object is not defined');
+        Toast.show("is invalid", { type: "danger", duration: 2000, placement: "center" });
       }
     } catch (err:any) {
-      Alert.alert('Error', err.errors[0]?.message || 'An unknown error occurred');
+      Toast.show("is invalid", { type: "danger", duration: 2000, placement: "center" });
     }
   };
 
@@ -63,7 +64,7 @@ const PwReset = () => {
         <>
           <TextInput
             autoCapitalize="none"
-            placeholder="salih@gmail.com"
+            placeholder="example@gmail.com"
             value={emailAddress}
             onChangeText={setEmailAddress}
             style={styles.inputField}
@@ -75,13 +76,13 @@ const PwReset = () => {
           <View>
             <TextInput
               value={code}
-              placeholder="Code..."
+              placeholder="Enter code"
               style={styles.inputField}
               onChangeText={setCode}
             />
             <View style={styles.passwordContainer}>
               <TextInput
-                placeholder="New password"
+                placeholder="Enter password"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={!isPasswordVisible}

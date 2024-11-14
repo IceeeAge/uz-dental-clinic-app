@@ -13491,6 +13491,13 @@ export type EFormPdfQueryVariables = Exact<{
 
 export type EFormPdfQuery = { __typename?: 'Query', requestUserEformPdfs: Array<{ __typename?: 'RequestUserEformPdf', email?: string | null, fullName?: string | null, id: string, createdAt: any, requestUserEformPdf?: string | null, eFormPdf?: { __typename?: 'Asset', url: string } | null }> };
 
+export type CheckIfUserAlreadyAppointmentQueryVariables = Exact<{
+  email: Scalars['String']['input'];
+}>;
+
+
+export type CheckIfUserAlreadyAppointmentQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', address?: string | null, createdAt: any, fullName?: string | null, id: string, email?: string | null, contactNumber?: string | null, dateOfBirth?: string | null, statusAppointment?: string | null }> };
+
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
   email: Scalars['String']['input'];
@@ -14232,6 +14239,53 @@ export type EFormPdfQueryHookResult = ReturnType<typeof useEFormPdfQuery>;
 export type EFormPdfLazyQueryHookResult = ReturnType<typeof useEFormPdfLazyQuery>;
 export type EFormPdfSuspenseQueryHookResult = ReturnType<typeof useEFormPdfSuspenseQuery>;
 export type EFormPdfQueryResult = Apollo.QueryResult<EFormPdfQuery, EFormPdfQueryVariables>;
+export const CheckIfUserAlreadyAppointmentDocument = gql`
+    query CheckIfUserAlreadyAppointment($email: String!) {
+  patients(where: {email: $email}) {
+    address
+    createdAt
+    fullName
+    id
+    email
+    contactNumber
+    dateOfBirth
+    statusAppointment
+  }
+}
+    `;
+
+/**
+ * __useCheckIfUserAlreadyAppointmentQuery__
+ *
+ * To run a query within a React component, call `useCheckIfUserAlreadyAppointmentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCheckIfUserAlreadyAppointmentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCheckIfUserAlreadyAppointmentQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useCheckIfUserAlreadyAppointmentQuery(baseOptions: Apollo.QueryHookOptions<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables> & ({ variables: CheckIfUserAlreadyAppointmentQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables>(CheckIfUserAlreadyAppointmentDocument, options);
+      }
+export function useCheckIfUserAlreadyAppointmentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables>(CheckIfUserAlreadyAppointmentDocument, options);
+        }
+export function useCheckIfUserAlreadyAppointmentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables>(CheckIfUserAlreadyAppointmentDocument, options);
+        }
+export type CheckIfUserAlreadyAppointmentQueryHookResult = ReturnType<typeof useCheckIfUserAlreadyAppointmentQuery>;
+export type CheckIfUserAlreadyAppointmentLazyQueryHookResult = ReturnType<typeof useCheckIfUserAlreadyAppointmentLazyQuery>;
+export type CheckIfUserAlreadyAppointmentSuspenseQueryHookResult = ReturnType<typeof useCheckIfUserAlreadyAppointmentSuspenseQuery>;
+export type CheckIfUserAlreadyAppointmentQueryResult = Apollo.QueryResult<CheckIfUserAlreadyAppointmentQuery, CheckIfUserAlreadyAppointmentQueryVariables>;
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String, $statusAppointment: String!) {
   createPatient(

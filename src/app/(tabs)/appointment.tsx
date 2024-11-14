@@ -16,7 +16,7 @@ import { app } from "../../Firebase/Firebase";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { useUser } from "@clerk/clerk-expo";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { MaterialIcons } from "@expo/vector-icons";
 import Colors from "@constants/Colors";
@@ -27,6 +27,8 @@ import { CREATE_PATIENT_MUTATION } from "@GraphQL/mutation";
 import { Toast } from "react-native-toast-notifications";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { CHECK_USER_APPOINTMENT } from "@/GraphQL/Query";
+import { CheckIfUserAlreadyAppointmentQuery } from "@/generated/graphql";
 
 
 type FormValuesProps = {
@@ -56,6 +58,16 @@ export default function AppointmentScreen() {
   const storage = getStorage();
   const { user } = useUser();
   const router = useRouter();
+  
+
+
+  // Query to check if user already has an appointment
+  const { data } = useQuery<CheckIfUserAlreadyAppointmentQuery>(CHECK_USER_APPOINTMENT, {
+    variables: { email: user?.primaryEmailAddress?.emailAddress },
+  });
+
+  const statusAppointment = data?.patients?.[0]?.statusAppointment;
+  const isAlreadyAppointed = statusAppointment === "PENDING" || statusAppointment === "APPROVED";
   const [createPatient] = useMutation(CREATE_PATIENT_MUTATION);
 
   const db = getFirestore(app);
@@ -314,11 +326,18 @@ export default function AppointmentScreen() {
                 onBlur={handleBlur("address")}
                 value={values.address}
               />
+              {isAlreadyAppointed ? (
+          <View style={styles.appointmentInfo}>
+            <MaterialIcons name="check-circle" size={25} color={Colors.GREEN} />
+            <Text style={styles.appointmentText}>Already Appointed</Text>
+          </View>
+        ) : (
               <PrimaryButton
                 title={loading ? "Submitting..." : "Submit"}
                 onPress={() => handleSubmit()}
                 disabled={loading}
               />
+            )}
             </View>
           )}
         </Formik>
@@ -401,5 +420,22 @@ const styles = StyleSheet.create({
   },
   inputPicker: {
     height: 50,
+  },
+  appointmentInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 20,
+    borderWidth: 1,
+    borderColor: Colors.GRAY,
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor:Colors.WHITE,
+  },
+  appointmentText: {
+    fontSize: 15,
+    marginLeft: 10,
+    color: Colors.GREEN,
+    fontWeight: "bold",
   },
 });

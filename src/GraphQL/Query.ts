@@ -275,3 +275,18 @@ export const EformPDF = gql`
     }
   }
 `;
+
+export const CHECK_USER_APPOINTMENT = gql`
+  query CheckIfUserAlreadyAppointment($email: String!) {
+    patients(where: { email: $email }) {
+      address
+      createdAt
+      fullName
+      id
+      email
+      contactNumber
+      dateOfBirth
+      statusAppointment
+    }
+  }
+`;

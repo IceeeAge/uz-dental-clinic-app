@@ -40,7 +40,7 @@ const Page: React.FC = () => {
         router.push("/home");
         Toast.show("Login successfully", {
           type: "normal",
-          placement: "bottom",
+          placement: "center",
           duration: 4000,
           animationType: "slide-in",
         });

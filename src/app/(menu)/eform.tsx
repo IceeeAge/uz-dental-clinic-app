@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get("window");
 export default function Eform() {
   return (
     <View style={styles.container}>
-      <Link href="/(menu)/OptionMenu/medical-information" asChild>
+      <Link href="/(menu)/OptionMenu/personal-information" asChild>
         <Pressable style={styles.iconContainer}>
           <Ionicons name="person-circle" size={24} color="black" />
           <Text style={styles.text}>Personal Information</Text>
