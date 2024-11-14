@@ -17,7 +17,7 @@ export default function LoginScreenPage() {
       <SignedOut>
         <View style={styles.linkContainer}>
           <Image
-            source={require("../../assets/images/dental-logo.jpg")}
+            source={require("../../assets/images/dental-logo.png")}
             style={styles.logo}
             resizeMode="contain"
           />

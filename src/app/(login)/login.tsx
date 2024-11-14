@@ -61,7 +61,7 @@ const Page: React.FC = () => {
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.innerContainer}>
         <Image
-          source={require("../../assets/images/dental-logo.jpg")}
+          source={require("../../assets/images/dental-logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />

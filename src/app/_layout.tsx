@@ -6,10 +6,19 @@ import { useFonts } from "expo-font";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@constants/Colors";
 import { ToastProvider } from "react-native-toast-notifications";
-import Constants from "expo-constants";
 import { tokenCache } from "@Utils/cache";
-import client from "@GraphQL/apolloClient";
-import { ApolloProvider } from "@apollo/client";
+
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client";
+
+const httpLink = new HttpLink({
+  uri:'https://api-ap-northeast-1.hygraph.com/v2/clyry9hcp01vm07w0vu0nq94p/master',
+});
+
+// Create an Apollo Client instance
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({

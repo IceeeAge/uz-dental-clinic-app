@@ -40,7 +40,15 @@
       ],
       "expo-router",
       "expo-font",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enablePngCrunchInReleaseBuilds": true
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
@@ -50,7 +58,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "f6d19b83-7434-4f1c-b186-0a88ef8067ea"
+        "projectId": "9db8929c-f7be-4f84-a3c3-fec5d23c202f"
       }
     }
   }

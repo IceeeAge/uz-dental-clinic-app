@@ -60,7 +60,7 @@ export default function AppointmentScreen() {
 
   const db = getFirestore(app);
 
-  const handleDateChange = (event: any, selectedDate: Date | undefined) => {
+  const handleDateChange = (_event: any, selectedDate: Date | undefined) => {
     setShowDatepicker(false);
     setDate(selectedDate || new Date());
   };
