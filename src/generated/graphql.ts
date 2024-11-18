@@ -13547,7 +13547,11 @@ export type UpdateQuestionUserMutationVariables = Exact<{
 
 export type UpdateQuestionUserMutation = { __typename?: 'Mutation', updatePatient?: { __typename?: 'Patient', id: string, fullName?: string | null, highBloodPressure?: string | null, heartAttack?: string | null, heartDisease?: string | null, heartDiseaseSpecify?: string | null, lowBloodPressure?: string | null, leukemia?: string | null, anemia?: string | null, kidneyDisease?: string | null, kidneyDiseaseSpecify?: string | null, asthma?: string | null, lungDisease?: string | null, lungDiseaseSpecify?: string | null, stroke?: string | null, neurologicalDisorder?: string | null, neurologicalDisorderSpecify?: string | null, epilepsyConvulsions?: string | null, brainInjury?: string | null, psychiatricTreatment?: string | null, diabetes?: string | null, aidsHivInfection?: string | null, congenitalDisease?: string | null, congenitalDiseaseSpecify?: string | null, hepatitis?: string | null, liverDisorder?: string | null, livErDisorderSpecify?: string | null, jointDisorder?: string | null, jointReplacementOrImplants?: string | null, steroidTherapy?: string | null, stomachTroublesUlcers?: string | null, chestPains?: string | null, frequentSoreThroat?: string | null, persistentCough?: string | null, difficultInBreathing?: string | null, cancerOrTumor?: string | null, radiationOrChemotherapy?: string | null, recentWEightLoss?: string | null, others?: string | null, othersSpecify?: string | null } | null, publishManyPatientsConnection: { __typename?: 'PatientConnection', edges: Array<{ __typename?: 'PatientEdge', node: { __typename?: 'Patient', id: string } }> } };
 
-export type RequestUserEformPdfFileMutationVariables = Exact<{ [key: string]: never; }>;
+export type RequestUserEformPdfFileMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  fullName: Scalars['String']['input'];
+  requestUserEformPdf: Scalars['String']['input'];
+}>;
 
 
 export type RequestUserEformPdfFileMutation = { __typename?: 'Mutation', createRequestUserEformPdf?: { __typename?: 'RequestUserEformPdf', id: string } | null, publishManyRequestUserEformPdfsConnection: { __typename?: 'RequestUserEformPdfConnection', edges: Array<{ __typename?: 'RequestUserEformPdfEdge', node: { __typename?: 'RequestUserEformPdf', id: string } }> } };
@@ -14589,9 +14593,9 @@ export type UpdateQuestionUserMutationHookResult = ReturnType<typeof useUpdateQu
 export type UpdateQuestionUserMutationResult = Apollo.MutationResult<UpdateQuestionUserMutation>;
 export type UpdateQuestionUserMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionUserMutation, UpdateQuestionUserMutationVariables>;
 export const RequestUserEformPdfFileDocument = gql`
-    mutation RequestUserEformPdfFile {
+    mutation RequestUserEformPdfFile($email: String!, $fullName: String!, $requestUserEformPdf: String!) {
   createRequestUserEformPdf(
-    data: {email: "", fullName: "", requestUserEformPdf: ""}
+    data: {email: $email, fullName: $fullName, requestUserEformPdf: $requestUserEformPdf}
   ) {
     id
   }
@@ -14619,6 +14623,9 @@ export type RequestUserEformPdfFileMutationFn = Apollo.MutationFunction<RequestU
  * @example
  * const [requestUserEformPdfFileMutation, { data, loading, error }] = useRequestUserEformPdfFileMutation({
  *   variables: {
+ *      email: // value for 'email'
+ *      fullName: // value for 'fullName'
+ *      requestUserEformPdf: // value for 'requestUserEformPdf'
  *   },
  * });
  */

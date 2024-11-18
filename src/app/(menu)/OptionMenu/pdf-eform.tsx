@@ -1,4 +1,4 @@
-import { View, Text, Alert, StyleSheet } from "react-native";
+import { View, Text, Alert, StyleSheet, Linking, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { useUser } from "@clerk/clerk-expo";
@@ -13,6 +13,8 @@ import {
   QueryRequestUserEformPdfArgs,
   RequestUserEformPdfFileMutation,
 } from "@/generated/graphql";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Colors from "@/constants/Colors";
 
 export default function PdtEform() {
   const { user } = useUser();
@@ -23,7 +25,6 @@ export default function PdtEform() {
   const [isPdfAvailable, setIsPdfAvailable] = useState<boolean>(false);
   const [hasRequestedPdf, setHasRequestedPdf] = useState<boolean>(false);
 
-  // Query for checking if the PDF has been requested already
   const { loading, error, data } = useQuery<EFormPdfQuery>(EformPDF, {
     variables: { email },
     skip: !email,
@@ -37,14 +38,14 @@ export default function PdtEform() {
           duration: 2000,
           placement: "center",
         });
-        setHasRequestedPdf(true); // Mark the request as made
+        setHasRequestedPdf(true);
       },
       onError: (error) => {
         Alert.alert("Error", `Failed to request PDF: ${error.message}`);
       },
     });
 
-  const printPdf = async () => {
+  const DownloadprintPdf = async () => {
     if (!pdfUrl) {
       Toast.show("No PDF available", {
         type: "danger",
@@ -59,7 +60,7 @@ export default function PdtEform() {
         uri: pdfUrl,
         orientation: "portrait",
       });
-      Toast.show("PDF printed successfully", {
+      Toast.show("Saved successfully", {
         type: "normal",
         duration: 2000,
         placement: "center",
@@ -86,12 +87,11 @@ export default function PdtEform() {
       variables: {
         email,
         fullName,
-        requestUserEformPdf: "Requested by user", // mark the request as submitted
+        requestUserEformPdf: "Requested by user",
       },
     });
   };
 
-  // Set hasRequestedPdf based on the GraphQL query data and update isPdfAvailable
   useEffect(() => {
     if (data?.requestUserEformPdfs && data.requestUserEformPdfs.length > 0) {
       const requestedPdf = data.requestUserEformPdfs[0];
@@ -101,10 +101,16 @@ export default function PdtEform() {
       ) {
         setHasRequestedPdf(true);
         setPdfUrl(requestedPdf.eFormPdf?.url || null);
-        setIsPdfAvailable(!!requestedPdf.eFormPdf?.url); // Mark the PDF as available when a URL is returned
+        setIsPdfAvailable(!!requestedPdf.eFormPdf?.url);
       }
     }
   }, [data, email]);
+
+  const handleEmailClick = () => {
+    const sendEmail = "uzdentalclinic@gmail.com";
+    const url = `mailto:${sendEmail}`;
+    Linking.openURL(url).catch((err) => console.error("Failed to open email client", err));
+  };
 
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error: {error.message}</Text>;
@@ -112,16 +118,32 @@ export default function PdtEform() {
   return (
     <View style={styles.container}>
       {isPdfAvailable ? (
-        <SecondaryButton title="Print PDF" onPress={printPdf} />
+        <SecondaryButton title="Download PDF" onPress={DownloadprintPdf} />
       ) : hasRequestedPdf ? (
-        <Text>PDF request already submitted and is being processed</Text>
+        <View style={styles.requestStatusContainer}>
+          <Text style={styles.infoText}>Please update your EForm</Text>
+          <Text style={styles.requestStatus}>Your request has been submitted</Text>
+        </View>
       ) : (
-        <PrimaryButton
-          title={requestLoading ? "Requesting..." : "Request PDF"}
-          onPress={onRequestUser}
-          disabled={requestLoading || hasRequestedPdf} // Disable if already requested
-        />
+        <View style={styles.centeredContainer}>
+          <PrimaryButton
+            title={requestLoading ? "Requesting..." : "Request PDF"}
+            onPress={onRequestUser}
+            disabled={requestLoading || hasRequestedPdf}
+          />
+        </View>
       )}
+
+      {/* Footer */}
+      <View style={styles.footerContainer}>
+        <View style={styles.contactUsContainer}>
+          <Text style={styles.contactText}>Contact Us</Text>
+          <TouchableOpacity onPress={handleEmailClick} style={styles.emailContainer}>
+            <MaterialCommunityIcons name="email-send-outline" size={24} color={Colors.GRAY} />
+            <Text style={styles.emailText}>uzdentalclinic@gmail.com</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 }
@@ -129,7 +151,58 @@ export default function PdtEform() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    marginTop: 100,
+  },
+  centeredContainer: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', // Center the button
+    marginTop: 50
+  },
+  requestStatusContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+  },
+  infoText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  contactUsContainer: {
+    alignItems: "baseline",
+    marginTop: 10,
+  },
+  contactText: {
+    fontSize: 16,
+    marginRight: 5,
+    color: "#333",
+    textAlign: "center",
+    alignSelf: "center",
+  },
+  emailContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 5,
+  },
+  emailText: {
+    fontSize: 16,
+    color: "#007BFF",
+    marginLeft: 5,
+  },
+  requestStatus: {
+    fontSize: 12,
+    fontWeight: "500",
+    color: "#666",
+    marginTop: 20,
+  },
+  footerContainer: {
+    marginBottom: 70,
+  },
+  footerText: {
+    fontSize: 12,
+    color: "#333",
   },
 });
