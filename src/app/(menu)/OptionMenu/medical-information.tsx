@@ -355,7 +355,7 @@ export default function MedicalInformation() {
               </View>
               <View>
                 <TextInput
-                  placeholder="If yes, what w as the illness or problem?"
+                  placeholder="If yes, what was the illness or problem?"
                   value={selectedOptions.ifYesWhatWasTheIllnessOrProblem || ""}
                   onChangeText={(text) =>
                     setSelectedOptions((prevOptions) => ({
@@ -412,7 +412,7 @@ export default function MedicalInformation() {
               </View>
               <View>
                 <TextInput
-                  placeholder="If so, please list all, including v itamins, natural or herbal supplements?"
+                  placeholder="If so, please list all, including vitamins, natural or herbal supplements?"
                   value={
                     selectedOptions.vitaminsNaturalOrHerbalSupplements || "" }
                   onChangeText={(text) =>
@@ -527,7 +527,7 @@ export default function MedicalInformation() {
                 </View>
                 <View>
                   <TextInput
-                    placeholder="Amount and Frequency:"
+                    placeholder="Amount and Frequency"
                     value={selectedOptions.amoutAndFrequency || ""}
                     onChangeText={(text) =>
                       setSelectedOptions((prevOptions) => ({
@@ -539,7 +539,7 @@ export default function MedicalInformation() {
                     style={styles.textInput}
                   />
                   <TextInput
-                    placeholder="For Women, are y ou pregnant?"
+                    placeholder="For Women, are you pregnant?"
                      value={selectedOptions.forWomen || ""}
                     onChangeText={(text) =>
                       setSelectedOptions((prevOptions) => ({
