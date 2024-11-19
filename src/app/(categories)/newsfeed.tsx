@@ -1,25 +1,27 @@
 import {
   View,
   Text,
-  FlatList,
   Image,
   StyleSheet,
   Modal,
   TouchableOpacity,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_NEWSFEED_DATA } from "@/GraphQL/Query";
 import { GetNewsFeedQuery } from "@/generated/graphql";
+import Colors from "@/constants/Colors";
+
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 export default function NewsFeed() {
-  const { data, loading, error } =
-    useQuery<GetNewsFeedQuery>(GET_NEWSFEED_DATA);
+  const { data, loading, error } = useQuery<GetNewsFeedQuery>(GET_NEWSFEED_DATA);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error: {error.message}</Text>;
 
@@ -34,26 +36,20 @@ export default function NewsFeed() {
   };
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={data?.newsFeeds}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <TouchableOpacity
-              onPress={() => handleImagePress(item?.images?.[0].url)}
-            >
-              <Image
-                source={{ uri: item?.images?.[0].url }}
-                style={styles.image}
-              />
-            </TouchableOpacity>
-            <Text style={styles.title}>{item?.title}</Text>
-            <Text style={styles.description}>{item?.description}</Text>
-          </View>
-        )}
-        contentContainerStyle={styles.listContainer}
-      />
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      {/* Using map to render the newsFeeds */}
+      {data?.newsFeeds?.map((item) => (
+        <View style={styles.itemContainer} key={item.id}>
+          <TouchableOpacity onPress={() => handleImagePress(item?.images?.[0].url)}>
+            <Image
+              source={{ uri: item?.images?.[0].url }}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+          <Text style={styles.title}>{item?.title}</Text>
+          <Text style={styles.description}>{item?.description}</Text>
+        </View>
+      ))}
       <Modal
         visible={isModalVisible}
         transparent={true}
@@ -68,7 +64,7 @@ export default function NewsFeed() {
           )}
         </View>
       </Modal>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -78,13 +74,12 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "#fff",
   },
-  listContainer: {
-    paddingBottom: 20,
-  },
   itemContainer: {
-    marginBottom: 16,
+    marginBottom: 25,
     padding: 10,
-    backgroundColor: "#f9f9f9",
+    backgroundColor:Colors.WHITE,
+    borderWidth: 1,
+    borderColor: Colors.GRAY,
     borderRadius: 8,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
@@ -94,7 +89,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 200,
+    height: screenWidth * 0.6, // Adjust image size based on screen width for responsiveness
     borderRadius: 8,
   },
   title: {
