@@ -1,5 +1,6 @@
 // colors.ts
 type ColorsProps = {
+  TEXT_LIGHT: any;
   PRIMARY: string;
   WHITE: string;
   BLACK: string;
