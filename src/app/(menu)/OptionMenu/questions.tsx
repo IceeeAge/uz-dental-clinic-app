@@ -767,7 +767,8 @@ export default function Questions() {
 
 const styles = StyleSheet.create({
   container:{
-    padding: 10
+    padding: 10,
+    backgroundColor: Colors.WHITE,
   },
 
   headerTitle: {

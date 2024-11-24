@@ -597,6 +597,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     marginVertical: 10,
+    backgroundColor: Colors.WHITE,
   },
   questionContainer: {
     marginVertical: 5,

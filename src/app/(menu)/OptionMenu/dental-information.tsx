@@ -321,7 +321,7 @@ const Options = {
             </Text>
 
             <Ionicons name="calendar" size={24} color="black"onPress={showDatePicker} />
-        
+           
             {isDatePickerVisible && (
               <DateTimePicker
                 value={date}
@@ -365,6 +365,7 @@ const Options = {
       borderRadius: 8,
       padding: 10,
       marginVertical: 10,
+      backgroundColor: Colors.WHITE,
     },
     questionContainer: {
       marginVertical: 5,
@@ -397,6 +398,7 @@ const Options = {
       borderColor: Colors.GRAY,
       marginBottom: 30,
       alignItems: "center",
+      backgroundColor: Colors.WHITE,
     },
     submitContainer: {
       marginTop: 20,

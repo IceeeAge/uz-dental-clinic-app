@@ -217,13 +217,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f9f9f9',
+    backgroundColor:Colors.GRAY,
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
-    color: '#333',
+    color:Colors.BLACK,
+    textAlign: 'center',
   },
   input: {
     borderWidth: 1,

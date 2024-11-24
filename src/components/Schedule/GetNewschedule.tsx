@@ -13,6 +13,7 @@ import { useQuery } from "@apollo/client";
 import { GET_NEWSCHEDULE_DATA } from "@GraphQL/Query";
 import { useClerk } from "@clerk/clerk-expo";
 import { GetNewScheduleQuery, } from "src/generated/graphql";
+import FontSize from "@/constants/FontsSize";
 
 // Function to format date with day at the end
 // const formatDate = (dateString: string) => {
@@ -33,7 +34,7 @@ const GetNewschedule: React.FC = () => {
   if (error) return <Text>Error: {error.message}</Text>;
 
   if (!data || !data.newSchedules) {
-    return <Text>No schedules available</Text>;
+    return <Text style={styles.noDataText}>No schedules available</Text>;
   }
 
   // Filter schedules based on user's email
@@ -68,7 +69,7 @@ const GetNewschedule: React.FC = () => {
   return (
     <View style={styles.container}>
       {filteredSchedules.length === 0 ? (
-        <Text>No schedules available</Text>
+        <Text style={styles.noDataText}>Wait for approval and schedule</Text>
       ) : (
         filteredSchedules.map((item) => (
           <View key={item.id} style={styles.itemContainer}>
@@ -222,6 +223,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 20,
   },
+  noDataText:{
+    textAlign: "center",
+    marginTop: 100,
+    fontFamily: "outfit-bold",
+    fontSize: FontSize.lg
+  }
 });
 
 export default GetNewschedule;

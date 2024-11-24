@@ -3,6 +3,7 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Link } from "expo-router";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Colors from "@/constants/Colors";
 const { width, height } = Dimensions.get("window");
 
 export default function Eform() {
@@ -50,16 +51,20 @@ export default function Eform() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 15,
-    justifyContent: "center",
-    alignItems: "center",
+    flex: 1,
+   
     width: width,
+    alignItems: "center",
+    backgroundColor:Colors.WHITE
+
   },
   iconContainer: {
+   
     borderWidth: 1,
     flexDirection: "row",
     alignItems: "center",
-    margin: 5,
+    borderColor: Colors.GRAY,
+    margin:10,
     padding: 10,
     borderRadius: 10,
     width: width * 0.9,
