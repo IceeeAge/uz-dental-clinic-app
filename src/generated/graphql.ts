@@ -974,381 +974,6 @@ export type BatchPayload = {
   count: Scalars['Long']['output'];
 };
 
-export type Checkbox = Entity & {
-  __typename?: 'Checkbox';
-  checkbox?: Maybe<CheckboxcheckboxUnion>;
-  /** The unique identifier */
-  id: Scalars['ID']['output'];
-  /** System stage field */
-  stage: Stage;
-};
-
-
-export type CheckboxCheckboxArgs = {
-  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  locales?: InputMaybe<Array<Locale>>;
-};
-
-export type CheckboxConnectInput = {
-  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Document to connect */
-  where: CheckboxWhereUniqueInput;
-};
-
-/** A connection to a list of items. */
-export type CheckboxConnection = {
-  __typename?: 'CheckboxConnection';
-  aggregate: Aggregate;
-  /** A list of edges. */
-  edges: Array<CheckboxEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-};
-
-export type CheckboxCreateInput = {
-  checkbox?: InputMaybe<CheckboxcheckboxUnionCreateOneInlineInput>;
-};
-
-export type CheckboxCreateManyInlineInput = {
-  /** Create and connect multiple existing Checkbox documents */
-  create?: InputMaybe<Array<CheckboxCreateInput>>;
-};
-
-export type CheckboxCreateOneInlineInput = {
-  /** Create and connect one Checkbox document */
-  create?: InputMaybe<CheckboxCreateInput>;
-};
-
-export type CheckboxCreateWithPositionInput = {
-  /** Document to create */
-  data: CheckboxCreateInput;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-};
-
-/** An edge in a connection. */
-export type CheckboxEdge = {
-  __typename?: 'CheckboxEdge';
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String']['output'];
-  /** The item at the end of the edge. */
-  node: Checkbox;
-};
-
-/** Identifies documents */
-export type CheckboxManyWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<CheckboxWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<CheckboxWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<CheckboxWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']['input']>;
-  /** All values in which the modular component is connected to the given models */
-  checkbox?: InputMaybe<CheckboxcheckboxUnionWhereInput>;
-  /** All values in which the union is empty. */
-  checkbox_empty?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  id_not?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-};
-
-export enum CheckboxOrderByInput {
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC'
-}
-
-export type CheckboxParent = Checkbox;
-
-export type CheckboxParentConnectInput = {
-  Checkbox?: InputMaybe<CheckboxConnectInput>;
-};
-
-export type CheckboxParentCreateInput = {
-  Checkbox?: InputMaybe<CheckboxCreateInput>;
-};
-
-export type CheckboxParentCreateManyInlineInput = {
-  /** Create and connect multiple existing CheckboxParent documents */
-  create?: InputMaybe<Array<CheckboxParentCreateInput>>;
-};
-
-export type CheckboxParentCreateOneInlineInput = {
-  /** Create and connect one CheckboxParent document */
-  create?: InputMaybe<CheckboxParentCreateInput>;
-};
-
-export type CheckboxParentCreateWithPositionInput = {
-  Checkbox?: InputMaybe<CheckboxCreateWithPositionInput>;
-};
-
-export type CheckboxParentUpdateInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateInput>;
-};
-
-export type CheckboxParentUpdateManyInlineInput = {
-  /** Create and connect multiple CheckboxParent component instances */
-  create?: InputMaybe<Array<CheckboxParentCreateWithPositionInput>>;
-  /** Delete multiple CheckboxParent documents */
-  delete?: InputMaybe<Array<CheckboxParentWhereUniqueInput>>;
-  /** Update multiple CheckboxParent component instances */
-  update?: InputMaybe<Array<CheckboxParentUpdateWithNestedWhereUniqueAndPositionInput>>;
-  /** Upsert multiple CheckboxParent component instances */
-  upsert?: InputMaybe<Array<CheckboxParentUpsertWithNestedWhereUniqueAndPositionInput>>;
-};
-
-export type CheckboxParentUpdateManyWithNestedWhereInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateManyWithNestedWhereInput>;
-};
-
-export type CheckboxParentUpdateOneInlineInput = {
-  /** Create and connect one CheckboxParent document */
-  create?: InputMaybe<CheckboxParentCreateInput>;
-  /** Delete currently connected CheckboxParent document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single CheckboxParent document */
-  update?: InputMaybe<CheckboxParentUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single CheckboxParent document */
-  upsert?: InputMaybe<CheckboxParentUpsertWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxParentUpdateWithNestedWhereUniqueAndPositionInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateWithNestedWhereUniqueAndPositionInput>;
-};
-
-export type CheckboxParentUpdateWithNestedWhereUniqueInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxParentUpsertWithNestedWhereUniqueAndPositionInput = {
-  Checkbox?: InputMaybe<CheckboxUpsertWithNestedWhereUniqueAndPositionInput>;
-};
-
-export type CheckboxParentUpsertWithNestedWhereUniqueInput = {
-  Checkbox?: InputMaybe<CheckboxUpsertWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxParentWhereInput = {
-  Checkbox?: InputMaybe<CheckboxWhereInput>;
-};
-
-export type CheckboxParentWhereUniqueInput = {
-  Checkbox?: InputMaybe<CheckboxWhereUniqueInput>;
-};
-
-export type CheckboxUpdateInput = {
-  checkbox?: InputMaybe<CheckboxcheckboxUnionUpdateOneInlineInput>;
-};
-
-export type CheckboxUpdateManyInlineInput = {
-  /** Create and connect multiple Checkbox component instances */
-  create?: InputMaybe<Array<CheckboxCreateWithPositionInput>>;
-  /** Delete multiple Checkbox documents */
-  delete?: InputMaybe<Array<CheckboxWhereUniqueInput>>;
-  /** Update multiple Checkbox component instances */
-  update?: InputMaybe<Array<CheckboxUpdateWithNestedWhereUniqueAndPositionInput>>;
-  /** Upsert multiple Checkbox component instances */
-  upsert?: InputMaybe<Array<CheckboxUpsertWithNestedWhereUniqueAndPositionInput>>;
-};
-
-export type CheckboxUpdateManyInput = {
-  /** No fields in updateMany data input */
-  _?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type CheckboxUpdateManyWithNestedWhereInput = {
-  /** Update many input */
-  data: CheckboxUpdateManyInput;
-  /** Document search */
-  where: CheckboxWhereInput;
-};
-
-export type CheckboxUpdateOneInlineInput = {
-  /** Create and connect one Checkbox document */
-  create?: InputMaybe<CheckboxCreateInput>;
-  /** Delete currently connected Checkbox document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single Checkbox document */
-  update?: InputMaybe<CheckboxUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single Checkbox document */
-  upsert?: InputMaybe<CheckboxUpsertWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxUpdateWithNestedWhereUniqueAndPositionInput = {
-  /** Document to update */
-  data?: InputMaybe<CheckboxUpdateInput>;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Unique component instance search */
-  where: CheckboxWhereUniqueInput;
-};
-
-export type CheckboxUpdateWithNestedWhereUniqueInput = {
-  /** Document to update */
-  data: CheckboxUpdateInput;
-  /** Unique document search */
-  where: CheckboxWhereUniqueInput;
-};
-
-export type CheckboxUpsertInput = {
-  /** Create document if it didn't exist */
-  create: CheckboxCreateInput;
-  /** Update document if it exists */
-  update: CheckboxUpdateInput;
-};
-
-export type CheckboxUpsertWithNestedWhereUniqueAndPositionInput = {
-  /** Document to upsert */
-  data?: InputMaybe<CheckboxUpsertInput>;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  position?: InputMaybe<ConnectPositionInput>;
-  /** Unique component instance search */
-  where: CheckboxWhereUniqueInput;
-};
-
-export type CheckboxUpsertWithNestedWhereUniqueInput = {
-  /** Upsert data */
-  data: CheckboxUpsertInput;
-  /** Unique document search */
-  where: CheckboxWhereUniqueInput;
-};
-
-/** Identifies documents */
-export type CheckboxWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<CheckboxWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<CheckboxWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<CheckboxWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']['input']>;
-  /** All values in which the modular component is connected to the given models */
-  checkbox?: InputMaybe<CheckboxcheckboxUnionWhereInput>;
-  /** All values in which the union is empty. */
-  checkbox_empty?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Any other value that exists and is not equal to the given value. */
-  id_not?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
-};
-
-/** References Checkbox record uniquely */
-export type CheckboxWhereUniqueInput = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-export type CheckboxcheckboxUnion = Checkbox;
-
-export type CheckboxcheckboxUnionConnectInput = {
-  Checkbox?: InputMaybe<CheckboxConnectInput>;
-};
-
-export type CheckboxcheckboxUnionCreateInput = {
-  Checkbox?: InputMaybe<CheckboxCreateInput>;
-};
-
-export type CheckboxcheckboxUnionCreateManyInlineInput = {
-  /** Create and connect multiple existing CheckboxcheckboxUnion documents */
-  create?: InputMaybe<Array<CheckboxcheckboxUnionCreateInput>>;
-};
-
-export type CheckboxcheckboxUnionCreateOneInlineInput = {
-  /** Create and connect one CheckboxcheckboxUnion document */
-  create?: InputMaybe<CheckboxcheckboxUnionCreateInput>;
-};
-
-export type CheckboxcheckboxUnionCreateWithPositionInput = {
-  Checkbox?: InputMaybe<CheckboxCreateWithPositionInput>;
-};
-
-export type CheckboxcheckboxUnionUpdateInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateInput>;
-};
-
-export type CheckboxcheckboxUnionUpdateManyInlineInput = {
-  /** Create and connect multiple CheckboxcheckboxUnion component instances */
-  create?: InputMaybe<Array<CheckboxcheckboxUnionCreateWithPositionInput>>;
-  /** Delete multiple CheckboxcheckboxUnion documents */
-  delete?: InputMaybe<Array<CheckboxcheckboxUnionWhereUniqueInput>>;
-  /** Update multiple CheckboxcheckboxUnion component instances */
-  update?: InputMaybe<Array<CheckboxcheckboxUnionUpdateWithNestedWhereUniqueAndPositionInput>>;
-  /** Upsert multiple CheckboxcheckboxUnion component instances */
-  upsert?: InputMaybe<Array<CheckboxcheckboxUnionUpsertWithNestedWhereUniqueAndPositionInput>>;
-};
-
-export type CheckboxcheckboxUnionUpdateManyWithNestedWhereInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateManyWithNestedWhereInput>;
-};
-
-export type CheckboxcheckboxUnionUpdateOneInlineInput = {
-  /** Create and connect one CheckboxcheckboxUnion document */
-  create?: InputMaybe<CheckboxcheckboxUnionCreateInput>;
-  /** Delete currently connected CheckboxcheckboxUnion document */
-  delete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Update single CheckboxcheckboxUnion document */
-  update?: InputMaybe<CheckboxcheckboxUnionUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single CheckboxcheckboxUnion document */
-  upsert?: InputMaybe<CheckboxcheckboxUnionUpsertWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxcheckboxUnionUpdateWithNestedWhereUniqueAndPositionInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateWithNestedWhereUniqueAndPositionInput>;
-};
-
-export type CheckboxcheckboxUnionUpdateWithNestedWhereUniqueInput = {
-  Checkbox?: InputMaybe<CheckboxUpdateWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxcheckboxUnionUpsertWithNestedWhereUniqueAndPositionInput = {
-  Checkbox?: InputMaybe<CheckboxUpsertWithNestedWhereUniqueAndPositionInput>;
-};
-
-export type CheckboxcheckboxUnionUpsertWithNestedWhereUniqueInput = {
-  Checkbox?: InputMaybe<CheckboxUpsertWithNestedWhereUniqueInput>;
-};
-
-export type CheckboxcheckboxUnionWhereInput = {
-  Checkbox?: InputMaybe<CheckboxWhereInput>;
-};
-
-export type CheckboxcheckboxUnionWhereUniqueInput = {
-  Checkbox?: InputMaybe<CheckboxWhereUniqueInput>;
-};
-
 /** Representing a color value comprising of HEX, RGBA and css color values */
 export type Color = {
   __typename?: 'Color';
@@ -1433,7 +1058,6 @@ export type Entity = {
 export enum EntityTypeName {
   /** Asset system model */
   Asset = 'Asset',
-  Checkbox = 'Checkbox',
   GetSlider = 'GetSlider',
   MedicalTeam = 'MedicalTeam',
   NewSchedule = 'NewSchedule',
@@ -13449,12 +13073,14 @@ export type GetNewsFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetNewsFeedQuery = { __typename?: 'Query', newsFeeds: Array<{ __typename?: 'NewsFeed', title?: string | null, id: string, description?: string | null, images: Array<{ __typename?: 'Asset', url: string }> }> };
 
-export type GetDataCharttingQueryVariables = Exact<{
+export type GetUserDataCharttingQueryVariables = Exact<{
   email: Scalars['String']['input'];
 }>;
 
 
-export type GetDataCharttingQuery = { __typename?: 'Query', newSchedules: Array<{ __typename?: 'NewSchedule', charting?: { __typename?: 'Asset', url: string } | null, patients: Array<{ __typename?: 'Patient', id: string }> }> };
+export type GetUserDataCharttingQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', newSchedules: Array<{
+  image: any; __typename?: 'NewSchedule', charting?: { __typename?: 'Asset', url: string } | null 
+}> }> };
 
 export type GetUserPersonalInformationQueryVariables = Exact<{
   email: Scalars['String']['input'];
@@ -13903,51 +13529,50 @@ export type GetNewsFeedQueryHookResult = ReturnType<typeof useGetNewsFeedQuery>;
 export type GetNewsFeedLazyQueryHookResult = ReturnType<typeof useGetNewsFeedLazyQuery>;
 export type GetNewsFeedSuspenseQueryHookResult = ReturnType<typeof useGetNewsFeedSuspenseQuery>;
 export type GetNewsFeedQueryResult = Apollo.QueryResult<GetNewsFeedQuery, GetNewsFeedQueryVariables>;
-export const GetDataCharttingDocument = gql`
-    query GetDataChartting($email: String!) {
-  newSchedules {
-    charting {
-      url(transformation: {document: {output: {format: png}}})
-    }
-    patients(where: {email: $email}) {
-      id
+export const GetUserDataCharttingDocument = gql`
+    query GetUserDataChartting($email: String!) {
+  patients(where: {email: $email}) {
+    newSchedules {
+      charting {
+        url(transformation: {document: {output: {format: png}}})
+      }
     }
   }
 }
     `;
 
 /**
- * __useGetDataCharttingQuery__
+ * __useGetUserDataCharttingQuery__
  *
- * To run a query within a React component, call `useGetDataCharttingQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetDataCharttingQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetUserDataCharttingQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserDataCharttingQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetDataCharttingQuery({
+ * const { data, loading, error } = useGetUserDataCharttingQuery({
  *   variables: {
  *      email: // value for 'email'
  *   },
  * });
  */
-export function useGetDataCharttingQuery(baseOptions: Apollo.QueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables> & ({ variables: GetDataCharttingQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+export function useGetUserDataCharttingQuery(baseOptions: Apollo.QueryHookOptions<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables> & ({ variables: GetUserDataCharttingQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
+        return Apollo.useQuery<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables>(GetUserDataCharttingDocument, options);
       }
-export function useGetDataCharttingLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables>) {
+export function useGetUserDataCharttingLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
+          return Apollo.useLazyQuery<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables>(GetUserDataCharttingDocument, options);
         }
-export function useGetDataCharttingSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetDataCharttingQuery, GetDataCharttingQueryVariables>) {
+export function useGetUserDataCharttingSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetDataCharttingQuery, GetDataCharttingQueryVariables>(GetDataCharttingDocument, options);
+          return Apollo.useSuspenseQuery<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables>(GetUserDataCharttingDocument, options);
         }
-export type GetDataCharttingQueryHookResult = ReturnType<typeof useGetDataCharttingQuery>;
-export type GetDataCharttingLazyQueryHookResult = ReturnType<typeof useGetDataCharttingLazyQuery>;
-export type GetDataCharttingSuspenseQueryHookResult = ReturnType<typeof useGetDataCharttingSuspenseQuery>;
-export type GetDataCharttingQueryResult = Apollo.QueryResult<GetDataCharttingQuery, GetDataCharttingQueryVariables>;
+export type GetUserDataCharttingQueryHookResult = ReturnType<typeof useGetUserDataCharttingQuery>;
+export type GetUserDataCharttingLazyQueryHookResult = ReturnType<typeof useGetUserDataCharttingLazyQuery>;
+export type GetUserDataCharttingSuspenseQueryHookResult = ReturnType<typeof useGetUserDataCharttingSuspenseQuery>;
+export type GetUserDataCharttingQueryResult = Apollo.QueryResult<GetUserDataCharttingQuery, GetUserDataCharttingQueryVariables>;
 export const GetUserPersonalInformationDocument = gql`
     query GetUserPersonalInformation($email: String!) {
   patients(where: {email: $email}) {
@@ -14293,7 +13918,7 @@ export type CheckIfUserAlreadyAppointmentQueryResult = Apollo.QueryResult<CheckI
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String, $statusAppointment: String!) {
   createPatient(
-    data: {profileImage: {create: {uploadUrl: $profileImage}}, email: $email, fullName: $fullName, contactNumber: $contactNumber, sex: $sex, dateOfBirth: $dateOfBirth, address: $address, height: $height, occupation: $occupation, weight: $weight, statusAppointment: $statusAppointment}
+    data: {profileImage: {create: {uploadUrl: $profileImage}}, email: $email, fullName: $fullName, contactNumber: $contactNumber, sex: $sex, dateOfBirth: $dateOfBirth, address: $address, height: $height, occupation: $occupation, weight: $weight, statusAppointment: $statusAppointment, bleedingGums: "N/A", sensitive: "N/A", foodTrap: "N/A", dryMouth: "N/A", pastGap: "N/A", pastOrthodonic: "N/A", problem: "N/A", earaches: "N/A", clicking: "N/A", bruxing: "N/A", sores: "N/A", dentures: "N/A", active: "N/A", serious: "N/A", dateOfLastExam: "N/A", careOfAPhysicians: "N/A", physiciansName: "N/A", phonePhysician: "N/A", areYouInGoodHealth: "N/A", anyChangesInYourHealth: "N/A", hospitalization: "N/A", prescriptionOrCounterMedications: "N/A", allergies: "N/A", specify: "N/A", alcoholIntake: "N/A", amoutAndFrequency: "N/A", forWomen: "N/A", lactating: "N/A", ifYesWhatWasTheIllnessOrProblem: "N/A", dateOfLastPhysicalExam: "N/A", vitaminsNaturalOrHerbalSupplements: "N/A", highBloodPressure: "NO", heartAttack: "NO", heartDiseaseSpecify: "N/A", lowBloodPressure: "NO", leukemia: "NO", anemia: "NO", kidneyDisease: "NO", kidneyDiseaseSpecify: "N/A", asthma: "NO", lungDisease: "NO", lungDiseaseSpecify: "N/A", stroke: "NO", neurologicalDisorder: "NO", neurologicalDisorderSpecify: "N/A", epilepsyConvulsions: "NO", brainInjury: "NO", psychiatricTreatment: "NO", diabetes: "NO", aidsHivInfection: "NO", congenitalDisease: "NO", congenitalDiseaseSpecify: "N/A", hepatitis: "NO", liverDisorder: "NO", livErDisorderSpecify: "N/A", jointDisorder: "NO", jointReplacementOrImplants: "NO", steroidTherapy: "NO", stomachTroublesUlcers: "NO", chestPains: "NO", frequentSoreThroat: "NO", persistentCough: "NO", difficultInBreathing: "NO", cancerOrTumor: "NO", radiationOrChemotherapy: "NO", recentWEightLoss: "NO", others: "NO", othersSpecify: "N/A"}
   ) {
     id
   }

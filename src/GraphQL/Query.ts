@@ -129,13 +129,12 @@ export const GET_NEWSFEED_DATA = gql`
 `;
 
 export const GET_DATA_CHARTTING = gql`
-  query GetDataChartting($email: String!) {
-    newSchedules {
-      charting {
-        url(transformation: { document: { output: { format: png } } })
-      }
-      patients(where: { email: $email }) {
-        id
+  query GetUserDataChartting($email: String!) {
+    patients(where: { email: $email }) {
+      newSchedules {
+        charting {
+          url(transformation: { document: { output: { format: png } } })
+        }
       }
     }
   }

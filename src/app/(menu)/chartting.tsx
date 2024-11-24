@@ -8,7 +8,6 @@ import {
   Dimensions,
   StyleSheet,
   Alert,
-  Platform,
 } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
 import { useQuery, gql } from "@apollo/client";
@@ -16,37 +15,35 @@ import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 import Colors from "@/constants/Colors";
 import { GET_DATA_CHARTTING } from "@/GraphQL/Query";
-import { GetDataCharttingQuery,  } from "@/generated/graphql";
-
+import { GetUserDataCharttingQuery } from "@/generated/graphql";
+import { Toast } from "react-native-toast-notifications";
 
 // Get the device's width and height
 const { width, height } = Dimensions.get("window");
-
-
-
-// Define types for the data returned by the GraphQL query
-interface ChartingData {
-  url: string;
-}
-
-
-
 
 export default function Chartting() {
   const { user } = useUser();
 
   // Only run the query if the user and email are available
-  const { data, loading, error } = useQuery<GetDataCharttingQuery>(GET_DATA_CHARTTING, {
-    variables: { email: user?.primaryEmailAddress?.emailAddress || "" }, // Safe access to email
-    skip: !user?.primaryEmailAddress?.emailAddress, // Skip the query if email is undefined
-  });
+  const { data, loading, error } = useQuery<GetUserDataCharttingQuery>(
+    GET_DATA_CHARTTING,
+    {
+      variables: { email: user?.primaryEmailAddress?.emailAddress || "" }, // Safe access to email
+      skip: !user?.primaryEmailAddress?.emailAddress, // Skip the query if email is undefined
+    }
+  );
 
   // Handle loading and error states
   if (loading) return <Text style={styles.message}>Loading chart data...</Text>;
-  if (error) return <Text style={styles.message}>Error loading chart data. Please try again.</Text>;
+  if (error)
+    return (
+      <Text style={styles.message}>
+        Error loading chart data. Please try again.
+      </Text>
+    );
 
   // If no schedules are returned, show a message
-  if (!data?.newSchedules?.length) {
+  if (!data?.patients || data.patients.length === 0) {
     return <Text style={styles.message}>No chart data available.</Text>;
   }
 
@@ -55,21 +52,27 @@ export default function Chartting() {
     try {
       const { status } = await MediaLibrary.requestPermissionsAsync();
       if (status !== "granted") {
-        Alert.alert("Permission denied", "You need to grant storage permissions.");
+        Toast.show("Permission not granted", {
+          type: "normal",
+          duration: 2000,
+        });
         return;
       }
-  
+
       const fileUri = `${FileSystem.documentDirectory}chart.png`;
-  
+
       // Download the image to the file system
-      const downloadResumable = FileSystem.createDownloadResumable(url, fileUri);
+      const downloadResumable = FileSystem.createDownloadResumable(
+        url,
+        fileUri
+      );
       const downloadResult = await downloadResumable.downloadAsync();
-  
+
       // Check if the download result is valid
       if (downloadResult && downloadResult.uri) {
         // Save to media library
         await MediaLibrary.createAssetAsync(downloadResult.uri);
-        Alert.alert("Download complete", "Image has been saved to your gallery!");
+        Toast.show("Download successful", { type: "normal", duration: 2000 });
       } else {
         throw new Error("Download failed: No URI returned");
       }
@@ -77,32 +80,29 @@ export default function Chartting() {
       Alert.alert("Download error", error.message);
     }
   };
-  
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={data?.newSchedules}
+        data={data?.patients} // Safely access data.newSchedules
         keyExtractor={(item, index) => index.toString()} // Assign a unique key for each item
         renderItem={({ item }) => {
-          const imageUrl = item.charting?.url;
+          // Safe access to imageUrl and patient email
+          const imageUrl = item?.newSchedules?.[0]?.charting?.url;
 
-          // Check if the image URL is valid
+          // Check if the image URL is valid and if the email matches
           if (!imageUrl) {
-            return null; // Skip rendering if there's no URL
+         
+            return <Text style={styles.NoText}>No Chart available</Text>;
           }
 
           return (
             <View style={styles.itemContainer}>
-              <Image
-                source={{ uri: imageUrl }}
-                style={styles.image}
-              />
+              <Image source={{ uri: imageUrl }} style={styles.image} />
               <Button
                 title="Download Chart"
                 onPress={() => downloadImage(imageUrl)}
-                color={Colors.PRIMARY} 
-                
+                color={Colors.PRIMARY}
               />
             </View>
           );
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f9f9f9', // Light background for better contrast
+   backgroundColor:Colors.WHITE
   },
   itemContainer: {
     marginBottom: 20,
@@ -124,17 +124,22 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.9, // 90% of the screen width
-    height: height * 0.5, // 50% of the screen height
+    height: height * 0.6, // 50% of the screen height
     resizeMode: "cover", // Ensure the image fits without being distorted
     borderRadius: 10, // Optional: Rounded corners
-    borderWidth: 1,
-    borderColor: '#ccc', // Optional: Border color
     marginBottom: 10,
   },
   message: {
     textAlign: "center",
     marginTop: 20,
     fontSize: 16,
-    color: '#333',
+    color: "#333",
   },
+  NoText:{
+    textAlign: "center",
+    flex: 1,
+    marginTop: 120,
+    fontSize: 16,
+    color: "#333",
+  }
 });

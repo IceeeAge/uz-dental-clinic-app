@@ -52,19 +52,17 @@ export default function Eform() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   
     width: width,
     alignItems: "center",
     backgroundColor:Colors.WHITE
 
   },
   iconContainer: {
-   
     borderWidth: 1,
     flexDirection: "row",
     alignItems: "center",
     borderColor: Colors.GRAY,
-    margin:10,
+    margin:5,
     padding: 10,
     borderRadius: 10,
     width: width * 0.9,
