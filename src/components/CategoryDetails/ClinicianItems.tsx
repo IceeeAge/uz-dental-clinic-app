@@ -70,17 +70,17 @@ export default function ClinicianItems({ isHorizontal = false,style,itemContaine
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    padding: 10,
   },
   itemContainer: {
     alignItems: "center", // Center align the content
-    padding: 12,
+    padding: 10,
    
     borderRadius: 8,
     backgroundColor: Colors.WHITE,
     borderColor: Colors.GRAY,
     borderWidth: 1,
-    gap: 10,
+    gap: 5,
     marginRight: 10, // Add margin only if horizontal
     width: screenWidth * 0.4, // 40% of the screen width
     height: screenHeight * 0.25, // 25% of the screen height

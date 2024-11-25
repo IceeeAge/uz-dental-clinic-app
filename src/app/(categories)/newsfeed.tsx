@@ -11,7 +11,7 @@ import {
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_NEWSFEED_DATA } from "@/GraphQL/Query";
-import { GetNewsFeedQuery } from "@/generated/graphql";
+import { GetNewsFeedDataQuery } from "@/generated/graphql";
 import Colors from "@/constants/Colors";
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
@@ -22,22 +22,22 @@ interface NewsFeedProps {
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 export default function NewsFeed({ numberfeed }: NewsFeedProps) {
-  const { data, loading, error } = useQuery<GetNewsFeedQuery>(GET_NEWSFEED_DATA,
-    {
-      pollInterval: 5000,
-    }
-  );
+  const { data, loading, error } = useQuery<GetNewsFeedDataQuery>(GET_NEWSFEED_DATA, {
+    pollInterval: 5000,
+  });
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  if (loading) return <Loading/>;
-  if (error) return <Error message={error.message}/>;
+  if (loading) return <Loading />;
+  if (error) return <Error message={error.message} />;
 
-  // Correctly slice the data to get the first `numberfeed` items
-  const limitedNews = data?.newsFeeds.slice(0, numberfeed);
+  // Sort the news items by `createdAt` in descending order (latest first)
+  const sortedNews = data?.newsFeeds.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
 
-  // Reverse the order of the news items to display the latest first
-  const reversedNews = limitedNews?.reverse();
+  // Slice the sorted data to get the desired number of items
+  const limitedNews = sortedNews?.slice(0, numberfeed);
 
   const handleImagePress = (imageUri: string | null) => {
     setSelectedImage(imageUri);
@@ -51,8 +51,8 @@ export default function NewsFeed({ numberfeed }: NewsFeedProps) {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      {/* Render reversed news items */}
-      {reversedNews?.map((item) => (
+      {/* Render sorted and sliced news items */}
+      {limitedNews?.map((item) => (
         <View style={styles.itemContainer} key={item.id}>
           <TouchableOpacity onPress={() => handleImagePress(item?.images?.[0]?.url)}>
             <Image

@@ -116,14 +116,15 @@ export const GET_UZLABS_DATA = gql`
   }
 `;
 export const GET_NEWSFEED_DATA = gql`
-  query GetNewsFeed {
-    newsFeeds {
-      title
+  query GetNewsFeedData {
+    newsFeeds(orderBy: createdAt_DESC) {
       id
+      title
       description
       images {
         url
       }
+      createdAt
     }
   }
 `;

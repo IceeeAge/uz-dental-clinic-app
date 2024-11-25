@@ -13068,19 +13068,17 @@ export type Getuzlabs_DataQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Getuzlabs_DataQuery = { __typename?: 'Query', uzLabs: Array<{ __typename?: 'UzLab', address?: string | null, email?: string | null, id: string, name?: string | null, phone?: string | null, images: Array<{ __typename?: 'Asset', url: string, id: string }>, location?: { __typename?: 'Location', latitude: number, longitude: number } | null }> };
 
-export type GetNewsFeedQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetNewsFeedDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetNewsFeedQuery = { __typename?: 'Query', newsFeeds: Array<{ __typename?: 'NewsFeed', title?: string | null, id: string, description?: string | null, images: Array<{ __typename?: 'Asset', url: string }> }> };
+export type GetNewsFeedDataQuery = { __typename?: 'Query', newsFeeds: Array<{ __typename?: 'NewsFeed', id: string, title?: string | null, description?: string | null, createdAt: any, images: Array<{ __typename?: 'Asset', url: string }> }> };
 
 export type GetUserDataCharttingQueryVariables = Exact<{
   email: Scalars['String']['input'];
 }>;
 
 
-export type GetUserDataCharttingQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', newSchedules: Array<{
-  image: any; __typename?: 'NewSchedule', charting?: { __typename?: 'Asset', url: string } | null 
-}> }> };
+export type GetUserDataCharttingQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', newSchedules: Array<{ __typename?: 'NewSchedule', charting?: { __typename?: 'Asset', url: string } | null }> }> };
 
 export type GetUserPersonalInformationQueryVariables = Exact<{
   email: Scalars['String']['input'];
@@ -13485,50 +13483,51 @@ export type Getuzlabs_DataQueryHookResult = ReturnType<typeof useGetuzlabs_DataQ
 export type Getuzlabs_DataLazyQueryHookResult = ReturnType<typeof useGetuzlabs_DataLazyQuery>;
 export type Getuzlabs_DataSuspenseQueryHookResult = ReturnType<typeof useGetuzlabs_DataSuspenseQuery>;
 export type Getuzlabs_DataQueryResult = Apollo.QueryResult<Getuzlabs_DataQuery, Getuzlabs_DataQueryVariables>;
-export const GetNewsFeedDocument = gql`
-    query GetNewsFeed {
-  newsFeeds {
-    title
+export const GetNewsFeedDataDocument = gql`
+    query GetNewsFeedData {
+  newsFeeds(orderBy: createdAt_DESC) {
     id
+    title
     description
     images {
       url
     }
+    createdAt
   }
 }
     `;
 
 /**
- * __useGetNewsFeedQuery__
+ * __useGetNewsFeedDataQuery__
  *
- * To run a query within a React component, call `useGetNewsFeedQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetNewsFeedQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetNewsFeedDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetNewsFeedDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetNewsFeedQuery({
+ * const { data, loading, error } = useGetNewsFeedDataQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetNewsFeedQuery(baseOptions?: Apollo.QueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+export function useGetNewsFeedDataQuery(baseOptions?: Apollo.QueryHookOptions<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
+        return Apollo.useQuery<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>(GetNewsFeedDataDocument, options);
       }
-export function useGetNewsFeedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+export function useGetNewsFeedDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
+          return Apollo.useLazyQuery<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>(GetNewsFeedDataDocument, options);
         }
-export function useGetNewsFeedSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetNewsFeedQuery, GetNewsFeedQueryVariables>) {
+export function useGetNewsFeedDataSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetNewsFeedQuery, GetNewsFeedQueryVariables>(GetNewsFeedDocument, options);
+          return Apollo.useSuspenseQuery<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>(GetNewsFeedDataDocument, options);
         }
-export type GetNewsFeedQueryHookResult = ReturnType<typeof useGetNewsFeedQuery>;
-export type GetNewsFeedLazyQueryHookResult = ReturnType<typeof useGetNewsFeedLazyQuery>;
-export type GetNewsFeedSuspenseQueryHookResult = ReturnType<typeof useGetNewsFeedSuspenseQuery>;
-export type GetNewsFeedQueryResult = Apollo.QueryResult<GetNewsFeedQuery, GetNewsFeedQueryVariables>;
+export type GetNewsFeedDataQueryHookResult = ReturnType<typeof useGetNewsFeedDataQuery>;
+export type GetNewsFeedDataLazyQueryHookResult = ReturnType<typeof useGetNewsFeedDataLazyQuery>;
+export type GetNewsFeedDataSuspenseQueryHookResult = ReturnType<typeof useGetNewsFeedDataSuspenseQuery>;
+export type GetNewsFeedDataQueryResult = Apollo.QueryResult<GetNewsFeedDataQuery, GetNewsFeedDataQueryVariables>;
 export const GetUserDataCharttingDocument = gql`
     query GetUserDataChartting($email: String!) {
   patients(where: {email: $email}) {

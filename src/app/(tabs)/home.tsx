@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       <View style={styles.containerCategory}>
         <Text style={styles.title}>News Feed</Text>
         {/* Limit to 3 items */}
-        <NewsFeed numberfeed={3} />
+        <NewsFeed numberfeed={2} />
         <Link href="/(categories)/newsfeed" asChild>
           <Pressable>
             <Text style={styles.seemoreText}>See more</Text>
