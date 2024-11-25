@@ -13,17 +13,19 @@ import { GET_UZLABS_DATA } from "@/GraphQL/Query";
 import Colors from "@/constants/Colors";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import { Getuzlabs_DataQuery } from "@/generated/graphql";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
 
 export default function UzLab() {
   const { data, loading, error } =
     useQuery<Getuzlabs_DataQuery>(GET_UZLABS_DATA);
 
   if (loading) {
-    return <Text style={styles.loadingText}>Loading...</Text>;
+    return <Loading />;
   }
 
   if (error) {
-    return <Text style={styles.errorText}>Error: {error.message}</Text>;
+    return <Error message={error.message} />;
   }
 
   const handleLocation = (
@@ -142,14 +144,5 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     fontSize: 16,
     color: Colors.BLACK,
-  },
-  loadingText: {
-    textAlign: "center",
-    marginTop: 20,
-  },
-  errorText: {
-    textAlign: "center",
-    marginTop: 20,
-    color: "red",
   },
 });
