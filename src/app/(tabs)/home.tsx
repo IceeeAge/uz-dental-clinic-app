@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import React from "react";
 import Header from "@/components/Header";
 import Slider from "@/components/Slider";
@@ -6,12 +6,14 @@ import CategoriesList from "@app/(categories)/category";
 import ClinicianItems from "@/components/CategoryDetails/ClinicianItems";
 import Colors from "@/constants/Colors";
 import FontSize from "@/constants/FontsSize";
+import NewsFeed from "../(categories)/newsfeed";
+import { Link } from "expo-router";
 
-export default function home() {
+const Home: React.FC = () => {
   const isHorizontal = true;
 
   return (
-    <View style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Header />
       <View style={styles.containerSlider}>
         <Slider />
@@ -19,36 +21,53 @@ export default function home() {
       <View style={styles.containerCategory}>
         <CategoriesList />
       </View>
-      <View style={styles.containerClinicians}>
+      <View style={styles.containerCategory}>
         <Text style={styles.title}>Clinicians List</Text>
         <ClinicianItems isHorizontal={isHorizontal} />
       </View>
-    </View>
+      <View style={styles.containerCategory}>
+        <Text style={styles.title}>News Feed</Text>
+        {/* Limit to 3 items */}
+        <NewsFeed numberfeed={3} />
+        <Link href="/(categories)/newsfeed" asChild>
+          <Pressable>
+            <Text style={styles.seemoreText}>See more</Text>
+          </Pressable>
+        </Link>
+      </View>
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     maxWidth: 600,
     alignSelf: "center",
+    height: "100%",
   },
   containerSlider: {
-   
+    flex: 1,
     alignSelf: "center",
   },
   containerCategory: {
-  marginTop: 30,
+    flex: 1,
+    marginTop: 10,
   },
-  containerClinicians: {
-    flex: 1, 
-   
-  },
-  title:{
+  title: {
     fontSize: FontSize.xl,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 10,
-    color: Colors.PRIMARY
-  }
+    color: Colors.PRIMARY,
+  },
+  seemoreText: {
+    fontSize: FontSize.lg,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: Colors.PRIMARY,
+    marginBottom: 20,
+  },
 });
+
+export default Home;

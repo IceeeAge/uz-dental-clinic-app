@@ -117,8 +117,13 @@ export default function PdtEform() {
 
   return (
     <View style={styles.container}>
+     
+        
+    
       {isPdfAvailable ? (
+        <View style={styles.centeredContainer}>
         <SecondaryButton title="Download PDF" onPress={DownloadprintPdf} />
+        </View>
       ) : hasRequestedPdf ? (
         <View style={styles.requestStatusContainer}>
           <Text style={styles.infoText}>Please update your EForm</Text>
@@ -153,13 +158,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: Colors.WHITE
+    backgroundColor: Colors.WHITE,
+    height: "100%",
+    
   },
   centeredContainer: {
     flex: 1, 
     justifyContent: 'center', 
     alignItems: 'center', // Center the button
-    marginTop: 50
+    marginTop: 50,
+    
+    
   },
   requestStatusContainer: {
     alignItems: "center",

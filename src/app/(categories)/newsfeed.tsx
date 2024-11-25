@@ -13,19 +13,33 @@ import { useQuery } from "@apollo/client";
 import { GET_NEWSFEED_DATA } from "@/GraphQL/Query";
 import { GetNewsFeedQuery } from "@/generated/graphql";
 import Colors from "@/constants/Colors";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
 
-
+interface NewsFeedProps {
+  numberfeed: number;
+}
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
-export default function NewsFeed() {
-  const { data, loading, error } = useQuery<GetNewsFeedQuery>(GET_NEWSFEED_DATA);
+export default function NewsFeed({ numberfeed }: NewsFeedProps) {
+  const { data, loading, error } = useQuery<GetNewsFeedQuery>(GET_NEWSFEED_DATA,
+    {
+      pollInterval: 5000,
+    }
+  );
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  if (loading) return <Text>Loading...</Text>;
-  if (error) return <Text>Error: {error.message}</Text>;
+  if (loading) return <Loading/>;
+  if (error) return <Error message={error.message}/>;
 
-  const handleImagePress = (imageUri: React.SetStateAction<string | null>) => {
+  // Correctly slice the data to get the first `numberfeed` items
+  const limitedNews = data?.newsFeeds.slice(0, numberfeed);
+
+  // Reverse the order of the news items to display the latest first
+  const reversedNews = limitedNews?.reverse();
+
+  const handleImagePress = (imageUri: string | null) => {
     setSelectedImage(imageUri);
     setIsModalVisible(true);
   };
@@ -37,12 +51,12 @@ export default function NewsFeed() {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      {/* Using map to render the newsFeeds */}
-      {data?.newsFeeds?.map((item) => (
+      {/* Render reversed news items */}
+      {reversedNews?.map((item) => (
         <View style={styles.itemContainer} key={item.id}>
-          <TouchableOpacity onPress={() => handleImagePress(item?.images?.[0].url)}>
+          <TouchableOpacity onPress={() => handleImagePress(item?.images?.[0]?.url)}>
             <Image
-              source={{ uri: item?.images?.[0].url }}
+              source={{ uri: item?.images?.[0]?.url }}
               style={styles.image}
             />
           </TouchableOpacity>
@@ -72,12 +86,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: "#fff",
   },
   itemContainer: {
     marginBottom: 25,
     padding: 10,
-    backgroundColor:Colors.WHITE,
+    backgroundColor: Colors.WHITE,
     borderWidth: 1,
     borderColor: Colors.GRAY,
     borderRadius: 8,
