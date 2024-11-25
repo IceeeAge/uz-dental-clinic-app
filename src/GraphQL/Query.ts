@@ -130,15 +130,20 @@ export const GET_NEWSFEED_DATA = gql`
 `;
 
 export const GET_DATA_CHARTTING = gql`
-  query GetUserDataChartting($email: String!) {
-    patients(where: { email: $email }) {
-      newSchedules {
-        charting {
-          url(transformation: { document: { output: { format: png } } })
-        }
+query GetUserDataChartting($email: String!) {
+  patients(where: {email: $email}) {
+    newSchedules {
+      charting {
+        url(transformation: {document: {output: {format: png}}})
       }
+        id
+      clinician
     }
+    createdAt
+    fullName
+    id
   }
+}
 `;
 
 export const GET_USER_PERSONAL_INFORMATION = gql`

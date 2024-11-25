@@ -26,7 +26,7 @@ const Home: React.FC = () => {
         <ClinicianItems isHorizontal={isHorizontal} />
       </View>
       <View style={styles.containerCategory}>
-        <Text style={styles.title}>News Feed</Text>
+        <Text style={styles.title}>Latest Newsfeed</Text>
         {/* Limit to 3 items */}
         <NewsFeed numberfeed={2} />
         <Link href="/(categories)/newsfeed" asChild>
