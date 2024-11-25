@@ -142,6 +142,7 @@ query GetUserDataChartting($email: String!) {
     createdAt
     fullName
     id
+    email
   }
 }
 `;

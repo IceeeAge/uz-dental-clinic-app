@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 import Colors from "@/constants/Colors";
@@ -68,28 +68,33 @@ export default function Chartting() {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      {/* Mapping over the data */}
-      {data?.patients?.[0]?.newSchedules?.map((item, index) => (
-        <View key={index} style={styles.itemContainer}>
-          {/* Display the item information */}
-          <Text style={styles.infoText}>Record ID: {data.patients?.[0]?.newSchedules?.[0]?.id || "N/A"}</Text>
-          <Text style={styles.infoText}>Created Date: {formatDate(data?.patients?.[0]?.createdAt)}</Text>
-          <Text style={styles.infoText}>
-            Clinician: {data?.patients?.[0]?.newSchedules?.[0]?.clinician || "N/A"}
-          </Text>
-          {/* Display the chart image */}
-          <Image
-            source={{ uri: data?.patients?.[0]?.newSchedules?.[0]?.charting?.url || "" }}
-            style={styles.image}
-          />
-          {/* Button to download the image */}
-          <Button
-            title="Download Chart"
-            onPress={() => downloadImage(data?.patients?.[0]?.newSchedules?.[0]?.charting?.url || "")}
-            color={Colors.PRIMARY}
-          />
+      {/* Check if data or schedules are missing */}
+      {!data?.patients?.[0]?.newSchedules?.length ? (
+        <View style={styles.emptyList}>
+          <Text style={styles.noText}>No charting data available.</Text>
         </View>
-      ))}
+      ) : (
+        // Mapping over the data
+        data?.patients?.[0]?.newSchedules?.map((item, index) => (
+          <View key={index} style={styles.itemContainer}>
+            {/* Display the item information */}
+            <Text style={styles.infoText}>Record ID: {item.id || "N/A"}</Text>
+            <Text style={styles.infoText}>Created Date: {formatDate(data?.patients?.[0]?.createdAt)}</Text>
+            <Text style={styles.infoText}>Clinician: {item.clinician || "N/A"}</Text>
+            {/* Display the chart image */}
+            <Image
+              source={{ uri: item.charting?.url || "" }}
+              style={styles.image}
+            />
+            {/* Button to download the image */}
+            <Button
+              title="Download"
+              onPress={() => downloadImage(item.charting?.url || "")}
+              color={Colors.PRIMARY}
+            />
+          </View>
+        ))
+      )}
     </ScrollView>
   );
 }
@@ -99,8 +104,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: Colors.WHITE,
-    
-   
   },
   itemContainer: {
     marginBottom: 30,
@@ -135,8 +138,9 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   emptyList: {
-    flexGrow: 1,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    height: height * 0.8, // Adjust height as needed
   },
 });

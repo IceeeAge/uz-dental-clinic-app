@@ -13078,7 +13078,7 @@ export type GetUserDataCharttingQueryVariables = Exact<{
 }>;
 
 
-export type GetUserDataCharttingQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', createdAt: any, fullName?: string | null, id: string, newSchedules: Array<{ __typename?: 'NewSchedule', id: string, clinician?: string | null, charting?: { __typename?: 'Asset', url: string } | null }> }> };
+export type GetUserDataCharttingQuery = { __typename?: 'Query', patients: Array<{ __typename?: 'Patient', createdAt: any, fullName?: string | null, id: string, email?: string | null, newSchedules: Array<{ __typename?: 'NewSchedule', id: string, clinician?: string | null, charting?: { __typename?: 'Asset', url: string } | null }> }> };
 
 export type GetUserPersonalInformationQueryVariables = Exact<{
   email: Scalars['String']['input'];
@@ -13541,6 +13541,7 @@ export const GetUserDataCharttingDocument = gql`
     createdAt
     fullName
     id
+    email
   }
 }
     `;
