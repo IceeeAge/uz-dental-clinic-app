@@ -974,6 +974,4867 @@ export type BatchPayload = {
   count: Scalars['Long']['output'];
 };
 
+export type CaseHistory = Entity & Node & {
+  __typename?: 'CaseHistory';
+  beatsMinRr?: Maybe<Scalars['String']['output']>;
+  bp?: Maybe<Scalars['String']['output']>;
+  breathsMin?: Maybe<Scalars['String']['output']>;
+  caseApproved1?: Maybe<Scalars['String']['output']>;
+  caseApproved2?: Maybe<Scalars['String']['output']>;
+  caseApproved3?: Maybe<Scalars['String']['output']>;
+  caseApproved4?: Maybe<Scalars['String']['output']>;
+  caseApproved5?: Maybe<Scalars['String']['output']>;
+  cheecks?: Maybe<Scalars['String']['output']>;
+  cheecksAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  cheecksNormal?: Maybe<Scalars['String']['output']>;
+  chiefComplaints?: Maybe<Scalars['String']['output']>;
+  clinicalLevel?: Maybe<Scalars['String']['output']>;
+  clinician?: Maybe<Scalars['String']['output']>;
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']['output'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  date1?: Maybe<Scalars['String']['output']>;
+  date2?: Maybe<Scalars['String']['output']>;
+  date3?: Maybe<Scalars['String']['output']>;
+  date4?: Maybe<Scalars['String']['output']>;
+  date5?: Maybe<Scalars['String']['output']>;
+  /** Get the document in other stages */
+  documentInStages: Array<CaseHistory>;
+  eighteen?: Maybe<Scalars['String']['output']>;
+  eleven?: Maybe<Scalars['String']['output']>;
+  examinedBy?: Maybe<Scalars['String']['output']>;
+  examinedByDate?: Maybe<Scalars['String']['output']>;
+  fifteen?: Maybe<Scalars['String']['output']>;
+  floorOfTheMouth?: Maybe<Scalars['String']['output']>;
+  floorOfTheMouthAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  floorOfTheMouthNormal?: Maybe<Scalars['String']['output']>;
+  fortyEight?: Maybe<Scalars['String']['output']>;
+  fortyFive?: Maybe<Scalars['String']['output']>;
+  fortyFour?: Maybe<Scalars['String']['output']>;
+  fortyOne?: Maybe<Scalars['String']['output']>;
+  fortySeven?: Maybe<Scalars['String']['output']>;
+  fortySix?: Maybe<Scalars['String']['output']>;
+  fortyThree?: Maybe<Scalars['String']['output']>;
+  fortyTwo?: Maybe<Scalars['String']['output']>;
+  fourteen?: Maybe<Scalars['String']['output']>;
+  /** List of CaseHistory versions */
+  history: Array<Version>;
+  historyOfPresentIllness?: Maybe<Scalars['String']['output']>;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  lip?: Maybe<Scalars['String']['output']>;
+  lipAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  lipNormal?: Maybe<Scalars['String']['output']>;
+  lymphNodes?: Maybe<Scalars['String']['output']>;
+  lymphNodesAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  lymphNodesNormal?: Maybe<Scalars['String']['output']>;
+  mallampatiScore?: Maybe<Scalars['String']['output']>;
+  mmHgPr?: Maybe<Scalars['String']['output']>;
+  oDCI1?: Maybe<Scalars['String']['output']>;
+  oDCI2?: Maybe<Scalars['String']['output']>;
+  oDCI3?: Maybe<Scalars['String']['output']>;
+  oDCI4?: Maybe<Scalars['String']['output']>;
+  oDCI5?: Maybe<Scalars['String']['output']>;
+  otherAbnormalities?: Maybe<Scalars['String']['output']>;
+  palete?: Maybe<Scalars['String']['output']>;
+  paleteAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  paleteNormal?: Maybe<Scalars['String']['output']>;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  seventeen?: Maybe<Scalars['String']['output']>;
+  sixteen?: Maybe<Scalars['String']['output']>;
+  /** System stage field */
+  stage: Stage;
+  temp?: Maybe<Scalars['String']['output']>;
+  tenTativeDiagnosis?: Maybe<Scalars['String']['output']>;
+  thirteen?: Maybe<Scalars['String']['output']>;
+  thirtyEight?: Maybe<Scalars['String']['output']>;
+  thirtyFive?: Maybe<Scalars['String']['output']>;
+  thirtyFour?: Maybe<Scalars['String']['output']>;
+  thirtyOne?: Maybe<Scalars['String']['output']>;
+  thirtySeven?: Maybe<Scalars['String']['output']>;
+  thirtySix?: Maybe<Scalars['String']['output']>;
+  thirtyThree?: Maybe<Scalars['String']['output']>;
+  thirtyTwo?: Maybe<Scalars['String']['output']>;
+  tmj?: Maybe<Scalars['String']['output']>;
+  tmjAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  tmjNormal?: Maybe<Scalars['String']['output']>;
+  tongue?: Maybe<Scalars['String']['output']>;
+  tongueAbnormalSpecify?: Maybe<Scalars['String']['output']>;
+  tongueNormal?: Maybe<Scalars['String']['output']>;
+  toothNumber1?: Maybe<Scalars['String']['output']>;
+  toothNumber2?: Maybe<Scalars['String']['output']>;
+  toothNumber3?: Maybe<Scalars['String']['output']>;
+  toothNumber4?: Maybe<Scalars['String']['output']>;
+  toothNumber5?: Maybe<Scalars['String']['output']>;
+  treatment1?: Maybe<Scalars['String']['output']>;
+  treatment2?: Maybe<Scalars['String']['output']>;
+  treatment3?: Maybe<Scalars['String']['output']>;
+  treatment4?: Maybe<Scalars['String']['output']>;
+  treatment5?: Maybe<Scalars['String']['output']>;
+  treatment6?: Maybe<Scalars['String']['output']>;
+  treatment7?: Maybe<Scalars['String']['output']>;
+  treatment8?: Maybe<Scalars['String']['output']>;
+  treatment9?: Maybe<Scalars['String']['output']>;
+  treatment10?: Maybe<Scalars['String']['output']>;
+  twelve?: Maybe<Scalars['String']['output']>;
+  twentyEight?: Maybe<Scalars['String']['output']>;
+  twentyFive?: Maybe<Scalars['String']['output']>;
+  twentyFour?: Maybe<Scalars['String']['output']>;
+  twentyOne?: Maybe<Scalars['String']['output']>;
+  twentySeven?: Maybe<Scalars['String']['output']>;
+  twentySix?: Maybe<Scalars['String']['output']>;
+  twentyThree?: Maybe<Scalars['String']['output']>;
+  twentyTwo?: Maybe<Scalars['String']['output']>;
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']['output'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+export type CaseHistoryCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type CaseHistoryDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  inheritLocale?: Scalars['Boolean']['input'];
+  stages?: Array<Stage>;
+};
+
+
+export type CaseHistoryHistoryArgs = {
+  limit?: Scalars['Int']['input'];
+  skip?: Scalars['Int']['input'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type CaseHistoryPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type CaseHistoryScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type CaseHistoryUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type CaseHistoryConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: CaseHistoryWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type CaseHistoryConnection = {
+  __typename?: 'CaseHistoryConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<CaseHistoryEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type CaseHistoryCreateInput = {
+  beatsMinRr?: InputMaybe<Scalars['String']['input']>;
+  bp?: InputMaybe<Scalars['String']['input']>;
+  breathsMin?: InputMaybe<Scalars['String']['input']>;
+  caseApproved1?: InputMaybe<Scalars['String']['input']>;
+  caseApproved2?: InputMaybe<Scalars['String']['input']>;
+  caseApproved3?: InputMaybe<Scalars['String']['input']>;
+  caseApproved4?: InputMaybe<Scalars['String']['input']>;
+  caseApproved5?: InputMaybe<Scalars['String']['input']>;
+  cheecks?: InputMaybe<Scalars['String']['input']>;
+  cheecksAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  cheecksNormal?: InputMaybe<Scalars['String']['input']>;
+  chiefComplaints?: InputMaybe<Scalars['String']['input']>;
+  clinicalLevel?: InputMaybe<Scalars['String']['input']>;
+  clinician?: InputMaybe<Scalars['String']['input']>;
+  cm3ykv6p901mk0716gco285h4?: InputMaybe<PatientCreateManyInlineInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  date1?: InputMaybe<Scalars['String']['input']>;
+  date2?: InputMaybe<Scalars['String']['input']>;
+  date3?: InputMaybe<Scalars['String']['input']>;
+  date4?: InputMaybe<Scalars['String']['input']>;
+  date5?: InputMaybe<Scalars['String']['input']>;
+  eighteen?: InputMaybe<Scalars['String']['input']>;
+  eleven?: InputMaybe<Scalars['String']['input']>;
+  examinedBy?: InputMaybe<Scalars['String']['input']>;
+  examinedByDate?: InputMaybe<Scalars['String']['input']>;
+  fifteen?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouth?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthNormal?: InputMaybe<Scalars['String']['input']>;
+  fortyEight?: InputMaybe<Scalars['String']['input']>;
+  fortyFive?: InputMaybe<Scalars['String']['input']>;
+  fortyFour?: InputMaybe<Scalars['String']['input']>;
+  fortyOne?: InputMaybe<Scalars['String']['input']>;
+  fortySeven?: InputMaybe<Scalars['String']['input']>;
+  fortySix?: InputMaybe<Scalars['String']['input']>;
+  fortyThree?: InputMaybe<Scalars['String']['input']>;
+  fortyTwo?: InputMaybe<Scalars['String']['input']>;
+  fourteen?: InputMaybe<Scalars['String']['input']>;
+  historyOfPresentIllness?: InputMaybe<Scalars['String']['input']>;
+  lip?: InputMaybe<Scalars['String']['input']>;
+  lipAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  lipNormal?: InputMaybe<Scalars['String']['input']>;
+  lymphNodes?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesNormal?: InputMaybe<Scalars['String']['input']>;
+  mallampatiScore?: InputMaybe<Scalars['String']['input']>;
+  mmHgPr?: InputMaybe<Scalars['String']['input']>;
+  oDCI1?: InputMaybe<Scalars['String']['input']>;
+  oDCI2?: InputMaybe<Scalars['String']['input']>;
+  oDCI3?: InputMaybe<Scalars['String']['input']>;
+  oDCI4?: InputMaybe<Scalars['String']['input']>;
+  oDCI5?: InputMaybe<Scalars['String']['input']>;
+  otherAbnormalities?: InputMaybe<Scalars['String']['input']>;
+  palete?: InputMaybe<Scalars['String']['input']>;
+  paleteAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  paleteNormal?: InputMaybe<Scalars['String']['input']>;
+  seventeen?: InputMaybe<Scalars['String']['input']>;
+  sixteen?: InputMaybe<Scalars['String']['input']>;
+  temp?: InputMaybe<Scalars['String']['input']>;
+  tenTativeDiagnosis?: InputMaybe<Scalars['String']['input']>;
+  thirteen?: InputMaybe<Scalars['String']['input']>;
+  thirtyEight?: InputMaybe<Scalars['String']['input']>;
+  thirtyFive?: InputMaybe<Scalars['String']['input']>;
+  thirtyFour?: InputMaybe<Scalars['String']['input']>;
+  thirtyOne?: InputMaybe<Scalars['String']['input']>;
+  thirtySeven?: InputMaybe<Scalars['String']['input']>;
+  thirtySix?: InputMaybe<Scalars['String']['input']>;
+  thirtyThree?: InputMaybe<Scalars['String']['input']>;
+  thirtyTwo?: InputMaybe<Scalars['String']['input']>;
+  tmj?: InputMaybe<Scalars['String']['input']>;
+  tmjAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  tmjNormal?: InputMaybe<Scalars['String']['input']>;
+  tongue?: InputMaybe<Scalars['String']['input']>;
+  tongueAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  tongueNormal?: InputMaybe<Scalars['String']['input']>;
+  toothNumber1?: InputMaybe<Scalars['String']['input']>;
+  toothNumber2?: InputMaybe<Scalars['String']['input']>;
+  toothNumber3?: InputMaybe<Scalars['String']['input']>;
+  toothNumber4?: InputMaybe<Scalars['String']['input']>;
+  toothNumber5?: InputMaybe<Scalars['String']['input']>;
+  treatment1?: InputMaybe<Scalars['String']['input']>;
+  treatment2?: InputMaybe<Scalars['String']['input']>;
+  treatment3?: InputMaybe<Scalars['String']['input']>;
+  treatment4?: InputMaybe<Scalars['String']['input']>;
+  treatment5?: InputMaybe<Scalars['String']['input']>;
+  treatment6?: InputMaybe<Scalars['String']['input']>;
+  treatment7?: InputMaybe<Scalars['String']['input']>;
+  treatment8?: InputMaybe<Scalars['String']['input']>;
+  treatment9?: InputMaybe<Scalars['String']['input']>;
+  treatment10?: InputMaybe<Scalars['String']['input']>;
+  twelve?: InputMaybe<Scalars['String']['input']>;
+  twentyEight?: InputMaybe<Scalars['String']['input']>;
+  twentyFive?: InputMaybe<Scalars['String']['input']>;
+  twentyFour?: InputMaybe<Scalars['String']['input']>;
+  twentyOne?: InputMaybe<Scalars['String']['input']>;
+  twentySeven?: InputMaybe<Scalars['String']['input']>;
+  twentySix?: InputMaybe<Scalars['String']['input']>;
+  twentyThree?: InputMaybe<Scalars['String']['input']>;
+  twentyTwo?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type CaseHistoryCreateManyInlineInput = {
+  /** Connect multiple existing CaseHistory documents */
+  connect?: InputMaybe<Array<CaseHistoryWhereUniqueInput>>;
+  /** Create and connect multiple existing CaseHistory documents */
+  create?: InputMaybe<Array<CaseHistoryCreateInput>>;
+};
+
+export type CaseHistoryCreateOneInlineInput = {
+  /** Connect one existing CaseHistory document */
+  connect?: InputMaybe<CaseHistoryWhereUniqueInput>;
+  /** Create and connect one CaseHistory document */
+  create?: InputMaybe<CaseHistoryCreateInput>;
+};
+
+/** An edge in a connection. */
+export type CaseHistoryEdge = {
+  __typename?: 'CaseHistoryEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: CaseHistory;
+};
+
+/** Identifies documents */
+export type CaseHistoryManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CaseHistoryWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CaseHistoryWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CaseHistoryWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  beatsMinRr?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  beatsMinRr_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  beatsMinRr_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  beatsMinRr_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  beatsMinRr_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  beatsMinRr_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  beatsMinRr_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  beatsMinRr_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  beatsMinRr_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  beatsMinRr_starts_with?: InputMaybe<Scalars['String']['input']>;
+  bp?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  bp_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  bp_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  bp_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  bp_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  bp_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  bp_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  bp_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  bp_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  bp_starts_with?: InputMaybe<Scalars['String']['input']>;
+  breathsMin?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  breathsMin_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  breathsMin_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  breathsMin_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  breathsMin_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  breathsMin_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  breathsMin_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  breathsMin_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  breathsMin_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  breathsMin_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  cheecks?: InputMaybe<Scalars['String']['input']>;
+  cheecksAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  cheecksAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  cheecksAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  cheecksAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  cheecksAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  cheecksAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  cheecksAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  cheecksAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  cheecksAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  cheecksAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  cheecksNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  cheecksNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  cheecksNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  cheecksNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  cheecksNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  cheecksNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  cheecksNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  cheecksNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  cheecksNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  cheecksNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  cheecks_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  cheecks_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  cheecks_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  cheecks_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  cheecks_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  cheecks_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  cheecks_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  cheecks_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  cheecks_starts_with?: InputMaybe<Scalars['String']['input']>;
+  chiefComplaints?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  chiefComplaints_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  chiefComplaints_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  chiefComplaints_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  chiefComplaints_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  chiefComplaints_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  chiefComplaints_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  chiefComplaints_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  chiefComplaints_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  chiefComplaints_starts_with?: InputMaybe<Scalars['String']['input']>;
+  clinicalLevel?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  clinicalLevel_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  clinicalLevel_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  clinicalLevel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  clinicalLevel_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  clinicalLevel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  clinicalLevel_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  clinicalLevel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  clinicalLevel_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  clinicalLevel_starts_with?: InputMaybe<Scalars['String']['input']>;
+  clinician?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  clinician_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  clinician_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  clinician_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  clinician_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  clinician_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  clinician_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  clinician_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  clinician_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  clinician_starts_with?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  date1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  documentInStages_every?: InputMaybe<CaseHistoryWhereStageInput>;
+  documentInStages_none?: InputMaybe<CaseHistoryWhereStageInput>;
+  documentInStages_some?: InputMaybe<CaseHistoryWhereStageInput>;
+  eighteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  eighteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  eighteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  eighteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  eighteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  eighteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  eighteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  eighteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  eighteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  eighteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  eleven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  eleven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  eleven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  eleven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  eleven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  eleven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  eleven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  eleven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  eleven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  eleven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  examinedBy?: InputMaybe<Scalars['String']['input']>;
+  examinedByDate?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  examinedByDate_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  examinedByDate_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  examinedByDate_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  examinedByDate_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  examinedByDate_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  examinedByDate_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  examinedByDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  examinedByDate_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  examinedByDate_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  examinedBy_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  examinedBy_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  examinedBy_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  examinedBy_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  examinedBy_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  examinedBy_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  examinedBy_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  examinedBy_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  examinedBy_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fifteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fifteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fifteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fifteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fifteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fifteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fifteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fifteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fifteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fifteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouth?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  floorOfTheMouthAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  floorOfTheMouthAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  floorOfTheMouthAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  floorOfTheMouthAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  floorOfTheMouthAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  floorOfTheMouthAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  floorOfTheMouthAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  floorOfTheMouthAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  floorOfTheMouthAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  floorOfTheMouthNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  floorOfTheMouthNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  floorOfTheMouthNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  floorOfTheMouthNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  floorOfTheMouthNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  floorOfTheMouthNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  floorOfTheMouthNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  floorOfTheMouthNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  floorOfTheMouthNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  floorOfTheMouth_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  floorOfTheMouth_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  floorOfTheMouth_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  floorOfTheMouth_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  floorOfTheMouth_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  floorOfTheMouth_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  floorOfTheMouth_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  floorOfTheMouth_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  floorOfTheMouth_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyEight?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyEight_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyEight_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyEight_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyEight_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyEight_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyEight_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyEight_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyEight_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyEight_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyFive?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyFive_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyFive_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyFive_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyFive_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyFive_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyFive_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyFive_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyFive_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyFive_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyFour?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyFour_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyFour_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyFour_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyFour_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyFour_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyFour_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyFour_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyFour_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyFour_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyOne?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyOne_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyOne_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyOne_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyOne_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyOne_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyOne_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyOne_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyOne_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyOne_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortySeven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortySeven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortySeven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortySeven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortySeven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortySeven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortySeven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortySeven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortySeven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortySeven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortySix?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortySix_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortySix_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortySix_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortySix_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortySix_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortySix_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortySix_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortySix_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortySix_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyThree?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyThree_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyThree_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyThree_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyThree_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyThree_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyThree_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyThree_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyThree_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyThree_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyTwo?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyTwo_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyTwo_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyTwo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyTwo_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyTwo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyTwo_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyTwo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyTwo_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyTwo_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fourteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fourteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fourteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fourteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fourteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fourteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fourteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fourteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fourteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fourteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  historyOfPresentIllness?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  historyOfPresentIllness_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  historyOfPresentIllness_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  historyOfPresentIllness_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  historyOfPresentIllness_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  historyOfPresentIllness_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  historyOfPresentIllness_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  historyOfPresentIllness_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  historyOfPresentIllness_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  historyOfPresentIllness_starts_with?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  lip?: InputMaybe<Scalars['String']['input']>;
+  lipAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lipAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lipAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lipAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lipAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lipAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lipAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lipAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lipAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lipAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  lipNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lipNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lipNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lipNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lipNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lipNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lipNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lipNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lipNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lipNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lip_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lip_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lip_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lip_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lip_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lip_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lip_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lip_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lip_starts_with?: InputMaybe<Scalars['String']['input']>;
+  lymphNodes?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lymphNodesAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lymphNodesAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lymphNodesAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lymphNodesAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lymphNodesAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lymphNodesAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lymphNodesAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lymphNodesAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lymphNodesAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lymphNodesNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lymphNodesNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lymphNodesNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lymphNodesNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lymphNodesNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lymphNodesNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lymphNodesNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lymphNodesNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lymphNodesNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lymphNodes_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lymphNodes_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lymphNodes_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lymphNodes_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lymphNodes_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lymphNodes_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lymphNodes_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lymphNodes_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lymphNodes_starts_with?: InputMaybe<Scalars['String']['input']>;
+  mallampatiScore?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  mallampatiScore_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  mallampatiScore_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  mallampatiScore_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  mallampatiScore_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  mallampatiScore_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  mallampatiScore_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  mallampatiScore_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  mallampatiScore_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  mallampatiScore_starts_with?: InputMaybe<Scalars['String']['input']>;
+  mmHgPr?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  mmHgPr_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  mmHgPr_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  mmHgPr_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  mmHgPr_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  mmHgPr_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  mmHgPr_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  mmHgPr_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  mmHgPr_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  mmHgPr_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  otherAbnormalities?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  otherAbnormalities_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  otherAbnormalities_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  otherAbnormalities_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  otherAbnormalities_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  otherAbnormalities_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  otherAbnormalities_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  otherAbnormalities_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  otherAbnormalities_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  otherAbnormalities_starts_with?: InputMaybe<Scalars['String']['input']>;
+  palete?: InputMaybe<Scalars['String']['input']>;
+  paleteAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  paleteAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  paleteAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  paleteAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  paleteAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  paleteAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  paleteAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  paleteAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  paleteAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  paleteAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  paleteNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  paleteNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  paleteNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  paleteNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  paleteNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  paleteNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  paleteNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  paleteNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  paleteNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  paleteNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  palete_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  palete_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  palete_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  palete_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  palete_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  palete_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  palete_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  palete_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  palete_starts_with?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  seventeen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  seventeen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  seventeen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  seventeen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  seventeen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  seventeen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  seventeen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  seventeen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  seventeen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  seventeen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  sixteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  sixteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  sixteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  sixteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  sixteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  sixteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  sixteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  sixteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  sixteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  sixteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  temp?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  temp_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  temp_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  temp_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  temp_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  temp_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  temp_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  temp_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  temp_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  temp_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tenTativeDiagnosis?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tenTativeDiagnosis_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tenTativeDiagnosis_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tenTativeDiagnosis_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tenTativeDiagnosis_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tenTativeDiagnosis_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tenTativeDiagnosis_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tenTativeDiagnosis_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tenTativeDiagnosis_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tenTativeDiagnosis_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyEight?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyEight_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyEight_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyEight_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyEight_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyEight_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyEight_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyEight_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyEight_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyEight_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyFive?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyFive_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyFive_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyFive_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyFive_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyFive_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyFive_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyFive_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyFive_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyFive_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyFour?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyFour_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyFour_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyFour_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyFour_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyFour_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyFour_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyFour_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyFour_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyFour_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyOne?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyOne_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyOne_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyOne_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyOne_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyOne_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyOne_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyOne_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyOne_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyOne_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtySeven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtySeven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtySeven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtySeven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtySeven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtySeven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtySeven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtySeven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtySeven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtySeven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtySix?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtySix_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtySix_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtySix_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtySix_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtySix_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtySix_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtySix_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtySix_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtySix_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyThree?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyThree_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyThree_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyThree_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyThree_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyThree_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyThree_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyThree_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyThree_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyThree_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyTwo?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyTwo_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyTwo_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyTwo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyTwo_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyTwo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyTwo_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyTwo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyTwo_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyTwo_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tmj?: InputMaybe<Scalars['String']['input']>;
+  tmjAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tmjAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tmjAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tmjAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tmjAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tmjAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tmjAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tmjAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tmjAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tmjAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tmjNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tmjNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tmjNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tmjNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tmjNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tmjNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tmjNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tmjNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tmjNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tmjNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tmj_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tmj_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tmj_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tmj_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tmj_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tmj_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tmj_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tmj_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tmj_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tongue?: InputMaybe<Scalars['String']['input']>;
+  tongueAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tongueAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tongueAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tongueAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tongueAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tongueAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tongueAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tongueAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tongueAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tongueAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tongueNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tongueNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tongueNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tongueNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tongueNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tongueNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tongueNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tongueNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tongueNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tongueNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tongue_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tongue_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tongue_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tongue_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tongue_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tongue_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tongue_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tongue_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tongue_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment6?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment6_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment6_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment6_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment6_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment6_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment6_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment6_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment6_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment6_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment7?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment7_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment7_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment7_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment7_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment7_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment7_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment7_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment7_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment7_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment8?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment8_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment8_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment8_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment8_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment8_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment8_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment8_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment8_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment8_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment9?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment9_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment9_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment9_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment9_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment9_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment9_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment9_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment9_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment9_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment10?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment10_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment10_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment10_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment10_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment10_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment10_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment10_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment10_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment10_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twelve?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twelve_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twelve_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twelve_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twelve_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twelve_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twelve_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twelve_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twelve_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twelve_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyEight?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyEight_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyEight_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyEight_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyEight_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyEight_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyEight_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyEight_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyEight_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyEight_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyFive?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyFive_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyFive_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyFive_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyFive_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyFive_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyFive_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyFive_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyFive_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyFive_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyFour?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyFour_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyFour_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyFour_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyFour_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyFour_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyFour_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyFour_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyFour_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyFour_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyOne?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyOne_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyOne_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyOne_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyOne_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyOne_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyOne_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyOne_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyOne_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyOne_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentySeven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentySeven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentySeven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentySeven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentySeven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentySeven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentySeven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentySeven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentySeven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentySeven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentySix?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentySix_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentySix_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentySix_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentySix_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentySix_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentySix_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentySix_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentySix_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentySix_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyThree?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyThree_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyThree_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyThree_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyThree_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyThree_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyThree_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyThree_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyThree_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyThree_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyTwo?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyTwo_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyTwo_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyTwo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyTwo_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyTwo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyTwo_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyTwo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyTwo_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyTwo_starts_with?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum CaseHistoryOrderByInput {
+  BeatsMinRrAsc = 'beatsMinRr_ASC',
+  BeatsMinRrDesc = 'beatsMinRr_DESC',
+  BpAsc = 'bp_ASC',
+  BpDesc = 'bp_DESC',
+  BreathsMinAsc = 'breathsMin_ASC',
+  BreathsMinDesc = 'breathsMin_DESC',
+  CaseApproved1Asc = 'caseApproved1_ASC',
+  CaseApproved1Desc = 'caseApproved1_DESC',
+  CaseApproved2Asc = 'caseApproved2_ASC',
+  CaseApproved2Desc = 'caseApproved2_DESC',
+  CaseApproved3Asc = 'caseApproved3_ASC',
+  CaseApproved3Desc = 'caseApproved3_DESC',
+  CaseApproved4Asc = 'caseApproved4_ASC',
+  CaseApproved4Desc = 'caseApproved4_DESC',
+  CaseApproved5Asc = 'caseApproved5_ASC',
+  CaseApproved5Desc = 'caseApproved5_DESC',
+  CheecksAbnormalSpecifyAsc = 'cheecksAbnormalSpecify_ASC',
+  CheecksAbnormalSpecifyDesc = 'cheecksAbnormalSpecify_DESC',
+  CheecksNormalAsc = 'cheecksNormal_ASC',
+  CheecksNormalDesc = 'cheecksNormal_DESC',
+  CheecksAsc = 'cheecks_ASC',
+  CheecksDesc = 'cheecks_DESC',
+  ChiefComplaintsAsc = 'chiefComplaints_ASC',
+  ChiefComplaintsDesc = 'chiefComplaints_DESC',
+  ClinicalLevelAsc = 'clinicalLevel_ASC',
+  ClinicalLevelDesc = 'clinicalLevel_DESC',
+  ClinicianAsc = 'clinician_ASC',
+  ClinicianDesc = 'clinician_DESC',
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  Date1Asc = 'date1_ASC',
+  Date1Desc = 'date1_DESC',
+  Date2Asc = 'date2_ASC',
+  Date2Desc = 'date2_DESC',
+  Date3Asc = 'date3_ASC',
+  Date3Desc = 'date3_DESC',
+  Date4Asc = 'date4_ASC',
+  Date4Desc = 'date4_DESC',
+  Date5Asc = 'date5_ASC',
+  Date5Desc = 'date5_DESC',
+  EighteenAsc = 'eighteen_ASC',
+  EighteenDesc = 'eighteen_DESC',
+  ElevenAsc = 'eleven_ASC',
+  ElevenDesc = 'eleven_DESC',
+  ExaminedByDateAsc = 'examinedByDate_ASC',
+  ExaminedByDateDesc = 'examinedByDate_DESC',
+  ExaminedByAsc = 'examinedBy_ASC',
+  ExaminedByDesc = 'examinedBy_DESC',
+  FifteenAsc = 'fifteen_ASC',
+  FifteenDesc = 'fifteen_DESC',
+  FloorOfTheMouthAbnormalSpecifyAsc = 'floorOfTheMouthAbnormalSpecify_ASC',
+  FloorOfTheMouthAbnormalSpecifyDesc = 'floorOfTheMouthAbnormalSpecify_DESC',
+  FloorOfTheMouthNormalAsc = 'floorOfTheMouthNormal_ASC',
+  FloorOfTheMouthNormalDesc = 'floorOfTheMouthNormal_DESC',
+  FloorOfTheMouthAsc = 'floorOfTheMouth_ASC',
+  FloorOfTheMouthDesc = 'floorOfTheMouth_DESC',
+  FortyEightAsc = 'fortyEight_ASC',
+  FortyEightDesc = 'fortyEight_DESC',
+  FortyFiveAsc = 'fortyFive_ASC',
+  FortyFiveDesc = 'fortyFive_DESC',
+  FortyFourAsc = 'fortyFour_ASC',
+  FortyFourDesc = 'fortyFour_DESC',
+  FortyOneAsc = 'fortyOne_ASC',
+  FortyOneDesc = 'fortyOne_DESC',
+  FortySevenAsc = 'fortySeven_ASC',
+  FortySevenDesc = 'fortySeven_DESC',
+  FortySixAsc = 'fortySix_ASC',
+  FortySixDesc = 'fortySix_DESC',
+  FortyThreeAsc = 'fortyThree_ASC',
+  FortyThreeDesc = 'fortyThree_DESC',
+  FortyTwoAsc = 'fortyTwo_ASC',
+  FortyTwoDesc = 'fortyTwo_DESC',
+  FourteenAsc = 'fourteen_ASC',
+  FourteenDesc = 'fourteen_DESC',
+  HistoryOfPresentIllnessAsc = 'historyOfPresentIllness_ASC',
+  HistoryOfPresentIllnessDesc = 'historyOfPresentIllness_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  LipAbnormalSpecifyAsc = 'lipAbnormalSpecify_ASC',
+  LipAbnormalSpecifyDesc = 'lipAbnormalSpecify_DESC',
+  LipNormalAsc = 'lipNormal_ASC',
+  LipNormalDesc = 'lipNormal_DESC',
+  LipAsc = 'lip_ASC',
+  LipDesc = 'lip_DESC',
+  LymphNodesAbnormalSpecifyAsc = 'lymphNodesAbnormalSpecify_ASC',
+  LymphNodesAbnormalSpecifyDesc = 'lymphNodesAbnormalSpecify_DESC',
+  LymphNodesNormalAsc = 'lymphNodesNormal_ASC',
+  LymphNodesNormalDesc = 'lymphNodesNormal_DESC',
+  LymphNodesAsc = 'lymphNodes_ASC',
+  LymphNodesDesc = 'lymphNodes_DESC',
+  MallampatiScoreAsc = 'mallampatiScore_ASC',
+  MallampatiScoreDesc = 'mallampatiScore_DESC',
+  MmHgPrAsc = 'mmHgPr_ASC',
+  MmHgPrDesc = 'mmHgPr_DESC',
+  ODci1Asc = 'oDCI1_ASC',
+  ODci1Desc = 'oDCI1_DESC',
+  ODci2Asc = 'oDCI2_ASC',
+  ODci2Desc = 'oDCI2_DESC',
+  ODci3Asc = 'oDCI3_ASC',
+  ODci3Desc = 'oDCI3_DESC',
+  ODci4Asc = 'oDCI4_ASC',
+  ODci4Desc = 'oDCI4_DESC',
+  ODci5Asc = 'oDCI5_ASC',
+  ODci5Desc = 'oDCI5_DESC',
+  OtherAbnormalitiesAsc = 'otherAbnormalities_ASC',
+  OtherAbnormalitiesDesc = 'otherAbnormalities_DESC',
+  PaleteAbnormalSpecifyAsc = 'paleteAbnormalSpecify_ASC',
+  PaleteAbnormalSpecifyDesc = 'paleteAbnormalSpecify_DESC',
+  PaleteNormalAsc = 'paleteNormal_ASC',
+  PaleteNormalDesc = 'paleteNormal_DESC',
+  PaleteAsc = 'palete_ASC',
+  PaleteDesc = 'palete_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  SeventeenAsc = 'seventeen_ASC',
+  SeventeenDesc = 'seventeen_DESC',
+  SixteenAsc = 'sixteen_ASC',
+  SixteenDesc = 'sixteen_DESC',
+  TempAsc = 'temp_ASC',
+  TempDesc = 'temp_DESC',
+  TenTativeDiagnosisAsc = 'tenTativeDiagnosis_ASC',
+  TenTativeDiagnosisDesc = 'tenTativeDiagnosis_DESC',
+  ThirteenAsc = 'thirteen_ASC',
+  ThirteenDesc = 'thirteen_DESC',
+  ThirtyEightAsc = 'thirtyEight_ASC',
+  ThirtyEightDesc = 'thirtyEight_DESC',
+  ThirtyFiveAsc = 'thirtyFive_ASC',
+  ThirtyFiveDesc = 'thirtyFive_DESC',
+  ThirtyFourAsc = 'thirtyFour_ASC',
+  ThirtyFourDesc = 'thirtyFour_DESC',
+  ThirtyOneAsc = 'thirtyOne_ASC',
+  ThirtyOneDesc = 'thirtyOne_DESC',
+  ThirtySevenAsc = 'thirtySeven_ASC',
+  ThirtySevenDesc = 'thirtySeven_DESC',
+  ThirtySixAsc = 'thirtySix_ASC',
+  ThirtySixDesc = 'thirtySix_DESC',
+  ThirtyThreeAsc = 'thirtyThree_ASC',
+  ThirtyThreeDesc = 'thirtyThree_DESC',
+  ThirtyTwoAsc = 'thirtyTwo_ASC',
+  ThirtyTwoDesc = 'thirtyTwo_DESC',
+  TmjAbnormalSpecifyAsc = 'tmjAbnormalSpecify_ASC',
+  TmjAbnormalSpecifyDesc = 'tmjAbnormalSpecify_DESC',
+  TmjNormalAsc = 'tmjNormal_ASC',
+  TmjNormalDesc = 'tmjNormal_DESC',
+  TmjAsc = 'tmj_ASC',
+  TmjDesc = 'tmj_DESC',
+  TongueAbnormalSpecifyAsc = 'tongueAbnormalSpecify_ASC',
+  TongueAbnormalSpecifyDesc = 'tongueAbnormalSpecify_DESC',
+  TongueNormalAsc = 'tongueNormal_ASC',
+  TongueNormalDesc = 'tongueNormal_DESC',
+  TongueAsc = 'tongue_ASC',
+  TongueDesc = 'tongue_DESC',
+  ToothNumber1Asc = 'toothNumber1_ASC',
+  ToothNumber1Desc = 'toothNumber1_DESC',
+  ToothNumber2Asc = 'toothNumber2_ASC',
+  ToothNumber2Desc = 'toothNumber2_DESC',
+  ToothNumber3Asc = 'toothNumber3_ASC',
+  ToothNumber3Desc = 'toothNumber3_DESC',
+  ToothNumber4Asc = 'toothNumber4_ASC',
+  ToothNumber4Desc = 'toothNumber4_DESC',
+  ToothNumber5Asc = 'toothNumber5_ASC',
+  ToothNumber5Desc = 'toothNumber5_DESC',
+  Treatment1Asc = 'treatment1_ASC',
+  Treatment1Desc = 'treatment1_DESC',
+  Treatment2Asc = 'treatment2_ASC',
+  Treatment2Desc = 'treatment2_DESC',
+  Treatment3Asc = 'treatment3_ASC',
+  Treatment3Desc = 'treatment3_DESC',
+  Treatment4Asc = 'treatment4_ASC',
+  Treatment4Desc = 'treatment4_DESC',
+  Treatment5Asc = 'treatment5_ASC',
+  Treatment5Desc = 'treatment5_DESC',
+  Treatment6Asc = 'treatment6_ASC',
+  Treatment6Desc = 'treatment6_DESC',
+  Treatment7Asc = 'treatment7_ASC',
+  Treatment7Desc = 'treatment7_DESC',
+  Treatment8Asc = 'treatment8_ASC',
+  Treatment8Desc = 'treatment8_DESC',
+  Treatment9Asc = 'treatment9_ASC',
+  Treatment9Desc = 'treatment9_DESC',
+  Treatment10Asc = 'treatment10_ASC',
+  Treatment10Desc = 'treatment10_DESC',
+  TwelveAsc = 'twelve_ASC',
+  TwelveDesc = 'twelve_DESC',
+  TwentyEightAsc = 'twentyEight_ASC',
+  TwentyEightDesc = 'twentyEight_DESC',
+  TwentyFiveAsc = 'twentyFive_ASC',
+  TwentyFiveDesc = 'twentyFive_DESC',
+  TwentyFourAsc = 'twentyFour_ASC',
+  TwentyFourDesc = 'twentyFour_DESC',
+  TwentyOneAsc = 'twentyOne_ASC',
+  TwentyOneDesc = 'twentyOne_DESC',
+  TwentySevenAsc = 'twentySeven_ASC',
+  TwentySevenDesc = 'twentySeven_DESC',
+  TwentySixAsc = 'twentySix_ASC',
+  TwentySixDesc = 'twentySix_DESC',
+  TwentyThreeAsc = 'twentyThree_ASC',
+  TwentyThreeDesc = 'twentyThree_DESC',
+  TwentyTwoAsc = 'twentyTwo_ASC',
+  TwentyTwoDesc = 'twentyTwo_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type CaseHistoryUpdateInput = {
+  beatsMinRr?: InputMaybe<Scalars['String']['input']>;
+  bp?: InputMaybe<Scalars['String']['input']>;
+  breathsMin?: InputMaybe<Scalars['String']['input']>;
+  caseApproved1?: InputMaybe<Scalars['String']['input']>;
+  caseApproved2?: InputMaybe<Scalars['String']['input']>;
+  caseApproved3?: InputMaybe<Scalars['String']['input']>;
+  caseApproved4?: InputMaybe<Scalars['String']['input']>;
+  caseApproved5?: InputMaybe<Scalars['String']['input']>;
+  cheecks?: InputMaybe<Scalars['String']['input']>;
+  cheecksAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  cheecksNormal?: InputMaybe<Scalars['String']['input']>;
+  chiefComplaints?: InputMaybe<Scalars['String']['input']>;
+  clinicalLevel?: InputMaybe<Scalars['String']['input']>;
+  clinician?: InputMaybe<Scalars['String']['input']>;
+  cm3ykv6p901mk0716gco285h4?: InputMaybe<PatientUpdateManyInlineInput>;
+  date1?: InputMaybe<Scalars['String']['input']>;
+  date2?: InputMaybe<Scalars['String']['input']>;
+  date3?: InputMaybe<Scalars['String']['input']>;
+  date4?: InputMaybe<Scalars['String']['input']>;
+  date5?: InputMaybe<Scalars['String']['input']>;
+  eighteen?: InputMaybe<Scalars['String']['input']>;
+  eleven?: InputMaybe<Scalars['String']['input']>;
+  examinedBy?: InputMaybe<Scalars['String']['input']>;
+  examinedByDate?: InputMaybe<Scalars['String']['input']>;
+  fifteen?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouth?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthNormal?: InputMaybe<Scalars['String']['input']>;
+  fortyEight?: InputMaybe<Scalars['String']['input']>;
+  fortyFive?: InputMaybe<Scalars['String']['input']>;
+  fortyFour?: InputMaybe<Scalars['String']['input']>;
+  fortyOne?: InputMaybe<Scalars['String']['input']>;
+  fortySeven?: InputMaybe<Scalars['String']['input']>;
+  fortySix?: InputMaybe<Scalars['String']['input']>;
+  fortyThree?: InputMaybe<Scalars['String']['input']>;
+  fortyTwo?: InputMaybe<Scalars['String']['input']>;
+  fourteen?: InputMaybe<Scalars['String']['input']>;
+  historyOfPresentIllness?: InputMaybe<Scalars['String']['input']>;
+  lip?: InputMaybe<Scalars['String']['input']>;
+  lipAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  lipNormal?: InputMaybe<Scalars['String']['input']>;
+  lymphNodes?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesNormal?: InputMaybe<Scalars['String']['input']>;
+  mallampatiScore?: InputMaybe<Scalars['String']['input']>;
+  mmHgPr?: InputMaybe<Scalars['String']['input']>;
+  oDCI1?: InputMaybe<Scalars['String']['input']>;
+  oDCI2?: InputMaybe<Scalars['String']['input']>;
+  oDCI3?: InputMaybe<Scalars['String']['input']>;
+  oDCI4?: InputMaybe<Scalars['String']['input']>;
+  oDCI5?: InputMaybe<Scalars['String']['input']>;
+  otherAbnormalities?: InputMaybe<Scalars['String']['input']>;
+  palete?: InputMaybe<Scalars['String']['input']>;
+  paleteAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  paleteNormal?: InputMaybe<Scalars['String']['input']>;
+  seventeen?: InputMaybe<Scalars['String']['input']>;
+  sixteen?: InputMaybe<Scalars['String']['input']>;
+  temp?: InputMaybe<Scalars['String']['input']>;
+  tenTativeDiagnosis?: InputMaybe<Scalars['String']['input']>;
+  thirteen?: InputMaybe<Scalars['String']['input']>;
+  thirtyEight?: InputMaybe<Scalars['String']['input']>;
+  thirtyFive?: InputMaybe<Scalars['String']['input']>;
+  thirtyFour?: InputMaybe<Scalars['String']['input']>;
+  thirtyOne?: InputMaybe<Scalars['String']['input']>;
+  thirtySeven?: InputMaybe<Scalars['String']['input']>;
+  thirtySix?: InputMaybe<Scalars['String']['input']>;
+  thirtyThree?: InputMaybe<Scalars['String']['input']>;
+  thirtyTwo?: InputMaybe<Scalars['String']['input']>;
+  tmj?: InputMaybe<Scalars['String']['input']>;
+  tmjAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  tmjNormal?: InputMaybe<Scalars['String']['input']>;
+  tongue?: InputMaybe<Scalars['String']['input']>;
+  tongueAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  tongueNormal?: InputMaybe<Scalars['String']['input']>;
+  toothNumber1?: InputMaybe<Scalars['String']['input']>;
+  toothNumber2?: InputMaybe<Scalars['String']['input']>;
+  toothNumber3?: InputMaybe<Scalars['String']['input']>;
+  toothNumber4?: InputMaybe<Scalars['String']['input']>;
+  toothNumber5?: InputMaybe<Scalars['String']['input']>;
+  treatment1?: InputMaybe<Scalars['String']['input']>;
+  treatment2?: InputMaybe<Scalars['String']['input']>;
+  treatment3?: InputMaybe<Scalars['String']['input']>;
+  treatment4?: InputMaybe<Scalars['String']['input']>;
+  treatment5?: InputMaybe<Scalars['String']['input']>;
+  treatment6?: InputMaybe<Scalars['String']['input']>;
+  treatment7?: InputMaybe<Scalars['String']['input']>;
+  treatment8?: InputMaybe<Scalars['String']['input']>;
+  treatment9?: InputMaybe<Scalars['String']['input']>;
+  treatment10?: InputMaybe<Scalars['String']['input']>;
+  twelve?: InputMaybe<Scalars['String']['input']>;
+  twentyEight?: InputMaybe<Scalars['String']['input']>;
+  twentyFive?: InputMaybe<Scalars['String']['input']>;
+  twentyFour?: InputMaybe<Scalars['String']['input']>;
+  twentyOne?: InputMaybe<Scalars['String']['input']>;
+  twentySeven?: InputMaybe<Scalars['String']['input']>;
+  twentySix?: InputMaybe<Scalars['String']['input']>;
+  twentyThree?: InputMaybe<Scalars['String']['input']>;
+  twentyTwo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CaseHistoryUpdateManyInlineInput = {
+  /** Connect multiple existing CaseHistory documents */
+  connect?: InputMaybe<Array<CaseHistoryConnectInput>>;
+  /** Create and connect multiple CaseHistory documents */
+  create?: InputMaybe<Array<CaseHistoryCreateInput>>;
+  /** Delete multiple CaseHistory documents */
+  delete?: InputMaybe<Array<CaseHistoryWhereUniqueInput>>;
+  /** Disconnect multiple CaseHistory documents */
+  disconnect?: InputMaybe<Array<CaseHistoryWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing CaseHistory documents */
+  set?: InputMaybe<Array<CaseHistoryWhereUniqueInput>>;
+  /** Update multiple CaseHistory documents */
+  update?: InputMaybe<Array<CaseHistoryUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple CaseHistory documents */
+  upsert?: InputMaybe<Array<CaseHistoryUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type CaseHistoryUpdateManyInput = {
+  beatsMinRr?: InputMaybe<Scalars['String']['input']>;
+  bp?: InputMaybe<Scalars['String']['input']>;
+  breathsMin?: InputMaybe<Scalars['String']['input']>;
+  caseApproved1?: InputMaybe<Scalars['String']['input']>;
+  caseApproved2?: InputMaybe<Scalars['String']['input']>;
+  caseApproved3?: InputMaybe<Scalars['String']['input']>;
+  caseApproved4?: InputMaybe<Scalars['String']['input']>;
+  caseApproved5?: InputMaybe<Scalars['String']['input']>;
+  cheecks?: InputMaybe<Scalars['String']['input']>;
+  cheecksAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  cheecksNormal?: InputMaybe<Scalars['String']['input']>;
+  chiefComplaints?: InputMaybe<Scalars['String']['input']>;
+  clinicalLevel?: InputMaybe<Scalars['String']['input']>;
+  clinician?: InputMaybe<Scalars['String']['input']>;
+  date1?: InputMaybe<Scalars['String']['input']>;
+  date2?: InputMaybe<Scalars['String']['input']>;
+  date3?: InputMaybe<Scalars['String']['input']>;
+  date4?: InputMaybe<Scalars['String']['input']>;
+  date5?: InputMaybe<Scalars['String']['input']>;
+  eighteen?: InputMaybe<Scalars['String']['input']>;
+  eleven?: InputMaybe<Scalars['String']['input']>;
+  examinedBy?: InputMaybe<Scalars['String']['input']>;
+  examinedByDate?: InputMaybe<Scalars['String']['input']>;
+  fifteen?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouth?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthNormal?: InputMaybe<Scalars['String']['input']>;
+  fortyEight?: InputMaybe<Scalars['String']['input']>;
+  fortyFive?: InputMaybe<Scalars['String']['input']>;
+  fortyFour?: InputMaybe<Scalars['String']['input']>;
+  fortyOne?: InputMaybe<Scalars['String']['input']>;
+  fortySeven?: InputMaybe<Scalars['String']['input']>;
+  fortySix?: InputMaybe<Scalars['String']['input']>;
+  fortyThree?: InputMaybe<Scalars['String']['input']>;
+  fortyTwo?: InputMaybe<Scalars['String']['input']>;
+  fourteen?: InputMaybe<Scalars['String']['input']>;
+  historyOfPresentIllness?: InputMaybe<Scalars['String']['input']>;
+  lip?: InputMaybe<Scalars['String']['input']>;
+  lipAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  lipNormal?: InputMaybe<Scalars['String']['input']>;
+  lymphNodes?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesNormal?: InputMaybe<Scalars['String']['input']>;
+  mallampatiScore?: InputMaybe<Scalars['String']['input']>;
+  mmHgPr?: InputMaybe<Scalars['String']['input']>;
+  oDCI1?: InputMaybe<Scalars['String']['input']>;
+  oDCI2?: InputMaybe<Scalars['String']['input']>;
+  oDCI3?: InputMaybe<Scalars['String']['input']>;
+  oDCI4?: InputMaybe<Scalars['String']['input']>;
+  oDCI5?: InputMaybe<Scalars['String']['input']>;
+  otherAbnormalities?: InputMaybe<Scalars['String']['input']>;
+  palete?: InputMaybe<Scalars['String']['input']>;
+  paleteAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  paleteNormal?: InputMaybe<Scalars['String']['input']>;
+  seventeen?: InputMaybe<Scalars['String']['input']>;
+  sixteen?: InputMaybe<Scalars['String']['input']>;
+  temp?: InputMaybe<Scalars['String']['input']>;
+  tenTativeDiagnosis?: InputMaybe<Scalars['String']['input']>;
+  thirteen?: InputMaybe<Scalars['String']['input']>;
+  thirtyEight?: InputMaybe<Scalars['String']['input']>;
+  thirtyFive?: InputMaybe<Scalars['String']['input']>;
+  thirtyFour?: InputMaybe<Scalars['String']['input']>;
+  thirtyOne?: InputMaybe<Scalars['String']['input']>;
+  thirtySeven?: InputMaybe<Scalars['String']['input']>;
+  thirtySix?: InputMaybe<Scalars['String']['input']>;
+  thirtyThree?: InputMaybe<Scalars['String']['input']>;
+  thirtyTwo?: InputMaybe<Scalars['String']['input']>;
+  tmj?: InputMaybe<Scalars['String']['input']>;
+  tmjAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  tmjNormal?: InputMaybe<Scalars['String']['input']>;
+  tongue?: InputMaybe<Scalars['String']['input']>;
+  tongueAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  tongueNormal?: InputMaybe<Scalars['String']['input']>;
+  toothNumber1?: InputMaybe<Scalars['String']['input']>;
+  toothNumber2?: InputMaybe<Scalars['String']['input']>;
+  toothNumber3?: InputMaybe<Scalars['String']['input']>;
+  toothNumber4?: InputMaybe<Scalars['String']['input']>;
+  toothNumber5?: InputMaybe<Scalars['String']['input']>;
+  treatment1?: InputMaybe<Scalars['String']['input']>;
+  treatment2?: InputMaybe<Scalars['String']['input']>;
+  treatment3?: InputMaybe<Scalars['String']['input']>;
+  treatment4?: InputMaybe<Scalars['String']['input']>;
+  treatment5?: InputMaybe<Scalars['String']['input']>;
+  treatment6?: InputMaybe<Scalars['String']['input']>;
+  treatment7?: InputMaybe<Scalars['String']['input']>;
+  treatment8?: InputMaybe<Scalars['String']['input']>;
+  treatment9?: InputMaybe<Scalars['String']['input']>;
+  treatment10?: InputMaybe<Scalars['String']['input']>;
+  twelve?: InputMaybe<Scalars['String']['input']>;
+  twentyEight?: InputMaybe<Scalars['String']['input']>;
+  twentyFive?: InputMaybe<Scalars['String']['input']>;
+  twentyFour?: InputMaybe<Scalars['String']['input']>;
+  twentyOne?: InputMaybe<Scalars['String']['input']>;
+  twentySeven?: InputMaybe<Scalars['String']['input']>;
+  twentySix?: InputMaybe<Scalars['String']['input']>;
+  twentyThree?: InputMaybe<Scalars['String']['input']>;
+  twentyTwo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CaseHistoryUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: CaseHistoryUpdateManyInput;
+  /** Document search */
+  where: CaseHistoryWhereInput;
+};
+
+export type CaseHistoryUpdateOneInlineInput = {
+  /** Connect existing CaseHistory document */
+  connect?: InputMaybe<CaseHistoryWhereUniqueInput>;
+  /** Create and connect one CaseHistory document */
+  create?: InputMaybe<CaseHistoryCreateInput>;
+  /** Delete currently connected CaseHistory document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected CaseHistory document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single CaseHistory document */
+  update?: InputMaybe<CaseHistoryUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single CaseHistory document */
+  upsert?: InputMaybe<CaseHistoryUpsertWithNestedWhereUniqueInput>;
+};
+
+export type CaseHistoryUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: CaseHistoryUpdateInput;
+  /** Unique document search */
+  where: CaseHistoryWhereUniqueInput;
+};
+
+export type CaseHistoryUpsertInput = {
+  /** Create document if it didn't exist */
+  create: CaseHistoryCreateInput;
+  /** Update document if it exists */
+  update: CaseHistoryUpdateInput;
+};
+
+export type CaseHistoryUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: CaseHistoryUpsertInput;
+  /** Unique document search */
+  where: CaseHistoryWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type CaseHistoryWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type CaseHistoryWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CaseHistoryWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CaseHistoryWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CaseHistoryWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  beatsMinRr?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  beatsMinRr_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  beatsMinRr_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  beatsMinRr_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  beatsMinRr_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  beatsMinRr_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  beatsMinRr_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  beatsMinRr_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  beatsMinRr_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  beatsMinRr_starts_with?: InputMaybe<Scalars['String']['input']>;
+  bp?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  bp_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  bp_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  bp_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  bp_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  bp_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  bp_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  bp_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  bp_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  bp_starts_with?: InputMaybe<Scalars['String']['input']>;
+  breathsMin?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  breathsMin_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  breathsMin_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  breathsMin_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  breathsMin_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  breathsMin_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  breathsMin_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  breathsMin_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  breathsMin_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  breathsMin_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseApproved5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  caseApproved5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  caseApproved5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  caseApproved5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  caseApproved5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  caseApproved5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  caseApproved5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  caseApproved5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  caseApproved5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  caseApproved5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  cheecks?: InputMaybe<Scalars['String']['input']>;
+  cheecksAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  cheecksAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  cheecksAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  cheecksAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  cheecksAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  cheecksAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  cheecksAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  cheecksAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  cheecksAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  cheecksAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  cheecksNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  cheecksNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  cheecksNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  cheecksNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  cheecksNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  cheecksNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  cheecksNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  cheecksNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  cheecksNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  cheecksNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  cheecks_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  cheecks_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  cheecks_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  cheecks_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  cheecks_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  cheecks_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  cheecks_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  cheecks_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  cheecks_starts_with?: InputMaybe<Scalars['String']['input']>;
+  chiefComplaints?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  chiefComplaints_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  chiefComplaints_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  chiefComplaints_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  chiefComplaints_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  chiefComplaints_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  chiefComplaints_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  chiefComplaints_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  chiefComplaints_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  chiefComplaints_starts_with?: InputMaybe<Scalars['String']['input']>;
+  clinicalLevel?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  clinicalLevel_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  clinicalLevel_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  clinicalLevel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  clinicalLevel_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  clinicalLevel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  clinicalLevel_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  clinicalLevel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  clinicalLevel_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  clinicalLevel_starts_with?: InputMaybe<Scalars['String']['input']>;
+  clinician?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  clinician_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  clinician_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  clinician_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  clinician_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  clinician_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  clinician_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  clinician_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  clinician_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  clinician_starts_with?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  date1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  date5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  date5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  date5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  date5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  date5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  date5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  date5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  date5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  date5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  date5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  documentInStages_every?: InputMaybe<CaseHistoryWhereStageInput>;
+  documentInStages_none?: InputMaybe<CaseHistoryWhereStageInput>;
+  documentInStages_some?: InputMaybe<CaseHistoryWhereStageInput>;
+  eighteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  eighteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  eighteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  eighteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  eighteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  eighteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  eighteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  eighteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  eighteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  eighteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  eleven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  eleven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  eleven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  eleven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  eleven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  eleven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  eleven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  eleven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  eleven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  eleven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  examinedBy?: InputMaybe<Scalars['String']['input']>;
+  examinedByDate?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  examinedByDate_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  examinedByDate_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  examinedByDate_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  examinedByDate_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  examinedByDate_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  examinedByDate_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  examinedByDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  examinedByDate_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  examinedByDate_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  examinedBy_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  examinedBy_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  examinedBy_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  examinedBy_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  examinedBy_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  examinedBy_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  examinedBy_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  examinedBy_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  examinedBy_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fifteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fifteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fifteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fifteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fifteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fifteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fifteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fifteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fifteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fifteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouth?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  floorOfTheMouthAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  floorOfTheMouthAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  floorOfTheMouthAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  floorOfTheMouthAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  floorOfTheMouthAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  floorOfTheMouthAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  floorOfTheMouthAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  floorOfTheMouthAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  floorOfTheMouthAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  floorOfTheMouthNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  floorOfTheMouthNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  floorOfTheMouthNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  floorOfTheMouthNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  floorOfTheMouthNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  floorOfTheMouthNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  floorOfTheMouthNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  floorOfTheMouthNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  floorOfTheMouthNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  floorOfTheMouthNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  floorOfTheMouth_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  floorOfTheMouth_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  floorOfTheMouth_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  floorOfTheMouth_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  floorOfTheMouth_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  floorOfTheMouth_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  floorOfTheMouth_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  floorOfTheMouth_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  floorOfTheMouth_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyEight?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyEight_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyEight_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyEight_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyEight_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyEight_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyEight_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyEight_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyEight_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyEight_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyFive?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyFive_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyFive_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyFive_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyFive_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyFive_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyFive_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyFive_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyFive_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyFive_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyFour?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyFour_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyFour_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyFour_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyFour_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyFour_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyFour_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyFour_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyFour_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyFour_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyOne?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyOne_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyOne_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyOne_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyOne_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyOne_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyOne_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyOne_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyOne_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyOne_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortySeven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortySeven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortySeven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortySeven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortySeven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortySeven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortySeven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortySeven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortySeven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortySeven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortySix?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortySix_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortySix_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortySix_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortySix_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortySix_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortySix_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortySix_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortySix_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortySix_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyThree?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyThree_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyThree_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyThree_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyThree_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyThree_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyThree_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyThree_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyThree_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyThree_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fortyTwo?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fortyTwo_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fortyTwo_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fortyTwo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fortyTwo_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fortyTwo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fortyTwo_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fortyTwo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fortyTwo_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fortyTwo_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fourteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  fourteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  fourteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  fourteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  fourteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  fourteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  fourteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  fourteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  fourteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  fourteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  historyOfPresentIllness?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  historyOfPresentIllness_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  historyOfPresentIllness_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  historyOfPresentIllness_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  historyOfPresentIllness_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  historyOfPresentIllness_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  historyOfPresentIllness_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  historyOfPresentIllness_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  historyOfPresentIllness_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  historyOfPresentIllness_starts_with?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  lip?: InputMaybe<Scalars['String']['input']>;
+  lipAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lipAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lipAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lipAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lipAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lipAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lipAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lipAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lipAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lipAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  lipNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lipNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lipNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lipNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lipNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lipNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lipNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lipNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lipNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lipNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lip_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lip_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lip_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lip_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lip_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lip_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lip_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lip_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lip_starts_with?: InputMaybe<Scalars['String']['input']>;
+  lymphNodes?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lymphNodesAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lymphNodesAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lymphNodesAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lymphNodesAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lymphNodesAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lymphNodesAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lymphNodesAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lymphNodesAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lymphNodesAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  lymphNodesNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lymphNodesNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lymphNodesNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lymphNodesNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lymphNodesNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lymphNodesNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lymphNodesNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lymphNodesNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lymphNodesNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lymphNodesNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  lymphNodes_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  lymphNodes_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  lymphNodes_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  lymphNodes_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  lymphNodes_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  lymphNodes_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  lymphNodes_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  lymphNodes_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  lymphNodes_starts_with?: InputMaybe<Scalars['String']['input']>;
+  mallampatiScore?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  mallampatiScore_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  mallampatiScore_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  mallampatiScore_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  mallampatiScore_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  mallampatiScore_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  mallampatiScore_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  mallampatiScore_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  mallampatiScore_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  mallampatiScore_starts_with?: InputMaybe<Scalars['String']['input']>;
+  mmHgPr?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  mmHgPr_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  mmHgPr_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  mmHgPr_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  mmHgPr_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  mmHgPr_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  mmHgPr_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  mmHgPr_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  mmHgPr_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  mmHgPr_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  oDCI5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  oDCI5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  oDCI5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  oDCI5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  oDCI5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  oDCI5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  oDCI5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  oDCI5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  oDCI5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  oDCI5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  otherAbnormalities?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  otherAbnormalities_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  otherAbnormalities_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  otherAbnormalities_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  otherAbnormalities_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  otherAbnormalities_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  otherAbnormalities_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  otherAbnormalities_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  otherAbnormalities_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  otherAbnormalities_starts_with?: InputMaybe<Scalars['String']['input']>;
+  palete?: InputMaybe<Scalars['String']['input']>;
+  paleteAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  paleteAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  paleteAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  paleteAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  paleteAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  paleteAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  paleteAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  paleteAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  paleteAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  paleteAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  paleteNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  paleteNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  paleteNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  paleteNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  paleteNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  paleteNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  paleteNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  paleteNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  paleteNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  paleteNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  palete_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  palete_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  palete_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  palete_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  palete_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  palete_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  palete_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  palete_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  palete_starts_with?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  seventeen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  seventeen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  seventeen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  seventeen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  seventeen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  seventeen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  seventeen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  seventeen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  seventeen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  seventeen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  sixteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  sixteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  sixteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  sixteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  sixteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  sixteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  sixteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  sixteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  sixteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  sixteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  temp?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  temp_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  temp_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  temp_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  temp_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  temp_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  temp_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  temp_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  temp_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  temp_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tenTativeDiagnosis?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tenTativeDiagnosis_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tenTativeDiagnosis_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tenTativeDiagnosis_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tenTativeDiagnosis_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tenTativeDiagnosis_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tenTativeDiagnosis_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tenTativeDiagnosis_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tenTativeDiagnosis_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tenTativeDiagnosis_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirteen?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirteen_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirteen_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirteen_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirteen_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirteen_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirteen_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirteen_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirteen_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirteen_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyEight?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyEight_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyEight_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyEight_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyEight_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyEight_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyEight_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyEight_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyEight_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyEight_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyFive?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyFive_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyFive_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyFive_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyFive_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyFive_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyFive_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyFive_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyFive_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyFive_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyFour?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyFour_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyFour_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyFour_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyFour_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyFour_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyFour_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyFour_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyFour_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyFour_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyOne?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyOne_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyOne_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyOne_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyOne_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyOne_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyOne_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyOne_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyOne_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyOne_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtySeven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtySeven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtySeven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtySeven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtySeven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtySeven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtySeven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtySeven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtySeven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtySeven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtySix?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtySix_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtySix_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtySix_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtySix_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtySix_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtySix_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtySix_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtySix_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtySix_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyThree?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyThree_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyThree_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyThree_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyThree_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyThree_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyThree_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyThree_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyThree_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyThree_starts_with?: InputMaybe<Scalars['String']['input']>;
+  thirtyTwo?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  thirtyTwo_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  thirtyTwo_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  thirtyTwo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  thirtyTwo_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  thirtyTwo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  thirtyTwo_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  thirtyTwo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  thirtyTwo_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  thirtyTwo_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tmj?: InputMaybe<Scalars['String']['input']>;
+  tmjAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tmjAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tmjAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tmjAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tmjAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tmjAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tmjAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tmjAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tmjAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tmjAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tmjNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tmjNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tmjNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tmjNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tmjNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tmjNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tmjNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tmjNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tmjNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tmjNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tmj_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tmj_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tmj_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tmj_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tmj_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tmj_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tmj_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tmj_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tmj_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tongue?: InputMaybe<Scalars['String']['input']>;
+  tongueAbnormalSpecify?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tongueAbnormalSpecify_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tongueAbnormalSpecify_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tongueAbnormalSpecify_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tongueAbnormalSpecify_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tongueAbnormalSpecify_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tongueAbnormalSpecify_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tongueAbnormalSpecify_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tongueAbnormalSpecify_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tongueAbnormalSpecify_starts_with?: InputMaybe<Scalars['String']['input']>;
+  tongueNormal?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tongueNormal_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tongueNormal_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tongueNormal_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tongueNormal_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tongueNormal_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tongueNormal_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tongueNormal_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tongueNormal_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tongueNormal_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tongue_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tongue_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tongue_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tongue_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tongue_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tongue_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tongue_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tongue_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tongue_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  toothNumber5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  toothNumber5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  toothNumber5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  toothNumber5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  toothNumber5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  toothNumber5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  toothNumber5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  toothNumber5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  toothNumber5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  toothNumber5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment1?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment1_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment1_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment1_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment1_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment1_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment1_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment1_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment1_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment1_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment2?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment2_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment2_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment2_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment2_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment2_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment2_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment2_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment2_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment2_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment3?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment3_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment3_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment3_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment3_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment3_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment3_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment3_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment3_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment3_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment4?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment4_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment4_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment4_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment4_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment4_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment4_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment4_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment4_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment4_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment5?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment5_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment5_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment5_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment5_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment5_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment5_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment5_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment5_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment5_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment6?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment6_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment6_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment6_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment6_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment6_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment6_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment6_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment6_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment6_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment7?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment7_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment7_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment7_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment7_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment7_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment7_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment7_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment7_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment7_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment8?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment8_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment8_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment8_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment8_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment8_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment8_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment8_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment8_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment8_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment9?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment9_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment9_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment9_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment9_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment9_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment9_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment9_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment9_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment9_starts_with?: InputMaybe<Scalars['String']['input']>;
+  treatment10?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  treatment10_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  treatment10_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  treatment10_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  treatment10_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  treatment10_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  treatment10_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  treatment10_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  treatment10_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  treatment10_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twelve?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twelve_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twelve_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twelve_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twelve_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twelve_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twelve_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twelve_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twelve_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twelve_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyEight?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyEight_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyEight_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyEight_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyEight_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyEight_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyEight_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyEight_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyEight_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyEight_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyFive?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyFive_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyFive_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyFive_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyFive_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyFive_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyFive_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyFive_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyFive_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyFive_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyFour?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyFour_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyFour_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyFour_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyFour_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyFour_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyFour_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyFour_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyFour_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyFour_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyOne?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyOne_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyOne_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyOne_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyOne_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyOne_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyOne_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyOne_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyOne_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyOne_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentySeven?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentySeven_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentySeven_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentySeven_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentySeven_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentySeven_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentySeven_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentySeven_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentySeven_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentySeven_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentySix?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentySix_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentySix_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentySix_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentySix_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentySix_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentySix_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentySix_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentySix_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentySix_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyThree?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyThree_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyThree_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyThree_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyThree_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyThree_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyThree_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyThree_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyThree_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyThree_starts_with?: InputMaybe<Scalars['String']['input']>;
+  twentyTwo?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  twentyTwo_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  twentyTwo_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  twentyTwo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  twentyTwo_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  twentyTwo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  twentyTwo_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  twentyTwo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  twentyTwo_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  twentyTwo_starts_with?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type CaseHistoryWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CaseHistoryWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CaseHistoryWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CaseHistoryWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<CaseHistoryWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References CaseHistory record uniquely */
+export type CaseHistoryWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type ClinicalExamination = Entity & {
+  __typename?: 'ClinicalExamination';
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** System stage field */
+  stage: Stage;
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+/** A connection to a list of items. */
+export type ClinicalExaminationConnection = {
+  __typename?: 'ClinicalExaminationConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<ClinicalExaminationEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type ClinicalExaminationCreateInput = {
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ClinicalExaminationCreateWithPositionInput = {
+  /** Document to create */
+  data: ClinicalExaminationCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+export type ClinicalExaminationEdge = {
+  __typename?: 'ClinicalExaminationEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: ClinicalExamination;
+};
+
+/** Identifies documents */
+export type ClinicalExaminationManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ClinicalExaminationWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ClinicalExaminationWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ClinicalExaminationWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  text_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  text_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  text_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  text_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  text_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  text_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  text_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  text_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  text_starts_with?: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum ClinicalExaminationOrderByInput {
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  TextAsc = 'text_ASC',
+  TextDesc = 'text_DESC'
+}
+
+export type ClinicalExaminationUpdateInput = {
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ClinicalExaminationUpdateManyInput = {
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ClinicalExaminationUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: ClinicalExaminationUpdateManyInput;
+  /** Document search */
+  where: ClinicalExaminationWhereInput;
+};
+
+export type ClinicalExaminationUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  data?: InputMaybe<ClinicalExaminationUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: ClinicalExaminationWhereUniqueInput;
+};
+
+export type ClinicalExaminationUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: ClinicalExaminationUpdateInput;
+  /** Unique document search */
+  where: ClinicalExaminationWhereUniqueInput;
+};
+
+export type ClinicalExaminationUpsertInput = {
+  /** Create document if it didn't exist */
+  create: ClinicalExaminationCreateInput;
+  /** Update document if it exists */
+  update: ClinicalExaminationUpdateInput;
+};
+
+export type ClinicalExaminationUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  data?: InputMaybe<ClinicalExaminationUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: ClinicalExaminationWhereUniqueInput;
+};
+
+export type ClinicalExaminationUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: ClinicalExaminationUpsertInput;
+  /** Unique document search */
+  where: ClinicalExaminationWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type ClinicalExaminationWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ClinicalExaminationWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ClinicalExaminationWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ClinicalExaminationWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  text_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  text_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  text_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  text_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  text_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  text_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  text_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  text_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  text_starts_with?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** References ClinicalExamination record uniquely */
+export type ClinicalExaminationWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 /** Representing a color value comprising of HEX, RGBA and css color values */
 export type Color = {
   __typename?: 'Color';
@@ -1058,6 +5919,8 @@ export type Entity = {
 export enum EntityTypeName {
   /** Asset system model */
   Asset = 'Asset',
+  CaseHistory = 'CaseHistory',
+  ClinicalExamination = 'ClinicalExamination',
   GetSlider = 'GetSlider',
   MedicalTeam = 'MedicalTeam',
   NewSchedule = 'NewSchedule',
@@ -2242,6 +7105,8 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Create an asset. Use the returned info to finish the creation process by uploading the asset. */
   createAsset?: Maybe<Asset>;
+  /** Create one caseHistory */
+  createCaseHistory?: Maybe<CaseHistory>;
   /** Create one getSlider */
   createGetSlider?: Maybe<GetSlider>;
   /** Create one medicalTeam */
@@ -2262,6 +7127,8 @@ export type Mutation = {
   createUzLab?: Maybe<UzLab>;
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>;
+  /** Delete one caseHistory from _all_ existing stages. Returns deleted document. */
+  deleteCaseHistory?: Maybe<CaseHistory>;
   /** Delete one getSlider from _all_ existing stages. Returns deleted document. */
   deleteGetSlider?: Maybe<GetSlider>;
   /**
@@ -2271,6 +7138,13 @@ export type Mutation = {
   deleteManyAssets: BatchPayload;
   /** Delete many Asset documents, return deleted documents */
   deleteManyAssetsConnection: AssetConnection;
+  /**
+   * Delete many CaseHistory documents
+   * @deprecated Please use the new paginated many mutation (deleteManyCaseHistoriesConnection)
+   */
+  deleteManyCaseHistories: BatchPayload;
+  /** Delete many CaseHistory documents, return deleted documents */
+  deleteManyCaseHistoriesConnection: CaseHistoryConnection;
   /**
    * Delete many GetSlider documents
    * @deprecated Please use the new paginated many mutation (deleteManyGetSlidersConnection)
@@ -2347,6 +7221,8 @@ export type Mutation = {
   deleteUzLab?: Maybe<UzLab>;
   /** Publish one asset */
   publishAsset?: Maybe<Asset>;
+  /** Publish one caseHistory */
+  publishCaseHistory?: Maybe<CaseHistory>;
   /** Publish one getSlider */
   publishGetSlider?: Maybe<GetSlider>;
   /**
@@ -2356,6 +7232,13 @@ export type Mutation = {
   publishManyAssets: BatchPayload;
   /** Publish many Asset documents */
   publishManyAssetsConnection: AssetConnection;
+  /**
+   * Publish many CaseHistory documents
+   * @deprecated Please use the new paginated many mutation (publishManyCaseHistoriesConnection)
+   */
+  publishManyCaseHistories: BatchPayload;
+  /** Publish many CaseHistory documents */
+  publishManyCaseHistoriesConnection: CaseHistoryConnection;
   /**
    * Publish many GetSlider documents
    * @deprecated Please use the new paginated many mutation (publishManyGetSlidersConnection)
@@ -2428,6 +7311,8 @@ export type Mutation = {
   publishUzLab?: Maybe<UzLab>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
+  /** Schedule to publish one caseHistory */
+  schedulePublishCaseHistory?: Maybe<CaseHistory>;
   /** Schedule to publish one getSlider */
   schedulePublishGetSlider?: Maybe<GetSlider>;
   /** Schedule to publish one medicalTeam */
@@ -2446,6 +7331,8 @@ export type Mutation = {
   schedulePublishUzLab?: Maybe<UzLab>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
+  /** Unpublish one caseHistory from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishCaseHistory?: Maybe<CaseHistory>;
   /** Unpublish one getSlider from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishGetSlider?: Maybe<GetSlider>;
   /** Unpublish one medicalTeam from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2464,6 +7351,8 @@ export type Mutation = {
   scheduleUnpublishUzLab?: Maybe<UzLab>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>;
+  /** Unpublish one caseHistory from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishCaseHistory?: Maybe<CaseHistory>;
   /** Unpublish one getSlider from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishGetSlider?: Maybe<GetSlider>;
   /**
@@ -2473,6 +7362,13 @@ export type Mutation = {
   unpublishManyAssets: BatchPayload;
   /** Find many Asset documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyAssetsConnection: AssetConnection;
+  /**
+   * Unpublish many CaseHistory documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyCaseHistoriesConnection)
+   */
+  unpublishManyCaseHistories: BatchPayload;
+  /** Find many CaseHistory documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyCaseHistoriesConnection: CaseHistoryConnection;
   /**
    * Unpublish many GetSlider documents
    * @deprecated Please use the new paginated many mutation (unpublishManyGetSlidersConnection)
@@ -2545,6 +7441,8 @@ export type Mutation = {
   unpublishUzLab?: Maybe<UzLab>;
   /** Update one asset */
   updateAsset?: Maybe<Asset>;
+  /** Update one caseHistory */
+  updateCaseHistory?: Maybe<CaseHistory>;
   /** Update one getSlider */
   updateGetSlider?: Maybe<GetSlider>;
   /**
@@ -2554,6 +7452,13 @@ export type Mutation = {
   updateManyAssets: BatchPayload;
   /** Update many Asset documents */
   updateManyAssetsConnection: AssetConnection;
+  /**
+   * Update many caseHistories
+   * @deprecated Please use the new paginated many mutation (updateManyCaseHistoriesConnection)
+   */
+  updateManyCaseHistories: BatchPayload;
+  /** Update many CaseHistory documents */
+  updateManyCaseHistoriesConnection: CaseHistoryConnection;
   /**
    * Update many getSliders
    * @deprecated Please use the new paginated many mutation (updateManyGetSlidersConnection)
@@ -2628,6 +7533,8 @@ export type Mutation = {
   updateUzLab?: Maybe<UzLab>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
+  /** Upsert one caseHistory */
+  upsertCaseHistory?: Maybe<CaseHistory>;
   /** Upsert one getSlider */
   upsertGetSlider?: Maybe<GetSlider>;
   /** Upsert one medicalTeam */
@@ -2649,6 +7556,11 @@ export type Mutation = {
 
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
+};
+
+
+export type MutationCreateCaseHistoryArgs = {
+  data: CaseHistoryCreateInput;
 };
 
 
@@ -2702,6 +7614,11 @@ export type MutationDeleteAssetArgs = {
 };
 
 
+export type MutationDeleteCaseHistoryArgs = {
+  where: CaseHistoryWhereUniqueInput;
+};
+
+
 export type MutationDeleteGetSliderArgs = {
   where: GetSliderWhereUniqueInput;
 };
@@ -2719,6 +7636,21 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationDeleteManyCaseHistoriesArgs = {
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
+};
+
+
+export type MutationDeleteManyCaseHistoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
 };
 
 
@@ -2896,6 +7828,12 @@ export type MutationPublishAssetArgs = {
 };
 
 
+export type MutationPublishCaseHistoryArgs = {
+  to?: Array<Stage>;
+  where: CaseHistoryWhereUniqueInput;
+};
+
+
 export type MutationPublishGetSliderArgs = {
   to?: Array<Stage>;
   where: GetSliderWhereUniqueInput;
@@ -2923,6 +7861,24 @@ export type MutationPublishManyAssetsConnectionArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type MutationPublishManyCaseHistoriesArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
+};
+
+
+export type MutationPublishManyCaseHistoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
 };
 
 
@@ -3123,6 +8079,14 @@ export type MutationSchedulePublishAssetArgs = {
 };
 
 
+export type MutationSchedulePublishCaseHistoryArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  to?: Array<Stage>;
+  where: CaseHistoryWhereUniqueInput;
+};
+
+
 export type MutationSchedulePublishGetSliderArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
@@ -3194,6 +8158,14 @@ export type MutationScheduleUnpublishAssetArgs = {
   releaseId?: InputMaybe<Scalars['String']['input']>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where: AssetWhereUniqueInput;
+};
+
+
+export type MutationScheduleUnpublishCaseHistoryArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  where: CaseHistoryWhereUniqueInput;
 };
 
 
@@ -3269,6 +8241,12 @@ export type MutationUnpublishAssetArgs = {
 };
 
 
+export type MutationUnpublishCaseHistoryArgs = {
+  from?: Array<Stage>;
+  where: CaseHistoryWhereUniqueInput;
+};
+
+
 export type MutationUnpublishGetSliderArgs = {
   from?: Array<Stage>;
   where: GetSliderWhereUniqueInput;
@@ -3294,6 +8272,24 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   stage?: InputMaybe<Stage>;
   unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyCaseHistoriesArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyCaseHistoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
 };
 
 
@@ -3489,6 +8485,12 @@ export type MutationUpdateAssetArgs = {
 };
 
 
+export type MutationUpdateCaseHistoryArgs = {
+  data: CaseHistoryUpdateInput;
+  where: CaseHistoryWhereUniqueInput;
+};
+
+
 export type MutationUpdateGetSliderArgs = {
   data: GetSliderUpdateInput;
   where: GetSliderWhereUniqueInput;
@@ -3509,6 +8511,23 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AssetManyWhereInput>;
+};
+
+
+export type MutationUpdateManyCaseHistoriesArgs = {
+  data: CaseHistoryUpdateManyInput;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
+};
+
+
+export type MutationUpdateManyCaseHistoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  data: CaseHistoryUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CaseHistoryManyWhereInput>;
 };
 
 
@@ -3699,6 +8718,12 @@ export type MutationUpdateUzLabArgs = {
 export type MutationUpsertAssetArgs = {
   upsert: AssetUpsertInput;
   where: AssetWhereUniqueInput;
+};
+
+
+export type MutationUpsertCaseHistoryArgs = {
+  upsert: CaseHistoryUpsertInput;
+  where: CaseHistoryWhereUniqueInput;
 };
 
 
@@ -5018,6 +10043,7 @@ export type Patient = Entity & Node & {
   bruxing?: Maybe<Scalars['String']['output']>;
   cancerOrTumor?: Maybe<Scalars['String']['output']>;
   careOfAPhysicians?: Maybe<Scalars['String']['output']>;
+  caseHistory?: Maybe<CaseHistory>;
   chestPains?: Maybe<Scalars['String']['output']>;
   clicking?: Maybe<Scalars['String']['output']>;
   congenitalDisease?: Maybe<Scalars['String']['output']>;
@@ -5114,6 +10140,12 @@ export type Patient = Entity & Node & {
   updatedBy?: Maybe<User>;
   vitaminsNaturalOrHerbalSupplements?: Maybe<Scalars['String']['output']>;
   weight?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PatientCaseHistoryArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
 };
 
 
@@ -5214,6 +10246,7 @@ export type PatientCreateInput = {
   bruxing?: InputMaybe<Scalars['String']['input']>;
   cancerOrTumor?: InputMaybe<Scalars['String']['input']>;
   careOfAPhysicians?: InputMaybe<Scalars['String']['input']>;
+  caseHistory?: InputMaybe<CaseHistoryCreateOneInlineInput>;
   chestPains?: InputMaybe<Scalars['String']['input']>;
   clicking?: InputMaybe<Scalars['String']['input']>;
   congenitalDisease?: InputMaybe<Scalars['String']['input']>;
@@ -5630,6 +10663,7 @@ export type PatientManyWhereInput = {
   careOfAPhysicians_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   careOfAPhysicians_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseHistory?: InputMaybe<CaseHistoryWhereInput>;
   chestPains?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   chestPains_contains?: InputMaybe<Scalars['String']['input']>;
@@ -7302,6 +12336,7 @@ export type PatientUpdateInput = {
   bruxing?: InputMaybe<Scalars['String']['input']>;
   cancerOrTumor?: InputMaybe<Scalars['String']['input']>;
   careOfAPhysicians?: InputMaybe<Scalars['String']['input']>;
+  caseHistory?: InputMaybe<CaseHistoryUpdateOneInlineInput>;
   chestPains?: InputMaybe<Scalars['String']['input']>;
   clicking?: InputMaybe<Scalars['String']['input']>;
   congenitalDisease?: InputMaybe<Scalars['String']['input']>;
@@ -7851,6 +12886,7 @@ export type PatientWhereInput = {
   careOfAPhysicians_not_starts_with?: InputMaybe<Scalars['String']['input']>;
   /** All values starting with the given string. */
   careOfAPhysicians_starts_with?: InputMaybe<Scalars['String']['input']>;
+  caseHistory?: InputMaybe<CaseHistoryWhereInput>;
   chestPains?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   chestPains_contains?: InputMaybe<Scalars['String']['input']>;
@@ -9353,6 +14389,14 @@ export type Query = {
   assets: Array<Asset>;
   /** Retrieve multiple assets using the Relay connection interface */
   assetsConnection: AssetConnection;
+  /** Retrieve multiple caseHistories */
+  caseHistories: Array<CaseHistory>;
+  /** Retrieve multiple caseHistories using the Relay connection interface */
+  caseHistoriesConnection: CaseHistoryConnection;
+  /** Retrieve a single caseHistory */
+  caseHistory?: Maybe<CaseHistory>;
+  /** Retrieve document version */
+  caseHistoryVersion?: Maybe<DocumentVersion>;
   /** Fetches an object given its ID */
   entities?: Maybe<Array<Entity>>;
   /** Retrieve a single getSlider */
@@ -9477,6 +14521,44 @@ export type QueryAssetsConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: Stage;
   where?: InputMaybe<AssetWhereInput>;
+};
+
+
+export type QueryCaseHistoriesArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<CaseHistoryOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<CaseHistoryWhereInput>;
+};
+
+
+export type QueryCaseHistoriesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<CaseHistoryOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<CaseHistoryWhereInput>;
+};
+
+
+export type QueryCaseHistoryArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: CaseHistoryWhereUniqueInput;
+};
+
+
+export type QueryCaseHistoryVersionArgs = {
+  where: VersionWhereInput;
 };
 
 
@@ -10537,7 +15619,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | GetSlider | MedicalTeam | NewSchedule | NewsFeed | Patient | RequestUserEformPdf | TipsGuide | UzLab;
+export type ScheduledOperationAffectedDocument = Asset | CaseHistory | GetSlider | MedicalTeam | NewSchedule | NewsFeed | Patient | RequestUserEformPdf | TipsGuide | UzLab;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -13137,7 +18219,7 @@ export type CreatePatientMutationVariables = Exact<{
 }>;
 
 
-export type CreatePatientMutation = { __typename?: 'Mutation', createPatient?: { __typename?: 'Patient', id: string } | null, publishManyPatients: { __typename?: 'BatchPayload', count: any } };
+export type CreatePatientMutation = { __typename?: 'Mutation', createPatient?: { __typename?: 'Patient', id: string } | null, publishManyPatients: { __typename?: 'BatchPayload', count: any }, publishManyCaseHistories: { __typename?: 'BatchPayload', count: any } };
 
 export type UpdatePatientInformationMutationVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -13923,11 +19005,14 @@ export type CheckIfUserAlreadyAppointmentQueryResult = Apollo.QueryResult<CheckI
 export const CreatePatientDocument = gql`
     mutation CreatePatient($profileImage: String!, $email: String!, $fullName: String!, $contactNumber: String!, $sex: String!, $dateOfBirth: String!, $address: String, $height: String, $occupation: String, $weight: String, $statusAppointment: String!) {
   createPatient(
-    data: {profileImage: {create: {uploadUrl: $profileImage}}, email: $email, fullName: $fullName, contactNumber: $contactNumber, sex: $sex, dateOfBirth: $dateOfBirth, address: $address, height: $height, occupation: $occupation, weight: $weight, statusAppointment: $statusAppointment, bleedingGums: "N/A", sensitive: "N/A", foodTrap: "N/A", dryMouth: "N/A", pastGap: "N/A", pastOrthodonic: "N/A", problem: "N/A", earaches: "N/A", clicking: "N/A", bruxing: "N/A", sores: "N/A", dentures: "N/A", active: "N/A", serious: "N/A", dateOfLastExam: "N/A", careOfAPhysicians: "N/A", physiciansName: "N/A", phonePhysician: "N/A", areYouInGoodHealth: "N/A", anyChangesInYourHealth: "N/A", hospitalization: "N/A", prescriptionOrCounterMedications: "N/A", allergies: "N/A", specify: "N/A", alcoholIntake: "N/A", amoutAndFrequency: "N/A", forWomen: "N/A", lactating: "N/A", ifYesWhatWasTheIllnessOrProblem: "N/A", dateOfLastPhysicalExam: "N/A", vitaminsNaturalOrHerbalSupplements: "N/A", highBloodPressure: "NO", heartAttack: "NO", heartDiseaseSpecify: "N/A", lowBloodPressure: "NO", leukemia: "NO", anemia: "NO", kidneyDisease: "NO", kidneyDiseaseSpecify: "N/A", asthma: "NO", lungDisease: "NO", lungDiseaseSpecify: "N/A", stroke: "NO", neurologicalDisorder: "NO", neurologicalDisorderSpecify: "N/A", epilepsyConvulsions: "NO", brainInjury: "NO", psychiatricTreatment: "NO", diabetes: "NO", aidsHivInfection: "NO", congenitalDisease: "NO", congenitalDiseaseSpecify: "N/A", hepatitis: "NO", liverDisorder: "NO", livErDisorderSpecify: "N/A", jointDisorder: "NO", jointReplacementOrImplants: "NO", steroidTherapy: "NO", stomachTroublesUlcers: "NO", chestPains: "NO", frequentSoreThroat: "NO", persistentCough: "NO", difficultInBreathing: "NO", cancerOrTumor: "NO", radiationOrChemotherapy: "NO", recentWEightLoss: "NO", others: "NO", othersSpecify: "N/A"}
+    data: {profileImage: {create: {uploadUrl: $profileImage}}, email: $email, fullName: $fullName, contactNumber: $contactNumber, sex: $sex, dateOfBirth: $dateOfBirth, address: $address, height: $height, occupation: $occupation, weight: $weight, statusAppointment: $statusAppointment, bleedingGums: "N/A", sensitive: "N/A", foodTrap: "N/A", dryMouth: "N/A", pastGap: "N/A", pastOrthodonic: "N/A", problem: "N/A", earaches: "N/A", clicking: "N/A", bruxing: "N/A", sores: "N/A", dentures: "N/A", active: "N/A", serious: "N/A", dateOfLastExam: "N/A", careOfAPhysicians: "N/A", physiciansName: "N/A", phonePhysician: "N/A", areYouInGoodHealth: "N/A", anyChangesInYourHealth: "N/A", hospitalization: "N/A", prescriptionOrCounterMedications: "N/A", allergies: "N/A", specify: "N/A", alcoholIntake: "N/A", amoutAndFrequency: "N/A", forWomen: "N/A", lactating: "N/A", ifYesWhatWasTheIllnessOrProblem: "N/A", dateOfLastPhysicalExam: "N/A", vitaminsNaturalOrHerbalSupplements: "N/A", highBloodPressure: "NO", heartAttack: "NO", heartDiseaseSpecify: "N/A", lowBloodPressure: "NO", leukemia: "NO", anemia: "NO", kidneyDisease: "NO", kidneyDiseaseSpecify: "N/A", asthma: "NO", lungDisease: "NO", lungDiseaseSpecify: "N/A", stroke: "NO", neurologicalDisorder: "NO", neurologicalDisorderSpecify: "N/A", epilepsyConvulsions: "NO", brainInjury: "NO", psychiatricTreatment: "NO", diabetes: "NO", aidsHivInfection: "NO", congenitalDisease: "NO", congenitalDiseaseSpecify: "N/A", hepatitis: "NO", liverDisorder: "NO", livErDisorderSpecify: "N/A", jointDisorder: "NO", jointReplacementOrImplants: "NO", steroidTherapy: "NO", stomachTroublesUlcers: "NO", chestPains: "NO", frequentSoreThroat: "NO", persistentCough: "NO", difficultInBreathing: "NO", cancerOrTumor: "NO", radiationOrChemotherapy: "NO", recentWEightLoss: "NO", others: "NO", othersSpecify: "N/A", caseHistory: {create: {beatsMinRr: "N/A", bp: "N/A", breathsMin: "N/A", caseApproved1: "N/A", caseApproved2: "N/A", caseApproved3: "N/A", caseApproved4: "N/A", caseApproved5: "N/A", cheecks: "N/A", cheecksAbnormalSpecify: "N/A", cheecksNormal: "N/A", chiefComplaints: "N/A", clinicalLevel: "N/A", clinician: "N/A", date1: "N/A", date2: "N/A", date3: "N/A", date4: "N/A", date5: "N/A", eighteen: "N/A", eleven: "N/A", examinedBy: "N/A", examinedByDate: "N/A", fifteen: "N/A", floorOfTheMouth: "N/A", floorOfTheMouthAbnormalSpecify: "N/A", floorOfTheMouthNormal: "N/A", fortyFour: "N/A", fortyOne: "N/A", fortyFive: "N/A", fortyEight: "N/A", fortySeven: "N/A", fortySix: "N/A", fortyThree: "N/A", fortyTwo: "N/A", fourteen: "N/A", historyOfPresentIllness: "N/A", lip: "N/A", lipAbnormalSpecify: "N/A", lipNormal: "N/A", lymphNodes: "N/A", lymphNodesAbnormalSpecify: "N/A", lymphNodesNormal: "N/A", mallampatiScore: "N/A", mmHgPr: "N/A", oDCI1: "N/A", oDCI2: "N/A", oDCI3: "N/A", oDCI4: "N/A", oDCI5: "N/A", otherAbnormalities: "N/A", palete: "N/A", paleteAbnormalSpecify: "N/A", paleteNormal: "N/A", seventeen: "N/A", sixteen: "N/A", temp: "N/A", twentyTwo: "N/A", twentyThree: "N/A", twentySix: "N/A", twentySeven: "N/A", twentyOne: "N/A", twentyFour: "N/A", twentyFive: "N/A", twentyEight: "N/A", twelve: "N/A", treatment9: "N/A", treatment8: "N/A", treatment6: "N/A", treatment7: "N/A", treatment5: "N/A", treatment4: "N/A", treatment2: "N/A", treatment3: "N/A", treatment10: "N/A", treatment1: "N/A", toothNumber5: "N/A", toothNumber4: "N/A", toothNumber3: "N/A", toothNumber2: "N/A", tmjNormal: "N/A", tongueAbnormalSpecify: "N/A", toothNumber1: "N/A", tongueNormal: "N/A", tongue: "N/A", tenTativeDiagnosis: "N/A", thirteen: "N/A", thirtyEight: "", thirtyFive: "", thirtyFour: "", thirtyOne: "N/A", thirtySeven: "N/A", thirtySix: "N/A", tmjAbnormalSpecify: "N/A", tmj: "N/A", thirtyTwo: "N/A", thirtyThree: "N/A"}}}
   ) {
     id
   }
   publishManyPatients(to: PUBLISHED) {
+    count
+  }
+  publishManyCaseHistories(to: PUBLISHED) {
     count
   }
 }
