@@ -48,7 +48,7 @@ export default function CategoriesList() {
         <View style={styles.iconContainer}>
           <FontAwesome5 name="hospital-alt" size={IconSize.xl} color={Colors.PRIMARY} />
         </View>
-        <Text style={styles.iconText}>Uz-Lab</Text>
+        <Text style={styles.iconText}>UZ LAB</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   iconWrapper: {
     alignItems: "center",
 
-    margin: 5, // Use margin instead of marginHorizontal for better spacing
+    margin: 5, 
   },
   iconContainer: {
     borderWidth: 1,

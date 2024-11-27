@@ -12,14 +12,14 @@ type ColorsProps = {
 };
 
 const Colors: ColorsProps = {
-  PRIMARY: "#91247D",
+  PRIMARY: "#b666d2",
   WHITE: "#fff",
   BLACK: "#000",
   SECONDARY: "#615EFC",
   GRAY: "#ccc",
   YELLOW: "#FEC600",
   GREEN: "#00B894",
-
+  TEXT_LIGHT: undefined
 };
 
 export default Colors;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Dimensions, StyleSheet } from 'react-native';
 import { Tabs } from 'expo-router';
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
+import Colors from '@/constants/Colors';
 
 
 const { width } = Dimensions.get('window');
@@ -15,10 +16,10 @@ export default function TabLayout() {
         headerTitleAlign: isSmallScreen ? 'left' : 'center',
         headerStatusBarHeight: isSmallScreen ? 0 : 5,
         headerStyle: {
-          backgroundColor: "#91247D",
+          backgroundColor: Colors.PRIMARY,
         },
         headerTintColor: "white",
-        tabBarActiveTintColor: '#91247D',
+        tabBarActiveTintColor: Colors.PRIMARY,
         tabBarStyle: {
           ...styles.tabBar,
           maxWidth: isSmallScreen ? '100%' : 600,

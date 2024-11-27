@@ -30,7 +30,7 @@ export default function CategoriesLayout() {
       <Stack.Screen name="category" options={{ title: "Clinicians" }} />
       <Stack.Screen name="newsfeed" options={{ title: "Newsfeed" }} />
       <Stack.Screen name="tips-guides" options={{ title: "Tips & Guides" }} />
-      <Stack.Screen name="uz-lab" options={{ title: "UZ Lab" }} />
+      <Stack.Screen name="uz-lab" options={{ title: "UZ LAB" }} />
     </Stack>
   );
 }
