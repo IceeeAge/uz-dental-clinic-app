@@ -80,6 +80,7 @@ export default function Chartting() {
             {/* Display the item information */}
             <Text style={styles.infoText}>Record ID: {item.id || "N/A"}</Text>
             <Text style={styles.infoText}>Created Date: {formatDate(data?.patients?.[0]?.createdAt)}</Text>
+            <Text style={styles.infoText}>Patient Name: {data?.patients?.[0]?.fullName || "N/A"}</Text>
             <Text style={styles.infoText}>Clinician: {item.clinician || "N/A"}</Text>
             {/* Display the chart image */}
             <Image
@@ -115,11 +116,11 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.9,
-    height: height * 0.6,
-    resizeMode: "contain",
+    height: height * 0.8,
     borderRadius: 10,
-    marginVertical: 10,
-    alignSelf: "center",
+  alignSelf: "center",
+  marginBottom: 30,
+ 
   },
   message: {
     textAlign: "center",
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 14,
     color: Colors.BLACK,
-    marginVertical: 4,
+    
   },
   emptyList: {
     flex: 1,

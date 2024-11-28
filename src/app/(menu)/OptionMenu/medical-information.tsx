@@ -582,6 +582,7 @@ export default function MedicalInformation() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor:Colors.WHITE_SMOKE,
   },
   dcontainer: {
     marginBottom: 20,

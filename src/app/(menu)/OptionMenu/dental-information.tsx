@@ -350,6 +350,7 @@ const Options = {
   const styles = StyleSheet.create({
     scrollContainer: {
       padding: 20,
+      backgroundColor:Colors.WHITE_SMOKE,
     },
     dcontainer: {
       marginBottom: 20,

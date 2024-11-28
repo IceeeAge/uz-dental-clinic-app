@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: Colors.WHITE,
+    backgroundColor:Colors.WHITE_SMOKE,
     height: "100%",
     
   },

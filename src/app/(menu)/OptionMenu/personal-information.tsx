@@ -9,7 +9,8 @@ import Checkbox from 'expo-checkbox';
 import Colors from '@/constants/Colors';
 import PrimaryButton from '@/components/PrimaryButton';
 import { Toast } from 'react-native-toast-notifications';
-
+import Loading from '@/components/Loading';
+import Error from '@/components/Error';
 interface SelectedOptions {
   tuberculosis: string | null;
   coughduration: string | null;
@@ -134,14 +135,14 @@ export default function PersonalInformation() {
     }
   };
 
-  if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
-  if (error) return <Text>Error: {error.message}</Text>;
+  if (loading) return <Loading />;
+  if (error) return <Error message={error.message} />;
 
   const patientData = data?.patients[0];
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.header}>Personal Information</Text>
+      <Text style={styles.header}>Update your personal information</Text>
 
       {patientData ? (
         <View style={styles.infoContainer}>
@@ -207,7 +208,7 @@ export default function PersonalInformation() {
           />
         </View>
       ) : (
-        <Text>No patient data found</Text>
+        <Text style={{ textAlign: 'center' }}>No patient data found</Text>
       )}
     </ScrollView>
   );
@@ -217,14 +218,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor:Colors.GRAY,
+    backgroundColor:Colors.WHITE_SMOKE,
   },
   header: {
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 16,
     color:Colors.BLACK,
     textAlign: 'center',
+    marginTop: 15
   },
   input: {
     borderWidth: 1,

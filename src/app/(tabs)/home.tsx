@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     alignSelf: "center",
     height: "100%",
+    backgroundColor:Colors.WHITE_SMOKE,
   },
   containerSlider: {
     flex: 1,

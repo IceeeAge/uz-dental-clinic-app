@@ -768,7 +768,8 @@ export default function Questions() {
 const styles = StyleSheet.create({
   container:{
     padding: 10,
-    backgroundColor: Colors.WHITE,
+    backgroundColor:Colors.WHITE_SMOKE,
+    marginLeft:25
   },
 
   headerTitle: {
@@ -784,11 +785,13 @@ const styles = StyleSheet.create({
   },
   questionGroupContainer: {
     padding: 10,
+   
   },
   questionContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 5,
+    
   },
   questionText: {
     fontSize: 16,
