@@ -28,7 +28,9 @@ import FontSize from "@/constants/FontsSize";
 const GetNewschedule: React.FC = () => {
   const { user } = useClerk();
   const { data, loading, error } =
-    useQuery<GetNewScheduleQuery>(GET_NEWSCHEDULE_DATA);
+    useQuery<GetNewScheduleQuery>(GET_NEWSCHEDULE_DATA,{
+      pollInterval: 1000
+    });
 
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error: {error.message}</Text>;

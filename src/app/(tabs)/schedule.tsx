@@ -14,7 +14,7 @@ import Error from '@/components/Error';
 const Schedule = () => {
   const { user } = useClerk();
 
-  const { loading, error, data } = useQuery<GetPatienListQuery>(GET_SCHEDULE_USER, { pollInterval: 3000 });
+  const { loading, error, data } = useQuery<GetPatienListQuery>(GET_SCHEDULE_USER, { pollInterval: 1000 });
 
   if (loading) return <Loading/>;
   if (error) return <Error message={error.message}/>;
@@ -25,7 +25,7 @@ const Schedule = () => {
   ) || [];
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       {filteredPatients.length === 0 ? (
         <Text style={styles.noDataText}>No schedule or appointment</Text>
       ) : (
