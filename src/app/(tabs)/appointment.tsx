@@ -235,6 +235,7 @@ export default function AppointmentScreen() {
                 onChangeText={handleChange("patientName")}
                 onBlur={handleBlur("patientName")}
                 value={values.patientName}
+                maxLength={45}
               />
               <TextInput
                 placeholder="Contact Number"
@@ -243,6 +244,7 @@ export default function AppointmentScreen() {
                 onBlur={handleBlur("contactNumber")}
                 value={values.contactNumber}
                 keyboardType="numeric"
+                maxLength={11}
               />
               <TouchableOpacity
                 onPress={() => setShowDatepicker(true)}
@@ -293,6 +295,7 @@ export default function AppointmentScreen() {
                 onChangeText={handleChange("height")}
                 onBlur={handleBlur("height")}
                value={values.height}
+               maxLength={20}
               />
               <TextInput
                 placeholder="Weight (kg)"
@@ -300,6 +303,7 @@ export default function AppointmentScreen() {
                 onChangeText={handleChange("weight")}
                 onBlur={handleBlur("weight")}
                 value={values.weight}
+                maxLength={20}
               />
               <View style={styles.pickerContainer}>
                 <Picker
@@ -318,6 +322,7 @@ export default function AppointmentScreen() {
                 onChangeText={handleChange("occupation")}
                 onBlur={handleBlur("occupation")}
                 value={values.occupation}
+                maxLength={45}
               />
               <TextInput
                 placeholder="Address"
@@ -325,6 +330,7 @@ export default function AppointmentScreen() {
                 onChangeText={handleChange("address")}
                 onBlur={handleBlur("address")}
                 value={values.address}
+                maxLength={45}
               />
               {isAlreadyAppointed ? (
           <View style={styles.appointmentInfo}>
