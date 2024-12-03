@@ -19,7 +19,8 @@
         "NSRemindersUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders",
         "NSCalendarsFullAccessUsageDescription": "The app needs to access your calendar.",
         "NSRemindersFullAccessUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders"
-      }
+      },
+      "bundleIdentifier": "IOS"
     },
     "android": {
       "adaptiveIcon": {

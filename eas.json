@@ -1,5 +1,12 @@
 {
   "build": {
+    "preview": {
+      "ios": {
+        "simulator": true
+      },
+      "distribution": "internal",
+      "channel": "preview"
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal",
@@ -8,11 +15,8 @@
       },
       "channel": "development"
     },
-    "preview": {
-      "distribution": "internal",
-      "channel": "preview"
-    },
     "production": {
+      "distribution": "store",
       "channel": "production"
     }
   },
