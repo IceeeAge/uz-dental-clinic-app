@@ -5,9 +5,28 @@ import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
 import Colors from "@constants/Colors";
 import SignInWithOAuth from "../(login)/sign-in";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 export default function LoginScreenPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  // Simulate checking the sign-in status with a delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Stop loading after 2 seconds
+    }, 2000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color={Colors.PRIMARY} />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -43,6 +62,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: Colors.WHITE,
     padding: 20,
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: Colors.WHITE,
   },
   linkContainer: {
     flexDirection: "column",
