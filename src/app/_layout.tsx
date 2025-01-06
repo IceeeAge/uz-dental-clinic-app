@@ -11,7 +11,7 @@ import { tokenCache } from "@Utils/cache";
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client";
 
 const httpLink = new HttpLink({
-  uri:'https://eu-west-2.cdn.hygraph.com/content/cm48ngxw300ul0711abhf9njk/master',
+  uri:'https://ap-northeast-1.cdn.hygraph.com/content/clyry9hcp01vm07w0vu0nq94p/master',
   
 });
 
