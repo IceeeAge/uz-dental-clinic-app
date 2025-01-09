@@ -70,6 +70,7 @@ const Page: React.FC = () => {
           <TextInput
             autoCapitalize="none"
             placeholder="Email"
+              placeholderTextColor="#888"
             value={emailAddress}
             onChangeText={setEmailAddress}
             style={styles.inputField}
@@ -77,6 +78,7 @@ const Page: React.FC = () => {
           <View style={styles.passwordContainer}>
             <TextInput
               placeholder="Password"
+                placeholderTextColor="#888"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={!isPasswordVisible}

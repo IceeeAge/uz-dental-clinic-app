@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Linking,
   ActivityIndicator,
+  Platform,
 } from "react-native";
 import React, { useState } from "react";
 import { useAuth, useUser } from "@clerk/clerk-expo";
@@ -127,24 +128,28 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     margin: 10,
-    elevation: 5,
+    elevation: Platform.OS === 'android' ? 5 : 0,  // Elevation for Android only
+    shadowColor: Platform.OS === 'ios' ? Colors.GRAY : 'transparent', // Shadow for iOS only
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
   userText: {
     fontSize: FontSize.lg,
-    textAlign: "center",
+    textAlign: 'center',
   },
   imageContainer: {
-    position: "relative",
+    position: 'relative',
   },
   profileUrlImage: {
     width: 100,
     height: 100,
     borderRadius: 50,
     marginTop: 20,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   icon: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 10,
     right: 100,
     backgroundColor: Colors.WHITE,
@@ -156,23 +161,28 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 10,
-    elevation: 5,
+    elevation: Platform.OS === 'android' ? 5 : 0,  // Elevation for Android only
+    shadowColor: Platform.OS === 'ios' ? Colors.GRAY : 'transparent', // Shadow for iOS only
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
     marginBottom: 10,
   },
   btnIcon: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 10,
     padding: 10,
   },
   IconText: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: FontSize.md,
     color: Colors.BLACK,
   },
   loader: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
+

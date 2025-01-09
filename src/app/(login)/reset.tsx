@@ -64,6 +64,7 @@ const PwReset = () => {
         <>
           <TextInput
             autoCapitalize="none"
+            placeholderTextColor="#888"
             placeholder="example@gmail.com"
             value={emailAddress}
             onChangeText={setEmailAddress}
@@ -78,12 +79,14 @@ const PwReset = () => {
             <TextInput
               value={code}
               placeholder="Enter code"
+                placeholderTextColor="#888"
               style={styles.inputField}
               onChangeText={setCode}
             />
             <View style={styles.passwordContainer}>
               <TextInput
                 placeholder="Enter password"
+                  placeholderTextColor="#888"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={!isPasswordVisible}

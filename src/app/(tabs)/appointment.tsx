@@ -29,7 +29,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CHECK_USER_APPOINTMENT } from "@/GraphQL/Query";
 import { CheckIfUserAlreadyAppointmentQuery } from "@/generated/graphql";
-
+import { Dimensions } from "react-native";
+const { width, height } = Dimensions.get("window");
 
 type FormValuesProps = {
   userEmail: string | undefined;
@@ -58,16 +59,18 @@ export default function AppointmentScreen() {
   const storage = getStorage();
   const { user } = useUser();
   const router = useRouter();
-  
-
 
   // Query to check if user already has an appointment
-  const { data } = useQuery<CheckIfUserAlreadyAppointmentQuery>(CHECK_USER_APPOINTMENT, {
-    variables: { email: user?.primaryEmailAddress?.emailAddress },
-  });
+  const { data } = useQuery<CheckIfUserAlreadyAppointmentQuery>(
+    CHECK_USER_APPOINTMENT,
+    {
+      variables: { email: user?.primaryEmailAddress?.emailAddress },
+    }
+  );
 
   const statusAppointment = data?.patients?.[0]?.statusAppointment;
-  const isAlreadyAppointed = statusAppointment === "PENDING" || statusAppointment === "APPROVED";
+  const isAlreadyAppointed =
+    statusAppointment === "PENDING" || statusAppointment === "APPROVED";
   const [createPatient] = useMutation(CREATE_PATIENT_MUTATION);
 
   const db = getFirestore(app);
@@ -151,8 +154,6 @@ export default function AppointmentScreen() {
           weight: values.weight,
         },
       });
-      
-      
 
       const docRef = await addDoc(collection(db, "CreateAppointment"), values);
       if (docRef.id) {
@@ -231,6 +232,7 @@ export default function AppointmentScreen() {
             <View style={styles.formContainer}>
               <TextInput
                 placeholder="Patient Name (Last Name, First M)"
+                placeholderTextColor="#888"
                 style={styles.input}
                 onChangeText={handleChange("patientName")}
                 onBlur={handleBlur("patientName")}
@@ -239,6 +241,7 @@ export default function AppointmentScreen() {
               />
               <TextInput
                 placeholder="Contact Number"
+                placeholderTextColor="#888"
                 style={styles.input}
                 onChangeText={handleChange("contactNumber")}
                 onBlur={handleBlur("contactNumber")}
@@ -291,14 +294,16 @@ export default function AppointmentScreen() {
               )}
               <TextInput
                 placeholder="Height (cm)"
+                placeholderTextColor="#888"
                 style={styles.input}
                 onChangeText={handleChange("height")}
                 onBlur={handleBlur("height")}
-               value={values.height}
-               maxLength={20}
+                value={values.height}
+                maxLength={20}
               />
               <TextInput
                 placeholder="Weight (kg)"
+                placeholderTextColor="#888"
                 style={styles.input}
                 onChangeText={handleChange("weight")}
                 onBlur={handleBlur("weight")}
@@ -310,14 +315,16 @@ export default function AppointmentScreen() {
                   selectedValue={gender}
                   onValueChange={(itemValue) => setGender(itemValue)}
                   style={styles.inputPicker}
+                  mode={Platform.OS === "ios" ? "dialog" : "dropdown"}
                 >
-                  <Picker.Item label="Select Gender" value="" />
-                  <Picker.Item label="Male" value="Male" />
-                  <Picker.Item label="Female" value="Female" />
+                  <Picker.Item label="Select Gender" value="" color="#888" />
+                  <Picker.Item label="Male" value="Male" color="#888" />
+                  <Picker.Item label="Female" value="Female" color="#888" />
                 </Picker>
               </View>
               <TextInput
                 placeholder="Occupation"
+                 placeholderTextColor="#888"
                 style={styles.input}
                 onChangeText={handleChange("occupation")}
                 onBlur={handleBlur("occupation")}
@@ -326,6 +333,7 @@ export default function AppointmentScreen() {
               />
               <TextInput
                 placeholder="Address"
+                  placeholderTextColor="#888"
                 style={styles.input}
                 onChangeText={handleChange("address")}
                 onBlur={handleBlur("address")}
@@ -333,17 +341,21 @@ export default function AppointmentScreen() {
                 maxLength={45}
               />
               {isAlreadyAppointed ? (
-          <View style={styles.appointmentInfo}>
-            <MaterialIcons name="check-circle" size={25} color={Colors.GREEN} />
-            <Text style={styles.appointmentText}>Already Appointed</Text>
-          </View>
-        ) : (
-              <PrimaryButton
-                title={loading ? "Submitting..." : "Submit"}
-                onPress={() => handleSubmit()}
-                disabled={loading}
-              />
-            )}
+                <View style={styles.appointmentInfo}>
+                  <MaterialIcons
+                    name="check-circle"
+                    size={25}
+                    color={Colors.GREEN}
+                  />
+                  <Text style={styles.appointmentText}>Already Appointed</Text>
+                </View>
+              ) : (
+                <PrimaryButton
+                  title={loading ? "Submitting..." : "Submit"}
+                  onPress={() => handleSubmit()}
+                  disabled={loading}
+                />
+              )}
             </View>
           )}
         </Formik>
@@ -381,14 +393,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
     marginBottom: 20,
-
   },
   image: {
     width: 100,
     height: 100,
-    borderColor:Colors.PRIMARY,
+    borderColor: Colors.PRIMARY,
     borderWidth: 1,
-    borderRadius:99,
+    borderRadius: 99,
   },
   formContainer: {
     paddingHorizontal: 20,
@@ -397,7 +408,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.GRAY,
     borderRadius: 5,
-    padding: 10,
+    padding: 20,
     marginVertical: 5,
     backgroundColor: "#fff",
   },
@@ -407,7 +418,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.GRAY,
     borderRadius: 5,
-    padding: 10,
+    padding: 20,
     marginVertical: 5,
     backgroundColor: "#fff",
   },
@@ -418,14 +429,48 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   pickerContainer: {
-    borderWidth: 1,
-    borderColor: Colors.GRAY,
-    borderRadius: 5,
-    marginVertical: 5,
-    backgroundColor: "#fff",
+  
+   
+   
+  
+    ...(Platform.OS === "ios" && {
+      marginTop: 15, 
+    }),
+    ...(Platform.OS === "android" && {
+      borderWidth: 1,
+      borderColor: Colors.GRAY,
+      borderRadius: 5,
+      padding: 10,
+      marginVertical: 5,
+      backgroundColor: "#fff",
+      
+    }),
   },
   inputPicker: {
-    height: 50,
+    width: "100%",
+  
+   
+    ...(Platform.OS === "ios" && {
+    
+      fontSize: 16,
+    }),
+    ...(Platform.OS === "android" && {
+    
+      fontSize: 18,
+      marginBottom: 15, 
+    }),
+    ...(Platform.OS === "android" && {
+      height: height * 0.06,
+    }),
+    ...(Platform.OS === "android" && {
+      borderWidth: 1,
+    borderColor: Colors.GRAY,
+    borderRadius: 5,
+    padding: 20,
+    marginVertical: 5,
+    backgroundColor: "#fff",
+    }),
+   
   },
   appointmentInfo: {
     flexDirection: "row",
@@ -435,8 +480,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.GRAY,
     borderRadius: 5,
-    padding: 10,
-    backgroundColor:Colors.WHITE,
+    padding: 20,
+    backgroundColor: Colors.WHITE,
   },
   appointmentText: {
     fontSize: 15,

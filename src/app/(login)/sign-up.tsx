@@ -112,18 +112,21 @@ const SignUp: React.FC = () => {
         <>
           <TextInput
             placeholder="First Name"
+              placeholderTextColor="#888"
             value={firstName}
             onChangeText={setFirstName}
             style={styles.inputField}
           />
           <TextInput
             placeholder="Last Name"
+              placeholderTextColor="#888"
             value={lastName}
             onChangeText={setLastName}
             style={styles.inputField}
           />
           <TextInput
             autoCapitalize="none"
+              placeholderTextColor="#888"
             placeholder="Email Address"
             value={emailAddress}
             onChangeText={setEmailAddress}
@@ -132,6 +135,7 @@ const SignUp: React.FC = () => {
           <View style={styles.passwordContainer}>
             <TextInput
               placeholder="Password"
+                placeholderTextColor="#888"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={!passwordVisible}
@@ -155,6 +159,7 @@ const SignUp: React.FC = () => {
         <>
           <TextInput
             value={code}
+              placeholderTextColor="#888"
             placeholder="Enter Verification Code"
             style={styles.inputField}
             onChangeText={setCode}
