@@ -1,3 +1,7 @@
+Here's the fixed version of your project setup documentation with correct formatting:
+
+---
+
 # UZ DENTAL CLINIC APP
 
 This is a React Native project built using Expo. Below are the steps to set up the project, along with the required dependencies and instructions for running it locally.
@@ -24,29 +28,37 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone <https://github.com/IceeeAge/uz-dental-clinic-app.git>
+   git clone https://github.com/IceeeAge/uz-dental-clinic-app.git
+   ```
 
 2. **Navigate to the project directory**:
    ```bash
    cd <project-directory>
+   ```
 
-2. **Install dependencies: Using npm:**:
-   ```bash
-   npm install
+3. **Install dependencies**:
 
- ## Or using yarn:
+   - Using npm:
+     ```bash
+     npm install
+     ```
 
- yarn install
+   - Or using yarn:
+     ```bash
+     yarn install
+     ```
 
+---
 
- ## 🚀 Running the Project
+## 🚀 Running the Project
 
- 1. **Install dependencies: Using npm:**:
+1. **Start the Expo server**:
    ```bash
    npx expo start
+   ```
 
+This will start the Expo development server, and you can then run the app on your device or emulator by scanning the QR code provided in the terminal or browser.
 
-2. **Open the app:**:
-  - Scan the QR code displayed in the terminal or Expo Dev Tools with the Expo Go app on your device.
-  - Alternatively, if you're using an emulator, select the appropriate option from the Expo Dev Tools interface to open the app in the emulator.
+---
 
+Let me know if you need further adjustments!
