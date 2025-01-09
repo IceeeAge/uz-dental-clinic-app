@@ -60,5 +60,3 @@ Follow these steps to set up the project locally:
 This will start the Expo development server, and you can then run the app on your device or emulator by scanning the QR code provided in the terminal or browser.
 
 ---
-
-Let me know if you need further adjustments!
