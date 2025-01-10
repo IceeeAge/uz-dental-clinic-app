@@ -93,7 +93,7 @@ export default function Profile() {
                 size={IconSize.xl}
                 color={Colors.BLACK}
               />
-              <Text style={styles.IconText}>Chartting</Text>
+              <Text style={styles.IconText}>Charting</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={OnSchedule} style={styles.btnIcon}>
               <Ionicons
