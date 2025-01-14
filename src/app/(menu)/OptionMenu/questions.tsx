@@ -267,6 +267,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.heartDiseaseSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({
@@ -338,6 +339,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.kidneyDiseaseSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({
@@ -407,6 +409,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.lungDiseaseSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({
@@ -476,6 +479,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.neurologicalDisorderSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({
@@ -561,6 +565,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.congenitalDiseaseSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({
@@ -630,6 +635,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.livErDisorderSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({
@@ -739,6 +745,7 @@ export default function Questions() {
             {selectedOptions[key] === "Yes" && (
               <TextInput
                 placeholder="Specify"
+                 placeholderTextColor="#888"
                 value={selectedOptions.othersSpecify || ""}
                 onChangeText={(text) =>
                   setSelectedOptions((prevOptions) => ({

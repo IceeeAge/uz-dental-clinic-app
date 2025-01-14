@@ -150,6 +150,7 @@ export default function PersonalInformation() {
             <TextInput
             key={field}
             style={styles.input}
+             placeholderTextColor="#888"
             placeholder={
               field === 'dateOfBirth'
                 ? 'MM/DD/YYYY' // Custom placeholder for dateOfBirth
@@ -165,6 +166,7 @@ export default function PersonalInformation() {
             <TextInput
               key={field}
               style={styles.input}
+               placeholderTextColor="#888"
               placeholder={field.replace(/([A-Z])/g, ' $1').toUpperCase()}
               defaultValue={formData[field as keyof FormData] ?? ''}
               onChangeText={(text) => handleChange(field, text)}
