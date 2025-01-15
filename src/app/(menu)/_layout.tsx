@@ -26,8 +26,8 @@ export default function MenuLayout() {
       headerTitleAlign: "center",
     }}
   >
-      <Stack.Screen name="chartting" options={{ title: "Chartting",headerBackButtonMenuEnabled:true }} />
-      <Stack.Screen name="eform" options={{ title: "Eform" }} />
+      <Stack.Screen name="chartting" options={{ title: "Charting",headerBackButtonMenuEnabled:true }} />
+      <Stack.Screen name="eform" options={{ title: "E-FORM" }} />
       <Stack.Screen name="OptionMenu" options={{ title: "OptionMenu",
         headerShown: false
        }} />
