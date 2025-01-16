@@ -127,12 +127,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     padding: 20,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: Colors.GRAY,
     margin: 10,
-    elevation: Platform.OS === 'android' ? 5 : 0,  // Elevation for Android only
+    elevation: Platform.OS === 'android' ? 10 : 0,  // Elevation for Android only
     shadowColor: Platform.OS === 'ios' ? Colors.GRAY : 'transparent', // Shadow for iOS only
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
+    
   },
   userText: {
     fontSize: FontSize.lg,
@@ -161,6 +164,8 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: Colors.GRAY,
     elevation: Platform.OS === 'android' ? 5 : 0,  // Elevation for Android only
     shadowColor: Platform.OS === 'ios' ? Colors.GRAY : 'transparent', // Shadow for iOS only
     shadowOffset: { width: 0, height: 2 },

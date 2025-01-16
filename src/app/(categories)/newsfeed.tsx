@@ -32,9 +32,11 @@ export default function NewsFeed({ numberfeed }: NewsFeedProps) {
   if (error) return <Error message={error.message} />;
 
   // Sort the news items by `createdAt` in descending order (latest first)
-  const sortedNews = data?.newsFeeds.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  );
+  const sortedNews = data?.newsFeeds 
+  ? [...data.newsFeeds].sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
+  : [];
 
   // Slice the sorted data to get the desired number of items
   const limitedNews = sortedNews?.slice(0, numberfeed);
