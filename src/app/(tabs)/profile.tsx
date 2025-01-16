@@ -163,9 +163,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     padding: 10,
     margin: 10,
-    borderRadius: 10,
     borderWidth: 1,
     borderColor: Colors.GRAY,
+    borderRadius: 10,
     elevation: Platform.OS === 'android' ? 5 : 0,  // Elevation for Android only
     shadowColor: Platform.OS === 'ios' ? Colors.GRAY : 'transparent', // Shadow for iOS only
     shadowOffset: { width: 0, height: 2 },
