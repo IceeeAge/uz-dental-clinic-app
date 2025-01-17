@@ -45,7 +45,7 @@ export default function Profile() {
   };
 
   const OnChartting = () => {
-    router.navigate("/chartting");
+    router.navigate("/(menu)/seond-charting");
   };
   const OnEform = () => {
     router.navigate("/eform");
