@@ -31,7 +31,7 @@ export default function MenuLayout() {
       <Stack.Screen name="OptionMenu" options={{ title: "OptionMenu",
         headerShown: false
        }} />
-         <Stack.Screen name="second-charting" options={{ title: "second-charting" }} />
+         <Stack.Screen name="second-charting" options={{ title: "second-charting" ,}} />
     </Stack>
   );
 }
