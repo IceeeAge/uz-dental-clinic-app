@@ -5,21 +5,23 @@ import { useUser } from "@clerk/clerk-expo";
 import { Picker } from "@react-native-picker/picker";
 import { useNavigation } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Dimensions, Button } from "react-native";
+import { View, StyleSheet, Dimensions, Button, RefreshControl, ScrollView } from "react-native";
 import Svg, { G, Text, Polygon, Path } from "react-native-svg";
+import { Toast } from "react-native-toast-notifications";
 
 const { width, height } = Dimensions.get("window");
 
 const ToothChart: React.FC = () => {
   const [toothColors, setToothColors] = useState<{ [key: string]: string }>({}); // Track tooth colors
   const { user } = useUser();
+  const [refreshing, setRefreshing] = useState(false);
 
-  const { data, loading, error } = useQuery<Getcreate2dChartDataQuery>(
+  const { data, loading, error , refetch } = useQuery<Getcreate2dChartDataQuery>(
     CHECK_2d_CHART_ID,
     {
       variables: { email: user?.primaryEmailAddress?.emailAddress },
       skip: !user?.primaryEmailAddress?.emailAddress, // Skip query if no email is available
-      pollInterval: 5000, // Poll every 5 seconds (5000 ms)
+      pollInterval: 1000, // Poll every 5 seconds (5000 ms)
       onCompleted: (fetchedData) => {
         const chartData = fetchedData?.uzDentalCharts?.find(
           (chartData) =>
@@ -67,6 +69,28 @@ const ToothChart: React.FC = () => {
       },
     }
   );
+  
+
+   // Refresh function
+   const onRefresh = async () => {
+    setRefreshing(true);
+    try {
+      await refetch(
+        data?.uzDentalCharts?.find(
+          (chartData) =>
+            chartData.email === user?.primaryEmailAddress?.emailAddress
+        )
+      ); // Refetch data
+      Toast.show("Data refreshed!", {   type: "normal",
+        placement: "center",
+        duration: 3000,
+        animationType: "slide-in", });
+    } catch (error) {
+      Toast.show("Failed to refresh data!", { type: "danger",placement: "center", duration: 3000, animationType: "slide-in", });
+    } finally {
+      setRefreshing(false);
+    }
+  };
 
   
 
@@ -78,7 +102,7 @@ const ToothChart: React.FC = () => {
 
   useEffect(() => {
     navigation.setOptions({ 
-      // headerLeft: () => null,
+      
       headerShown: true, 
       title: "Charting" 
     });
@@ -97,7 +121,12 @@ const ToothChart: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}
+    showsVerticalScrollIndicator={false}
+    refreshControl={
+      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+    }
+    >
       
       {/* SVG Tooth Chart */}
       <Svg
@@ -105,7 +134,7 @@ const ToothChart: React.FC = () => {
         height={height}
         viewBox="20 10 395 900"
         preserveAspectRatio="xMidYMid meet"
-        style={{ marginTop: 150 }}
+        style={{ marginTop: 50 }}
       >
         <View style={{flexDirection: 'row'}}>
 
@@ -1000,15 +1029,14 @@ const ToothChart: React.FC = () => {
           </G>
         </G>
       </Svg>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    alignSelf: "center",
   },
 });
 

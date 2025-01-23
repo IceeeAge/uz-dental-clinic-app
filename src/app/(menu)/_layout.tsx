@@ -7,8 +7,9 @@ import IconSize from "@constants/IconSize";
 
 // Function to handle back navigation
 const handleBackPress = () => {
-    router.canGoBack();
+    router.back();
   };
+  console.log(handleBackPress);
 
 export default function MenuLayout() {
   return (
