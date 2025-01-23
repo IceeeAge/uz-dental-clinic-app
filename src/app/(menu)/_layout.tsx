@@ -7,7 +7,7 @@ import IconSize from "@constants/IconSize";
 
 // Function to handle back navigation
 const handleBackPress = () => {
-    router.back();
+    router.canGoBack();
   };
 
 export default function MenuLayout() {
@@ -24,6 +24,7 @@ export default function MenuLayout() {
         </TouchableOpacity>
       ),
       headerTitleAlign: "center",
+
     }}
   >
       <Stack.Screen name="chartting" options={{ title: "Charting",headerBackButtonMenuEnabled:true }} />
@@ -31,7 +32,7 @@ export default function MenuLayout() {
       <Stack.Screen name="OptionMenu" options={{ title: "OptionMenu",
         headerShown: false
        }} />
-         <Stack.Screen name="second-charting" options={{ title: "second-charting" ,}} />
+      <Stack.Screen name="second-charting" options={{ title: "Charting"}} />
     </Stack>
   );
 }

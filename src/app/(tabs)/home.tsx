@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Platform, Pressable } from "react-native";
 import React from "react";
 import Header from "@/components/Header";
 import Slider from "@/components/Slider";
@@ -9,9 +9,20 @@ import FontSize from "@/constants/FontsSize";
 import NewsFeed from "../(categories)/newsfeed";
 import { Link } from "expo-router";
 
-const Home: React.FC = () => {
-  const isHorizontal = true;
 
+const Home: React.FC = () => {
+  // If the platform is web, only render the CategoriesList component.
+  if (Platform.OS === "web") {
+    return (
+      <View style={styles.container}>
+        <View style={styles.containerCategory}>
+          <CategoriesList />
+        </View>
+      </View>
+    );
+  }
+
+  // For non-web platforms, render the full layout.
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Header />
@@ -19,11 +30,8 @@ const Home: React.FC = () => {
         <Slider />
       </View>
       <View style={styles.containerCategory}>
-        <CategoriesList />
-      </View>
-      <View style={styles.containerCategory}>
         <Text style={styles.title}>Clinicians List</Text>
-        <ClinicianItems isHorizontal={isHorizontal} />
+        <ClinicianItems isHorizontal={true} />
       </View>
       <View style={styles.containerCategory}>
         <Text style={styles.title}>Latest Newsfeed</Text>
@@ -44,8 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     maxWidth: 600,
     alignSelf: "center",
-    height: "100%",
-    backgroundColor:Colors.WHITE_SMOKE,
+    backgroundColor: Colors.WHITE_SMOKE,
   },
   containerSlider: {
     flex: 1,

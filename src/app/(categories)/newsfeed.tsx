@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    maxWidth: 600,
+    alignSelf: "center",
   },
   itemContainer: {
     marginBottom: 25,
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: screenWidth * 0.6, // Adjust image size based on screen width for responsiveness
+    height: screenWidth * 0.2, // Adjust image size based on screen width for responsiveness
     borderRadius: 8,
   },
   title: {

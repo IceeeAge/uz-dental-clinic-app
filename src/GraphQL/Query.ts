@@ -296,3 +296,46 @@ export const CHECK_USER_APPOINTMENT = gql`
     }
   }
 `;
+
+export const CHECK_2d_CHART_ID = gql`
+query getcreate2dChartData {
+  uzDentalCharts {
+    id
+    email
+    fullName
+    tooth48
+    tooth47
+    tooth46
+    tooth45
+    tooth44
+    tooth43
+    tooth42
+    tooth41
+    tooth31
+    tooth32
+    tooth33
+    tooth34
+    tooth35
+    tooth36
+    tooth37
+    tooth38
+    tooth11
+    tooth12
+    tooth13
+    tooth14
+    tooth15
+    tooth16
+    tooth17
+    tooth18
+    tooth21
+    tooth22
+    tooth23
+    tooth24
+    tooth25
+    tooth26
+    tooth27
+    tooth28
+  }
+}
+`;
+

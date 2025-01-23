@@ -440,7 +440,6 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: Colors.GRAY,
       borderRadius: 5,
-      padding: 10,
       marginVertical: 5,
       backgroundColor: "#fff",
       
@@ -467,7 +466,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.GRAY,
     borderRadius: 5,
     padding: 20,
-    marginVertical: 5,
+    marginVertical: 1,
     backgroundColor: "#fff",
     }),
    

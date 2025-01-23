@@ -42,11 +42,17 @@ export default function Profile() {
 
   const OnSchedule = () => {
     router.navigate("/schedule");
+
   };
 
   const OnChartting = () => {
-    router.navigate("/(menu)/seond-charting");
-  };
+  router.navigate({
+    pathname: "/(menu)/seond-charting",
+    params: { patientEmail: user?.primaryEmailAddress?.emailAddress },
+  });
+};
+
+
   const OnEform = () => {
     router.navigate("/eform");
   };
@@ -122,8 +128,14 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.WHITE,
     flex: 1,
+    maxWidth: 600,
+    alignSelf: "center",
+    height: "100%",
+    width: "100%",
+   
   },
   subcontainer: {
+    
     backgroundColor: Colors.WHITE,
     padding: 20,
     borderRadius: 10,
