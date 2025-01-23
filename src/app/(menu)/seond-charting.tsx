@@ -1,4 +1,3 @@
-import PrimaryButton from "@/components/PrimaryButton";
 import { Getcreate2dChartDataQuery } from "@/generated/graphql";
 import { CHECK_2d_CHART_ID } from "@/GraphQL/Query";
 import { useQuery } from "@apollo/client";
@@ -78,9 +77,25 @@ const ToothChart: React.FC = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    navigation.setOptions({ headerShown: true, title: "Charting" });
+    navigation.setOptions({ 
+      // headerLeft: () => null,
+      headerShown: true, 
+      title: "Charting" 
+    });
   }, [navigation]);
-  
+
+
+  const formatDate = (dateString?: string): string => {
+    if (!dateString) return '';
+    
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <View style={styles.container}>
       
@@ -92,6 +107,8 @@ const ToothChart: React.FC = () => {
         preserveAspectRatio="xMidYMid meet"
         style={{ marginTop: 150 }}
       >
+        <View style={{flexDirection: 'row'}}>
+
         <Text
           x="10%"
           y={-30}
@@ -102,6 +119,21 @@ const ToothChart: React.FC = () => {
         >
           FullName: {user?.fullName}
         </Text>
+        {/* <Text
+          x="10%"
+          y={-30}
+          textAnchor="end"
+          alignmentBaseline="top"
+          fontSize="16"
+          fill="black"
+        >
+         Date Created: {formatDate(data?.uzDentalCharts[0]?.createdAt)}
+        </Text>  */}
+        
+
+        </View>
+        
+        
         <G id="toothLabels">
           <Text
             id="lbl48"

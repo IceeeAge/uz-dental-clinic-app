@@ -335,6 +335,7 @@ query getcreate2dChartData {
     tooth26
     tooth27
     tooth28
+    createdAt
   }
 }
 `;

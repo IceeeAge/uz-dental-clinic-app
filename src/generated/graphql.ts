@@ -21400,13 +21400,7 @@ export type CheckIfUserAlreadyAppointmentQuery = { __typename?: 'Query', patient
 export type Getcreate2dChartDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Getcreate2dChartDataQuery = {
-  tooth31: string;
-  tooth26: string;
-  tooth27: string;
-  email: any;
-  tooth48: string; __typename?: 'Query', uzDentalCharts: Array<{ __typename?: 'UzDentalChart', id: string, email?: string | null, fullName?: string | null, tooth48?: string | null, tooth47?: string | null, tooth46?: string | null, tooth45?: string | null, tooth44?: string | null, tooth43?: string | null, tooth42?: string | null, tooth41?: string | null, tooth31?: string | null, tooth32?: string | null, tooth33?: string | null, tooth34?: string | null, tooth35?: string | null, tooth36?: string | null, tooth37?: string | null, tooth38?: string | null, tooth11?: string | null, tooth12?: string | null, tooth13?: string | null, tooth14?: string | null, tooth15?: string | null, tooth16?: string | null, tooth17?: string | null, tooth18?: string | null, tooth21?: string | null, tooth22?: string | null, tooth23?: string | null, tooth24?: string | null, tooth25?: string | null, tooth26?: string | null, tooth27?: string | null, tooth28?: string | null }> 
-};
+export type Getcreate2dChartDataQuery = { __typename?: 'Query', uzDentalCharts: Array<{ __typename?: 'UzDentalChart', id: string, email?: string | null, fullName?: string | null, tooth48?: string | null, tooth47?: string | null, tooth46?: string | null, tooth45?: string | null, tooth44?: string | null, tooth43?: string | null, tooth42?: string | null, tooth41?: string | null, tooth31?: string | null, tooth32?: string | null, tooth33?: string | null, tooth34?: string | null, tooth35?: string | null, tooth36?: string | null, tooth37?: string | null, tooth38?: string | null, tooth11?: string | null, tooth12?: string | null, tooth13?: string | null, tooth14?: string | null, tooth15?: string | null, tooth16?: string | null, tooth17?: string | null, tooth18?: string | null, tooth21?: string | null, tooth22?: string | null, tooth23?: string | null, tooth24?: string | null, tooth25?: string | null, tooth26?: string | null, tooth27?: string | null, tooth28?: string | null, createdAt: any }> };
 
 export type CreatePatientMutationVariables = Exact<{
   profileImage: Scalars['String']['input'];
@@ -22244,6 +22238,7 @@ export const Getcreate2dChartDataDocument = gql`
     tooth26
     tooth27
     tooth28
+    createdAt
   }
 }
     `;
