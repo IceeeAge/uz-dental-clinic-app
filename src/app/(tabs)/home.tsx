@@ -29,6 +29,10 @@ const Home: React.FC = () => {
       <View style={styles.containerSlider}>
         <Slider />
       </View>
+      <View>
+ 
+        <CategoriesList/>
+      </View>
       <View style={styles.containerCategory}>
         <Text style={styles.title}>Clinicians List</Text>
         <ClinicianItems isHorizontal={true} />

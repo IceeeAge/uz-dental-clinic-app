@@ -7,16 +7,15 @@ import Colors from "@constants/Colors";
 import { Href, useRouter } from "expo-router";
 import IconSize from "@constants/IconSize";
 
-type RouteHref = Href<string>;
+
 
 export default function CategoriesList() {
   const router = useRouter();
 
-  // Handle navigation based on icon pressed
-  const handleIconPress = (route: RouteHref) => {
-    router.push(route);
-  };
-
+ // Handle navigation based on icon pressed
+ const handleIconPress = (route: Href) => {
+  router.push(route);
+};
 
 
   return (
