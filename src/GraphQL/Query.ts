@@ -2,25 +2,26 @@ import { gql } from "@apollo/client";
 
 // Get data
 export const GET_SCHEDULE_USER = gql`
-  query GetPatienList {
-    patients {
-      address
-      contactNumber
-      fullName
-      email
-      id
-      occupation
-      profileImage {
-        url
-      }
-      sex
-      statusAppointment
-      height
-      dateOfBirth
-      weight
-      createdAt
+query GetPatienList {
+  patients(orderBy: updatedAt_DESC) {
+    address
+    contactNumber
+    fullName
+    email
+    id
+    occupation
+    profileImage {
+      url
     }
+    sex
+    statusAppointment
+    height
+    dateOfBirth
+    weight
+    createdAt
+    active
   }
+}
 `;
 
 export const GET_NEWSCHEDULE_DATA = gql`

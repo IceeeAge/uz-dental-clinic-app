@@ -4,10 +4,10 @@ import Colors from '../../constants/Colors';
 import { format } from 'date-fns';
 import { GetPatienListQuery } from 'src/generated/graphql';
 
-
 type PatientItemProps = {
-  item: GetPatienListQuery['patients'][0];
-}
+  item: GetPatienListQuery['patients'][0]; // Explicitly define the type for `item`
+};
+
 const PatientItem: React.FC<PatientItemProps> = ({ item }) => {
   const isApproved = item.statusAppointment === 'APPROVED';
   const isPending = item.statusAppointment === 'PENDING';
@@ -37,11 +37,7 @@ const PatientItem: React.FC<PatientItemProps> = ({ item }) => {
           ]}
         >
           <Text
-            style={[
-              styles.statusText,
-              isApproved && { color: Colors.WHITE },
-              isPending && { color: Colors.YELLOW },
-            ]}
+            style={[styles.statusText, isApproved && { color: Colors.WHITE }, isPending && { color: Colors.YELLOW }]}
           >
             {item.statusAppointment}
           </Text>
@@ -58,7 +54,7 @@ const PatientItem: React.FC<PatientItemProps> = ({ item }) => {
 const styles = StyleSheet.create({
   itemContainer: {
     backgroundColor: Colors.WHITE,
-    flex:1,
+    flex: 1,
     padding: 13,
     marginBottom: 10,
   },
@@ -66,7 +62,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    
   },
   profileImage: {
     width: 100,

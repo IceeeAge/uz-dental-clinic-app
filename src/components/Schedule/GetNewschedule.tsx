@@ -11,7 +11,7 @@ import Colors from "@constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useQuery } from "@apollo/client";
 import { GET_NEWSCHEDULE_DATA } from "@GraphQL/Query";
-import { useClerk } from "@clerk/clerk-expo";
+import { useClerk, useUser } from "@clerk/clerk-expo";
 import { GetNewScheduleQuery, } from "src/generated/graphql";
 import FontSize from "@/constants/FontsSize";
 
@@ -26,7 +26,7 @@ import FontSize from "@/constants/FontsSize";
 // };
 
 const GetNewschedule: React.FC = () => {
-  const { user } = useClerk();
+  const { user } = useUser();
   const { data, loading, error } =
     useQuery<GetNewScheduleQuery>(GET_NEWSCHEDULE_DATA,{
       pollInterval: 1000
